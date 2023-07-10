@@ -3,9 +3,6 @@
 # Use neovim for vim if present.
 [ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d"
 
-# Use $XINITRC variable if file exists.
-[ -f "$XINITRC" ] && alias startx="startx $XINITRC"
-
 [ -f "$MBSYNCRC" ] && alias mbsync="mbsync -c $MBSYNCRC"
 
 # sudo not required for some system commands
@@ -30,7 +27,7 @@ alias \
 	yta="yt -x -f bestaudio/best" \
 	ytt="yt --skip-download --write-thumbnail" \
 	ffmpeg="ffmpeg -hide_banner" \
-    abook="abook --config $XDG_CONFIG_HOME/abook/abookrc --datafile $XDG_CONFIG_HOME/abook/addressbook" 
+        abook="abook --config $XDG_CONFIG_HOME/abook/abookrc --datafile $XDG_CONFIG_HOME/abook/addressbook" 
 
 # Colorize commands when possible.
 alias \
@@ -60,4 +57,4 @@ alias \
 	magit="nvim -c MagitOnly" \
 	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" \
 	weath="less -S ${XDG_CACHE_HOME:-$HOME/.cache}/weatherreport" \
-	dotf="git --git-dir=$HOME/.dot-cfg/ --work-tree=$HOME"
+	dotf="git --git-dir=$HOME/.dotfiles-git/ --work-tree=$HOME"

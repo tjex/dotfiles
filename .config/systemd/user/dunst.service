@@ -1,0 +1,8 @@
+[Unit]
+Description=dunst for notifications
+
+[Service]
+ExecStart=/usr/bin/dunst
+
+[Install]
+WantedBy=default.target

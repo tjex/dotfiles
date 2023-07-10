@@ -1,4 +1,5 @@
 # dotfiles config
-.dot-cfg/
+.dotfiles-git/
 
 ignored/
+.config/zsh/.zcompdump
