@@ -1,13 +1,13 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 13px;
+    border:none;
+    font-family: "DejaVu Sans";
+    font-size: 16px;
 }
 
 window#waybar {
     background-color: rgba(43, 48, 59, 0.5);
-    border-bottom: 3px solid rgba(100, 114, 125, 0.5);
-    color: #ffffff;
+    color: #a6794d;
     transition-property: background-color;
     transition-duration: .5s;
 }
@@ -25,6 +25,10 @@ window#waybar.solo {
 }
 */
 
+window#waybar {
+    background: transparent;
+}
+
 window#waybar.termite {
     background-color: #3F3F3F;
 }
@@ -39,7 +43,7 @@ button {
     box-shadow: inset 0 -3px transparent;
     /* Avoid rounded borders under each button name */
     border: none;
-    border-radius: 0;
+    border-radius: 5px;
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
@@ -50,7 +54,8 @@ button:hover {
 
 #workspaces button {
     padding: 0 5px;
-    background-color: transparent;
+    /* background-color: transparent; */
+    background-color: #1a1e21;
     color: #ffffff;
 }
 
@@ -87,9 +92,13 @@ button:hover {
 #mode,
 #idle_inhibitor,
 #scratchpad,
+#pulseaudio
 #mpd {
     padding: 0 10px;
+    margin: 0 2px;
     color: #ffffff;
+    background-color: #64727D;
+    border-radius: 5px;
 }
 
 #window,
@@ -108,16 +117,10 @@ button:hover {
 }
 
 #clock {
-    background-color: #64727D;
-}
-
-#battery {
-    background-color: #ffffff;
-    color: #000000;
+   background-color: #64727D;
 }
 
 #battery.charging, #battery.plugged {
-    color: #ffffff;
     background-color: #26A65B;
 }
 
@@ -130,7 +133,6 @@ button:hover {
 
 #battery.critical:not(.charging) {
     background-color: #f53c3c;
-    color: #ffffff;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
@@ -175,11 +177,6 @@ label:focus {
 #pulseaudio.muted {
     background-color: #90b1b1;
     color: #2a5c45;
-}
-
-#wireplumber {
-    background-color: #fff0f5;
-    color: #000000;
 }
 
 #wireplumber.muted {
