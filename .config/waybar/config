@@ -1,12 +1,12 @@
 {
-    "layer": "top",
+    "layer": "bottom",
     "position": "top",
     "modules-left": ["wlr/workspaces"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["bluetooth", "battery", "clock"],
+    "modules-right": ["wireplumber", "battery", "clock"],
     "hyprland/window": {
         "max-length": 200,
-        "separate-outputs": true,
+        "separate-outputs": false,
     },
     "hyprland/workspaces": {
 	"format": "{id}: {icon}",
@@ -20,14 +20,11 @@
 		"default": ""
 	    },
     },
-    "bluetooth": {
-	// "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
-	"format": " {status}",
-	"format-disabled": "", // an empty format will hide the module
-	"format-connected": " {num_connections} connected",
-	"tooltip-format": "{controller_alias}\t{controller_address}",
-	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
-	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
+    "wireplumber": {
+        "format": "{volume}% {icon}",
+        "format-muted": "",
+        "on-click": "pavucontrol",
+        "format-icons": ["", "", ""]
     },
     "battery": {
         "format": "{capacity}% {icon}",

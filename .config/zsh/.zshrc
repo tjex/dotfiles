@@ -1,6 +1,6 @@
-# Luke's config for the Zoomer Shell
+# edited config from Luke Smith
 
-# Enable colors and change prompt:
+# Enable colors:
 autoload -U colors && colors	# Load colors
 setopt autocd		# Automatically cd into typed directory.
 stty stop undef		# Disable ctrl-s to freeze terminal.
@@ -27,7 +27,6 @@ _comp_options+=(globdots)		# Include hidden files.
 # prompt theming
 # needs to be after promptinit
 source "${ZDOTDIR}/.zsh-pure-cfg" # pure
-
 
 # vi mode
 bindkey -v
