@@ -2,4 +2,6 @@
 .dotfiles-git/
 
 ignored/
+
 .config/zsh/.zcompdump
+.config/zsh/pure

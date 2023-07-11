@@ -1,0 +1,13 @@
+# config file for pure prompt theme
+# https://github.com/sindresorhus/pure
+
+
+PURE_PROMPT_SYMBOL=»
+
+zstyle :prompt:pure:path color "#ffc46d"
+zstyle :prompt:pure:prompt:success color white
+zstyle :prompt:pure:execution_time color "#c3a0ba"
+zstyle :prompt:pure:git:stash show yes
+
+prompt pure # set prompt
+
