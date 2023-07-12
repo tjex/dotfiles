@@ -1,8 +1,8 @@
 {
     "layer": "top",
-    "position": "top",
-    //"modules-left": ["wlr/workspaces"],
-    "modules-center": ["wlr/workspaces"],
+    "position": "bottom",
+    "modules-left": ["wlr/workspaces"],
+    //"modules-center": ["wlr/workspaces"],
     "modules-right": ["wireplumber", "battery", "clock"],
     "hyprland/window": {
         "max-length": 200,
