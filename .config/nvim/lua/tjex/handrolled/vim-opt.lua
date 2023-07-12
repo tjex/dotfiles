@@ -1,6 +1,7 @@
 -- tjex user settings
-
+-- blinking cursor (append within string below): ,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175
 vim.opt.guicursor = "n-c-sm-ci:block,i-v-ve-r-cr-o:hor20"
+
 vim.opt.termguicolors = true
 vim.opt.updatetime = 50
 
