@@ -25,3 +25,6 @@ vim.opt.relativenumber = true
 vim.opt.foldcolumn = "auto:2"
 vim.opt.wildoptions = "fuzzy"
 vim.opt.laststatus = 3
+
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
