@@ -2,7 +2,7 @@
     "layer": "top",
     "position": "top",
     "modules-left": ["wlr/workspaces"],
-    //"modules-center": ["wlr/workspaces"],
+    "modules-center": [],
     "modules-right": ["wireplumber", "network", "battery", "clock"],
     "hyprland/window": {
         "max-length": 200,
@@ -26,7 +26,6 @@
         "max-length": 10
     },
     "network": {
-        //"interface": "wlo1",
         "format": "{ifname}",
         "format-wifi": "({signalStrength}%) ",
         "format-ethernet": " ",

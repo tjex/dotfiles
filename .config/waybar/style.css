@@ -97,11 +97,14 @@ button:hover {
 #network
 #mpd {
     padding: 0 10px;
-    margin: 0 2px;
+    /* margin: 0 2px; */
     color: #ffffff;
-    /* background-color: #64727D; */
     background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 5px;
+}
+
+/* left most info module gets rounded borders */
+#wireplumber {
+    border-radius: 8px 0 0 8px;
 }
 
 #window,
