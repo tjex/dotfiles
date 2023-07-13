@@ -1,3 +1,4 @@
+@import "tjex.css";
 * {
     /* `otf-font-awesome` is required to be installed for icons */
     border:none;
@@ -54,13 +55,14 @@ button:hover {
 
 #workspaces button {
     padding: 0 5px;
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #a0a0a0;
+    background-color: alpha(@bg, 0.1);
+    color: alpha(@text, 0.3);
 }
 
 #workspaces button.active {
-    background-color: rgba(255, 255, 255, 0.3);
-    color: #dfdfdf;
+    /* background-color: rgba(255, 255, 255, 0.3); */
+    background-color: alpha(@bg, 0.3);
+    color: @text;
     /* box-shadow: inset 0 -3px #dfdfdf; */
 }
 
@@ -108,8 +110,8 @@ button:hover {
 #mpd {
     padding: 0 10px;
     /* margin: 0 2px; */
-    color: #dfdfdf;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: alpha(@bg, 0.3);
+    color: @text;
 }
 
 /* left most info module gets rounded borders */
@@ -143,42 +145,11 @@ button:hover {
 }
 
 label:focus {
-    background-color: #000000;
-}
-
-#cpu {
-    background-color: #2ecc71;
-    color: #000000;
-}
-
-#memory {
-    background-color: #9b59b6;
-}
-
-#disk {
-    background-color: #964B00;
-}
-
-#backlight {
-    background-color: #90b1b1;
-}
-
-#network.disconnected {
-    background-color: #f53c3c;
-}
-
-#pulseaudio {
-    background-color: #f1c40f;
-    color: #000000;
-}
-
-#pulseaudio.muted {
-    background-color: #90b1b1;
-    color: #2a5c45;
+    background-color: alpha(@bg, 0.3);
 }
 
 #wireplumber.muted {
-    background-color: #f53c3c;
+    background-color: @red;
 }
 
 #custom-media {
@@ -189,18 +160,6 @@ label:focus {
 
 #custom-media.custom-spotify {
     background-color: #66cc99;
-}
-
-#custom-media.custom-vlc {
-    background-color: #ffa000;
-}
-
-#temperature {
-    background-color: #f0932b;
-}
-
-#temperature.critical {
-    background-color: #eb4d4b;
 }
 
 #tray {
@@ -214,56 +173,6 @@ label:focus {
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
     background-color: #eb4d4b;
-}
-
-#idle_inhibitor {
-    background-color: #2d3436;
-}
-
-#idle_inhibitor.activated {
-    background-color: #ecf0f1;
-    color: #2d3436;
-}
-
-#mpd {
-    background-color: #66cc99;
-    color: #2a5c45;
-}
-
-#mpd.disconnected {
-    background-color: #f53c3c;
-}
-
-#mpd.stopped {
-    background-color: #90b1b1;
-}
-
-#mpd.paused {
-    background-color: #51a37a;
-}
-
-#language {
-    background: #00b093;
-    color: #740864;
-    padding: 0 5px;
-    margin: 0 5px;
-    min-width: 16px;
-}
-
-#keyboard-state {
-    background: #97e1ad;
-    color: #000000;
-    padding: 0 0px;
-    margin: 0 5px;
-    min-width: 16px;
-}
-
-#keyboard-state > label {
-    padding: 0 5px;
-}
-
-#keyboard-state > label.locked {
-    background: rgba(0, 0, 0, 0.2);
 }
 
 #scratchpad {
