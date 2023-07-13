@@ -55,18 +55,21 @@ button:hover {
 #workspaces button {
     padding: 0 5px;
     /* background-color: transparent; */
-    background-color: #1a1e21;
+    /* background-color: #1a1e21; */
+    background-color: rgba(255, 255, 255, 0.1);
     color: #ffffff;
+}
+
+#workspaces button.active {
+    /* background-color: #64727D; */
+    background-color: rgba(255, 255, 255, 0.3);
+    /* box-shadow: inset 0 -3px #ffffff; */
 }
 
 #workspaces button:hover {
     background: rgba(0, 0, 0, 0.2);
 }
 
-#workspaces button.active {
-    background-color: #64727D;
-    box-shadow: inset 0 -3px #ffffff;
-}
 
 #workspaces button.urgent {
     background-color: #eb4d4b;
@@ -93,11 +96,13 @@ button:hover {
 #idle_inhibitor,
 #scratchpad,
 #pulseaudio
+#network
 #mpd {
     padding: 0 10px;
     margin: 0 2px;
     color: #ffffff;
-    background-color: #64727D;
+    /* background-color: #64727D; */
+    background-color: rgba(255, 255, 255, 0.2);
     border-radius: 5px;
 }
 
@@ -114,10 +119,6 @@ button:hover {
 /* If workspaces is the rightmost module, omit right margin */
 .modules-right > widget:last-child > #workspaces {
     margin-right: 0;
-}
-
-#clock {
-   background-color: #64727D;
 }
 
 #battery.charging, #battery.plugged {
@@ -159,10 +160,6 @@ label:focus {
 
 #backlight {
     background-color: #90b1b1;
-}
-
-#network {
-    background-color: #2980b9;
 }
 
 #network.disconnected {
