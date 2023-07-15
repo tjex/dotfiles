@@ -12,10 +12,14 @@ SAVEHIST=10000000
 HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/history"
 
 # settings via paths
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc"
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc"
 fpath+=(${ZDOTDIR}/pure) # prompt theme path
+source "${XDG_CONFIG_HOME}/shell/shortcutrc"
+source "${XDG_CONFIG_HOME}/shell/aliasrc"
+source "${XDG_CONFIG_HOME}/shell/zshnameddirrc"
+source "${XDG_CONFIG_HOME}/shell/functions"
+source "${XDG_CONFIG_HOME}/shell/keybinds"
+source "/usr/share/fzf/key-bindings.zsh"
+source "/usr/share/fzf/completion.zsh"
 
 # Basic auto/tab settings:
 autoload -U compinit promptinit
@@ -23,10 +27,6 @@ zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit ; promptinit
 _comp_options+=(globdots)		# Include hidden files.
-
-# prompt theming
-# needs to be after promptinit
-source "${ZDOTDIR}/.zsh-pure-cfg" # pure
 
 # vi mode
 bindkey -v
@@ -55,32 +55,11 @@ zle -N zle-line-init
 echo -ne '\e[4 q' # Use underlin shape cursor on startup.
 preexec() { echo -ne '\e[4 q' ;} # Use underline shape cursor for each new prompt.
 
-# Use lf to switch directories and bind it to ctrl-o
-lfcd () {
-    tmp="$(mktemp -uq)"
-    trap 'rm -f $tmp >/dev/null 2>&1 && trap - HUP INT QUIT TERM PWR EXIT' HUP INT QUIT TERM PWR EXIT
-    lf -last-dir-path="$tmp" "$@"
-    if [ -f "$tmp" ]; then
-        dir="$(cat "$tmp")"
-        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
-    fi
-}
-bindkey -s '^o' '^ulfcd\n'
-
-bindkey -s '^a' '^ubc -lq\n'
-
-bindkey -s '^f' '^ucd "$(dirname "$(fzf)")"\n'
-
-bindkey '^[[P' delete-char
-
-# Edit line in vim with ctrl-e:
-autoload edit-command-line; zle -N edit-command-line
-bindkey '^e' edit-command-line
-bindkey -M vicmd '^[[P' vi-delete-char
-bindkey -M vicmd '^e' edit-command-line
-bindkey -M visual '^[[P' vi-delete
+# load prompt theme
+# needs to be after promptinit
+source "${ZDOTDIR}/.zsh-pure-cfg" # pure
 
 # Load syntax highlighting; should be last.
 source "/usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh" 
-# fast theme is part of fast-syntax highlighting so it should be set after sourcing the plug
+# fast-theme is part of fast-syntax highlighting so it should be set after sourcing the plug
 fast-theme ${ZDOTDIR}/sv-orple-mod.ini >/dev/null 

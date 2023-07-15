@@ -50,14 +50,14 @@ export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# Paths
+# Paths Prepend
 export PATH="${GOPATH}/bin:$PATH"
 export PATH="${HOME}/.local/scripts:$PATH"
+export PATH="${HOME}/.local/bin:$PATH"
 
 # Other program settings:
 export DICS="/usr/share/stardict/dic/"
 export SUDO_ASKPASS="$HOME/.local/bin/dmenupass"
-export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
 export LESS=-R
 export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"
 export LESS_TERMCAP_md="$(printf '%b' '[1;36m')"
@@ -71,6 +71,14 @@ export QT_QPA_PLATFORMTHEME="gtk2" # Have QT use gtk2 theme.
 export MOZ_USE_XINPUT2="1" # Mozilla smooth scrolling/touchpads.
 export AWT_TOOLKIT="MToolkit wmname LG3D" # May have to install wmname
 export _JAVA_AWT_WM_NONREPARENTING=1 # Fix for Java applications in dwm
+
+export FZF_DEFAULT_COMMAND='fd -H --type file' 
+export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border --border-label='╢ life is short, find it faster ╟' \
+                         --tabstop=4 --exact --ansi \
+                         --color gutter:-1,bg+:-1,fg+:yellow,hl:yellow,hl+:yellow,pointer:yellow"
+export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
 
 [ ! -f ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ] && setsid shortcuts >/dev/null 2>&1
 exec Hyprland
