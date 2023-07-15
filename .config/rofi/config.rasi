@@ -3,6 +3,7 @@ configuration {
   combi-modes: [ window, drun, run ];
 }
 
-@theme "android_notification"
+@theme "wayjex"
  
 /* Insert theme modifications after this */
+
