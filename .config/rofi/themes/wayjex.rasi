@@ -3,9 +3,10 @@
  * Rofi version: 1.7.5
  **/
 * {
+    font:                        "Hack Nerd Font 12";
     foreground:                  rgba ( 193, 193, 193, 100 % );
-    background:                  transparent;
-    background-color:            rgba ( 23, 26, 39, 10 % );
+    background:                  rgba ( 23, 26, 39, 40 % );
+    background-color:            rgba ( 23, 26, 39, 0 % );
     separator-color:             rgba ( 166, 121, 77, 100 % );
     border-color:                var(separator-color);
 
@@ -32,7 +33,7 @@
 }
 window {
     padding:          5;
-    background-color: var(background-color);
+    background-color: var(background);
     width: 25%;
     border:           1;
     border-radius: 5px;
