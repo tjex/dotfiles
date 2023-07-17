@@ -4,11 +4,12 @@
  **/
 * {
     font:                        "Hack Nerd Font 12";
-    foreground:                  rgba ( 193, 193, 193, 100 % );
-    background:                  rgba ( 23, 26, 39, 40 % );
+    foreground:                  rgba ( 160, 160, 160, 100 % );
+    background:                  rgba ( 23, 26, 39, 80 % );
     background-color:            rgba ( 23, 26, 39, 0 % );
-    separator-color:             rgba ( 166, 121, 77, 100 % );
+    separator-color:             rgba ( 166, 134, 77, 100 % );
     border-color:                var(separator-color);
+    black:                       rgba ( 0, 0, 0, 100%);
 
     active-foreground:           rgba ( 128, 203, 196, 100 % );
     active-background:           rgba ( 39, 50, 56, 100 % );
@@ -16,8 +17,8 @@
     urgent-foreground:           rgba ( 255, 24, 68, 100 % );
     urgent-background:           rgba ( 39, 50, 56, 100 % );
 
-    selected-normal-foreground:  var(separator-color);
-    selected-normal-background:  transparent;
+    selected-normal-foreground:  var(black);
+    selected-normal-background:  var(separator-color);
     selected-active-foreground:  rgba ( 128, 203, 196, 100 % );
     selected-active-background:  rgba ( 57, 66, 73, 100 % );
     selected-urgent-foreground:  rgba ( 255, 24, 68, 100 % );
@@ -77,6 +78,7 @@ element normal.active {
 }
 element selected.normal {
     text-color:       var(selected-normal-foreground);
+    background-color: var(selected-normal-background);
 }
 element selected.urgent {
     background-color: var(selected-urgent-background);
@@ -117,10 +119,10 @@ button selected {
     text-color:       var(selected-normal-foreground);
 }
 inputbar {
-    padding:    1px ;
+    padding:    6px ;
     spacing:    0;
     text-color: var(foreground);
-    children:   [ "prompt","textbox-prompt-colon","entry","case-indicator" ];
+    children:   [ "textbox-prompt-colon","entry","case-indicator" ];
 }
 case-indicator {
     spacing:    0;
@@ -139,6 +141,6 @@ prompt {
 textbox-prompt-colon {
     margin:     0px 0.6000em 0.0000em 0.0000em ;
     expand:     false;
-    str:        ":";
+    str:        ">";
     text-color: var(foreground);
 }

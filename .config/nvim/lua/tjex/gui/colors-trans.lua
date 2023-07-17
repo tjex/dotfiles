@@ -70,7 +70,7 @@ Color.new('black', black)
 -- Group Sets
 Group.new('hl_1', colors.blue_1)
 Group.new('hl_2', colors.blue_2)
-Group.new('border_1', colors.burnt_yellow)
+Group.new('border_1', colors.yellow)
 Group.new('border_2', colors.soft_red)
 Group.new('ui_sel_bg_1', nil, colors.yellow)
 Group.new('ui_sel_bg_2', nil, colors.soft_red)

@@ -3,6 +3,7 @@ vim.filetype.add({
         astro = "astro",
         trp = "sml",
         sh = "bash",
-        mdx = "markdown"
+        mdx = "markdown",
+        bin = "markdown"
     }
 })
