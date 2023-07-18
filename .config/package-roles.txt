@@ -1,0 +1,23 @@
+Trying to keep track of what I'm installing and what they do. 
+
+apfs-fuse : open APFS drives on linux
+brave : browser
+cliphist : clipboard history
+dunst : notifications
+fd : faster find
+foot : terminal
+fzf : fuzzy search
+grim : screenshots
+hyprland : compositor
+hyprpaper : wallpapers
+hyprpicker : pick colors under mounse
+rofi : launcher
+rofi-emoji : emoji picker
+slurp : define area on screen
+pipewire : audio
+pulsemixer : audio mixer
+qalc / qalculate : calculator
+wireplumber : audio server / handler?
+wl-clipboard : wayland clipboard
+
+
