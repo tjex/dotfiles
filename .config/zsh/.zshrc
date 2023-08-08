@@ -63,6 +63,6 @@ export KEYTIMEOUT=1
 # Load syntax highlighting.
 source "/usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh" 
 #
-# theming shoulbe be sourced last (after syntax highlighting as fast-theme is part of
+# theming should be be sourced last (after syntax highlighting as fast-theme is part of
 # fast-syntax-highlighting.plugin)
 source "${XDG_CONFIG_HOME}/shell/design"
