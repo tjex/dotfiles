@@ -112,7 +112,7 @@ Group.new('endofbuffer', colors.background)
 Group.new('FoldColumn', groups.border_2)
 Group.new('Folded', groups.border_2)
 
-Group.new('WildMenu', groups.ui_sel_bg_1)
+Group.new('WildMenu', colors.yellow, colors.bg_lighter)
 Group.new('Comment', colors.noir_6)
 Group.new('Search', colors.noir_9, groups.ui_sel_bg_1)
 Group.new('IncSearch', colors.noir_9, groups.ui_sel_bg_1)

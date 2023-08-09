@@ -13,8 +13,7 @@ if wezterm.config_builder then
 end
 
 -- apply configs
--- config.color_scheme = 'Batman'
-hide_tab_bar_if_only_one_tab = true
+config.hide_tab_bar_if_only_one_tab = true
 config.window_background_opacity = 0.95
 
 -- apply modules required above to config table

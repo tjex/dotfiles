@@ -9,6 +9,8 @@ local yellow = '#a6864d'
 local burnt_yellow = '#a6794d'
 local soft_red = '#936666'
 local purple = '#c3a0ba'
+local blue_1 = "#496c7a"
+local blue_2 = "#566981"
 local bg_lighter = '#202436'
 local bg_light = '#1d2030'
 local bg_text = '#525d8a'
@@ -22,6 +24,28 @@ function module.apply(config)
         cursor_bg = yellow,
         selection_bg = soft_red,
         selection_fg = black,
+        ansi = {
+            "#1b1d1e", -- Dark Gray
+            "#e6dc44", -- Lemon Yellow
+            "#c8be46", -- Olive Green
+            "#f4fd22", -- Electric Lime
+            "#737174", -- Slate Gray
+            "#747271", -- Storm Gray
+            "#62605f", -- Iron Gray
+            "#c6c5bf"  -- Silver
+        },
+
+        brights = {
+            "#505354", -- Charcoal
+            "#fff78e", -- Pale Yellow
+            burnt_yellow,
+            "#feed6c", -- Light Gold
+            blue_1,    -- Gray Blue
+            "#9a9a9d", -- Dark Gray Blue
+            "#a3a3a6", -- Light Gray Blue
+            "#dadbd6"  -- Light Gray
+        }
+
     }
 end
 
