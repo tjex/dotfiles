@@ -1,6 +1,6 @@
 # shell design / colors / etc
 # needs to be before promptinit
-fpath+=(${ZDOTDIR}/pure) # prompt theme path
+fpath+=(${XDG_DATA_HOME}/zsh/themes/pure) # prompt theme path
 
 autoload -U compinit promptinit
 promptinit

@@ -9,7 +9,7 @@ setopt interactive_comments
 # History in cache directory:
 HISTSIZE=10000000
 SAVEHIST=10000000
-HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/history"
+HISTFILE="${XDG_CACHE_HOME}/zsh/history"
 
 # settings via paths
 source "${XDG_CONFIG_HOME}/shell/shortcutrc"
@@ -18,8 +18,9 @@ source "${XDG_CONFIG_HOME}/shell/zshnameddirrc"
 source "${XDG_CONFIG_HOME}/shell/functions"
 source "${XDG_CONFIG_HOME}/shell/keybinds"
 source "${XDG_CONFIG_HOME}/shell/vi-mode"
-source "/usr/share/fzf/key-bindings.zsh"
-source "/usr/share/fzf/completion.zsh"
+#source "/usr/share/fzf/key-bindings.zsh"
+#source "/usr/share/fzf/completion.zsh"
+[ -f ~/.config/zsh/.fzf.zsh ] && source ~/.config/zsh/.fzf.zsh
 
 # Basic auto/tab settings:
 autoload -U compinit
@@ -61,8 +62,9 @@ bindkey -v
 export KEYTIMEOUT=1
 
 # Load syntax highlighting.
-source "/usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh" 
+source "${HOME}/.local/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh" 
 #
 # theming should be be sourced last (after syntax highlighting as fast-theme is part of
 # fast-syntax-highlighting.plugin)
 source "${XDG_CONFIG_HOME}/shell/design"
+
