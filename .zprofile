@@ -8,6 +8,12 @@ export TERMINAL="wezterm"
 export TERMINAL_PROG="wezterm"
 export BROWSER="brave"
 
+# Paths
+export PATH="${GOPATH}/bin:$PATH"
+export PATH="${HOME}/.local/scripts:$PATH"
+export PATH="${HOME}/.local/bin:$PATH"
+eval $(/opt/homebrew/bin/brew shellenv)
+
 # ~/ Clean-up:
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -36,10 +42,6 @@ export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# Paths Prepend
-export PATH="${GOPATH}/bin:$PATH"
-export PATH="${HOME}/.local/scripts:$PATH"
-export PATH="${HOME}/.local/bin:$PATH"
 
 # Other program settings:
 export LESS=-R
