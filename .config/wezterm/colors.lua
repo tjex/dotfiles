@@ -18,6 +18,7 @@ local background = '#171A27'
 local foreground = '#949494'
 
 function module.apply(config)
+    config.bold_brightens_ansi_colors = false
     config.colors = {
         background = background,
         foreground = foreground,
@@ -25,27 +26,15 @@ function module.apply(config)
         selection_bg = soft_red,
         selection_fg = black,
         ansi = {
-            "#1b1d1e", -- Dark Gray
-            "#e6dc44", -- Lemon Yellow
-            "#c8be46", -- Olive Green
-            "#f4fd22", -- Electric Lime
-            "#737174", -- Slate Gray
-            "#747271", -- Storm Gray
-            "#62605f", -- Iron Gray
-            "#c6c5bf"  -- Silver
+            "#1b1d1e",    -- Dark Gray
+            "#e6dc44",    -- Lemon Yellow
+            burnt_yellow, -- Olive Green
+            "#f4fd22",    -- Electric Lime
+            blue_1,       -- Slate Gray
+            "#747271",    -- Storm Gray
+            "#62605f",    -- Iron Gray
+            "#c6c5bf"     -- Silver
         },
-
-        brights = {
-            "#505354", -- Charcoal
-            "#fff78e", -- Pale Yellow
-            burnt_yellow,
-            "#feed6c", -- Light Gold
-            blue_1,    -- Gray Blue
-            "#9a9a9d", -- Dark Gray Blue
-            "#a3a3a6", -- Light Gray Blue
-            "#dadbd6"  -- Light Gray
-        }
-
     }
 end
 

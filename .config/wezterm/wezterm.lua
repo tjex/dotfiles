@@ -12,9 +12,16 @@ if wezterm.config_builder then
     config = wezterm.config_builder()
 end
 
--- apply configs
+-- window
 config.hide_tab_bar_if_only_one_tab = true
 config.window_background_opacity = 0.95
+config.initial_cols = 110
+config.initial_rows = 140
+
+-- cursor
+config.cursor_blink_rate = 0
+config.cursor_thickness = 2
+
 
 -- apply modules required above to config table
 font.apply(config)
