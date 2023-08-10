@@ -48,4 +48,10 @@ alias \
 
 alias \
 	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" \
-	dotf="git --git-dir=$HOME/.dotf-cfg/ --work-tree=$HOME"
+
+# dotfiles management
+alias \
+	dotf="git --git-dir=$HOME/.dotf-cfg/ --work-tree=$HOME" \
+    dotfa="dotf add -u" \
+    dotfc="dotf commit -m" \
+    dotfs="dotf status -s" \
