@@ -1,0 +1,76 @@
+# vim: filetype=muttrc
+
+set my_text       = "#a0a0a0"
+set my_text_faded = "#787878"
+set my_yellow     = "#a6864d"
+set my_red        = "#662a25"
+set my_soft_red   = "#936666"
+set my_green      = "#91a56b"
+set my_purple     = "#af7c99"
+set my_blue_1     = "#496c7a"
+set my_blue_2     = "#566981"
+set my_bg         = "#171A27"
+set my_bg_light   = "#1d2030"
+set my_bg_lighter = "#202436"
+set my_bg_text    = "#525d8a"
+
+
+# Default index colors:
+color index $my_text_faded default '.*'
+color index_author $my_text_faded default '.*'
+color index_number $my_text_faded default
+color index_subject $my_text_faded default '.*'
+
+# New mail is boldened:
+color index $my_green default "~N"
+color index_author $my_green default "~N"
+color index_subject $my_green default "~N"
+
+# Tagged mail is highlighted:
+color index $my_purple default "~T"
+color index_author $my_purple default "~T"
+color index_subject $my_purple default "~T"
+
+# Flagged mail is highlighted:
+color index $my_soft_red default "~F"
+color index_subject $my_soft_red default "~F"
+color index_author $my_soft_red default "~F"
+color index_size default default
+
+color indicator $my_yellow default
+color sidebar_highlight black $my_yellow 
+color sidebar_divider brightblack black
+color sidebar_flagged $my_text default
+color sidebar_new $my_green default
+
+# Other colors and aesthetic settings:
+mono bold bold
+mono underline underline
+mono error bold
+
+color status $my_bg_text $my_bg_lighter
+color header $my_text_faded default
+color normal $my_text default
+color error $my_red default
+color message $my_soft_red default
+color markers $my_red white
+color attachment $my_text default
+color signature $my_text_faded default
+color search black $my_yellow
+color hdrdefault $my_text_faded default
+color tree $my_blue_1 default
+color quoted $my_blue_1 default
+color quoted1 $my_soft_red default
+color quoted2 $my_blue_1 default
+color quoted3 $my_soft_red default
+color quoted4 $my_blue_1 default
+color quoted5 $my_soft_red default
+color signature $my_text_faded default
+color tilde default default
+color bold black default
+color underline black default
+
+# Regexes
+color body $my_bg_text default "[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+" # Email addresses
+color body $my_bg_text default "((https?|ftp)://|www\.)[\-\.,/%~_:?&=\#a-zA-Z0-9]+" # links
+

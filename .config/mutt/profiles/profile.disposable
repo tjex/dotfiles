@@ -1,0 +1,10 @@
+# vim: filetype=neomuttrc
+# profile for disposable
+
+set hostname = "mailbox.org"
+set realname = "sender"
+set from = "rgsz8di2uba@temp.mailbox.org"
+set sendmail = "msmtp -a tillmanx@mailbox.org"
+set record = "+Sent/sent-tacc"
+set signature = '~/.config/mutt/profiles/anon.sig'
+alias me disp <rgsz8di2uba@temp.mailbox.org>

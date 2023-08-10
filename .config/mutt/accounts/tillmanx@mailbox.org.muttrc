@@ -1,0 +1,24 @@
+# vim: filetype=neomuttrc
+# muttrc file for account tillmanx@mailbox.org
+set realname = "Tillman x"
+set from = "tillmanx@mailbox.org"
+set sendmail = "msmtp -a tillmanx@mailbox.org"
+alias me tillmanx <tillmanx@mailbox.org>
+set folder = "/Users/tjex/.local/share/mail/tillmanx@mailbox.org"
+set header_cache = "/Users/tjex/.cache/mutt-wizard/tillmanx_mailbox.org/headers"
+set message_cachedir = "/Users/tjex/.cache/mutt-wizard/tillmanx_mailbox.org/bodies"
+set mbox_type = Maildir
+set hostname = "mailbox.org"
+source /usr/local/share/mutt-wizard/switch.muttrc
+set spoolfile = "+INBOX"
+set postponed = "+Drafts"
+set trash = "+Trash"
+set record = "+Sent/sent-tillx"
+set signature = '~/.config/mutt/profiles/default.sig'
+
+macro index o "<shell-escape>mailsync tillmanx@mailbox.org<enter>" "sync tillmanx@mailbox.org"
+mailboxes "=Inbox"
+mailboxes "=Inbox/tillmanx" "=Inbox/accounts" "=Inbox/tjexnet" "=Inbox/disposable" "=Inbox/github" "=Inbox/massage" "=Inbox/parents" "=Inbox/subs" "=Inbox/paypal"
+mailboxes "=Sent" 
+mailboxes "=Sent/sent-tillx" "=Sent/sent-tacc" "=Sent/sent-tjex" 
+mailboxes "=Reference" "=Finance" "=Drafts" "=Trash" 

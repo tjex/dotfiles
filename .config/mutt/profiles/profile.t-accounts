@@ -1,0 +1,10 @@
+# vim: filetype=neomuttrc
+# profile for t-accounts@mailbox.org
+
+set hostname = "mailbox.org"
+set realname = "Tillman"
+set from = "t-accounts@mailbox.org"
+set sendmail = "msmtp -a tillmanx@mailbox.org"
+set record = "+Sent/sent-tacc"
+set signature = '~/.config/mutt/profiles/default.sig'
+alias me TS <t-accounts@mailbox.org>
