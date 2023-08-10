@@ -1,0 +1,2 @@
+yabai -m config debug_output on
+yabai -m config layout bsp
