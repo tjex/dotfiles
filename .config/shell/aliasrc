@@ -55,3 +55,4 @@ alias \
     dotfa="dotf add -u" \
     dotfc="dotf commit -m" \
     dotfs="dotf status -s" \
+    dotfp="dotf push"

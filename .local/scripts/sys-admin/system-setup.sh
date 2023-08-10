@@ -23,7 +23,11 @@ git clone https://github.com/zdharma-continuum/fast-syntax-highlighting ~/.local
 # the restart shell so that all environment variables / pahths from dotfiles install are in scope
 exec zsh
 
-# neovim
+##############################
+# install brew packages here 
+
+# packages not installed through brew
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
+env CGO_ENABLED=0 go install -ldflags="-s -w" github.com/gokcehan/lf@latest # file manager
