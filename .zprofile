@@ -8,11 +8,6 @@ export TERMINAL="wezterm"
 export TERMINAL_PROG="wezterm"
 export BROWSER="brave"
 
-# Paths
-export PATH="${GOPATH}/bin:$PATH"
-export PATH="${HOME}/.local/scripts:$PATH"
-export PATH="${HOME}/.local/bin:$PATH"
-eval $(/opt/homebrew/bin/brew shellenv)
 
 # ~/ Clean-up:
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -29,7 +24,7 @@ export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
 export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
 export ANDROID_SDK_HOME="$XDG_CONFIG_HOME/android"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
-export GOPATH="$XDG_DATA_HOME/go"
+export GOPATH="$HOME/.local/go"
 export GOMODCACHE="$XDG_CACHE_HOME/go/mod"
 export ANSIBLE_CONFIG="$XDG_CONFIG_HOME/ansible/ansible.cfg"
 export UNISON="$XDG_DATA_HOME/unison"
@@ -53,5 +48,12 @@ export LESS_TERMCAP_se="$(printf '%b' '[0m')"
 export LESS_TERMCAP_us="$(printf '%b' '[1;32m')"
 export LESS_TERMCAP_ue="$(printf '%b' '[0m')"
 export LESSOPEN="| /usr/bin/highlight -O ansi %s 2>/dev/null"
+
+# Paths
+export PATH="/usr/local:$PATH"
+export PATH="${GOPATH}/bin:$PATH"
+export PATH="${HOME}/.local/scripts:$PATH"
+export PATH="${HOME}/.local/bin:$PATH"
+eval $(/opt/homebrew/bin/brew shellenv)
 
 [ ! -f ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ] && setsid shortcuts >/dev/null 2>&1

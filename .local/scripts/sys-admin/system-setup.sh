@@ -1,6 +1,9 @@
 # script that installs all the various things I use (incase I need to reinstall a system from scratch)
 
+BREWFILE=/path/to/brew/file/dump
+
 # import ssh keys first
+# disable SIP. Boot into recovery mode and enter `csrutil disable` in terminal.
 
 # install homebrew, this should prompt to install xcode-terminal tools, which will include git
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -23,7 +26,13 @@ git clone https://github.com/zdharma-continuum/fast-syntax-highlighting ~/.local
 # the restart shell so that all environment variables / pahths from dotfiles install are in scope
 exec zsh
 
-# neovim
+##############################
+# install brew packages here 
+brew bundle install --file ${BREWFILE}
+
+
+# packages not installed through brew
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
+env CGO_ENABLED=0 go install -ldflags="-s -w" github.com/gokcehan/lf@latest # file manager
