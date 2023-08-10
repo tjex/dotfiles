@@ -1,0 +1,24 @@
+IMAPStore tillmanx@mailbox.org-remote
+Host imap.mailbox.org
+Port 993
+User tillmanx@mailbox.org
+PassCmd "pass tillmanx@mailbox.org"
+AuthMechs LOGIN
+SSLType IMAPS
+CertificateFile /etc/ssl/cert.pem
+
+MaildirStore tillmanx@mailbox.org-local
+Subfolders Verbatim
+Path /Users/tjex/.local/share/mail/tillmanx@mailbox.org/
+Inbox /Users/tjex/.local/share/mail/tillmanx@mailbox.org/INBOX
+
+Channel tillmanx@mailbox.org
+Expunge Both
+Far :tillmanx@mailbox.org-remote:
+Near :tillmanx@mailbox.org-local:
+Patterns * !"[Gmail]/All Mail" !"*fts-flatcurve*" !"*virtual*"
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
+# End profile
