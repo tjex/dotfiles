@@ -26,14 +26,14 @@ function module.apply(config)
         selection_bg = soft_red,
         selection_fg = black,
         ansi = {
-            "#1b1d1e",    -- Dark Gray
-            yellow,       -- Lemon Yellow
-            burnt_yellow, -- Olive Green
-            "#f4fd22",    -- Electric Lime
-            blue_1,       -- Slate Gray
-            "#747271",    -- Storm Gray
-            "#62605f",    -- Iron Gray
-            "#c6c5bf"     -- Silver
+            "#1b1d1e", -- Dark Gray
+            yellow,
+            burnt_yellow,
+            yellow,
+            blue_1,
+            "#747271", -- Storm Gray
+            "#62605f", -- Iron Gray
+            "#c6c5bf"  -- Silver
         },
     }
 end
