@@ -23,11 +23,6 @@ alias \
 	bc="bc -ql" \
 	rsync="rsync -vrPlu" \
 	mkd="mkdir -pv" \
-	yt="yt-dlp --embed-metadata -i" \
-	yta="yt -x -f bestaudio/best" \
-	ytt="yt --skip-download --write-thumbnail" \
-	ffmpeg="ffmpeg -hide_banner" \
-        abook="abook --config $XDG_CONFIG_HOME/abook/abookrc --datafile $XDG_CONFIG_HOME/abook/addressbook" 
 
 # Colorize commands when possible.
 alias \
@@ -36,7 +31,6 @@ alias \
 	grep="grep --color=auto" \
 	diff="diff --color=auto" \
 	ccat="highlight --out-format=ansi" \
-	ip="ip -color=auto"
 
 # These common commands are just too long! Abbreviate them.
 alias \
@@ -46,8 +40,12 @@ alias \
 	e="$EDITOR" \
 	v="$EDITOR" \
 
+# system-utility style
 alias \
-	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" \
+	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; 
+        source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc ; 
+        source ${HOME}/.config/shell/functions" \
+    aliasrc="nvim ~/.config/shell/aliasrc"
 
 # dotfiles management
 alias \
@@ -55,4 +53,11 @@ alias \
     dotfa="dotf add -u" \
     dotfc="dotf commit -m" \
     dotfs="dotf status -s" \
+
+# programs
+alias \
+    neomutt="TERM=xterm-direct neomutt" \
+	ffmpeg="ffmpeg -hide_banner" \
+    abook="abook --config $XDG_CONFIG_HOME/abook/abookrc --datafile $XDG_CONFIG_HOME/abook/addressbook" \
+    abudget="~/.scripts/shell/apps/actual-budget-start.sh"
 
