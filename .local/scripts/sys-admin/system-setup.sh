@@ -1,6 +1,15 @@
 # script that installs all the various things I use (incase I need to reinstall a system from scratch)
 
+# working directory for install
+mkdir -p /tmp/system-setup
+
 BREWFILE=/path/to/brew/file/dump
+TMPDIR="/tmp/system-setup"
+
+reload() {
+    source ~/.zprofile
+    exec zsh
+}
 
 # import ssh keys first
 # disable SIP. Boot into recovery mode and enter `csrutil disable` in terminal.
@@ -30,9 +39,25 @@ exec zsh
 # install brew packages here 
 brew bundle install --file ${BREWFILE}
 
+# lf
+env CGO_ENABLED=0 go install -ldflags="-s -w" github.com/gokcehan/lf@latest # file manager
 
 # packages not installed through brew
+# packer
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
-env CGO_ENABLED=0 go install -ldflags="-s -w" github.com/gokcehan/lf@latest # file manager
+# nvm
+mkdir -p ${TMPDIR}/nvm
+git clone git@github.com:nvm-sh/nvm.git ${TMPDIR}/nvm
+cd ${TMPDIR}/nvm
+./install.sh
+. ./nvm.sh
+cd ~
+
+# node
+nvm install node
+npm install --global yarn
+
+
+

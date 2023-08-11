@@ -8,3 +8,8 @@ lfcd () {
         [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
     fi
 }
+
+mkmv() {
+    mkdir -p -- "$argv[-1]"
+    mv "$@"
+}
