@@ -1,13 +1,11 @@
-yabai -m config debug_output on
-yabai -m config layout bsp
-
-# Set all padding and gaps to 20pt (default: 0)
-yabai -m config top_padding    14
-yabai -m config bottom_padding 14
-yabai -m config left_padding   14
-yabai -m config right_padding  14
-yabai -m config window_gap     14
-
-yabai -m config window_gap 2
-yabai -m config window_shadow float
+yabai -m config \
+    debug_output on \
+    layout bsp \
+    top_padding    14 \
+    bottom_padding 14 \
+    left_padding   14 \
+    right_padding  14 \
+    window_gap     14 \
+    window_shadow float \
+    window_border_hidpi on \
 
