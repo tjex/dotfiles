@@ -12,6 +12,7 @@ alias \
     lbin="cd ${HOME}/.local/bin && ls -A" \
     lsrc="cd ${HOME}/.local/src && ls -A" \
     vol="cd /Volumes && ls -A" \
+    obs="cd ${TJROOT}/obsidian/paradigm-shifted && ls"
 
 # open with editor
 alias \
