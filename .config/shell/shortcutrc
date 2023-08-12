@@ -1,7 +1,9 @@
 # vim: filetype=sh
+
+# directories
 alias \
     cac="cd ${HOME}/.cache && ls -A" \
-    cf="cd ${HOME}/.config && ls -A" \
+    cf="cd ${XDG_CONFIG_HOME} && ls -A" \
     D="cd ${HOME}/Downloads && ls -A" \
     d="cd ${HOME}/tjroot/docs && ls -A" \
     h="cd ${TJROOT} && ls -A" \
@@ -9,13 +11,17 @@ alias \
     i="cd ${TJROOT}/images && ls -A" \
     lbin="cd ${HOME}/.local/bin && ls -A" \
     lsrc="cd ${HOME}/.local/src && ls -A" \
-    bf="$EDITOR ${HOME}/.config/shell/bm-files" \
-    bd="$EDITOR ${HOME}/.config/shell/bm-dirs" \
-    cfv="$EDITOR ${HOME}/.config/nvim/init.vim" \
-    cfz="$EDITOR ${HOME}/.config/zsh/.zshrc" \
-    cfa="$EDITOR ${HOME}/.config/shell/aliasrc" \
-    cfp="$EDITOR ${HOME}/.zprofile" \
-    cfm="$EDITOR ${HOME}/.config/mutt/muttrc" \
-    cfn="$EDITOR ${HOME}/.config/newsboat/config" \
-    cfu="$EDITOR ${HOME}/.config/newsboat/urls" \
     vol="cd /Volumes && ls -A" \
+
+# open with editor
+alias \
+    bf="$EDITOR ${XDG_CONFIG_HOME}/shell/bm-files" \
+    bd="$EDITOR ${XDG_CONFIG_HOME}/shell/bm-dirs" \
+    cfv="$EDITOR ${XDG_CONFIG_HOME}/nvim/init.vim" \
+    cfz="$EDITOR ${XDG_CONFIG_HOME}/zsh/.zshrc" \
+    cfa="$EDITOR ${XDG_CONFIG_HOME}/shell/aliasrc" \
+    cfs="$EDITOR ${XDG_CONFIG_HOME}/shell/shortcutrc" \
+    cfp="$EDITOR ${HOME}/.zprofile" \
+    cfm="$EDITOR ${XDG_CONFIG_HOME}/mutt/muttrc" \
+    cfn="$EDITOR ${XDG_CONFIG_HOME}/newsboat/config" \
+    cfu="$EDITOR ${XDG_CONFIG_HOME}/newsboat/urls" \
