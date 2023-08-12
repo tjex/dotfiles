@@ -45,7 +45,6 @@ alias \
 	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME}/shell/shortcutrc ; 
         source ${XDG_CONFIG_HOME}/shell/zshnameddirrc ; 
         source ${XDG_CONFIG_HOME}/shell/functions" \
-    aliasrc="nvim ${XDG_CONFIG_HOME}/shell/aliasrc"
 
 # dotfiles management
 alias \
