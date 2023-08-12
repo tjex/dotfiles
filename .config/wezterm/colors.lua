@@ -27,7 +27,7 @@ function module.apply(config)
         selection_fg = black,
         ansi = {
             "#1b1d1e", -- Dark Gray
-            yellow,
+            soft_red,
             burnt_yellow,
             yellow,
             blue_1,
