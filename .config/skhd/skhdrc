@@ -70,6 +70,8 @@
 
 # open terminal, blazingly fast compared to iTerm/Hyper
 cmd - return : /Applications/WezTerm.app/Contents/MacOS/wezterm
+cmd - 0x18 : /Applications/WezTerm.app/Contents/MacOS/wezterm start qalc  #0x18 is =
+
 
 # yabai
 alt + cmd - h : yabai -m window --focus west
