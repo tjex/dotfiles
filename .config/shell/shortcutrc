@@ -6,11 +6,11 @@ alias \
     cf="cd ${XDG_CONFIG_HOME} && ls -A" \
     D="cd ${HOME}/Downloads && ls -A" \
     d="cd ${HOME}/tjroot/docs && ls -A" \
+    dev="cd ${HOME}/tjroot/dev && ls -A" \
     h="cd ${TJROOT} && ls -A" \
     m="cd ${TJROOT}/music && ls -A" \
     i="cd ${TJROOT}/images && ls -A" \
-    lbin="cd ${HOME}/.local/bin && ls -A" \
-    lsrc="cd ${HOME}/.local/src && ls -A" \
+    l="cd ${HOME}/.local/ && ls -A" \
     vol="cd /Volumes && ls -A" \
     obs="cd ${TJROOT}/obsidian/paradigm-shifted && ls"
 

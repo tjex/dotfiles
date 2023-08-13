@@ -59,5 +59,7 @@ cd ~
 nvm install node
 npm install --global yarn
 
+# tpm (tmux package manager)
+git clone https://github.com/tmux-plugins/tpm ~/.local/share/tmux/plugins/tpm
 
 

@@ -20,10 +20,10 @@ yabai -m config \
     right_padding  14 \
     window_gap     14 \
     window_shadow float \
-    window_border_hidpi on \
-    auto_balance on \
+    auto_balance off \
     split_ratio 0.5 \
     focus_follows_mouse autoraise
 
 # rules
-# yabai -m rule --add app="^System Settings$" sticky=on layer=above manage=off
+yabai -m rule --add app="^System Settings$" sticky=on manage=off
+yabai -m rule --add app="^WezTerm$" title="^qalc$" sticky=on manage=off 
