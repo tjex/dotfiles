@@ -3,3 +3,6 @@
 	name = tjex
 [init]
 	defaultBranch = main
+
+[push]
+	autoSetupRemote = true

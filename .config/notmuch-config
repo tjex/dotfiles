@@ -1,0 +1,14 @@
+[database]
+path=/Users/tjex/.local/share/mail
+[user]
+name=tillmanx
+primary_email=tillmanx@mailbox.org
+[new]
+tags=unread;inbox;
+ignore=.mbsyncstate;.uidvalidity
+[search]
+exclude_tags=deleted;spam;
+[maildir]
+synchronize_flags=true
+[crypto]
+gpg_path=gpg

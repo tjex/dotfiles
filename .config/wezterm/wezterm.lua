@@ -22,6 +22,14 @@ config.initial_rows = 140
 config.cursor_blink_rate = 0
 config.cursor_thickness = 2
 
+-- exit
+config.skip_close_confirmation_for_processes_named = {
+    'bash',
+    'sh',
+    'zsh',
+    'tmux',
+}
+
 
 -- apply modules required above to config table
 font.apply(config)
