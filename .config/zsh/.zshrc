@@ -18,8 +18,7 @@ source "${XDG_CONFIG_HOME}/shell/zshnameddirrc"
 source "${XDG_CONFIG_HOME}/shell/functions"
 source "${XDG_CONFIG_HOME}/shell/keybinds"
 source "${XDG_CONFIG_HOME}/shell/vi-mode"
-#source "/usr/share/fzf/key-bindings.zsh"
-#source "/usr/share/fzf/completion.zsh"
+source "${XDG_CONFIG_HOME}/shell/paths"
 [ -f ~/.config/zsh/.fzf.zsh ] && source ~/.config/zsh/.fzf.zsh
 
 # Basic auto/tab settings:
