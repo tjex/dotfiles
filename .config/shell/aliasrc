@@ -55,8 +55,8 @@ alias \
 
 # programs
 alias \
-    neomutt="TERM=xterm-direct neomutt" \
 	ffmpeg="ffmpeg -hide_banner" \
     abook="abook --config $XDG_CONFIG_HOME/abook/abookrc --datafile $XDG_CONFIG_HOME/abook/addressbook" \
-    abudget="${HOME}/.local/scripts/apps/actual-budget-start.sh"
+    abudget="${HOME}/.local/scripts/apps/actual-budget-start.sh" \
+    neomutt="TERM=xterm-direct neomutt"
 
