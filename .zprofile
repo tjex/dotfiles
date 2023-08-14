@@ -51,11 +51,4 @@ export LESS_TERMCAP_ue="$(printf '%b' '[0m')"
 export LESSOPEN="| /usr/bin/highlight -O ansi %s 2>/dev/null"
 GPG_TTY=$(tty) ; export GPG_TTY
 
-# Paths
-export PATH="/usr/local:$PATH"
-export PATH="${GOPATH}/bin:$PATH"
-export PATH="${HOME}/.local/scripts:$PATH"
-export PATH="${HOME}/.local/bin:$PATH"
-eval $(/opt/homebrew/bin/brew shellenv)
-
 [ ! -f ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ] && setsid shortcuts >/dev/null 2>&1
