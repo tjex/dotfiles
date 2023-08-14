@@ -13,10 +13,8 @@ if wezterm.config_builder then
 end
 
 -- window
+-- config.window_background_opacity = 0.95
 config.hide_tab_bar_if_only_one_tab = true
-config.window_background_opacity = 0.95
-config.initial_cols = 110
-config.initial_rows = 140
 
 -- cursor
 config.cursor_blink_rate = 0
