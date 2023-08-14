@@ -2,7 +2,6 @@
 source /usr/local/share/mutt-wizard/mutt-wizard.muttrc
 source /Users/tjex/.config/mutt/accounts/tillmanx@mailbox.org.muttrc
 macro index,pager i1 '<sync-mailbox><enter-command>source /Users/tjex/.config/mutt/accounts/tillmanx@mailbox.org.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to tillmanx@mailbox.org"
-macro index,pager i2 '<sync-mailbox><enter-command>source /Users/tjex/.config/mutt/accounts/tillman.j.schaeuble@filmuniversitaet.de.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to tillman.j.schaeuble@filmuniversitaet.de"
 
 set color_directcolor = yes
 set date_format = "%d-%m-%y"
