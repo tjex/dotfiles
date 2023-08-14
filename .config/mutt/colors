@@ -39,7 +39,7 @@ color index_size default default
 
 color indicator $my_yellow default
 color sidebar_highlight black $my_yellow 
-color sidebar_divider brightblack black
+color sidebar_divider $my_bg $my_bg
 color sidebar_flagged $my_text default
 color sidebar_new $my_green default
 

@@ -27,9 +27,9 @@ macro index,pager gt "<change-folder>=INBOX/tillmanx<enter>" "go to tillmanx"
 macro index,pager gp "<change-folder>=INBOX/parents<enter>" "go to parents"
 
 macro index,pager gr "<change-folder>=Reference<enter>" "go to reference"
-macro index,pager Cr ";<copy-message>=Reference<enter>" "copy mail to reference"
+macro index,pager Cr "<copy-message>=Reference<enter>" "copy mail to reference"
 
-macro index,pager Mf ";<move-message>=Finance<enter>" "move mail to finance"
+macro index,pager Mfi ";<save-message>=Finance<enter>" "move mail to finance"
 
 alternates t-accounts@mailbox.org
 alternates t-subs@mailbox.org
