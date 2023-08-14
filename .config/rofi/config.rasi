@@ -1,9 +1,0 @@
-configuration {
-  modes: [ combi ];
-  combi-modes: [ window, drun, run ];
-}
-
-@theme "wayjex"
- 
-/* Insert theme modifications after this */
-

@@ -1,0 +1,11 @@
+account tillmanx@mailbox.org
+host smtp.mailbox.org
+port 465
+from tillmanx@mailbox.org
+user tillmanx@mailbox.org
+passwordeval "pass tillmanx@mailbox.org"
+auth on
+tls on
+tls_trust_file	/etc/ssl/cert.pem
+logfile /Users/tjex/.local/state/msmtp/msmtp.log
+tls_starttls off

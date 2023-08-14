@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
 source $HOME/.config/nvm/nvm.sh 
-nvm use 16
-cd $HOME/t-root/dev/personal/abudget/actual-tjex || exit
+cd $HOME/tjroot/dev/personal/abudget/actual-tjex
 yarn start

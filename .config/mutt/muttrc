@@ -1,0 +1,60 @@
+# vim: filetype=neomuttrc
+source /usr/local/share/mutt-wizard/mutt-wizard.muttrc
+source /Users/tjex/.config/mutt/accounts/tillmanx@mailbox.org.muttrc
+macro index,pager i1 '<sync-mailbox><enter-command>source /Users/tjex/.config/mutt/accounts/tillmanx@mailbox.org.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to tillmanx@mailbox.org"
+
+set color_directcolor = yes
+set date_format = "%d-%m-%y"
+set index_format = "%2C %Z %?X?A& ? %[$date_format] %-20.20n %s"
+set use_threads = yes
+set editor = "nvim"
+
+set sidebar_width = 25
+set sidebar_short_path                  # Shorten mailbox names
+set sidebar_delim_chars="/"             # Delete everything up to the last / character
+set sidebar_folder_indent               # Indent folders whose names we've shortened
+set sidebar_indent_string="  "          # Indent with two spaces
+
+# BINDS
+bind index,pager \Cl sidebar-open
+bind index,pager \Ck sidebar-prev
+bind index,pager \Cj sidebar-next
+
+macro index,pager ga "<change-folder>=INBOX/accounts<enter>" "go to accounts"
+macro index,pager gd "<change-folder>=INBOX/disposable<enter>" "go to disposable"
+macro index,pager gj "<change-folder>=INBOX/tjexnet<enter>" "go to tjexnet"
+macro index,pager gt "<change-folder>=INBOX/tillmanx<enter>" "go to tillmanx"
+macro index,pager gp "<change-folder>=INBOX/parents<enter>" "go to parents"
+
+macro index,pager gr "<change-folder>=Reference<enter>" "go to reference"
+macro index,pager Cr ";<copy-message>=Reference<enter>" "copy mail to reference"
+
+macro index,pager Mf ";<move-message>=Finance<enter>" "move mail to finance"
+
+alternates t-accounts@mailbox.org
+alternates t-subs@mailbox.org
+alternates tjex@tjex.net
+alternates rgsz8di2uba@temp.mailbox.org
+
+ignore * #ignore all headers, to then unignore desired ones
+unignore from date subject to cc
+hdr_order From Date: From: To: Cc: Subject:
+
+# hooks for tillmanx
+folder-hook inbox "source ~/.config/mutt/profiles/profile.tillmanx"
+reply-hook "~t tillmanx@mailbox.org" 'source ~/.config/mutt/accounts/tillmanx@mailbox.org.muttrc'
+
+# hooks for tjex
+folder-hook tjexnet "source ~/.config/mutt/profiles/profile.tjex"
+reply-hook "~t tjex@tjex.net" 'source ~/.config/mutt/profiles/profile.tjex'
+
+# hooks for t-accounts
+folder-hook accounts "source ~/.config/mutt/profiles/profile.t-accounts"
+reply-hook "~t t-accounts@mailbox.org" 'source ~/.config/mutt/profiles/profile.t-accounts'
+
+# hooks for disposable
+folder-hook disposable "source ~/.config/mutt/profiles/profile.disposable"
+reply-hook "~t rgsz8di2uba@temp.mailbox.org" 'source ~/.config/mutt/profiles/profile.disposable'
+
+source ~/.config/mutt/colors
+
