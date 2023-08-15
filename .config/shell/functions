@@ -17,7 +17,7 @@ mkmv() {
 # get gitignore templates
 gi() { 
     curl -sLw n https://www.toptal.com/developers/gitignore/api/$@ ;
-    }
+}
 
 # search .scripts folder and executer
 scripts() {
@@ -69,3 +69,12 @@ gremote() {
     open $repoUrl
 }
 
+tpass() {
+    if file=($(fd . -tf ${PASSWORD_STORE_DIR} | fzf)); then
+        file=${file//.gpg/} # strips ".gpg" from string input into pass
+        file=${file//"${PASSWORD_STORE_DIR}"/} # formats file path to begin at PASSWORD_STORE_DIR
+        pass show $1 $file
+    else
+        return
+    fi
+}
