@@ -29,7 +29,7 @@ export GOPATH="$HOME/.local/go"
 export GOMODCACHE="$XDG_CACHE_HOME/go/mod"
 export ANSIBLE_CONFIG="$XDG_CONFIG_HOME/ansible/ansible.cfg"
 export UNISON="$XDG_DATA_HOME/unison"
-export HISTFILE="$XDG_DATA_HOME/history"
+export HISTFILE="$XDG_CACHE_HOME/history/zshhistory"
 export MBSYNCRC="$XDG_CONFIG_HOME/mbsync/config"
 export ELECTRUMDIR="$XDG_DATA_HOME/electrum"
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
@@ -40,6 +40,7 @@ export NVM_DIR="$XDG_DATA_HOME/nvm"
 
 
 # Other program settings:
+export LESSHISTFILE="$XDG_CACHE_HOME/history/lesshst"
 export LESS=-R
 export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"
 export LESS_TERMCAP_md="$(printf '%b' '[1;36m')"
