@@ -19,7 +19,11 @@ source "${XDG_CONFIG_HOME}/shell/functions"
 source "${XDG_CONFIG_HOME}/shell/keybinds"
 source "${XDG_CONFIG_HOME}/shell/vi-mode"
 source "${XDG_CONFIG_HOME}/shell/paths"
+
 [ -f ~/.config/zsh/.fzf.zsh ] && source ~/.config/zsh/.fzf.zsh
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 
 # Basic auto/tab settings:
 autoload -U compinit
