@@ -31,6 +31,11 @@ macro index,pager Cr "<copy-message>=Reference<enter>" "copy mail to reference"
 
 macro index,pager Mfi ";<save-message>=Finance<enter>" "move mail to finance"
 
+# EXTENSIONS
+macro index,pager U "<pipe-message>  TERM=xterm-256color urlscan<Enter>" "call urlscan to extract URLs out of a message"
+macro attach,compose U "<pipe-entry> TERM=xterm-256color urlscan<Enter>" "call urlscan to extract URLs out of a message"
+
+# ACCOUNTS
 alternates t-accounts@mailbox.org
 alternates t-subs@mailbox.org
 alternates tjex@tjex.net
