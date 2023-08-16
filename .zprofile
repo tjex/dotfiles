@@ -35,6 +35,7 @@ export ELECTRUMDIR="$XDG_DATA_HOME/electrum"
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
 export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite_history"
 export NVM_DIR="$XDG_DATA_HOME/nvm"
+export GPGKEY="45FC951C7A7F24C4A6AA566F28AADCA2EF680971"
 
 # Other program settings:
 export LESSHISTFILE="$XDG_CACHE_HOME/history/lesshst"
