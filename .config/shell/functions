@@ -1,3 +1,5 @@
+# vim: filetype=bash
+#
 # Use lf to switch directories and bind it to ctrl-o
 lfcd() {
     tmp="$(mktemp -uq)"
@@ -9,6 +11,12 @@ lfcd() {
     fi
 }
 
+# this was from luke, looks like a better way to pipe into fzf
+# se() {
+# 	choice="$(find ~/.local/bin -mindepth 1 -printf '%P\n' | fzf)"
+# 	[ -f "$HOME/.local/bin/$choice" ] && $EDITOR "$HOME/.local/bin/$choice"
+# 	;}
+#
 mkmv() {
     mkdir -p -- "$argv[-1]"
     mv "$@"
@@ -38,7 +46,7 @@ tref() {
 
 trefg() {
     local search=$1
-    rg -i -w $search ${HOME}/tjroot/dev/utility/tref
+    rg -i -w $search ${HOME}/tjroot/notes/tref
 }
 
 tlogs() {

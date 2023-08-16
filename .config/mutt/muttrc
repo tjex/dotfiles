@@ -25,15 +25,16 @@ macro index,pager gd "<change-folder>=INBOX/disposable<enter>" "go to disposable
 macro index,pager gj "<change-folder>=INBOX/tjexnet<enter>" "go to tjexnet"
 macro index,pager gt "<change-folder>=INBOX/tillmanx<enter>" "go to tillmanx"
 macro index,pager gp "<change-folder>=INBOX/parents<enter>" "go to parents"
-
 macro index,pager gr "<change-folder>=Reference<enter>" "go to reference"
 macro index,pager Cr "<copy-message>=Reference<enter>" "copy mail to reference"
-
 macro index,pager Mfi ";<save-message>=Finance<enter>" "move mail to finance"
 
-# EXTENSIONS
-macro index,pager U "<pipe-message>  TERM=xterm-256color urlscan<Enter>" "call urlscan to extract URLs out of a message"
-macro attach,compose U "<pipe-entry> TERM=xterm-256color urlscan<Enter>" "call urlscan to extract URLs out of a message"
+# mark as read and delete
+macro index,pager D ":set confirmappend=no delete=yes resolve=no\n<clear-flag>N<tag-prefix><delete-message>:set confirmappend=yes delete=ask-yes resolve=yes\n<next-undeleted>"
+
+# urlscan
+macro index,pager U "<pipe-message>  TERM=xterm-256color urlscan -E 'http.*'<Enter>" "call urlscan to extract URLs out of a message"
+macro attach,compose U "<pipe-entry> TERM=xterm-256color urlscan -E 'http.*'<Enter>" "call urlscan to extract URLs out of a message"
 
 # ACCOUNTS
 alternates t-accounts@mailbox.org

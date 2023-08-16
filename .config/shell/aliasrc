@@ -10,11 +10,6 @@ for command in mount umount sv pacman updatedb su shutdown poweroff reboot ; do
 	alias $command="sudo $command"
 done; unset command
 
-se() {
-	choice="$(find ~/.local/bin -mindepth 1 -printf '%P\n' | fzf)"
-	[ -f "$HOME/.local/bin/$choice" ] && $EDITOR "$HOME/.local/bin/$choice"
-	;}
-
 # Verbosity and settings that you pretty much just always are going to want.
 alias \
 	cp="cp -iv" \
@@ -35,7 +30,6 @@ alias \
 # These common commands are just too long! Abbreviate them.
 alias \
 	ka="killall" \
-	g="git" \
 	sdn="shutdown -h now" \
 	e="$EDITOR" \
 	v="$EDITOR" \
@@ -49,10 +43,18 @@ alias \
 # dotfiles management
 alias \
 	dotf="git --git-dir=$HOME/.dotf-cfg/ --work-tree=$HOME" \
+    dotfs="dotf status -s" \
     dotfa="dotf add -u" \
     dotfc="dotf commit -m" \
-    dotfs="dotf status -s" \
     dotfp="dotf push"
+
+# git management
+alias \
+	g="git" \
+    gits="git status -s" \
+    gita="git add -A" \
+    gitc="git commit -m" \
+    gitp="git push"
 
 # programs
 alias \

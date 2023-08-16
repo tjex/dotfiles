@@ -38,7 +38,7 @@ export NVM_DIR="$XDG_DATA_HOME/nvm"
 export GPGKEY="45FC951C7A7F24C4A6AA566F28AADCA2EF680971"
 
 # Other program settings:
-export LESSHISTFILE="$XDG_CACHE_HOME/history/lesshst"
+export LESSHISTFILE="-"
 export LESS=-R
 export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"
 export LESS_TERMCAP_md="$(printf '%b' '[1;36m')"
