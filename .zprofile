@@ -50,3 +50,4 @@ export LESSOPEN="| /usr/bin/highlight -O ansi %s 2>/dev/null"
 GPG_TTY=$(tty) ; export GPG_TTY
 
 [ ! -f ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ] && setsid shortcuts >/dev/null 2>&1
+source -- $XDG_DATA_HOME/venv/sys/bin/activate
