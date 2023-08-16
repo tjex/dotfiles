@@ -4,26 +4,31 @@ yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 sudo yabai --load-sa
 
 # add an on_enter command to the default mode
-yabai -m config active_window_border_color 0xff775759
-yabai -m window --toggle border
+# yabai -m config active_window_border_color 0xff775759
+# yabai -m window --toggle border
 
 
 yabai -m config \
     debug_output on \
     layout bsp \
-    window_border on \
-    window_border_width 2 \
-    auto_balance on \
     top_padding    14 \
     bottom_padding 14 \
     left_padding   14 \
     right_padding  14 \
     window_gap     14 \
-    window_shadow float \
     auto_balance off \
-    split_ratio 0.5 \
-    focus_follows_mouse autoraise
+    split_ratio 0.5
+
+    # window_border on \
+    # window_border_width 3 \
+    # focus_follows_mouse autoraise
 
 # rules
-yabai -m rule --add app="^System Settings$" sticky=on manage=off
-yabai -m rule --add app="^WezTerm$" title="^qalc$" sticky=on manage=off 
+yabai -m rule --add app="^System Settings$" manage=off 
+yabai -m rule --add app="^Dictionary$" manage=off grid=6:4:1:1:2:4
+yabai -m rule --add app="^WezTerm$" title="^qalc$" manage=off grid=4:6:2:1:1:2
+yabai -m rule --add app="^WezTerm$" title="^lf$" manage=off grid=6:4:1:1:1:4
+yabai -m rule --add app="^Pastebot$" sticky=on manage=off 
+yabai -m rule --add app="^Carbon Copy Cloner$" manage=off 
+
+
