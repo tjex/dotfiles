@@ -4,6 +4,8 @@
 
 ignored/
 
+.config/abook/addressbook
+.config/abook/addressbook~
 .config/asciinema
 .config/nvim/plugin/packer_compiled.lua
 .config/zsh/.zcompdump
