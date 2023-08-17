@@ -1,6 +1,6 @@
 # vim: filetype=sh
 
-# directories
+# common directories
 alias \
     cac="cd ${HOME}/.cache && ls -A" \
     cf="cd ${XDG_CONFIG_HOME} && ls -A" \
@@ -12,7 +12,12 @@ alias \
     i="cd ${TJROOT}/images && ls -A" \
     l="cd ${HOME}/.local/ && ls -A" \
     vol="cd /Volumes && ls -A" \
-    obs="cd ${TJROOT}/obsidian/paradigm-shifted && ls"
+
+# projects / personal
+alias \
+    obs="cd ${TJROOT}/obsidian/paradigm-shifted && ls" \
+    web="cd ${TJROOT}/dev/personal/websites && ls" \
+    tjex.net="cd ${TJROOT}/dev/personal/websites/tjex.net && ls"
 
 # open with editor
 alias \

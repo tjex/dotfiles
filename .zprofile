@@ -36,6 +36,7 @@ export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
 export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite_history"
 export NVM_DIR="$XDG_DATA_HOME/nvm"
 export GPGKEY="45FC951C7A7F24C4A6AA566F28AADCA2EF680971"
+GPG_TTY=$(tty) ; export GPG_TTY
 
 # Other program settings:
 export LESSHISTFILE="-"
