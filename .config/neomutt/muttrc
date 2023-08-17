@@ -1,7 +1,7 @@
 # vim: filetype=neomuttrc
 source /usr/local/share/mutt-wizard/mutt-wizard.muttrc
-source /Users/tjex/.config/mutt/accounts/tillmanx@mailbox.org.muttrc
-macro index,pager i1 '<sync-mailbox><enter-command>source /Users/tjex/.config/mutt/accounts/tillmanx@mailbox.org.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to tillmanx@mailbox.org"
+source /Users/tjex/.config/neomutt/accounts/tillmanx@mailbox.org.muttrc
+macro index,pager i1 '<sync-mailbox><enter-command>source /Users/tjex/.config/neomutt/accounts/tillmanx@mailbox.org.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to tillmanx@mailbox.org"
 
 set color_directcolor = yes
 set date_format = "%d-%m-%y"
@@ -42,25 +42,27 @@ alternates t-subs@mailbox.org
 alternates tjex@tjex.net
 alternates rgsz8di2uba@temp.mailbox.org
 
+# fields formatting
 ignore * #ignore all headers, to then unignore desired ones
 unignore from date subject to cc
 hdr_order From Date: From: To: Cc: Subject:
 
 # hooks for tillmanx
-folder-hook inbox "source ~/.config/mutt/profiles/profile.tillmanx"
-reply-hook "~t tillmanx@mailbox.org" 'source ~/.config/mutt/accounts/tillmanx@mailbox.org.muttrc'
+folder-hook inbox "source ~/.config/neomutt/profiles/profile.tillmanx"
+reply-hook "~t tillmanx@mailbox.org" 'source ~/.config/neomutt/accounts/tillmanx@mailbox.org.muttrc'
 
 # hooks for tjex
-folder-hook tjexnet "source ~/.config/mutt/profiles/profile.tjex"
-reply-hook "~t tjex@tjex.net" 'source ~/.config/mutt/profiles/profile.tjex'
+folder-hook tjexnet "source ~/.config/neomutt/profiles/profile.tjex"
+reply-hook "~t tjex@tjex.net" 'source ~/.config/neomutt/profiles/profile.tjex'
 
 # hooks for t-accounts
-folder-hook accounts "source ~/.config/mutt/profiles/profile.t-accounts"
-reply-hook "~t t-accounts@mailbox.org" 'source ~/.config/mutt/profiles/profile.t-accounts'
+folder-hook accounts "source ~/.config/neomutt/profiles/profile.t-accounts"
+reply-hook "~t t-accounts@mailbox.org" 'source ~/.config/neomutt/profiles/profile.t-accounts'
 
 # hooks for disposable
-folder-hook disposable "source ~/.config/mutt/profiles/profile.disposable"
-reply-hook "~t rgsz8di2uba@temp.mailbox.org" 'source ~/.config/mutt/profiles/profile.disposable'
+folder-hook disposable "source ~/.config/neomutt/profiles/profile.disposable"
+reply-hook "~t rgsz8di2uba@temp.mailbox.org" 'source ~/.config/neomutt/profiles/profile.disposable'
 
-source ~/.config/mutt/colors
+source ~/.config/neomutt/colors
+source ~/.config/neomutt/aliases
 

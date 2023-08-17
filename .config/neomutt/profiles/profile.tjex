@@ -6,6 +6,6 @@ set realname = "Tillman Jex"
 set from = "tjex@tjex.net"
 set sendmail = "msmtp -a tillmanx@mailbox.org"
 set record = "+Sent/sent-tjex"
-set signature = '~/.config/mutt/profiles/tjex.sig'
+set signature = '~/.config/neomutt/profiles/tjex.sig'
 alias me tjex <tjex@tjex.net>
 

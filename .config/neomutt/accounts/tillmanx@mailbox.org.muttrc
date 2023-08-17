@@ -14,7 +14,7 @@ set spoolfile = "+INBOX"
 set postponed = "+Drafts"
 set trash = "+Trash"
 set record = "+Sent/sent-tillx"
-set signature = '~/.config/mutt/profiles/default.sig'
+set signature = '~/.config/neomutt/profiles/default.sig'
 
 macro index o "<shell-escape>mailsync tillmanx@mailbox.org<enter>" "sync tillmanx@mailbox.org"
 mailboxes "=Inbox"
