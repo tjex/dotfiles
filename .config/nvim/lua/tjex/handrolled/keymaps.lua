@@ -30,14 +30,14 @@ key("n", "W", ":w!<CR>", opts)
 key("n", "<leader>cd", ":cd %:h<CR>", opts)
 
 -- text operations
-key("n", "˚", "mzJ`z", opts) -- append below to current line and leave cursor where it is
+key("n", "<leader>k", "mzJ`z", opts)      -- append below to current line and leave cursor where it is
 key("x", "<leader>p", '"_d<Left>p', opts) -- paste over text and keep same item in paste buffer
-key("n", "<leader>y", '"+y', opts) -- copy to sys clipboard
+key("n", "<leader>y", '"+y', opts)        -- copy to sys clipboard
 key("v", "<leader>y", '"+y', opts)
-key("n", "x", '"_x', opts) -- stop 'x' from adding to paste regsiter
+key("n", "x", '"_x', opts)                -- stop 'x' from adding to paste regsiter
 key("n", "Z", "1z=e", opts)
-key("n", "fp", "mzvapgq`z", opts) -- format paragraph and leave cursor where it was
-key("n", "fl", "mzgqq`z", opts) -- format line and leave cursor where it was
+key("n", "fp", "mzvapgq`z", opts)         -- format paragraph and leave cursor where it was
+key("n", "fl", "mzgqq`z", opts)           -- format line and leave cursor where it was
 
 -- thanks Prime. Replace mode using the word you were currently on
 key("n", "<leader>r", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/<Left>")
@@ -103,8 +103,8 @@ end)
 key("n", "<C-4>", function()
     ui.nav_file(4)
 end)
-key("n", "<S-k>", ui.nav_next)
-key("n", "<S-j>", ui.nav_prev)
+key("n", "K", ui.nav_next)
+key("n", "J", ui.nav_prev)
 
 -- DAP
 key("n", "<leader>b", ":DapToggleBreakpoint<CR>", opts)
