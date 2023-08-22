@@ -73,4 +73,8 @@ color underline black default
 # Regexes
 color body $my_bg_text default "[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+" # Email addresses
 color body $my_bg_text default "((https?|ftp)://|www\.)[\-\.,/%~_:?&=\#a-zA-Z0-9]+" # links
-
+color body $my_text default "^(\t| )*(-|\\*) \.*" # List items as yellow
+color body $my_text default "[;:][-o][)/(|]" # emoticons
+color body $my_text default "[;:][)(|]" # emoticons
+color body $my_text default "[ ][*][^*]*[*][ ]?" # more emoticon?
+color body $my_text default "[ ]?[*][^*]*[*][ ]" # more emoticon?

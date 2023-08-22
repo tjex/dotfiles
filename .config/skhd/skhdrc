@@ -4,12 +4,11 @@
 # https://github.com/koekeishiya/skhd/issues/1
 
 # mac builtin Applications must be opened with `open -a`
-alt + cmd - b : "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
+alt + cmd - w : "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
 alt + cmd - return : Applications/WezTerm.app/Contents/MacOS/wezterm
 alt + cmd - d : open -a Dictionary
 alt + cmd - 0x29 : /Applications/WezTerm.app/Contents/MacOS/wezterm start qalc # 0x29 is ;
 alt + cmd - e : /Applications/WezTerm.app/Contents/MacOS/wezterm start lf ~/tjroot
-
 
 # windows
 alt + cmd - h : yabai -m window --focus west
@@ -22,7 +21,7 @@ ctrl + alt + cmd - 1 : yabai -m window --space 1
 ctrl + alt + cmd - 2 : yabai -m window --space 2
 ctrl + alt + cmd - 3 : yabai -m window --space 3
 
-alt + cmd - q : yabai -m space --balance
+alt + cmd - b : yabai -m space --balance
 
 alt + cmd - 1 : yabai -m space --focus 1
 alt + cmd - 2 : yabai -m space --focus 2
