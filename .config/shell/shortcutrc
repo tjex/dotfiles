@@ -15,6 +15,7 @@ alias \
 
 # projects / personal
 alias \
+    tjr="cd ${TJROOT} && ls" \
     obs="cd ${TJROOT}/obsidian/paradigm-shifted && ls" \
     web="cd ${TJROOT}/dev/personal/websites && ls" \
     tjex.net="cd ${TJROOT}/dev/personal/websites/tjex.net && ls"

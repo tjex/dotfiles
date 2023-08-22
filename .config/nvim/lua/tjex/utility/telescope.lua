@@ -24,9 +24,6 @@ require('telescope').setup {
     pickers = {
         find_files = {
             previewer = false,
-        },
-        live_grep = {
-            previewer = false,
         }
     },
     extensions = {

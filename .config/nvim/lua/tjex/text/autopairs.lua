@@ -1,16 +1,14 @@
-local ok, _ = pcall(require, "nvim-autopairs" )
+local ok, _ = pcall(require, "nvim-autopairs")
 if not ok then
     print('nvim-autopairs not ok!')
     return
 end
 
--- autopairs windwp/nvim-autopairs
--- local Rule = require('nvim-autopairs.rule')
--- local npairs = require('nvim-autopairs')
-
+local getRule = require("nvim-autopairs").get_rules
 
 require('nvim-autopairs').setup({
     disable_filetype = { "TelescopePrompt" },
 })
 
-
+-- leaving here as an example of what works
+-- getRule("`")[1].not_filetypes = { "markdown" }
