@@ -37,7 +37,8 @@ return require("packer").startup(function(use)
         "junegunn/vim-easy-align",
         "windwp/nvim-autopairs",
         "numToStr/Comment.nvim",
-        { "danymat/neogen", tag = "*" },
+        { "danymat/neogen",   tag = "*" },
+        { "L3MON4D3/LuaSnip", tag = "v2.*" },
         {
             "kylechui/nvim-surround",
             tag = "*", -- Use for stability; omit to use `main` branch for the latest features
@@ -56,6 +57,18 @@ return require("packer").startup(function(use)
         "nvim-telescope/telescope-dap.nvim",
         "christoomey/vim-tmux-navigator",
         "ton/vim-bufsurf",
+        -- completion
+        "hrsh7th/cmp-buffer",
+        "hrsh7th/nvim-cmp",
+        "hrsh7th/cmp-path",
+        "hrsh7th/cmp-nvim-lsp",
+        "saadparwaiz1/cmp_luasnip",
+    })
+
+    -- integrations
+    use({
+        "epwalsh/obsidian.nvim",
+        requires = { "nvim-lua/plenary.nvim", },
     })
 
     -- dap

@@ -50,7 +50,7 @@ trefg() {
 }
 
 tlogs() {
-    if result=($(fd ${HOME}/tjroot/logs | fzf )); then
+    if result=($(fd . ${HOME}/tjroot/logs | fzf )); then
         nvim $result
     else
         return
@@ -63,6 +63,15 @@ tnotes() {
     else
         return
     fi
+}
+
+tlists() {
+    if result=($(fd . ${HOME}/tjroot/lists | fzf )); then
+        nvim $result
+    else
+        return
+    fi
+
 }
 
 gremote() {
