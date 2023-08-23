@@ -30,7 +30,7 @@ key("n", "W", ":w!<CR>", opts)
 key("n", "<leader>cd", ":cd %:h<CR>", opts)
 
 -- text operations
-key("n", "<leader>k", "mzJ`z", opts)      -- append below to current line and leave cursor where it is
+key("n", "<M-k>", "mzJ`z", opts)          -- append below to current line and leave cursor where it is
 key("x", "<leader>p", '"_d<Left>p', opts) -- paste over text and keep same item in paste buffer
 key("n", "<leader>y", '"+y', opts)        -- copy to sys clipboard
 key("v", "<leader>y", '"+y', opts)
