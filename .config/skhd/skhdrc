@@ -12,24 +12,38 @@ alt + cmd - e : /Applications/WezTerm.app/Contents/MacOS/wezterm start lf ~/tjro
 
 alt + cmd - f : yabai -m window --toggle zoom-fullscreen
 
-# windows
+# yabai
 alt + cmd - h : yabai -m window --focus west
 alt + cmd - j : yabai -m window --focus south
 alt + cmd - k : yabai -m window --focus north
 alt + cmd - l : yabai -m window --focus east
 
-ctrl + alt + cmd - h : yabai -m window --swap west
-ctrl + alt + cmd - l : yabai -m window --swap east
+shift + alt + cmd - h : yabai -m window --swap west
+shift + alt + cmd - l : yabai -m window --swap east
 
 alt + cmd - t : yabai -m window --toggle split
 
-ctrl + alt + cmd - 1 : yabai -m window --space 1
-ctrl + alt + cmd - 2 : yabai -m window --space 2
-ctrl + alt + cmd - 3 : yabai -m window --space 3
+shift + alt + cmd - 1 : yabai -m window --space 1
+shift + alt + cmd - 2 : yabai -m window --space 2
+shift + alt + cmd - 3 : yabai -m window --space 3
+shift + alt + cmd - 3 : yabai -m window --space 4
+shift + alt + cmd - 3 : yabai -m window --space 5
+shift + alt + cmd - 3 : yabai -m window --space 6
+shift + alt + cmd - 3 : yabai -m window --space 7
+shift + alt + cmd - 3 : yabai -m window --space 8
+shift + alt + cmd - 3 : yabai -m window --space 9
+
+shift + alt + cmd - r : yabai --restart-service
 
 alt + cmd - b : yabai -m space --balance
 
 alt + cmd - 1 : yabai -m space --focus 1
 alt + cmd - 2 : yabai -m space --focus 2
 alt + cmd - 3 : yabai -m space --focus 3
+alt + cmd - 4 : yabai -m space --focus 3
+alt + cmd - 5 : yabai -m space --focus 3
+alt + cmd - 6 : yabai -m space --focus 3
+alt + cmd - 7 : yabai -m space --focus 3
+alt + cmd - 8 : yabai -m space --focus 3
+alt + cmd - 9 : yabai -m space --focus 3
 
