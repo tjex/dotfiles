@@ -189,6 +189,7 @@ Group.new('NvimTreeWindowPicker', groups.tab_focus)
 Group.new('NvimTreeRootFolder', colors.soft_red, nil)
 Group.new('NvimTreeEndOfBuffer', colors.bground)
 Group.new('NvimTreeIndentMarker', colors.gray_3)
+Group.new('NvimTreeSpecialFile', colors.gray_0)
 
 Group.new('NvimTreeGitNew', colors.gray_4)
 Group.new('NvimTreeGitDirty', colors.gray_4)
