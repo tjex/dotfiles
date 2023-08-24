@@ -10,7 +10,7 @@ alt + cmd - d : open -a Dictionary
 alt + cmd - 0x29 : /Applications/WezTerm.app/Contents/MacOS/wezterm start qalc # 0x29 is ;
 alt + cmd - e : /Applications/WezTerm.app/Contents/MacOS/wezterm start lf ~/tjroot
 
-alt + cmd - f : yabai -m window --toggle native-fullscreen
+alt + cmd - f : yabai -m window --toggle zoom-fullscreen
 
 # windows
 alt + cmd - h : yabai -m window --focus west
