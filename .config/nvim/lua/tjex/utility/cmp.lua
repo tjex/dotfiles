@@ -5,6 +5,7 @@ if not ok then
 end
 
 local cmp = require 'cmp'
+local lspkind = require 'lspkind'
 
 cmp.setup({
     snippet = {
@@ -13,7 +14,7 @@ cmp.setup({
         end,
     },
     window = {
-        completion = cmp.config.window.bordered(),
+        -- completion = cmp.config.window.bordered(),
         -- documentation = cmp.config.window.bordered(),
     },
     mapping = cmp.mapping.preset.insert({
@@ -29,14 +30,37 @@ cmp.setup({
         ['<cr>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     }),
     sources = cmp.config.sources({
-        { name = 'nvim-lsp' },
+        { name = 'nvim_lsp' },
+        { name = 'nvim_lua' },
         { name = 'path' },
         { name = 'luasnip' },
         { name = 'buffer',  keyword_length = 5 },
     }, {
         { name = 'buffer' },
-    })
+    }),
+
+    formatting = {
+        format = lspkind.cmp_format({
+            mode = 'symbol_text',
+            maxwidth = 50,
+            ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+            menu = {
+                buffer = "[buf]",
+                nvim_lsp = "[LSP]",
+                nvim_lua = "[api]",
+                path = "[path]",
+                luasnip = "[snip]",
+            },
+
+            -- The function below will be called before any actual modifications from lspkind
+            -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
+            before = function(entry, vim_item)
+                return vim_item
+            end
+        })
+    }
 })
+
 
 
 -- -- Set configuration for specific filetype.
@@ -73,5 +97,8 @@ cmp.setup({
 --     capabilities = capabilities
 -- }
 -- require('lspconfig')['stylelint_lsp'].setup {
+--     capabilities = capabilities
+-- }
+-- require('lspconfig')['gopls'].setup {
 --     capabilities = capabilities
 -- }

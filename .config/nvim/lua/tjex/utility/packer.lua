@@ -30,6 +30,7 @@ return require("packer").startup(function(use)
         { "rose-pine/neovim",          as = 'rose-pine' },
         { "jesseleite/nvim-noirbuddy", requires = { "tjdevries/colorbuddy.nvim", branch = "dev" } },
         'lukas-reineke/indent-blankline.nvim',
+        "onsails/lspkind.nvim",
     })
 
     -- text
@@ -58,8 +59,9 @@ return require("packer").startup(function(use)
         "christoomey/vim-tmux-navigator",
         "ton/vim-bufsurf",
         -- completion
-        "hrsh7th/cmp-buffer",
         "hrsh7th/nvim-cmp",
+        "hrsh7th/cmp-nvim-lua",
+        "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-path",
         "hrsh7th/cmp-nvim-lsp",
         "saadparwaiz1/cmp_luasnip",
