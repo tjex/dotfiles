@@ -97,26 +97,6 @@ end)
 key("n", "K", ui.nav_next)
 key("n", "J", ui.nav_prev)
 
--- luasnip
-local ls = require("luasnip")
-key({ "i", "s" }, "<c-k>", function()
-    if ls.expand_or_jumpable() then
-        ls.expand_or_jump()
-    end
-end, { silent = true })
-
-key({ "i", "s" }, "<c-j>", function()
-    if ls.jumpable(-1) then
-        ls.jump(-1)
-    end
-end, { silent = true })
-
-key({ "i", "s" }, "<c-l>", function()
-    if ls.choice_active() then
-        ls.change_choice(1)
-    end
-end, { silent = true })
-
 -- nvim-tree
 key("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 key("n", "<ESC>", ":NvimTreeClose<CR>", opts)
