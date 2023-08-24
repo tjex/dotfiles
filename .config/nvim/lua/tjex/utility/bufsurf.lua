@@ -1,2 +1,0 @@
-
-vim.g.BufSurfMessages = false;
