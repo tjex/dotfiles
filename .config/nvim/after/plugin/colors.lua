@@ -4,6 +4,7 @@
 
 -- tip: run ":so $VIMRUNTIME/syntax/hitest.vim" to see highlight naming and their set colors. Handy!
 
+
 local Color, colors, Group, groups, styles = require('colorbuddy').setup()
 Color.new('yellow', '#a6864d')
 Color.new('burnt_yellow', '#a6794d')
