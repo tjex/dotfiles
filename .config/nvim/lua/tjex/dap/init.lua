@@ -3,4 +3,3 @@
 
 require('tjex.dap.nvim-dap')
 require('tjex.dap.dapui')
-require('tjex.dap.nvim-dap-go')

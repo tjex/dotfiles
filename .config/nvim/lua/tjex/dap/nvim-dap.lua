@@ -6,6 +6,14 @@ if not ok then
 end
 
 local dap = require('dap')
+local key = vim.keymap.set
+local opts = { noremap = true, silent = true }
+
+key("n", "<leader>b", ":DapToggleBreakpoint<CR>", opts)
+key("n", "%", ":DapStepOver<CR>", opts)
+key("n", "$", ":DapStepInto<CR>", opts)
+key("n", "#", ":DapStepOut<CR>", opts)
+key("n", "<leader>d", function() require 'telescope'.extensions.dap.commands {} end, opts)
 
 dap.adapters["pwa-node"] = {
     type = "server",
