@@ -68,6 +68,7 @@ local function lsp_keymaps(client, bufnr)
     end
 end
 
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lsp_attach = function(client, bufnr)
     if client.name == "tsserver" then
         client.server_capabilities.document_formatting = false
@@ -75,6 +76,7 @@ local lsp_attach = function(client, bufnr)
     lsp_keymaps(client, bufnr)
     lsp_highlight_document(client)
     client.server_capabilities.document_formatting = true
+    capabilities = capabilities
 end
 
 require('mason-lspconfig').setup_handlers({
