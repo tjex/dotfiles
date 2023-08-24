@@ -1,1 +1,0 @@
-require('tjex.integrations.obsidian')
