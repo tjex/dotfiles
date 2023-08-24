@@ -6,6 +6,7 @@ end
 
 local key = vim.keymap.set
 local opts = { noremap = true, silent = true }
+local tb = require("telescope.builtin")
 
 key("n", "sb", tb.buffers, opts)
 key("n", "sc", tb.commands, opts)

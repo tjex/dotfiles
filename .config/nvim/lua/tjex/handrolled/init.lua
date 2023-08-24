@@ -1,5 +1,0 @@
-require('tjex.handrolled.funcs')
-require('tjex.handrolled.autocmds')
-require('tjex.handrolled.commands')
-require('tjex.handrolled.keymaps')
-require('tjex.handrolled.vim-opt')

@@ -1,5 +1,4 @@
 -- utility init
-vim.g.BufSurfMessages = false;
 
 require("tjex.utility.cmp")
 require("tjex.utility.harpoon")

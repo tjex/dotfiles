@@ -11,7 +11,6 @@ local opts = { noremap = true, silent = true }
 key("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 key("n", "<ESC>", ":NvimTreeClose<CR>", opts)
 key("n", "<leader>l", ":NvimTreeFindFile!<CR>", opts)
-
 -- Please see https://github.com/nvim-tree/nvim-tree.lua/wiki/Migrating-To-on_attach for assistance in migrating.
 local function on_attach(bufnr)
     local api = require('nvim-tree.api')

@@ -45,7 +45,7 @@ end
 
 local function lsp_keymaps(client, bufnr)
     -- See `:help vim.lsp.*` for documentation on any of the below functions
-    local funcs = require("tjex.handrolled.funcs")
+    local funcs = require("tjex.inits.funcs")
     local bufopts = { noremap = true, silent = true, buffer = bufnr }
     local key = vim.keymap.set
     local auto = vim.api.nvim_create_autocmd
