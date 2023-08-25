@@ -6,7 +6,8 @@ macro index,pager i1 '<sync-mailbox><enter-command>source /Users/tjex/.config/mu
 set color_directcolor = yes
 set date_format = "%d-%m-%y"
 set index_format = "%2C %Z %?X?A& ? %[$date_format] %-20.20n %s"
-set use_threads = yes
+set sort = date # sort by date descending
+set use_threads = reverse # threads need to then be sorted in 'reverse' (ascending) to have the newest at the top
 set editor = "nvim"
 
 set sidebar_width = 25
@@ -14,6 +15,7 @@ set sidebar_short_path                  # Shorten mailbox names
 set sidebar_delim_chars="/"             # Delete everything up to the last / character
 set sidebar_folder_indent               # Indent folders whose names we've shortened
 set sidebar_indent_string="  "          # Indent with two spaces
+
 
 # BINDS
 bind index,pager \Cl sidebar-open
