@@ -1,0 +1,1798 @@
+.\" Copyright (C) 2011 Ben Dowling <http://www.coderholic.com/pyradio>
+.\" Copyright (C) 2018-2023 Spiros Georgaras <sng@hellug.gr>
+.\" This manual is freely distributable under the terms of the GPL.
+.\"
+.TH pyradio 1 "July 2023" pyradio
+
+.SH Name
+.PP
+pyradio \- a curses Internet radio player.
+
+.SH Synopsis
+.PP
+\fBpyradio\fR\ [\fIOPTIONS\fR]
+
+.SH Description
+.PP
+.B pyradio
+is a command line Internet Radio Player based on curses, that uses external media players to perform the actual playback.
+.PP
+It currently supports the following players: \fIMPV\fR, \fIMPlayer\fR and \fIVLC\fR.
+
+.SH Options
+
+.IP \fB-c\fR\ [\fICONFIG\fR],\ \fB\ \--config-dir\ \fR[\fICONFIG\fR]
+Use specified configuration directory instead of the default one. \fBpyradio\fR will try to create it, if it does not exist. Not available on Windows.
+.IP \fB-s\fR,\fB\ \--stations\ \fR[\fISTATIONS\fR]
+Use specified station CSV file.
+.IP \fB-p\fR,\fB\ \--play\ \fR\<\fIPLAY\fR\>
+Play station number \fR\<\fIPLAY\fR\>. Select randome station if \fR\<\fIPLAY\fR\> not specified.
+.IP \fB-u\fR,\fB\ \--use-player\ \fR[\fIUSE_PLAYER\fR]
+Specify which player to use (\fImpv\fR,\ \fImplayer\fR\ or\ \fIvlc\fR). A comma-separated list of players can be givven, thus specifying detection order.
+.IP \fB-a\fR,\fB\ \--add
+Add station to list.
+.IP \fB-ls\fR,\fB\ \--list-playlists
+List of available playlists in config dir.
+.IP \fB-l\fR,\fB\ \--list
+List of available stations in a playlist.
+.IP \fB-t\fR\ \fITHEME\fR,\ \fB--theme\fR\ \fITHEME\fR
+Use specified \fITHEME\fR.
+.IP \fB--show-themes\fR
+Show \fIInternal\fR and \fISystem Themes\fR names.
+.IP \fB--no-themes\fR
+Disable themes (use default theme).
+.IP \fB--write-theme\ \fIIN_THEME\ OUT_THEME\fR
+Write an \fIInternal\fR or \fISystem Theme\fR to themes directory.
+.IP \fB--terminal\ \fITERMINAL\fR
+Use this terminal for Desktop file instead of the auto-detected one. Use "none" to reset to the default terminal, or "\fIauto\fR" to reset to the auto-detected one.
+.IP \fB--terminal-param\ \fITERMINAL_PARAM\fR
+Use this as \fBpyradio\fR parameter in the Desktop File. Please replace hyphens with underscores when passing the parameter, for example: \fI--terminal-param\fR "\fB_p 3 _t light\fR" (which will result to "\fIpyradio \fB-p 3 -t light\fR").
+.IP \fB-tlp\fR,\ \fB--toggle-load-last-playlist
+Toggle autoload last opened playlist.
+.IP \fB-scd\fR,\fB--show-config-dir\fR
+Print config directory (\fI[CONFIG DIR]\fR) location and exit.
+.IP \fB-ocd\fR,\fB--open-config-dir\fR
+Open config directory (\fI[CONFIG DIR]\fR) with default file manager.
+.IP \fB-ep\ \fIEXTRA_PLAYER_PARAMETERS\fR,\ \fB--extra_player_parameters\ \fIEXTRA_PLAYER_PARAMETERS\fR
+Provide extra player parameters as a string. For more information, refer to the \fBEXTRA PLAYER PARAMETERS\fR section.
+.IP \fB-ap\fR\ \fIACTIVE_PLAYER_PARAM_ID\fR,\ \fB--active-player-param-id\fR\ \fIACTIVE_PLAYER_PARAM_ID\fR
+Specify the extra player parameter set to be used with the default player. \fIACTIVE_PLAYER_PARAM_ID\fR is 1-11.
+.IP \fB-lp
+List extra players parameters.
+.IP \fB|\ \fR(\fBVertical\ line\fR\ or\ \fBPipe\ symbol\fR)
+Enable / disable recording.
+.IP \fB-U\fR,\ \fB--update\fR
+Update \fBpyradio\fR.
+.IP \fB-R\fR,\ \fB--uninstall\fR
+Uninstall \fBpyradio\fR.
+.IP \fB-oc\fR,\ \fB--open-cache\fR
+Open the Cache folder.
+.IP \fB-sc\fR,\ \fB--show-cache\fR
+Show Cache contents.
+.IP \fB-cc\fR,\ \fB--clear-cache\fR
+Clear Cache contents.
+.IP \fB-gc\fR,\ \fB--get-cache\fR
+Download source code, keep it in the cache and exit.
+.IP \fB--unlock
+Remove sessions' lock file.
+.IP \fB-us\fR,\ \fB--update_stations
+Update "\fIstations.csv\fR" (if needed).
+.IP \fB-lt\fR,\ \fB--log-titles\fR
+Log titles to file.
+.IP \fB-d\fR,\fB\ \--debug
+Enable \fBDEBUG MODE\fR.
+.IP \fB-h\fR,\fB\ \--help
+Show usage information and exit.
+
+.RE
+.PP
+The following options can also be set in \fBpyradio\fR’s configuration file:
+.RS 5
+.IP \fB-s\fR
+parameter \fIdefault_playlist\fR (default value: \fBstations\fR)
+.IP \fB-p\fR
+parameter \fIdefault_station\fR (default value: \fB-1\fR)
+.IP \fB-u\fR
+parameter \fIplayer\fR (default value: \fBmpv, mplayer, vlc\fR)
+.RE
+.SH Controls
+
+.IP \fBUp\fR/\fBDown\fR/\fBPgUp\fR/\fBPgDown
+Change station selection
+.IP \fBj\fR/\fBk
+Change station selection (vi-like)
+.IP \fBEnter\fR/\fBRight\fR/\fBl
+Play selected station
+.IP \fBr
+Select and play a random station
+.IP \fBSpace\fR/\fBLeft\fR/\fBh
+Stop/start playing selected station
+.IP \fBP\fR
+Jump to playing station
+.IP \fBH\ M\ L
+Jump to top / middle / bottom of screen
+.IP \fBg
+Jump to the start of the playlist
+.IP \fI<n>\fBG
+Jump to the end of the playlist
+.br
+If \fI<n>\fR (line number) was entered, jump to it
+.IP \fB-\fR/\fB+\fR\ or\ \fB,\fR/\fB.
+Change volume
+.IP \fBm
+Mute
+.IP \fBv
+Save volume (\fIMPV\fR and \fIMPlayer\fR only)
+.IP \fBo\ s\ R
+\fBO\fIpen\fR / \fBS\fIave\fR / \fBR\fIeload\fR playlist
+.IP \fBa\ A\fR
+Add / append a new station
+.IP \fBe\fR
+Edit current station
+.IP \fBE\fR
+Change current station's encoding
+.IP \fBDEL\fR,\fBx
+Delete selected station
+.IP \fBO\fR
+Open \fIRadio Browser\fR
+.IP \fB<\fR\ /\ \fB>\fR
+Browse the \fIStations history\fR list
+.IP \fBJ
+Create a \fIJump tag
+.IP \fI<n>\fB^U\fR,\fI<n>\fB^D
+Move current station up / down
+.br
+If \fI<n>\fR (line number) was entered, or a \fIJump tag\fR has been defined, move the station there
+.IP \fBt
+Open the \fITheme Selection\fR window
+.IP \fBT
+Toggle background transparency
+.IP \fBc
+Open the \fIConfiguration window
+.IP \fB'\ \\\\\ y\fR
+Get into \fIRegisters\fR, \fIExtra Commands\fR, \fIYank\fR mode, respectively
+.IP \fBz\fR
+Toggle "Force http connections"
+.IP \fBZ\fR
+Display the "Extra Player Parameters" window.
+.IP \fB?
+Show keys help
+.IP \fBEsc\fR/\fBq
+Quit
+
+.P
+The same logic applies to all \fBpyradio\fR windows.
+
+.IP \fBNote:
+When inserting numbers (either to jump to a station or to move a station), the number will be displayed at the right bottom corner of the window, suffixed by a "\fIG\fR", i.e. pressing \fI35\fR will display \fI[35G]\fR.
+
+.IP \fBNote:
+When tagging a station position for a move action (by pressing "\fBJ\fR"), the position will be displayed at the right bottom corner of the window, suffixed by a "\fIJ\fR", i.e. pressing "\fIJ\fR" on position \fI35\fR will display \fI[35J]\fR.
+
+.IP \fBGlobal\ shortcuts\fR
+
+Some of the functions provided by \fBpyradio\fR will always be available to the user. These functions are:
+
+
+.RS 10
+
+.IP \fB+\fR/\fB-\fR\ and\ \fB,\fR/\fB.\fR
+adjust volume
+.IP \fBm\fR
+mute player
+.IP \fBv\fR
+save volume
+.IP \fBT\fR
+toggle transparency
+.IP \fBW\fR
+toggle title logging
+.IP \fBw\fR
+like a station
+.IP \fB^N\fR\//\fB^P\fR\ [\fI1\fR]\ [\fI2\fR]
+play next / previous station
+.IP \fB<\fR\//\fB>\fR\ [\fI1\fR]
+play next / previous station history entry
+
+.RE
+.RS 7
+Every window in \fBpyradio\fR will respect these shortcuts, even the ones with a “\fIPress any key to…\fR” message.
+
+When focus is on a \fBLine editor\fR, all shortcuts will work when preceded by a "\fI\\\fR".
+
+\fBNotes\fR
+
+.RS 3
+.IP [\fI1\fR]
+Function not available when in \fBPlaylist\fR and \fBRegisters\fR mode. More info on \fBpyradio's modes\fR below.
+
+.IP [\fI2\fR]
+Function not available in the \fBRadio Browser\fR Search window.
+.RE
+
+.SH Pyradio's Modes
+
+\fBpyradio\fR has the following primary modes:
+
+.RS 5
+.IP 1. 3
+The \fBMain\fR mode, which is the one you get when you open the program, showing you a list of stations (a playlist), that you can play and edit; this is why it is also called the \fBediting mode\fR. All other modes derive from this one, and it's the mode you have to get to in order to terminate the program.
+
+.IP 2. 3
+The \fBPlaylist\fR mode, which you can open by pressing "\fBo\fR". Then you can open, create, paste a station, etc.
+
+.IP 3. 3
+The \fBRegisters\fR mode. This is identical to the "\fIPlaylist\fR" mode, but instead of displaying playlists, it displays register. You can enter this mode by pressing "\fB''\fR" (two single quotes) and exit from it by pressing "\fBEsc\fR" or "\fBq\fR". You can also press "\fB'\fR" (single quote) to get to the "\fIPlaylist\fR" mode and back.
+
+.IP 4. 3
+The \fBRegister Main\fR mode, which is identical to the "\fIMain\fR" mode, except it displays the content of a \fBnamed\fR register.
+
+.IP 5. 3
+The \fBListening\fR mode, which is intended to be used when you want \fBpyradio\fR to just play your favorite station and not take up too much space. It is ideal for tilling window manager use, as the whole TUI can be reduced all the way down to a single line (displaying the "\fIStatus Bar\fR"). In this mode, adjusting, muting and saving the volume are the only actions available. To get \fBpyradio\fR back to normal operation one would just resize its window to a reasonable size (7 lines vertically, or more).
+
+.RE
+
+
+A set of \fBsecondary modes\fR is also available (a secondary mode works within a primary one):
+
+.RE
+.RS 5
+.IP 1. 3
+The \fBExtra Commands\fR mode, which gives you access to extra commands. You can enter this mode by pressing "\fB\\\fR" (backslash). Then a backslash is displayed at the bottom right corner of the window.
+
+.IP 2. 3
+The \fBYank (Copy)\fR mode, which is used to copy stations to \fBregisters\fR. You can enter this mode by pressing "\fBy\fR". Then a "\fIy\fR" is displayed at the bottom right corner of the window.
+
+.IP 3. 3
+The \fBOpen Register\fR mode, which is used to open a register or get into the \fIRegisters\fR or \fIRegister Main\fR mode. You can enter this mode by pressing "\fB'\fR" (single quote). Then a single quote is displayed at the bottom right corner of the window.
+
+.IP 4. 3
+The \fBPaste\fR mode, which is available in the \fIStation editor\fR window only. It is designed to help the user paste a URL (and optionally a station's name). Why you might ask... Well, the \fIStation editor\fR normally treats the "\fI?\fR" and "\fI\\\fR" characters as special characters (actually commands). So, if a URL which contains these characters (more frequently the "\fI?\fR" character) is pasted it will be corrupted unless the \fBPaste\fR mode is enabled.
+
+.RE
+
+The functions availabe through the \fIsecondary modes\fR are content dependant, so you can see what command is available by pressing "\fB?\fR" while within such a mode. Pressing any other key will exit the secondary mode.
+
+\fBTiling manager modes\fR
+
+.RS 5
+
+These modes are specifically designed to be used with tiling window managers, trying to face a rapid reduction of window height or width (or both).
+
+.IP 1. 3
+The \fBLimited Height\fR mode, which is automatically enabled when the window height gets \fIbelow 8 lines\fR.
+
+In this mode, only a limited information is visible and if playback is on, the volume is the only thing that can be adjusted (or muted) and saved. This is the \fBLimited display\fR.
+
+.IP 2. 3
+The \fBLimited Width\fR mode, which is automatically enabled when the window width get below certain limits:
+
+.RE
+.RS 8
+.IP a. 3
+When the width gets \fIbelow 40 columns\fR, all windows will be closed and the main window will be the only visible one (either displaying stations, playlists or registers).
+
+.IP b. 3
+When the width gets \fIbelow 20 columns\fR, the \fBLimited display\fR will be activated.
+
+.SH Config File
+\fBpyradio\fR upon its execution tries to read its configuration file (i.e. \fI~/.config/pyradio/config\fR). If this file is not found, it will be created. If an error occurs while parsing it, an error message will be displayed and \fBpyradio\fR will terminate.
+
+The file contains parameters such as the player to use, the playlist to load etc. It is heavily commented, so that manual editing is really easy. The best practice to manually edit this file is executing \fBpyradio\fR with the \fB-ocd\fR command line option, which will open the configuration directory in your file manager, and then edit it using your preferable text editor.
+
+The file can also be altered while \fBpyradio\fR is running, by pressing "\fIc\fR", which will open the "\fIConfiguration window\fR". This window presents all \fBpyradio\fR options and provide the way to change them and finally save them by pressing "\fIs\fR".
+
+In any case, \fBpyradio\fR will save the file before exiting (or in case Ctrl-C is pressed) if needed (e.g. if a config parameter has been changed during its execution).
+
+If saving the configuration file fails, \fBpyradio\fR will create a back up file and terminate. When restarted, \fBpyradio\fR will try to restore previously used settings from the said back up file.
+
+.SH About Playlist Files
+.PP
+\fBpyradio\fR reads the stations to use from a CSV file, where each line contains two columns, the first being the station name and the second being the stream URL.
+.PP
+Optionally, a third column can be inserted, stating the encoding used by the station (more on this at \fBSpecifying Stations' Encoding\fR).
+.PP
+Optionally, two more columns can be used.
+.PP
+The third column will define the encoding used by the station (more on this at \fBSpecifying Stations' Encoding\fR).
+.PP
+The fourth column will set an \fIIcon URL\fR, to be used when displaying \fBDesktop Notifiacations\fR.
+.PP
+\fBpyradio\fR will by default load the user's stations file (e.g. \fI~/.config/pyradio/stations.csv\fR). If this file is not found, it will be created and populated with a default set of stations.
+
+.IP \fBTip:
+If you already have a custom \fIstations.csv\fR file, but want to update it with \fBpyradio\fR's default one, you just rename it, run \fBpyradio\fR (so that the default one get created) and then merge the two files.
+
+.IP \fBNote:
+Older versions used to use \fI~/.pyradio\fR as default stations file. If this file is found, it will be copied to use's config directory (e.g. \fI~/.config/pyradio\fR) and renamed to \fIstations.csv\fR or if this file exists, to \fIpyradio.csv\fR. In this case, this file will be the default one.
+
+.PP
+.B
+Defining and using Groups
+
+In order to better organize stations within a (large) playlist, \fBpyradio\fR supports \fIGroups\fR.
+
+A \fIGroup\fR is defined as a normal "station" entry, whose URL field is a hyphen ("\fB-\fR"). For example, the following will define a \fBGroup Header\fR for a \fIGroup\fR called \fBBlues\fR.
+
+.RS 5
+\fIBlues,-\fR
+.RE
+
+A \fBGroup Header\fR entry does not define a station, and subsequently cannot stat a playback session. Other that that, it can be moved, copied, deleted, etc, just like any other playlist entry.
+
+To add a \fBGroup Header\fR, just press "\fBa\fR", fill in the name and type a "\fB-\fR" in the \fIURL\fR field.
+
+Navigation among \fIGroups\fR can be achieved by:
+
+.RS 5
+
+.IP \fB^E\fR\ /\ \fB^Y\fR
+Go to next / previous \fBGroup\fR.
+.IP \fB^G\fR
+Display a list of existing \fBGroups\fR to select from.
+.RE
+
+.PP
+.B
+Integrating new stations
+
+When the package's "\fIstations.csv\fR" files is updated, the changes it has will not automatically appear in the user's stations file.
+
+\fBpyradio\fR will display a message asking the user to either update the file, ignore the changes for this version or postpone his decision for the next time \fBPyRadio\fR will be executed.
+
+Either way, the user can always manually update his \fBstations file\fR, by issuing the following command:
+
+.RS 4
+\fIpyradio -us\fR
+.RE
+
+If changes have been applied, a message resembling the following will appear:
+
+.RS 4
+\fIReading config...
+.br
+Updating "\fBstations.csv\fI"
+.br
+Last updated version: \fB0.9.2\fI
+.br
+ Last synced version: \fBNone\fI
+.br
+  From version: \fB0.9.2\fI
+.br
+    +/- updating: "\fBReggae Dancehall (Ragga Kings)\fI"
+.br
+    +++   adding: "\fBGroove Salad Classic (Early 2000s Ambient)\fI"
+.br
+    +++   adding: "\fBn5MD Radio (Ambient and Experimental)\fI"
+.br
+    +++   adding: "\fBVaporwaves [SomaFM]\fI"
+.br
+    +++   adding: "\fBThe Trip: [SomaFM]\fI"
+.br
+    +++   adding: "\fBHeavyweight Reggae\fI"
+.br
+    +++   adding: "\fBMetal Detector\fI"
+.br
+    +++   adding: "\fBSynphaera Radio (Space Music)\fI"
+.br
+
+.br
+\fBSummary\fI
+.br
+    +++ added   :  \fB7\fI
+.br
+    +/- updated :  \fB1\fI
+.br
+    --- deleted :  \fB0\fI
+.br
+\fR
+.RE
+
+If the file is already up to date, the following message will be displayed:
+
+.RS 4
+\fIReading config...
+.br
+Updating "\fBstations.csv\fI"
+.br
+Last updated version: \fB0.9.2\fI
+.br
+ Last synced version: \fB0.9.2\fI
+.br
+Already synced: "\fBstations.csv\fI"
+
+.RE
+
+.PP
+.B
+Specifying a playlist to load (command line)
+
+.PP
+\fBpyradio\fR will normally load its default playlist file, as described above, upon its execution. A different file can be loaded when the \fI-s\fR command line option is used.
+
+.PP
+The \fI-s\fR option will accept:
+
+.HP
+
+\fI*\fR a relative or absolute file name.
+
+\fI*\fR the name of a playlist file which is already in its configuration directory.
+
+\fI*\fR the number of a playlist file, as provided by the \fI-ls\fR command line option.
+
+.PP
+\fBExamples:\fR
+
+.HP
+To load a playlist called "\fIblues.csv\fR", one would use the command:
+
+.RS 5
+\fBpyradio -s /path/to/\fIblues.csv\fR
+
+.RE
+If this file was saved inside \fBpyradio\fR's configuration directory, one could use the following command:
+
+.RS 5
+\fBpyradio -s \fIblues\fR
+
+.RE
+To use the playlist number, one would execute the commands:
+
+.RS 5
+
+\fBpyradio -ls\fR
+
+    Playlists found in "\fI/home/user/.config/pyradio\fR"
+.br
+    ┏━━━━┳━━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+.br
+    ┃  # ┃ Name     ┃    Size ┃ Date                     ┃
+.br
+    ┡━━━━╇━━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+.br
+    │  1 │ hip-hop  │ 6.41 KB │ Mon Nov  7 18:17:47 2022 │
+.br
+    │  2 │ party    │ 1.94 KB │ Fri Nov 29 10:49:39 2021 │
+.br
+    │  3 │ stations │ 5.30 KB │ Sat Jul 18 23:32:04 2022 │
+.br
+    │  4 │ huge     │ 1.94 MB │ Wed Oct 23 11:05:09 2019 │
+.br
+    │  \fI5\fR │ \fIblues\fR    │ 5.30 KB │ Thu Jul 16 16:30:51 2020 │
+.br
+    │  6 │ rock     │ 2.56 KB │ Fri Jan 10 00:20:07 2023 │
+.br
+    │  7 │ pop      │ 1.01 KB │ Fri Sep 18 00:06:51 2020 │
+.br
+    └────┴──────────┴─────────┴──────────────────────────┘
+
+\fBpyradio -s \fI5\fR
+
+
+.IP \fBNote\fR
+Python 2 output is much simpler, but the functionality is the same.
+
+.IP \fBNote\fR
+The default playlist to load can also be set in \fBpyradio\fR’s configuration file, parameter \fIdefault_playlist\fR (default value is \fIstations\fR).
+
+
+
+.RE
+.PP
+.B
+Autoloading playlists
+
+As already stated, \fBpyradio\fR will normally load its default playlist (called "\fBstations\fR") upon startup.
+
+This behavior can be then changed in two ways:
+
+.RS 5
+.IP 1. 3
+Changing the default playlist.
+
+This is accomplished using the "\fBDef. playlist\fR" configuration option (optionally along with the "\fBDef. station\fR" option).
+
+.IP 2. 3
+Always loading the last used playlist at startup.
+
+This is accomplished using the "\fBOpen last playlist\fR" configuration option.
+
+In this case, the last used playlist will be opened the next time \fBpyradio\fR will be executed, trying to restore the previously selected station or starting playback.
+
+This option will take precedence before the "\fBDef. playlist\fR" configuration option (if it is used) and the "\fI-s\fR" ("\fI--stations\fR") command line option.
+
+.RS 3
+.IP \fBNote:\fR
+When the "\fBOpen last playlist\fR" configuration option is set, all playlist operations will be performed to the last opened playlist. In order to use the "\fI-a\fR" ("\fI--add\fR") or "\fI-l\fR" ("\fI--list\fR") command line options along with the "\fI-s\fR" ("\fI--stations\fR") command line option, the "\fI-tlp\fR" "\fI--toggle-load-last-playlist\fR") option can be used to temporarily deactivate autoloading.
+.RE
+.RE
+
+.PP
+.B
+Managing Playlists (within Pyradio)
+
+Once \fBpyradio\fR has been loaded, one can perform a series of actions on the current playlist and set of playlists saved in its configuration directory.
+
+Currently, the following actions are available:
+
+Pressing "\fIa\fR" or "\fIA\fR" will enable you to add a new station (either below the currently selected station or at the end of the list), while "\fIe\fR" will edit the currently selected station. All of these actions will open the "\fIStation editor\fR".
+
+If you just want to change the encoding of the selected station, just press "\fIE\fR". If the station is currently playing, playback will be restarted so that the encoding's change takes effect (hopefully correctly displaying the station/song title).
+
+Then, when this is done, you can either save the modified playlist, by pressing "\fIs\fR", or reload the playlist from disk, by pressing "\fIR\fR". A modified playlist will \fIautomatically\fR be saved when \fBpyradio\fR exits (or Ctrl-C is pressed).
+
+One thing you may also want to do is remove a station from a playlist, e.g. when found that it not longer works. You can do that by pressing "\fIDEL\fR" or "\fIx\fR".
+
+Finally, opening another playlist is also possible. Just press "\fIo\fR" and you will be presented with a list of saved playists to choose from. These playlists must be saved beforehand in \fBpyradio\fR's configuration directory.
+
+While executing any of the previous actions, you may get confirmation messages (when opening a playlist while the current one is modified but not saved, for example) or error messages (when an action fails). Just follow the on screen information, keeping in mind that a capital letter as an answer will save this answer in \fBpyradio\fR's configuration file for future reference.
+
+.PP
+.B
+Managing “Foreign” Playlists
+
+A playlist that does not reside within the program’s configuration directory is considered a "\fIforeign\fR" playlist. This playlist can only be opened by the \fB-s\fR command line option.
+
+When this happens, \fBpyradio\fR will offer you the choise to copy the playlist in its configuration directory, thus making it available for manipulation within the program.
+
+If a playlist of the same name already exists in the configuration directory, the "\fIforeign\fR" playlist will be time-stamped. For example, if a "\fIforeign\fR" playlist is named "\fIstations.csv\fR", it will be named "\fI2019-01-11_13-35-47_stations.csv\fR" (provided that the action was taked on January 11, 2019 at 13:35:47).
+
+
+.PP
+.B
+Playlist History
+
+\fBpyradio\fR will keep a history of all the playlists opened (within a given session), so that navigating between them is made easy.
+
+In order to go back to the previous playlist, the user just has to press "\fI\\\\\fR" (double backslash). To get to the first playlist "\fI\\]\fR" (backslash - closing square bracket) can be used.
+
+Going forward in history is not supported.
+
+.SH Stations history
+
+Playing several stations, sometimes among different playlists, and returning to them is sometimes a tedious operation.
+
+This problem is addressed with the \fBStation history\fR functionality, which is actually a list of stations which have been played back.
+
+The user can go back and forth in this list using the "\fI<\fR" and "\fI>\fR" keys.
+
+The list is not saved between sessions (restarting the program will lead to an empty list). When an \fBonline service\fR is used (e.g. \fIRadio Browser\fR) the list is reseted with every search that is performed.
+
+.SH Search Function
+
+On any window presenting a list of items (stations, playlists, themes) a \fBsearch function\fR is available by pressing "\fI/\fR".
+
+The \fISearch Window\fR supports normal and extend editing and in session history.
+
+One can always get help by pressing the "\fI?\fR" key.
+
+After a search term has been successfully found (search is case insensitive), next occurrence can be obtained using the "\fIn\fR" key and previous occurrence can be obtained using the "\fIN\fR" key.
+
+.SH Line Editor
+
+\fBpyradio\fR "\fISearch function\fR" and "\fIStation editor\fR" use a \fILine editor\fR to permit typing and editing stations' data.
+
+The \fILine editor\fR works both on \fBPython 2\fR and \fBPython 3\fR, but does not provide the same functionality for both versions:
+
+.RS 5
+.IP \fI*\fR 2
+In \fBPython 2\fR, only ASCII characters can be inserted.
+.IP \fI*\fR 2
+In \fBPython 3\fR, no such restriction exists.  Furthermore, using CJK characters is also supported.
+
+.RE
+
+.PP
+One can always display help by pressing "\fI?\fR", but that pauses a drawback; one cannot actually have a "\fI?\fR" withing the string.
+
+To do that, one would have to use the backslash key "\fI\\\fR" and then press "\fI?\fR".
+
+To sum it all up:
+
+.IP
+1. Press "\fI?\fR" to get help.
+.IP
+2. Press "\fI\\?\fR" to get a "\fI?\fR".
+.IP
+3. Press "\fI\\\\\fR" to get a "\fI\\\fR".
+
+.PP
+When in \fIStation editor\fR, the \fBLine editor\fR recognizes an extra mode: \fBPaste mode\fR.
+
+This mode is enabled by pressing "\fB\\p\fR" and gets automatically disabled when the focus moves off the line editors.
+
+This mode is designed to directly accept the "\fI?\fR" and "\fI\\\fR" characters (which are normally used as commands indicators). This makes it possible to easily paste a station's name and URL, especially when the "\fI?\fR" and "\fI\\\fR" characters exist in them; it is very common to have them in URLs.
+
+.PP
+\fBCJK Characters Support\fR
+
+The \fILine editor\fR supports the insertion of \fICJK Unified Ideographs [1]\fR, as described on \fICJK Unified Ideographs (Unicode block) [2]\fR, also known as URO, abbreviation of Unified Repertoire and Ordering. These characters, although encoded as a single code-poin (character), actually take up a 2-character space, when rendered on the terminal.
+
+A depiction of the editor's behavior can be seen at this image:
+
+\fIhttps://members.hellug.gr/sng/pyradio/pyradio-editor.jpg\fR
+
+[1] \fIhttps://en.wikipedia.org/wiki/CJK_Unified_Ideographs\fR
+
+[2] \fIhttps://en.wikipedia.org/wiki/CJK_Unified_Ideographs_(Unicode_block)\fR
+
+
+.SH Moving Stations Around
+
+Rearranging the order of the stations in the playlist is another feature \fBpyradio\fR offers.
+
+All you have to do is specify the \fIsource\fR station (the station to be moved) and the position it will be moved to (\fItarget\fR).
+
+There are three way to do that:
+
+.RS 5
+
+.IP 1. 3
+Press \fICtrl-U\fR or \fICtrl-D\fR to move the current station up or down.
+.IP 2. 3
+Type a station number and press \fICtrl-U\fR or \fICtrl-D\fR to move the current station there.
+.IP 3. 3
+Go to the position you want to move a station to, and press "\fIJ\fR". This will tag this position (making it the target of the move). Then go to the station you want to move and press \fICtrl-U\fR or \fICtrl-D\fR to move it there.
+
+
+.SH Specifying Stations' Encoding
+
+Normally, stations provide information about their status (including the title of the song playing, which \fBpyradio\fR displays) in Unicode (\fIutf-8\fR encoded). Therefore, \fBpyradio\fR will use \fIutf-8\fR to decode such data, by default.
+
+In an ideal world that would be the case for all stations and everything would be ok and as far as \fBpyradio\fR is concerned, songs' titles would be correctly displayed. Unfortunately, this is not the case.
+
+A lot of stations encode and transmit data in a different encoding (typically the encoding used at the region the come from). The result in \fBpyradio\fR would be that a song title would be incorrectly displayed, not displayed at all, or trying to displaying it might even break \fBpyradio\fR's layout.
+
+.IP \fBNote\fR
+\fIvlc\fR will not work in this case; it presumably tries to decode the said data beforehand, probably using \fIutf-8\fR by default, and when it fails, it provides a "\fI(null)\fR" string, instead of the actual data. So, you'd better not use \fIvlc\fR if such stations are in your playlists.
+
+.PP
+\fBpyradio\fR addresses this issue by allowing the user to declare the encoding to use either in a station by station mode or globally.
+
+.PP
+.B
+Station By Station Encoding Declaration
+
+As previously stated, a \fBpyradio\fR's playlist can optionally contain a third column (in addition to the station name and station URL columns), which declares the station's encoding.
+
+So, when a \fInon-utf-8\fR encoded station is inserted in a playlist, its encoding can also be declared along with its other data. The drawback of this feature is that an encoding must be declared for \fBall stations\fR (so that the \fBCSV\fR file structure remains valid). To put it simple, since one station comprises the third column, all stations must do so as well.
+
+This may seem intimidating (and difficult to achieve), but it's actually really simple; just add a "\fI,\fR" character at the end of the line of each station that uses the default encoding. In this way, all stations comprise the third column (either by declaring an actual encoding or leaving it empty).
+
+Example:
+
+Suppose we have a playlist with one \fIutf-8\fR encoded station:
+
+.HP
+
+\fIStation1\fB,\fIStation1_URL
+
+.PP
+Now we want to add "\fIStation2\fR" which is \fIiso-8859-7\fR (Greek) encoded.
+
+Since we know \fBall stations\fR must comprise the third (encoding) column, we add it to the existing station:
+
+
+.HP
+
+\fIStation1\fB,\fIStation1_URL\fB,
+
+.PP
+This way we add an empty encoding, forcing
+.PP
+Finally, we insert the new station to the playlist:
+
+.HP
+
+\fIStation1\fB,\fIStation1_URL\fB,\fI
+.br
+Station2\fB,\fIStation2_URL\fB,\fIiso-8859-7
+
+.IP \fBNote\fR
+Using the \fB-a\fR command line option will save you all this trouble, as it will automatically take care of creating a valid \fBCSV\fR file. Alternatively, you can change the selected station's encoding by pressing "\fIE\fR" while in \fBpyradio\fR.
+
+
+.PP
+.B
+Global Encoding Declaration
+
+\fBpyradio\fR's configuration file contains the parameter \fBdefault_encoding\fR, which by default is set to \fIutf-8\fR.
+
+Setting this parameter to a different encoding, will permit \fBpyradio\fR to successfully decode such stations.
+
+This would be useful in the case where most of your stations do not use \fIutf-8\fR. Instead of editing the playlist and add the encoding to each and every affected station, you just set it globally.
+
+.PP
+.B
+Finding The Right Encoding
+
+A valid encoding list can be found at:
+
+\fIhttps://docs.python.org/2.7/library/codecs.html#standard-encodings
+
+\fRreplacing \fI2.7\fR with specific version: \fI3.0\fR up to current python version.
+
+.SH Player Detection / Selection
+.PP
+\fBpyradio\fR is basically built around the existence of a valid media player it can use. Thus, it will auto detect the existence of its supported players upon its execution.
+.PP
+Currently, it supports \fIMPV\fR, \fIMPlayer\fR and \fIVLC\fR, and it will look for them in that order. If none of them is found, the program will terminate with an error.
+.PP
+Users can alter this default behavior by using the \fB-u\fR command line option. This option will permit the user either to specify the player to use, or change the detection order.
+.PP
+Example:
+
+.IP \fBpyradio\ -u\ vlc
+will instruct \fBpyradio\fR to use VLC; if it is not found, the program will terminate with an error.
+
+.IP \fBpyradio\ -u\ vlc,mplayer,mpv
+will instruct \fBpyradio\fR to look for VLC, then MPlayer and finaly for MPV and use whichever it finds first; if none is found, the program will terminate with an error.
+
+
+.IP \fBNote\fR
+The default player to use can also be set in \fBpyradio\fR’s configuration file, parameter \fIplayer\fR (default value is \fImpv, mplayer, vlc\fR).
+
+
+.P
+\fBChanging player mid-session\fR
+
+.RS 4
+
+If the user faces a playback problem with a given station, chances are that a different player will successfully play it.
+
+Pressing "\fI\\m\fR" will bring up the "\fBSwitch Media Player\fR" window, where a different player can be activated.
+
+.IP \fBNote\fR
+The activated player will not be saved; **PyRadio** will still use the player defined at its config next time it is executed.
+
+.SH
+\fBExtra Player Parameters\fR
+
+All three supported players can accept a significant number of "\fIcommand line parameters\fR", which are well documented and accessible through man pages (on linux and macOs) or the documentation (on Windows).
+
+\fBpyradio\fR uses some of these parameters in order to execute and communicate with the players. In particular, the following parameters are in use \fBby default\fR:
+
+.RS 5
+.IP \fBPlayer\fR 10
+\fBParameters\fR
+.IP \fBmpv\fR 10
+--no-video, --quiet, --input-ipc-server, --input-unix-socket, --playlist, --profile
+.IP \fBmplayer\fR 10
+-vo, -quiet, -playlist, -profile
+.IP \fBvlc\fR 10
+-Irc, -vv. \fIOn Windows only:\fR --rc-host, --file-logging, --logmode, --log-verbose, --logfile
+.RE
+
+.IP \fBNote\fR
+The user should not use or change the above player parameters. Failing to do so, may render the player \fBunusable\fR.
+
+.P
+\fBpyradio\fR provides a way for the user to add extra parameters to the player, either by a command line parameter, or the "\fIConfiguration Window\fR" (under "\fIPlayer:\fR").
+
+This way, 10 sets of parameters can be inserted and made available for selection.
+
+\fBUsing The Command Line\fR
+
+When the command line parameter (\fB-epp\fR or \fB-extra_player_parameters\fR) is used, the parameters specified must be of a specific format, and will be added to the list of parameters and made default for the player for the current session.
+
+The format of the parameter is the following: \fI[\fBplayer_name\fR:\fBparameters\fI]\fR.
+
+Where:
+
+.RS 5
+.IP \fBplayer_name\fR
+the name of the player (\fImpv\fR, \fImplayer\fR or \fIvlc\fR)
+.IP \fBparameters\fR
+the actual player parameters
+.RE
+
+.P
+Example:
+
+.HP
+
+\fIpyradio -epp "vlc:--force-dolby-surround 2"\fR
+
+
+.IP \fBNote\fR
+When a parameter is passed to \fImpv\fR or \fImplayer\fR, \fBpyradio\fR will use the default player profile (called \fBpyradio\fR).
+
+.P
+For \fImpv\fR and \fImplayer\fR a profile can be specified (\fIvlc\fR does not support profiles). In this case the format of the \fBparameters\fR part of the command line is: \fI[\fBprofile\fR:\fBprofile_name\fI]\fR.
+
+Where:
+.RS 5
+.IP \fBprofile
+the word "\fIprofile\fR"
+.IP \fBprofile_name
+the name of a profile. The profile must be already defined in the player's configuration file.
+.RE
+
+.P
+Example:
+
+.HP
+
+\fIpyradio -epp "mpv:profile:second_sound_card"
+
+
+.P
+\fBUsing The Configuration Window\fR
+
+When the user uses the configuration window (shown in the following image), he is presented with an interface which will permit him to select the player to use with \fBpyradio\fR and edit its extra parameters.
+
+[pyradio-player-selection.jpg](https://members.hellug.gr/sng/pyradio/pyradio-player-selection.jpg)
+
+Each of the supported players can have up to 11 sets of extra parameters (the first one is the default).
+
+The user can add ("\fBa\fR") a new parameter, edit ("\fBe\fR") an existing set and delete ("\fBx\fR" or "\fBDEL\fR") one.
+
+\fBChanging Parameters' Set\fR
+
+.P
+When all desired parameter sets are already defined, using the \fB-ap\fR (\fB--active-player-param-id\fR) command line parameter can activate the set that corresponds to the number specified. The number to use for any given set can be retrieved using the \fB-lp\fR (\fB--list-player-parameters\fR) command line parameter.
+
+While \fBpyradio\fR is running, the user can change the parameters' set used by the player using the "\fIPlayer Extra Parameters\fR" window, by pressing "\fBZ\fR".
+
+If playback is on, changing the player's parameters will make the player restart the playback so that the new parameters is used.
+
+.IP \fBNote\fR
+Any changes made this way will not be saved but will be in effect until \fBpyradio\fR terminates.
+
+.SH Player Connection Protocol
+
+Most radio stations use plain old http protocol to broadcast, but some of them use https.
+
+Experience has shown that playing a \fBhttps\fR radio station depends on the combination of the station's configuration and the player used.
+
+If such a station fails to play, one might as well try to use \fBhttp\fR protocol to connect to it.
+
+\fBpyradio\fR provides a way to instruct the player used to do so; the "\fIForce http connections\fR" configuration parameter. If it is \fIFalse\fR (the default), the player will use whatever protocol the station proposes (either \fBhttp\fR or \fBhttps\fR). When changed to \fBTrue\fR, all connections will use the \fBhttp\fR protocol.
+
+When the selected player is initialized (at program startup), it reads this configuration parameter and acts accordingly.
+
+If the parameter has to be changed mid-session (without restarting the program), one would press "\fIz\fR" to display the "\fIConnection Type\fR" window, where the parameter's value can be set as desired.
+
+.IP \fBNote\fR
+Changes made using the "\fIConnection Type\fR" window are not stored; next time the program is executed, it will use whatever value the configuration parameter holds. Furthermore, changing the configuration stored value, will not affect the "working" value of the parameter.
+
+.P
+
+\fBVisual reminder\fR
+
+.RS 5
+
+When this option is activated, either through the config or the keyboard, a "\fI[http forced (z)]\fR" message appears on the top right corner of the window, as can be seen in the following image.
+
+\fIhttps://members.hellug.gr/sng/pyradio/http-force.jpg\fR
+
+The "\fIz\fR" in parenthesis is just a hint to remind the user that he can change the behavior by pressing "\fBz\fR".
+
+As the window shrinks in width, the message becomes a "\fI[h]\fR"; when it shrinks even more, it disappears completely.
+
+.SH Player Default Volume Level
+.PP
+All players, when started, use their saved (or default) volume level to play any multimedia content. Fortunately, this is not the case with \fIVLC\fR.
+.PP
+This introduces a problem to \fBpyradio\fR: every time a user plays a station (i.e restarts playback), even though he may have already set the volume to a desired level, the playback starts at the player's default level.
+.PP
+The way to come around it, is to save the desired volume level in a way that it will be used by the player whenever it is restarted.
+.PP
+This is done by typing "\fIv\fR" right after setting a desired volume level.
+.PP
+\fBMPV\fR
+.PP
+\fIMPV\fR uses profiles to customize its behavior.
+.PP
+\fBpyradio\fR defines a profile called "\fI[pyradio]\fR" in MPV's configuration file (e.g. \fI~/.config/mpv/mpv.conf\fR). This profile will be used every time playback is started.
+.PP
+Example:
+
+.HP
+
+\fIvolume=100
+
+[pyradio]
+.br
+volume=50
+
+.PP
+\fBMPlayer\fR
+.PP
+\fIMPlayer\fR uses profiles to customize its behavior as well.
+.PP
+\fBpyradio\fR defines a profile called "\fI[pyradio]\fR" in MPV's configuration file (e.g. \fI~/.mplayer/config\fR). This profile will be used every time playback is started.
+.PP
+Example:
+
+.HP
+
+\fIvolume=100
+
+[pyradio]
+.br
+softvol=1
+.br
+softvol-max=300
+.br
+volstep=1
+.br
+volume=50
+
+.IP \fBNote:
+Starting with \fBpyradio v. 0.8.9\fR, \fImplayer\fR's default profile will use its internal mixer to adjust its volume; this is accompliced using the "\fIsoftvol=1\fR" and "\fIsoftvol-max=300\fR" lines above. The user may choose to remove these lines from the config (to activate system-wide volume adjustment) or add them to the config (in case the profile was created by an older \fBpyradio\fR version).
+
+.P
+\fBVLC\fR
+.P
+Although \fIVLC\fR can use a local configuration file, there seems to be no reliable way of defining the playback volume in it.
+
+In the past, \fIVLC\fR would just use any volume setting it had saved from a previous execution, but now it is possible to save the volume it will use when executed by \fBpyradio\fR.
+
+This means that \fIVLC\fR will start and connect to a station, use whatever volume level it's stored for it and then \fBpyradio\fR will reset the volume to the desired one (as saved within \fBpyradio\fR).
+
+The volume will be saved is a file called \fIvlc.conf\fR and reside withing the \fIdata\fR directory, inside \fBpyradio\fR's configuration folder.
+
+.SH Displaying Station Info
+
+When a connection to a radio station has been established, the station starts sending audio data for the user to listen to.
+
+Well, that's obvious, right?
+
+Yes, but this is just half of the story.
+
+The station actually also sends identification data, audio format data, notifications, etc. Part of this non-audio data transmitted by a station is the title of the song currently playing; this is why we can have this data displayed at the bottom of the screen.
+
+Now, not all stations send the whole set of data; most send their name, website, genre and bitrate, for example, but some may ommit the website or the genre.
+
+\fBpyradio\fR can receive, decode and display this data, and even help the user to identify an unknown station. This is the way to do it:
+
+After a connection to a station has been established (after playback has started), just press "\fIi\fR" to display the station's info.
+
+The window that appears includes the "\fIPlaylist Name\fR" (the station name we have in the playlist) and the "\fIReported Name\fR" (the name the station transmitted to us) among other fields (an example can be seen here: \fIhttps://members.hellug.gr/sng/pyradio/pyradio-station-info.jpg\fR . If these two names are not identical, the user can press "\fIr\fR" to rename the station in the playlist using the "\fIReported Name\fR". This way an unknown station (when only the URL is known) can be correctly identified (after being inserted in a playlist with a dummy station name).
+
+
+.SH Copying And Pasting - Registers
+
+\fBpyradio\fR takes the concept of \fBregisters\fR from i\fIvim\fR (\fIhttps://www.vim.org\fR), and adapts their function to its own needs. So this is how it all works.
+
+There are 36 named registers (name is \fBa-z\fR, \fB0-9\fR) and one unnamed register.
+
+.IP \fBNamed\ registers\fR
+are actually files that contain stations and can be opened and edited as regular playlist files. There are some differences in handling them: they are accessible either individually or using a special window, they are automatically saved, and writing errors are ignored. The later means that registers should not be regarded as normal playlist files that can be safely saved and used forever; this is true as long as there's no problem with writing to them; if a writing error occurs they may get overwritten or emptied. To permanently save a register, on would \fBrename\fR it to a normal playlist file.
+
+.IP The\ \fBunnamed\ register\fR
+holds just one station (the one that has been copied or added to a register or deleted from a playlist), and it is the one used when pasting to a register or a playlist. One can see its contents by pressing "\fB\\u\fR".
+
+
+.P
+To \fBcopy\fR a station to a register one would press "\fBy\fR" and:
+
+.RS 5
+.IP \fI*\fR 2
+one of "\fBa-z\fR", "\fB0-9\fR" to add it to the corresponding \fInamed\fR register. The \fIunnamed\fR register is also populated.
+
+.IP \fI*\fR 2
+\fBENTER\fR to add it to the \fIunnamed\fR register.
+
+.RE
+To \fBopen\fR a \fInamed\fR register, one would press "\fB'\fR" (single quote) and:
+
+.RS 5
+.IP \fI*\fR 2
+one of "\fBa-z\fR", "\fB0-9\fR" to open the corresponding register.
+
+.IP \fI*\fR 2
+"\fB'\fR" (single quote) to open the "\fIRegisters window\fR", so that a register can be selected.
+
+.RE
+To \fBrename\fR a \fInamed\fR register, one would press "\fB\\r\fR" either in the "\fIRegisters window\fR" or while editing the register.
+
+To \fBclear a named register\fR, one would press "\fB\\c\fR" either in the "\fIRegisters window\fR" or while editing the register.
+
+To \fBclear all registers\fR, one would press "\fB\\C\fR" either in the "\fIRegisters window\fR" or while editing a playlist or a register.
+
+To \fBpaste\fR the \fIunnamed\fR register to a playlist or register, one would press:
+
+.RS 5
+.IP \fI*\fR 2
+"\fBp\fR" while editing a playlist or register.
+
+.IP \fI*\fR 2
+"\fB\\p\fR" while editing a playlist or register. This would open the "\fIPaste selection\fR" window.
+
+.IP \fI*\fR 2
+"\fB\\p\fR" in the "\fIPlaylist Selection\fR or the "\fIRegisters\fR" window.
+
+.RE
+
+.SH Pyradio Themes
+.PP
+
+\fBpyradio\fR comes with 6 preconfigured (hard coded) themes:
+
+.RS 5
+.IP \fBdark\fR\ (8\ color\ theme)
+This is the appearance \fBpyradio\fR has always had. Enabled by default.
+.IP \fBlight\fR\ (8\ color\ theme)
+A theme for light terminal background settings.
+.IP \fBdark_16_colors\fR\ (16\ color\ theme)
+\fIdark\fR theme alternative.
+.IP \fBlight_16_colors\fR\ (16\ color\ theme)
+\fIlight\fR theme alternative.
+.IP \fBwhite_on_black\fR\ or\ \fBwob\fR\ (256\ color\ b&w\ theme)
+A theme for dark terminal background settings.
+.IP \fBblack_on_white\fR\ or\ \fBbow\fR\ (256\ color\ b&w\ theme)
+A theme for light terminal background settings.
+
+.RE
+.PP
+Furthermore, a number of \fISystem Themes\fR (these are actual files saved in the \fIthemes\fR installation directory) are also available:
+
+.RS 5
+.IP \fBclassic_by_obsdg\fR
+A clasic theme by \fBThe OpenBSD Guy\fR (\fIhttps://github.com/OpenBSDGuy\fR), originally created on \fBOpenBSD\fR (\fIhttps://www.openbsd.org/\fR).
+.IP \fBcupcake_by_edunfelt\fR and  \fBfairyflossy_by_edunfelt\fR
+Two themes by \fBedunfelt\fR (\fIhttps://github.com/edunfelt\fR) inspired by the \fBbase16\fR (\fIhttps://github.com/base16-project\fR) project.
+.IP \fBgruvbox_dark_by_sng\fR and \fBgruvbox_light_by_sng\fR
+Two themes based on the \fBgruvbox\fR (\fIhttps://github.com/morhetz/gruvbox\fR) theme.
+.IP \fBminima_by_ben_chile\fR
+A theme by \fBben_chile\fR (\fIhttps://forum.maboxlinux.org/u/ben_chile\fR) created on the \fBMabox Linux\fR Forum (\fIhttps://maboxlinux.org\fR).
+
+.IP \fBpastel_based_by_sng\fR
+A dim but colorful theme.
+
+
+.IP \fBcatppuccin-frappe\fR,\ \fBcatppuccin-latte\fR,\ \fBcatppuccin-macchiato\fR\ and\ \fBcatppuccin-mocha\fR
+Four themes by the \fBCatppuccin community\fR (\fIhttps://github.com/catppuccin\fR).
+.RE
+.PP
+Contrary to the old styling method, which was terminal and palette dependent, a new styling method has been implemented; actual \fICSS colors\fR can now be defined.
+
+Pressing "\fBt\fR" will bring up the \fITheme selection window\fR, which can be used to activate a theme and set the default one.
+
+.IP \fBNote\fR
+If the theme selected in the \fITheme selection window\fR, (or requested using the "\fB-t\fR" command line option), is in any way invalid, or is of the old format, \fBpyradio\fR will fall-back to the "\fBdark\fR" theme and will display a relevant message.
+
+.PP
+The \fITheme selection window\fR will remain open after activating a theme, so that the user can inspect the visual result and easily change it, if desired. Then, when he is satisfied with the activated theme, the window will have to be manually closed (by pressing "\fBq\fR" or any other relevant key - pressing "\fB?\fR" will bring up its help).
+
+.PP
+
+Pressing "\fISPACE\fR", will apply the theme and make it default, and pressing "\fIc\fR" will apply the theme and make it default and start a file watch function on the file, so that if the file changes, \fBpyradio\fR will automatically update itself.
+
+.PP
+\fBAlternative Main Window border color\fR
+
+.RS 5
+
+It is also possible to change the \fIMain Window\fR border color. This is a feature that has been requested and implemented, but not used by default.
+
+To provide an alternative border color, one would just add the following to a theme file:
+
+.RS 5
+\fI# Border color for the Main Window
+.br
+\fI# (background color will come from Stations)
+.br
+\fIBorder              #69a9a7\fR
+.RE
+
+.IP \fBNote\fR
+This color will be used \fBonly\fR when the trerminal supports more than 16 colors. This is because \fBpyradio\fR already uses colors 0-15, and this border color will be declaread as color No 16.
+
+.RE
+
+
+.PP
+\fBVirtual terminal restrictions\fR
+
+.RS 5
+
+After introducing CSS color themes, it has come to my attention that \fBpyradio\fR will not display colors correctly when executed within specific terminals, \fIkonsole\fR, \fIyakuake\fR, \fIdeepin-teminal\fR, \fIqterminal\fR and \fIterminology\fR, just to name a few.
+
+Now, I do not know whether this is because of the terminals themselves, python curses implementation or whatever, but that’s that.
+
+\fBpyradio\fR will try to detect these terminals and disable themes (after displaying a relative message). Then the default theme will be used.
+
+Some of the terminals that work ok, are:
+\fIgnome-terminal\fR, \fImate-terminal\fR, \fIxfce4-terminal\fR, \fIlxterminal\fR, \fIterminator\fR, \fItermite\fR, \fIkitty\fR, \fIalacritty\fR, \fIsakura\fR, \fIroxterm\fR, \fItilix\fR, \fIlilyterm\fR, \fIst\fR, \fIxst\fR, \fIrxvt\fR, \fIurxvt\fR, \fIuxterm\fR, \fIxterm\fR.
+
+If you want to make \fBpyradio\fR start in one of these terminal, just follow the instructions given at \fIDesktop File\fR: \fISpecifying the terminal to use\fR.
+.RE
+
+.PP
+\fBCSS color themes restrictions\fR
+
+.RS 5
+Using CSS colors imposes a couple of restrictions on the type of terminals \fBpyradio\fR will be able to run:
+
+.RS 5
+.IP 1. 3
+The TERM variable must be set (\fILinux and MacOs only\fR).
+
+\fBpyradio\fR will set it to "\fIxterm-256color\fR" if not set.
+
+Furthermore, if TERM is set to anything like "\fIxterm*\fR", "\fIscreen*\fR" or "\fItmux*\fR", \fBpyradio\fR will set it to "\fIxterm-256color\fR" as well.
+
+.IP 2. 3
+Terminals that do not support at least 16 colors will not be able to display any of the new themes. The same goes for terminals that do not support changing their colors (through the \fBcurses\fR library).
+
+These terminal will default to the old "\fBdark\fR" theme, displaying whatever colors the active palette dictates.
+
+.IP 3. 3
+There are a couple of terminals (that I know of) which will permit changing their colors but will not be able to present the changed color on the fly.
+
+This means that, in order for a theme change to take full effect, \fBpyradio\fR will have to be restarted.
+.RE
+.RE
+.PP
+\fBSecondary windows background\fR
+
+.RS 5
+Secondary windows (such as messages, questions, the \fITheme Selection window\fR the \fIEncoding Selection window\fR, etc.) originally use the same background color as the \fIMain window\fR.
+
+It is now possible to use a different background color for these windows, to get better visual result.
+
+There are two way to do that:
+
+.RS 3
+.IP 1. 3
+Defined in a theme
+
+.IP 2. 3
+Using a calculated color
+
+.PP
+\fBTheme defined secondary windows color \fR
+
+.RS 3
+Themes have the following entry
+
+.RS 3
+\fI# Message window border foreground and background.
+.br
+# The background color can be left unset.
+.br
+# Please refer to the following link for more info
+.br
+# https://github.com/coderholic/pyradio#secondary-windows-background
+.br
+#
+.br
+Messages Border     #a3b367\fR
+.RE
+
+It is possible to define a background color as well, like so
+
+.RS 3
+\fIMessages Border     #a3b367 #F5DBDE\fR
+.RE
+
+In this case, this color will be used as the \fISecondary Windows\fR background color.
+
+Although one can use any color here, it is recommended to follow these guidelines for best visual result:
+
+.RS 3
+.IP 1. 3
+The color should be 1-20% lighter or darker than the "*Stations Background*" color setting of the theme.
+
+One can use this page \fIhttp://www.workwithcolor.com/hsl-color-picker-01.htm\fR (or a similar one) to insert the base color and adjust the \fBL\fR component as needed.
+
+A terminal alternative is \fBpastel\fR (\fIhttps://github.com/sharkdp/pastel\fR), which can be used like so:
+
+
+.RS 6
+\fIpastel color '#fbf1f2'\fR         # show color info
+.br
+\fIpastel lighten .1 '#fbf1f2'\fR    # color lightened by 10%
+.br
+\fIpastel darken .1 '#fbf1f2'\fR     # color darkened by 10%\fR
+.RE
+
+.IP 2. 3
+If the \fIStations Background\fR color is dark, create a lighter version of it; if it's light, create a darker version of it.
+
+This is just a recomenration, though; just get a color that combines well with existing ones (border foreground, stations foreground and active station).
+
+This information is actually relevant to creating a new \fBpyradio\fR theme, but it's very important in order to understand how the calculated background color works.
+
+
+.RE
+.RE
+\fBCalculated secondary windows color\fR
+.RS 3
+
+
+\fBpyradio\fR will use the same background color for all windows by default, provided that the theme used does not define a \fIMessages Border\fR background color.
+
+In order to use a \fIMessages Border\fR background color different than the \fIStations background\fR color, when \fIMessages Border\fR background color is not defined in the selected theme, a config option is available; \fBCalculated color\fR".
+
+This config option takes a value that's between 0 and 0.2.
+
+If it is 0, no color change will occur.
+
+Otherwise, the value acts as a percentage (a \fBfactor\fR), which indicates how much the luminance of the \fIStations background\fR color will change to produce the new background color.
+
+This is how this works: \fBpyradio\fR will calculate the \fIStations background\fR color perceived brightness, which will indicate whether the color is dark or light. Then depending on that, will add or subtract \fBfactor\fR percent from its luminance value.
+
+Finally, a check will be made to see if this color is close to \fIMessages Border\fR foreground color, and re-adjusted as possible.
+
+
+.IP \fBNote\fR
+When a calculated background color is used, pressing \fI~\fR (\fItilde\fR) will toggle it on and off. This setting will be valid until \fBpyradio\fR terminates, or a new theme is loaded.
+
+.RE
+.RE
+.RE
+.PP
+\fBUser themes\fR
+
+.RS 5
+Users can easiliy create their own themes, using for example \fBCSS color names\fR (\fIhttps://www.cssportal.com/css3-color-names/\fR) as a resource, and
+
+.RS 5
+.IP 1. 3
+Copy (and rename) one of the \fISystem Themes\fR to the user's \fBthemes\fR folder. This folder may not already exist; it must be created in \fBpyradio\fR config directory (\fI~/.config/pyradio\fR).
+
+To gain access to the \fISystem Themes\fR, execute the following commands
+
+.RS 6
+\fIcd `python -c 'import site; print(site.getusersitepackages())'`\fR
+.br
+\fIcd pyradio/themes\fR
+.RE
+
+.RS 3
+(you may have to use \fIpython2\fR or \fIpython3\fR instead of plain \fIpython\fR, depending on your OS and distribution).
+.RE
+
+.IP 2. 3
+Customize it as desired
+
+.IP 3. 3
+Load it from the \fITheme selection window\fR (it will be found under "\fBUser Themes\fR").
+.RE
+.RE
+.PP
+\fBConverting old themes\fR
+
+.RS 5
+An old theme (using the old format) can be asily converted to the new format, using the script found at \fBthis gist\fR (\fIhttps://gist.github.com/s-n-g/65aa6ae12e135481bf3a503ece4e92d2\fR).
+
+.IP \fBNote:
+In order to get the color intended to be used, the same palette as the one used when the original theme was created, must be used.
+.RE
+
+.PP
+\fBUsing Transparency\fR
+
+.RS 5
+For \fBpyradio\fR, transparency means that a theme's background actually disappears, effectively making it to display whatever is on the terminal (color/picture/transparency).  The visual result depends on terminal settings and whether a compositor is running.
+
+Not all themes look good when transparency is ON, so themes can now declare whether they want to use transparency or not. This is the "\fBtransparency\fR" variable of the theme, which can have these values:
+
+.RS 5
+.IP \fI0\fR 3
+means that the theme will be opaque (no transparency).
+
+.IP \fI1\fR 3
+means that the theme will be transparent.
+
+.IP \fI2\fR 3
+- 2 means that the theme looks good either way (the default), and the global transparency setting value (defined in \fBpyradio\fR config file) will be used.
+
+.RE
+.PP
+Please note that this behavior has changed since \fBv. 0.9.2.7\fR: theme transparency will always be honored, regardless of the global config value.
+
+This means that a theme which is set to be transparent (by its creator) will always be transparent, no matter if the global transparency is on or off. Similarly, if a theme is set to be opaque, it will be so regardless of the global transparency value.
+
+The only case when global transparency will come into play is when the theme does not care about it (theme transparency set to \fI2 \fR- \fIObey config setting\fR).
+
+When the \fITheme selection window\fR is visible, a "\fI[T]\fR" string displayed at its bottom right corner will indicate that global transparency is \fIon\fR.
+.RE
+
+\fBUpdating themes automatically\fR
+
+.RS 5
+Terminal users have been using all kind of software to change / update / adapt their terminal colors and palettes, such as i\fBbASE16\fR (\fIhttps://github.com/chriskempson/base16\fR), \fBpywal\fR (\fIhttps://github.com/dylanaraps/pywal\fR), \fBwpgtk\fR (\fIhttps://github.com/deviantfero/wpgtk\fR), \fBtheme.sh\fR (\fIhttps://github.com/lemnos/theme.sh\fR), to name a few.
+
+\fBpyradio\fR is now able to "watch" a given theme for changes and update its colors whenever the theme changes.
+
+To set up a theme for auto update, one would just open the "\fITheme Selection\fR window, navigate to a theme under \fBUser Themes\fR and press "\fBc\fR". To create a \fIuser theme\fR just follow the procedure described in section \fBUser themes\fR.
+
+Consecuently, the default theme name will be preceded by:
+
+.RS 5
+.IP \fB*\fR 3
+if the theme is the default one (the way it has always been).
+
+.IP \fB-\fR 3
+if the theme is the default one, and \fBpyradio\fR will watch it for changes.
+
+.RE
+.RE
+
+\fBUsing Project Themes\fR
+
+.RS 5
+\fBpyradio\fR is able to use (and watch) the output of certain projects that modify terminal colors.
+
+\fBpyradio\fR will detect theses projects (programs installed and initialized), and will add them under the \fBExt. Themes Projects\fR section of the \fIThemes Selection Window\fR.
+
+If loading any of these themes fails, the default \FBdark\fR theme will be loaded, but contrary to a local theme being invalid, the selection will persist (so that the theme gets loaded wheneve it is available).
+
+Currently, the following projects are supported:
+
+\fB1.\ base16\fR
+
+.RS 3
+
+Thanks to the wonderful work by user \fBedunfelt\fR (\fIhttps://github.com/edunfelt\fR), there is now a \fBpyradio base16\fR (\fIhttps://github.com/base16-project\fR) \fBtemplate\fR in place, and themes have been produced based on the project (there are more than 900 themes available).
+
+This implementation will add four entries in the theme selection menu (with alternative and variant forms of the main theme).
+
+Then, any of the themes can either be activated or watched; in which case \fBpyradio\fR will download and apply the corresponding theme.
+
+\fBUsing the themes without base16\fR
+
+.RS 4
+
+In case one wants to use any of these themes, but not install or use \fBbase16\fR (\fIhttps://github.com/base16-project\fR), one can get them \fIfrom this repo\fR (\fIhttps://github.com/edunfelt/base16-pyradio\fR), and use the \fBcycle_themes.py\fR and \fBinstall_themes.py\fR scripts to inspect and install them.
+
+.RE
+.RE
+
+\fB2.\ pywal\fR
+
+.RS 3
+
+When detected, two themes will be added to the menu; the main and the alternative form.
+
+Since these themes are generated on the fly, as the wallpaper changes, there is no way to use them if \fBpywal\fR (\fIhttps://github.com/dylanaraps/pywal\fR) is not in use.
+
+.IP \fBNote:
+If \fBpywal\fR (\fIhttps://github.com/dylanaraps/pywal\fR) themes are activated but not watched, the theme will be corrupted when the wallpaper changes, and will have to be manually reloaded. So, it's better to just always watch these themes.
+
+.RE
+
+\fB3.\ theme.sh\fR
+
+.RS 3
+
+When detected, four themes will be added to the menu; the main and the alternative forms (there are 400 plus themes available, which makes a stuggering number of around 1800 themes for \fBpyradio\fR!)
+
+\fBUsing the themes without theme.sh\fR
+
+.RS 4
+
+In case one wants to use any of these themes, but not install or use \fBtheme.sh\fR (\fIhttps://github.com/lemnos/theme.sh\fR), one can download \fIthis repo\fR (\fIhttps://github.com/s-n-g/theme-sh-pyradio\fR), and use the \fBcreate_themes.sh\fR script to create the themes, and \fBcycle_themes.py\fR and \fBinstall_themes.py\fR scripts to inspect and install them.
+.RE
+
+.SH Mouse Support
+
+Being a console application, \fBpyradio\fR was never intended to work with a mouse.
+
+Furthermore, when using the mouse on a console application, the result is highly dependent on the terminal used and the way it implements mouse support.
+
+Having said that, and since the question of using the mouse with \fBpyradio\fR has been risen, basic mouse support has been implemented; starting, stopping and muting the player, scrolling within the playlist and adjusting the player's volume is now possible using the mouse.
+
+All one has to do is enable mouse support in the "\fIConfig Window\fR" (mouse support is disabled by default) and restart \fBpyradio\fR for the change to take effect.
+
+Then, the mouse can be used as follows:
+
+.RS 5
+
+.IP \fBClick
+Change selection
+
+.IP \fBDouble\ click
+Start / stop the player
+
+.IP \fBMiddle\ click
+Toggle player muting (does not work with all terminals)
+
+.IP \fBWheel
+Scroll up / down
+
+.IP \fBShift-Wheel
+Adjust volume (does not work with all terminals)
+
+.RE
+
+.SH Title logging
+
+Version \fB0.8.9.17\fR adds to \fBpyradio\fR the ability to log the titles displayed at the bottom of its window, in a log file, for refference.
+
+The logger, which works independantly from the "\fIdegub\fR" function, is actually a \fIRotating File Handler\fR (\fIhttps://docs.python.org/3/library/logging.handlers.html#logging.handlers.RotatingFileHandler\fR), configured to write up to 5 files of around 50KB each (parameters \fBmaxBytes=50000\fR and \fBbackupCount=5\fR).
+
+The way this works, according to the documenataion, is that one "can use the \fBmaxBytes\fR and \fBbackupCount\fR values to allow the file to rollover at a predetermined size. When the size is about to be exceeded, the file is closed and a new file is silently opened for output. Rollover occurs whenever the current log file is nearly \fBmaxBytes\fR in length… When \fBbackupCount\fR is non-zero, the system will save old log files by appending the extensions ‘.1’, ‘.2’ etc., to the filename. For example, with a backupCount of 5 and a base file name of \fBapp.log\fR, you would get \fIapp.log\fR, \fIapp.log.1\fR, \fIapp.log.2\fR, up to \fIapp.log.5\fR. The file being written to is always \fBapp.log\fR. When this file is filled, it is closed and renamed to \fIapp.log.1\fR, and if files \fIapp.log.1\fR, \fIapp.log.2\fR, etc. exist, then they are renamed to \fIapp.log.2\fR, \fIapp.log.3\fR etc. respectively.
+
+The function can be enabled:
+
+.RS 5
+.IP 1. 3
+using the \fI-lt\fR (\fI--log-titles\fR) command line parameter, or
+
+.IP 2. 3
+by pressing "\fBW\fR" while in the \fBMain\fR, the \fBPlaylist\fR or the \fBRegister\fR mode.
+
+.RE
+
+The titles are written in a file called \fIpyradio-titles.log\fR which is saved at \fBpyradio\fR configuration directory.
+
+Log file sample:
+
+.RS 5
+\fIApr 18 (Mon) 13:12 | >>> Station: Lounge (Illinois Street Lounge - SomaFM)
+.br
+Apr 18 (Mon) 13:12 |     Jack Costanzo - La Cumparsa, Harlem Nocturne
+.br
+Apr 18 (Mon) 13:14 |     Don Baker Trio - Third Man Theme
+.br
+Apr 18 (Mon) 13:16 |     Gillian Hills - Un Petit Baiser
+\fR
+.RE
+
+\fBTagging a title\fR
+
+An extra functionality is made possible because of "\fItitles's logging\fR": tagging a title (something like liking a song).
+
+The idea is that the user plays a station and hears a song he likes and want to look it up later. With this functionality, he can tag the song (make a note in the log file), so he can refer to it at a later time.
+
+To tag a title, one has to press the "\fBw\fR" key.
+
+Then, if titles's logging is already enabled, the log file will have an entry similar to the one shown below:
+
+.RS 5
+\fIApr 18 (Mon) 13:39 |     Tom Russell - Bus Station
+.br
+Apr 18 (Mon) 13:40 |     Tom Russell - Bus Station (LIKED)\fR
+.RE
+
+If title's logging is not enabled, it will be turned on, the song will be tagged and logging will be turned off again:
+
+.RS 5
+\fIApr 18 (Mon) 15:38 | === Logging started
+.br
+Apr 18 (Mon) 15:38 | >>> Station: Folk (Folk Forward - SomaFM)
+.br
+Apr 18 (Mon) 15:38 |     Lord Huron - Lullaby
+.br
+Apr 18 (Mon) 15:38 |     Lord Huron - Lullaby (LIKED)
+.br
+Apr 18 (Mon) 15:38 | === Logging stopped\fR
+.RE
+
+.SH Online Radio Directory Services
+
+\fBpyradio\fR supports the following \fIOnline Radio Directory services\fR:
+
+.IP \fBRadioBrowser\ -\ \fIhttps://www.radio-browser.info/\fR
+
+This is a community driven effort (like wikipedia) with the aim of collecting as many internet radio and TV stations as possible.
+
+For more information please refer to the relevant man page: \fIpyradio_rb(1)\fR.
+
+.PP
+To access supported services, just press "\fIO\fR" at the program's main window.
+
+
+.SH Desktop Notifications
+
+\fBpyradio\fR can provide Desktop Notifications when a notification daemon is already present (on Linux and BSD).
+
+The behavior and presentation of notifications greatly depends on the daemon/service and command line utility used to trigger a notification.
+
+If enabled, \fBpyradio\fR will display:
+
+.RS 3
+.IP 1. 3
+The playlist name, when playback starts.
+.IP 2. 3
+Song info (as provided by the radio station). That means that if the radio station does not provide any info, no notification will be issued.
+.IP 3. 3
+Connection failure messages.
+.IP 4. 3
+Player crash messages.
+.RE
+
+.P
+
+\fBConfiguration\fR
+
+.RS 5
+Desktop Notifications are disabled by default. To enable them, go to \fBpyradio\fR config window and customize the "\fIEnable notifications\fR" option.
+
+Available values are:
+
+.RS 3
+\fI-1\fR: disabled (deault)
+.RE
+.RS 4
+
+\fI0\fR: enabled (no repetition)
+
+\fIx\fR: enabled and repeat every \fIx\fR seconds
+.RE
+
+
+\fBpyradio\fR supports notifications repetition, so that even when used with \fIquake\fR or \fIyakuake\fR and the like, you still have some info on what’s going on with it.
+
+Notifications can be set to repeat every "\fIx\fR" seconds, with "\fIx\fR" ranging from 30 to 300 (30 seconds to 5 minutes), in 30 seconds steps.
+
+.B
+Notification Icon
+
+.RS 5
+The icon that is displayed in the notification message is by default \fBpyradio\fR icon.
+
+\fBpyradio\fR will search for this icon, named \fIpyradio.png\fR (or \fIpyradio.ico\fR on Windows) in the following locations:
+
+.IP \fB1.\fR 3
+In the configuration directory, under \fBdata\fR (or \fBHelp\fR folder on Windows).
+
+.IP \fB2.\fR 3
+In the distribution directory (under the \fBicons\fR folder).
+.br
+As a consequence, one could replace the icon found in the configuration directory (under \fBdata\fR or \fBHelp\fR) with a custom icon, preserving the icon name as appropriate (\fIpyradio.png\fR, or \fIpyradio.ico\fR on Windows).
+
+.PP
+If the station defines a \fBStation Icon URL\fR (either on a local playlist or an online service; \fIRadio Browser\fR includes an icon for many stations, for example), \fBpyradio\fR will used this one instead, provided that it is of \fIJPG\fR or \fIPNG\fR format.
+.RE
+
+.RE
+
+\fBOn Linux\fR
+
+.RS 5
+On Linux (and the BSDs), \fBpyradio\fR uses the notification daemon that’s already present and whatever command line helper program it provides to send notifications to the daemon.
+
+By default, \fBpyradio\fR uses the following command to issue notifications:
+
+.RS 3
+\fInotify-send -i ICON TITLE MSG\fR
+.RE
+
+This command will:
+
+.RS 3
+\fB-\fR display the title "\fBTITLE\fR" and message "\fBMSG\fR.
+
+\fB-\fR display an icon (\fI-i\fR).
+.RE
+
+The "\fBICON\fR", "\fBTITLE\fR" and "\fBMSG\fR" tokens are just placeholders; \fBpyradio\fR will replace them with real data when issuing the notification.
+
+If that does not work for you, or you want to customize the output, this is what to do:
+
+.RS 3
+.IP \fB1.\fR 3
+put together a valid command that can be executed on a terminal and produce the desired notification.
+.IP \fB2.\fR 3
+create a file called \fInotification\fR in \fBpyradio\fR configuration directory.
+.IP \fB3.\fR 3
+write the above command in that file and put each field in a different line.
+.RE
+
+\fBExample\fR
+
+.RS 5
+I have this custom command:
+
+.RS 3
+\fInotify-send -i ICON -t 6000 TITLE MSG\fR
+.RE
+
+The file I wrote is \fI~/.config/pyradio/notification\fR:
+
+\fI   notify-send
+   -i
+   ICON
+   -t
+   6000
+   TITLE
+   MSG\fR
+.RE
+
+.RE
+
+
+\fBOn MacOS\fR
+
+.RS 5
+
+MacOS Maverick (and later) provides a scripting service to issue notifications from the command line.
+
+The command \fBpyradio\fR uses is:
+
+.RS 3
+\fIosascript -e 'display notification "MSG" with title "TITLE"'\fR
+.RE
+
+If that does not work for you, or you want to display the icon as well, just install \fBterminal-notifier\fR:
+
+.RS 3
+\fIbrew install terminal-notifier\fR
+.RE
+
+After it is installed, write the following in \fI~/.config/pyradio/notification\fR:
+
+\fI   terminal-notifier
+   -message
+   MSG
+   -title
+   TITLE
+   -appIcon
+   ICON\fR
+
+and you are done!
+
+
+.RE
+
+.SH Desktop File
+
+\fBpyradio\fR will install a Desktop File under \fI~/.local/share/applications\fR.
+
+.IP \fBNote:
+The system wide Desktop File will probably be under \fI/usr/share/applications\fR or \fI/usr/local/share/applications\fR.
+
+.PP
+By default, this Desktop File will add a “\fBpyradio\fR” entry under the "\fIInternet\fR" category (or menu), and will execute \fBpyradio\fR no matter if the directory it resides in is the \fBPATH\fR or not, using the default terminal that the system uses.
+
+In case of a local installation, when a system wide installation also exists, the entry will display "\fBPyRadio - Local\fR" to distinguish itself from the system wide "\fBPyRadio\fR" one.
+
+.IP \fBNote:
+If the \fBTERMINAL\fR variable is set, the Desktop File will use that instead.
+
+.P
+\fBSpecifying the terminal to use\fR
+
+.RS 5
+If a specific terminal has to be used, using the \fI–terminal\fR command line option is the way to go:
+
+.RS 3
+\fIpyradio --terminal kitty\fR
+.RE
+
+This command will set the terminal in the Desktop file, so that:
+
+.RS 3
+\fIExec=kitty -e pyradio\fR
+.RE
+
+To have \fBpyradio\fR try to find a suitable terminal, execute:
+
+.RS 3
+\fIpyraio --terminal auto\fR
+.RE
+
+To restore the original functionality (specifying no terminal):
+
+.RS 3
+\fIpyradio --terminal none\fR
+.RE
+.RE
+
+.PP
+\fBSpecifying pyradio parameters\fR
+
+.RS 5
+If a \fBpyradio\fR parameter has to be present in the Desktop File, use the \fI-–terminal-param\fR command line option:
+
+.RS 3
+\fIpyradio --terminal none --terminal-param "_p 2"\fR
+.RE
+
+This command will use no specific terminal and will pass the "\fI-p 2\fR" (play station No 2 automatically) parameter to \fBpyradio\fR. To pass such a parameter, substitute all hyphens with underscores.
+.RE
+
+
+.SH Session Locking
+
+\fBpyradio\fR uses session locking, which actually means that only the first instance executed within a given session will be able to write to the configuration file.
+
+Subsequent instances will be "\fIlocked\fR. This means that the user can still play stations, load and edit playlists, load and test themes, but any changes will \fBnot\fR be recorded in the configuration file.
+
+\fBSession unlocking\fR
+
+.RS 5
+If for any reason \fBpyradio\fR always starts in \fIlocked mode\fR, one can \fBunclock\fR the session, using the "\fB--unlock\fR" command line paremater.
+.RE
+
+.SH Update Notification
+.PP
+\fBpyradio\fR will periodically (once every 10 days) check whether a new version has been released.
+
+If so, a notification message will be displayed, informing the user about it and asking to proceed with updating the program (provided this is not a distribution package).
+
+.SH Cleaning Up
+
+\fBpyradio\fR will uninstall all previously installed versions when updated (using the \fB-U\fR command line parameter), so no extra steps are needed any more to house keep your system.
+
+.SH Debug Mode
+.PP
+Adding the \fB-d\fR option to the command line will instruct \fBpyradio\fR to enter \fBDebug mode\fR, which means that it will print debug messages to a file. This file will always reside in the user's home directory and will be named \fIpyradio.log\fR.
+.PP
+In case of a bug or a glitch, please include this file to the issue you will open in github  at \<\fIhttps://github.com/coderholic/pyradio/issues\fR\>
+
+.SH Reporting Bugs
+.PP
+When a bug is found, please do report it by opening an issue at github at \<\fIhttps://github.com/coderholic/pyradio/issues\fR\>, as already stated above.
+
+In you report you should, at the very least, state your \fIpyradio version\fR, \fIpython version\fR and \fImethod of installation\fR (built from source, AUR, snap, whatever).
+
+It would be really useful to include \fB~/pyradio.log\fR in your report.
+
+To create it, enter the following commands in a terminal:
+
+.HP
+
+\fI$\fR \fBrm ~/pyradio.log\fR
+.br
+\fI$\fR \fBpyradio -d\fR
+
+.PP
+Then try to reproduce the bug and exit pyradio.
+
+Finally, include the file produced in your report.
+
+.SH Acknowlegement
+
+.PP
+\fBpyradio\fR uses code from the following projects:
+
+.RS 5
+
+.IP 1. 3
+\fBCJKwrap\fR (\fIhttps://gitlab.com/fgallaire/cjkwrap\fR) by Florent Gallaire - A library for wrapping and filling UTF-8 CJK text.
+
+.IP 2. 3
+\fBranger\fR (\fIhttps://ranger.github.io/\fR) - A console file manager with VI key bindings.
+
+.IP 3. 3
+\fBVifm\fR (\fIhttps://vifm.info/\fR) -  A file manager with curses interface, which provides a Vi[m]-like environment.
+
+.SH Files
+.PP
+.I /usr/share/doc/pyradio/README.html
+
+.I /usr/share/doc/pyradio/build.html
+
+.I /usr/share/doc/pyradio/radio-browser.html
+
+.I /usr/share/doc/pyradio/windows.html
+
+.I /usr/share/doc/pyradio/windows-mplayer.html
+
+.I /usr/share/licenses/pyradio/LICENSE
+
+.IP \fBNote:
+On \fBMac OS\fR, these file may be installed in \fI/usr/local/share/doc/pyradio\fR, depending on whether or not \fBSIP\fR is enabled.
+
+
+.SH Authors
+.PP
+\fBBen Dowling\fR\ \<\fIhttps://github.com/coderholic\fR\>,\ (Origianl\ author)
+.PP
+\fBKirill Klenov\fR\ \<\fIhttps://github.com/klen\fR\>,\ (2012)
+.PP
+\fBLaurent Stacul\fR\ \<\fIhttps://github.com/stac47\fR\>,\ (2013)
+.PP
+\fBPeter Stevenson (2E0PGS)\fR\ \<\fIhttps://github.com/2E0PGS\fR\>,\ (2018)
+.PP
+\fBSpiros Georgaras\fR\ \<\fIhttps://github.com/s-n-g\fR\>,\ (2018-2023)
+.PP
+You can see a complete list of contributors at
+   \fIhttps://github.com/coderholic/pyradio/graphs/contributors\fR
+
+.SH Special thanks
+
+.IP \fI1. 3
+\fBedunfelt\fR (\fIhttps://github.com/edunfelt\fR), for her wonderful work on \fBbase16 themes\fR (\fIhttps://github.com/edunfelt/base16-pyradio\fR), and ideas regarding theming and such.
+
+.SH See also
+
+    pyradio_rb(1) pyradio_server(1)
