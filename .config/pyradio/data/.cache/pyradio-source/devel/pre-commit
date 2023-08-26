@@ -1,0 +1,211 @@
+#!/usr/bin/env bash
+cReset="[0m"
+cBold="[1m"
+colorGreen=2
+colorRed=1
+colorYellow=3
+cGreen="[0;3${colorGreen}m"${cBold}
+cRed="[1;3${colorRed}m"${cBold}
+cYellow="[1;3${colorYellow}m"${cBold}
+
+function images_to_links(){
+awk '{if($0 ~ /img src=/){
+    #print $0
+    split($0,sp,"\"")
+    for(i==0;i<length(sp);i++){
+        #print i, sp[i]
+        if(sp[i] ~ /^http/){
+            link=sp[i]
+            break
+        }
+    }
+    link = "<a href=\"" link "\" target=\"_blank\">"
+    #print link
+    #sub(/^/, "<a href=\"|\" target=\"_blank\">", $0)
+    sub(/^/, link, $0)
+    sub(/$/, "</a>", $0)
+    print $0
+} else
+print $0}' "$1" | sed 's/<figcaption.*figcaption>//' | sed '/figure>$/d' > "$1".tmp && mv "$1".tmp "$1"
+}
+
+# update stations_updated in __init.py
+ST=$(git status | grep pyradio/stations.csv)
+if [ -z "$ST" ];then
+    sed -i 's/stations_updated = .*/stations_updated = False/' pyradio/__init__.py
+else
+    sed -i 's/stations_updated = .*/stations_updated = True/' pyradio/__init__.py
+fi
+
+
+# convert TABs to SPACEs in Changelog
+sed -i 's/\t/    /g' Changelog
+
+
+# Create HTML file from md files
+for afile in README.md build.md windows.md windows-mplayer.md windows-mpv.md radio-browser.md desktop-notification.md server.md linux.md linux-pipx.md macos.md pip-error.md recording.md
+do
+#[ -z "$(git status | grep ${afile})" ] || {
+    out=${afile/%.md/.html}
+    if [ "$afile" = "README.md" ];then
+        echo '% PyRadio README' > tmp.md
+    elif [ "$afile" = "build.md" ];then
+        echo '% PyRadio Build Instructions' > tmp.md
+    elif [ "$afile" = "windows.md" ];then
+        echo '% PyRadio on Windows' > tmp.md
+    elif [ "$afile" = "windows-mplayer.md" ];then
+        echo '% MPlayer Installation on Windows' > tmp.md
+    elif [ "$afile" = "windows-mpv.md" ];then
+        echo '% MPV Installation on Windows' > tmp.md
+    elif [ "$afile" = "radio-browser.md" ];then
+        echo '% PyRadio RadioBrowser Implementation' > tmp.md
+    elif [ "$afile" = "desktop-notification.md" ];then
+        echo '% PyRadio Desktop Notifications' > tmp.md
+    elif [ "$afile" = "server.md" ];then
+        echo '% PyRadio Remote Control Server' > tmp.md
+    elif [ "$afile" = "linux.md" ];then
+        echo '% PyRadio pip installation on Linux' > tmp.md
+    elif [ "$afile" = "linux-pipx.md" ];then
+        echo '% PyRadio pipx installation on Linux' > tmp.md
+    elif [ "$afile" = "macos.md" ];then
+        echo '% PyRadio pipx installation on MacOS' > tmp.md
+    elif [ "$afile" = "pip-error.md" ];then
+        echo '% What happened?' > tmp.md
+    elif [ "$afile" = "recording.md" ];then
+        echo '% Recording stations' > tmp.md
+    fi
+    cat ${afile} >> tmp.md
+    pandoc --wrap=none -s -t html tmp.md -o ${out} || {
+        echo "Error: pandoc not found"
+        rm tmp.md
+        exit 1
+    }
+
+    sed -i "/<style/,/<.style>/d" ${out}
+
+    # sed -i '/<style[^>]*>/a \
+
+    sed -i '/max-width/d' "${out}"
+    sed -i '/<title>/a \
+    <style> \
+    body {padding: 2em;} \
+    @media screen and (max-width: 770px) { \
+        body {padding: 10px;} \
+    }\
+    body {max-width: 750px; margin: auto;} \
+    h2 {margin-top: 2.5em; border-bottom:1px solid SaddleBrown; color: SaddleBrown;} \
+    h3 {margin-top: 2em; color: SaddleBrown; text-decoration: underline SaddleBrown} \
+    h4 {margin: 2em 0 1em 0; color: SaddleBrown; font-size: 150%;} \
+    h4:before {content: "# "; font-weight: bold; vertical-align: middle;} \
+    h5 {margin: 2em 0 1em 0; color: SaddleBrown; font-size: 120%;} \
+    h5:before {content: "## "; font-weight: bold; vertical-align: middle;} \
+    STRONG {color: SaddleBrown;} \
+    dl {margin: 2em;} \
+    dd {margin: 1em;} \
+    dt {font-weight: bold;} \
+    TABLE {border: 1px solid SaddleBrown; border-collapse: collapse; margin-left: auto; margin-right: auto; border-radius: 5px; -moz-border-radius: 5px; border-collapse:separate; box-shadow: 5px 5px 15px #888888;} \
+    TH {text-align: left; vertical-align: top; padding: 5px;color: SaddleBrown;border: 1px solid SaddleBrown; background-color: SaddleBrown; color: white;} \
+    TD {text-align: left; vertical-align: top; padding: 5px 10px;border: 1px solid SaddleBrown;} \
+    pre { background-color: rgba(245, 245, 245, 1); color: #474747; padding: 1.5em; border: 1px solid #C7C7C7; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; overflow: auto; box-shadow: 5px 5px 15px #C7C7C7;} \
+    .task-list {list-style-type: none; padding: 0; margin: 0 0 0 1em ;} \
+    img{display: block; margin-left: auto; margin-right: auto; max-width: 750px; width: 100%;  background:transparent; padding:3px; border:1px solid #999999; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; box-shadow:5px 5px 15px #888888;} \
+    .indented {text-indent: -1.5em; padding-left: 1.5em; margin-left: 1em;} \
+    </style>' ${out}
+    sed -i -e 's/<code>//g' \
+        -e 's{</code>{{g' \
+        -e 's{<a href="#pyradio">pyradio</a>{[pyradio]{' \
+        -e '/^<html/s/lang=""/lang="en"/g' \
+        -e 's/<p><strong>Tip:/<p style="margin: 1.5em 4em 0 4em; text-indent: -2em;"><strong>Tip:/' \
+        -e 's/<p><strong>Note:/<p style="margin: 1.5em 4em 0 4em; text-indent: -2.5em;"><strong>Note:/' \
+        -e 's/\.md">/.html">/g' \
+        -e '/h1 class="title"/d' \
+        -e 's/<a href="http/<a target="_blank" href="http/g' \
+        -e 's{</h2>{ <span style="padding-left: 10px;"><sup style="font-size: 50%"><a href="#" title="Go to top of the page">Top</a></sup></span>&{' \
+        -e 's|<.style>$|a{ color: SaddleBrown;}\na:visited{color: SaddleBrown;}\n</style>|' \
+        -e 's/<h1 /<h1 style="color: SaddleBrown" /' \
+        -e 's/^<p>\[/<p class="indented">[/' \
+        ${out}
+    rm tmp.md
+    if [ "$out" = "windows.html" ] || [ "$out" = "windows-mplayer.html" ];then
+        sed -i -e 's/h3 {margin-top: 2em; color: SaddleBrown;}/h3 {margin-top: 2.5em; color: SaddleBrown; border-bottom:1px solid SaddleBrown;}/' \
+            -e 's{</h3>{ <span style="padding-left: 10px;"><sup style="font-size: 50%"><a href="#" title="Go to top of the page">Top</a></sup></span>&{' \
+            "$out"
+    fi
+    #
+    # convert images to links
+    images_to_links "$out"
+    if [ "$out" = "radio-browser.html" ];then
+        sed -i -e 's/<sup>N/^N/' \
+            -e 's/<.sup>P/^P/' \
+            -e 's|N<strong>, </strong>\^P|N</strong>, <strong>^P|' \
+            -e 's|<sup>X<strong>|^X</strong>|' \
+            -e 's|<.strong>e<strong>|<strong>e</strong>|' \
+            -e 's|<.strong><.sup>E<.strong>|<strong>^E</strong>|' \
+            "$out"
+    fi
+    sed -i 's/\.md/.html/' ${out}
+    # sed -i 's|^<li>\(.*\)</p>$|<li>\1</li>|' ${out}
+    # sed -i 's|^<li><p>\(.*\)</p>$|<li>\1</li>|' ${out}
+
+    if [ "$out" = "README.html" ];then
+        sed -i -e '/http-force.jpg/s/src=/style="width: 600px" src=/' "$out"
+    fi
+
+    if [ "$out" = "desktop-notification.html" ];then
+        sed -i -e '/pyradio-notif.jpg/s/src=/style="width: 411px" src=/' "$out"
+        sed -i -e '/mac-notif.jpg/s/src=/style="width: 411px" src=/' "$out"
+        sed -i -e '/win-notif/s/src=/style="width: 411px" src=/' "$out"
+        sed -i -e '/win7-notif/s/src=/style="width: 411px" src=/' "$out"
+        sed -i -e '/win-python-props/s/src=/style="width: 574px" src=/' "$out"
+        sed -i -e '/win7-icons.jpg/s/src=/style="width: 482px" src=/' "$out"
+    fi
+    if [ "$out" = "server.html" ];then
+        sed -i -e '/server-on.jpg/s/src=/style="width: 574px" src=/' "$out"
+    fi
+    if [ "$out" = "recording.html" ];then
+        sed -i -e '/pyradio-recording.\.jpg/s/src=/style="width: 698px" src=/' "$out"
+    fi
+
+    sed -i '/^<[Aa]/s|.*|<p>&</p>|' "$out"
+    git add ${out}
+done
+
+# insert changelog to README.htm
+cat << STOP_HERE > pre
+<h2 id="changelog">Changelog <span style="padding-left: 10px;"><sup style="font-size: 50%"><a href="#" title="Go to top of the page">Top</a></sup></span></h2>
+<pre style="height: 200px;">
+
+STOP_HERE
+cat Changelog >> pre
+echo '</pre>' >> pre
+
+sed -n '1,/<!-- Changelog -->/p' README.html > 1.txt
+sed -n '/<!-- Changelog -->/,$p' README.html > 2.txt
+cat 1.txt pre 2.txt > README.html
+rm 1.txt 2.txt pre
+
+sed -i '/<li><a href="#requirements">Requirements/ a\
+<li><a href="#changelog">Changelog</a></li>' README.html
+git add README.html
+
+# chmod +x devel/update_win_mplayer
+# devel/update_win_mplayer && {
+#     git add pyradio/win.py
+#     git add devel/update_win_mplayer
+# }
+
+
+echo -en "pyproject.toml ${cGreen}"
+grep version pyproject.toml
+echo -en "${cReset}__init.py ${cRed}"
+grep '^version_info ' pyradio/__init__.py
+echo -en "${cReset}install.py ${cYellow}"
+grep '^PyRadioInstallPyReleaseVersion '  pyradio/install.py
+
+echo -e "${cReset}
+You should also run
+    ${cGreen}devel/update_win_mplayer${cReset}
+at this point, if you are ready to
+publish a new release"
+
+

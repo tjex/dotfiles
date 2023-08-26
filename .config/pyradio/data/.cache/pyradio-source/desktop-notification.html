@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>PyRadio Desktop Notifications</title>
+    <style> 
+    body {padding: 2em;} 
+    @media screen and (max-width: 770px) { 
+        body {padding: 10px;} 
+    }
+    body {max-width: 750px; margin: auto;} 
+    h2 {margin-top: 2.5em; border-bottom:1px solid SaddleBrown; color: SaddleBrown;} 
+    h3 {margin-top: 2em; color: SaddleBrown; text-decoration: underline SaddleBrown} 
+    h4 {margin: 2em 0 1em 0; color: SaddleBrown; font-size: 150%;} 
+    h4:before {content: "# "; font-weight: bold; vertical-align: middle;} 
+    h5 {margin: 2em 0 1em 0; color: SaddleBrown; font-size: 120%;} 
+    h5:before {content: "## "; font-weight: bold; vertical-align: middle;} 
+    STRONG {color: SaddleBrown;} 
+    dl {margin: 2em;} 
+    dd {margin: 1em;} 
+    dt {font-weight: bold;} 
+    TABLE {border: 1px solid SaddleBrown; border-collapse: collapse; margin-left: auto; margin-right: auto; border-radius: 5px; -moz-border-radius: 5px; border-collapse:separate; box-shadow: 5px 5px 15px #888888;} 
+    TH {text-align: left; vertical-align: top; padding: 5px;color: SaddleBrown;border: 1px solid SaddleBrown; background-color: SaddleBrown; color: white;} 
+    TD {text-align: left; vertical-align: top; padding: 5px 10px;border: 1px solid SaddleBrown;} 
+    pre { background-color: rgba(245, 245, 245, 1); color: #474747; padding: 1.5em; border: 1px solid #C7C7C7; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; overflow: auto; box-shadow: 5px 5px 15px #C7C7C7;} 
+    .task-list {list-style-type: none; padding: 0; margin: 0 0 0 1em ;} 
+    img{display: block; margin-left: auto; margin-right: auto; max-width: 750px; width: 100%;  background:transparent; padding:3px; border:1px solid #999999; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; box-shadow:5px 5px 15px #888888;} 
+    .indented {text-indent: -1.5em; padding-left: 1.5em; margin-left: 1em;} 
+    a{ color: SaddleBrown;}
+a:visited{color: SaddleBrown;}
+</style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+</header>
+<h1 style="color: SaddleBrown" id="pyradio-desktop-notification">PyRadio Desktop Notification</h1>
+<p><strong>PyRadio</strong>: Command line internet radio player.</p>
+<h2 id="table-of-contents">Table of Contents <span style="padding-left: 10px;"><sup style="font-size: 50%"><a href="#" title="Go to top of the page">Top</a></sup></span></h2>
+<!-- vim-markdown-toc Marked -->
+<ul>
+<li><a href="#introduction">Introduction</a>
+<ul>
+<li><a href="#configuration">Configuration</a></li>
+<li><a href="#notification-icon">Notification Icon</a></li>
+</ul></li>
+<li><a href="#on-linux">On Linux</a></li>
+<li><a href="#on-macos">On MacOS</a></li>
+<li><a href="#on-windows">On Windows</a>
+<ul>
+<li><a href="#configuring-notifications">Configuring notifications</a></li>
+</ul></li>
+<li><a href="#on-windows-7">On Windows 7</a></li>
+</ul>
+<!-- vim-markdown-toc -->
+<p><a href="README.html">[Return to main doc]</a></p>
+<h2 id="introduction">Introduction <span style="padding-left: 10px;"><sup style="font-size: 50%"><a href="#" title="Go to top of the page">Top</a></sup></span></h2>
+<p><strong>PyRadio</strong> can provide Desktop Notifications when a notification daemon is already present (on Linux and BSD), or through <strong>Windows Notification Service</strong> (<strong>WNS</strong>).</p>
+<p>The behavior and presentation of notifications greatly depends on the daemon/service and command line utility used to trigger a notification.</p>
+<p>If enabled, <strong>PyRadio</strong> will display:</p>
+<ol type="1">
+<li>The playlist name, when playback starts.</li>
+<li>Song info (as provided by the radio station).</li>
+<li>Connection failure messages.</li>
+<li>Player crash messages.</li>
+</ol>
+<p>Desktop Notifications are disabled by default.</p>
+<h3 id="configuration">Configuration</h3>
+<p>Desktop Notifications are disabled by default. To enable them, go to <strong>PyRadio</strong> config window and customize the “<em>Enable notifications</em>” option.</p>
+<p>Available values are:</p>
+<pre>   -1: disabled (deault)
+    0: enabled (no repetition)
+    x: enabled and repeat every x seconds</pre>
+<p><strong>PyRadio</strong> supports notifications repetition, so that even when used with quake or yakuake and the like, you still have some info on what’s going on with it.</p>
+<p>Notifications can be set to repeat every “<em>x</em>” seconds, with “<em>x</em>” ranging from 30 to 300 (30 seconds to 5 minutes), in 30 seconds steps.</p>
+<h3 id="notification-icon">Notification Icon</h3>
+<p>The icon that is displayed in the notification message is by default <strong>PyRadio</strong>’s icon.</p>
+<p><strong>PyRadio</strong> will search for this icon, named <em>pyradio.png</em> (or <em>pyradio.ico</em> on Windows) in the following locations:</p>
+<ol type="1">
+<li>In the <em>configuration directory</em>, under <strong>data</strong> (or <strong>Help</strong> folder on Windows).</li>
+<li>In the distribution directory (under the <strong>icons</strong> folder).</li>
+</ol>
+<p>As a consequence, one could replace the icon found in the <em>configuration directory</em> (under <strong>data</strong> or <strong>Help</strong>) with a custom icon, preserving the icon name as appropriate (<em>pyradio.png</em>, or <em>pyradio.ico</em> on Windows).</p>
+<p>If the station defines a “<em>Station Icon URL</em>” (either on a local playlist or an online service; <strong>Radio Browser</strong> includes an icon for many stations, for example), <strong>PyRadio</strong> will used this one instead, provided that it is of <em>JPG</em> or <em>PNG</em> format. This does not apply to Windows; an <em>ICO</em> file is used instead for <strong>Desktop Notifications</strong>.</p>
+<h2 id="on-linux">On Linux <span style="padding-left: 10px;"><sup style="font-size: 50%"><a href="#" title="Go to top of the page">Top</a></sup></span></h2>
+<p><a href="https://members.hellug.gr/sng/pyradio/pyradio-notif.jpg" target="_blank"><img style="width: 411px" src="https://members.hellug.gr/sng/pyradio/pyradio-notif.jpg" alt="Linux notification" /></a></p>
+
+<p>On Linux (and the BSDs), <strong>PyRadio</strong> uses the <em>notification daemon</em> that’s already present and whatever command line helper program it provides to send notifications to the daemon.</p>
+<p>By default, <strong>PyRadio</strong> uses the following command to issue notifications:</p>
+<pre>notify-send -i ICON TITLE MSG</pre>
+<p>This command will:</p>
+<ul>
+<li>display the title “<strong>TITLE</strong>” and message “<strong>MSG</strong>”.</li>
+<li>display an icon (<strong>-i</strong>).</li>
+</ul>
+<p>The “<strong>ICON</strong>”, “<strong>TITLE</strong>” and “<strong>MSG</strong>” tokens are just placeholders; <strong>PyRadio</strong> will replace them with real data when issuing the notification.</p>
+<p>If that does not work for you, or you want to customize the output, this is what to do:</p>
+<ol type="1">
+<li>put together a valid command that can be executed on a terminal and produce the desired notification.</li>
+<li>create a file called <strong>notification</strong> in <strong>PyRadio</strong> configuration directory.</li>
+<li>write the above command in that file and put each field in a different line.</li>
+</ol>
+<p><strong>Example:</strong></p>
+<p>I have this custom command:</p>
+<pre>notify-send -i ICON -t 6000 TITLE MSG</pre>
+<p>The file I wrote is <strong>~/.config/pyradio/notification</strong>:</p>
+<pre>notify-send
+-i
+ICON
+-t
+6000
+TITLE
+MSG</pre>
+<h2 id="on-macos">On MacOS <span style="padding-left: 10px;"><sup style="font-size: 50%"><a href="#" title="Go to top of the page">Top</a></sup></span></h2>
+<p><a href="https://members.hellug.gr/sng/pyradio/mac-notif.jpg" target="_blank"><img style="width: 411px" src="https://members.hellug.gr/sng/pyradio/mac-notif.jpg" alt="MacOS notification" /></a></p>
+
+<p>MacOS Maverick (and later) provides a scripting service to issue notifications from the command line.</p>
+<p>The command <strong>PyRadio</strong> uses is:</p>
+<pre>osascript -e &#39;display notification &quot;MSG&quot; with title &quot;TITLE&quot;&#39;
+</pre>
+<p>If that does not work for you, or you want to display the icon as well, just install terminal-notifier:</p>
+<pre>brew install terminal-notifier</pre>
+<p>After it is installed, write the following in <strong>~/.config/pyradio/notification</strong>:</p>
+<pre>terminal-notifier
+-message
+MSG
+-title
+TITLE
+-appIcon
+ICON</pre>
+<p>and you are done!</p>
+<h2 id="on-windows">On Windows <span style="padding-left: 10px;"><sup style="font-size: 50%"><a href="#" title="Go to top of the page">Top</a></sup></span></h2>
+<p><a href="https://members.hellug.gr/sng/pyradio/win-notif.jpg" target="_blank"><img style="width: 411px" src="https://members.hellug.gr/sng/pyradio/win-notif.jpg" alt="Windows notification" /></a></p>
+
+<p>As already stated <strong>PyRadio</strong> will display notifications throught <strong>Windows Notification Service</strong> (<strong>WNS</strong>).</p>
+<p>All that you have to do is enable the notifications in the config window.</p>
+<h3 id="configuring-notifications">Configuring notifications</h3>
+<p>Window will display the program the notification comes from, which in this case is <strong>Python</strong>, not <strong>PyRadio</strong>.</p>
+<p>By default, a sound is played when a notification is displayed, which is very annoying when using <strong>PyRadio</strong> to listen to music and such.</p>
+<p>To change the setting, just hover your mouse over a notification and click on the three dots displayed next to the “<em>X</em>”.</p>
+<p>Then you will get the menu that’s shown in the next image.</p>
+<p><a href="https://members.hellug.gr/sng/pyradio/win-notif-edit.jpg" target="_blank"><img style="width: 411px" src="https://members.hellug.gr/sng/pyradio/win-notif-edit.jpg" alt="Windows notification edit" /></a></p>
+
+<p>Click on “<em>Go to notification settings</em>” to open the window that’s shown below.</p>
+<p style="margin: 1.5em 4em 0 4em; text-indent: -2.5em;"><strong>Note:</strong> Please be careful not to click on “*Turn off all notifications for Python”; if you do, it won’t be easy to get notifications back, especially on Window 10 and 11.</p>
+<p><a href="https://members.hellug.gr/sng/pyradio/win-python-props.jpg" target="_blank"><img style="width: 574px" src="https://members.hellug.gr/sng/pyradio/win-python-props.jpg" alt="Windows notification properties" /></a></p>
+
+<p>Please replicate the settings you see in the image above, and enjoy!</p>
+<h2 id="on-windows-7">On Windows 7 <span style="padding-left: 10px;"><sup style="font-size: 50%"><a href="#" title="Go to top of the page">Top</a></sup></span></h2>
+<p><a href="https://members.hellug.gr/sng/pyradio/win7-notif.jpg" target="_blank"><img style="width: 411px" src="https://members.hellug.gr/sng/pyradio/win7-notif.jpg" alt="Windows 7 notification" /></a></p>
+
+<p>If you are on <strong>Windows 7</strong>, you will have a differently looking notification (shown above).</p>
+<p>If you click on the little tool-like “icon” next to the “X”, you get to the “<strong>Notification Area Icons</strong>”, the notifications configuration window. A couple of options are available, and again, I do not know how easy it will be to enable the notification if disabled once.</p>
+<p><a href="https://members.hellug.gr/sng/pyradio/win7-icons.jpg" target="_blank"><img style="width: 482px" src="https://members.hellug.gr/sng/pyradio/win7-icons.jpg" alt="Windows 7 Nontification Icons" /></a></p>
+
+<p>Again, Window considers that the program sending the notifications is <strong>Python</strong>, not <strong>PyRadio</strong>, so that’s what you will be changing.</p>
+</body>
+</html>
