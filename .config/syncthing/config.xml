@@ -1,0 +1,9 @@
+<configuration version="37">
+    <folder id="default" label="tjex" path="/Users/tjex/tjroot/sync" type="sendreceive" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true"></folder>
+    <device></device>
+    <gui></gui>
+    <ldap></ldap>
+    <options></options>
+    <remoteIgnoredDevice></remoteIgnoredDevice>
+    <defaults></defaults>
+</configuration>
