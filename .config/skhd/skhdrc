@@ -17,6 +17,8 @@ alt + cmd - j : yabai -m window --focus south
 alt + cmd - k : yabai -m window --focus north
 alt + cmd - l : yabai -m window --focus east
 
+alt + cmd - 0x21 : yabai -m window --focus recent # key = [
+
 shift + alt + cmd - h : yabai -m window --swap west
 shift + alt + cmd - l : yabai -m window --swap east
 

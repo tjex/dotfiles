@@ -86,7 +86,7 @@ force_http = False
 # with an asterisk (i.e. '*my_theme')
 # This is applicable for user themes only!
 # Default value = 'dark'
-theme = dark
+theme = white_on_black 
 
 # Transparency setting
 # If False, theme colors will be used.

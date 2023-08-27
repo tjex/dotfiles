@@ -23,8 +23,9 @@ cmp.setup({
     },
     -- performance = { max_view_entries = 10 },
     mapping = cmp.mapping.preset.insert({
-        ['<c-k>'] = cmp.mapping.select_prev_item(),
-        ['<c-j>'] = cmp.mapping.select_next_item(),
+        -- saving next/prev keymaps as i think typing is good enough to bring it into selection
+        -- ['<c-k>'] = cmp.mapping.select_prev_item(),
+        -- ['<c-j>'] = cmp.mapping.select_next_item(),
         -- ['<c-,>'] = cmp.mapping.scroll_docs(-4), -- scroll through a large preview window
         -- ['<c-m>'] = cmp.mapping.scroll_docs(4),
         ['<c-Space>'] = cmp.mapping.complete(),

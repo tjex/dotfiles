@@ -26,10 +26,10 @@ yabai -m config \
 # rules
 yabai -m rule --add app="^System Settings$" manage=off 
 yabai -m rule --add app="^Dictionary$" manage=off grid=6:4:1:1:2:4
-yabai -m rule --add app="^WezTerm$" title="^qalc$" manage=off grid=4:6:2:1:1:2
-yabai -m rule --add app="^WezTerm$" title="^pass$" manage=off grid=6:4:1:1:2:4
-yabai -m rule --add app="^WezTerm$" title="^lf$" manage=off grid=6:4:1:1:1:4
+# yabai -m rule --add app="^WezTerm$" title="^qalc$" manage=off grid=6:4:1:1:2:1
+yabai -m rule --add app="^WezTerm$" title="^lf$" manage=off grid=6:4:1:1:2:4
 yabai -m rule --add app="^Pastebot$" sticky=on manage=off 
 yabai -m rule --add app="^Carbon Copy Cloner$" manage=off 
+yabai -m rule --add app="^Raycast$" title="Raycast Settings" manage=off 
 
 
