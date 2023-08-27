@@ -97,8 +97,8 @@ Group.new('Folded', groups.border_red)
 Group.new('MatchParen', nil, colors.gray_5)
 Group.new('MoreMsg', nil, colors.gray_4)
 Group.new('NonText', colors.gray_6, nil)
-Group.new('Pmenu', colors.gray_0, colors.gray_6)
-Group.new('PmenuSel', colors.gray_4, colors.gray_6)
+Group.new('Pmenu', colors.gray_0, colors.bg_light)
+Group.new('PmenuSel', nil, colors.black)
 Group.new('PmenuSbar', groups.primary, colors.gray_6)
 Group.new('PmenuThumb', groups.primary, colors.gray_5)
 Group.new('Question', colors.gray_0, colors.gray_6)
@@ -226,3 +226,7 @@ Group.new('TelescopeSelection', groups.ui_sel_fg_1)
 -- blankline
 Group.new('IndentBlanklineChar', colors.gray_4)
 Group.new('IndentBlanklineContextChar', groups.hl_yellow)
+
+-- cmp
+Group.new('CmpItemMenu', groups.ui_sel_fg_1)
+Group.new('CmpItemAbbrMatch', groups.ui_sel_fg_1)
