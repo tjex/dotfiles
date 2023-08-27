@@ -24,16 +24,17 @@ cmp.setup({
     -- performance = { max_view_entries = 10 },
     mapping = cmp.mapping.preset.insert({
         -- saving next/prev keymaps as i think typing is good enough to bring it into selection
-        -- ['<c-k>'] = cmp.mapping.select_prev_item(),
-        -- ['<c-j>'] = cmp.mapping.select_next_item(),
+        ['<c-k>'] = cmp.mapping.select_prev_item(),
+        ['<c-j>'] = cmp.mapping.select_next_item(),
+        ['<c-Space>'] = cmp.mapping.complete(),
+        ['<cr>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
         -- ['<c-,>'] = cmp.mapping.scroll_docs(-4), -- scroll through a large preview window
         -- ['<c-m>'] = cmp.mapping.scroll_docs(4),
-        ['<c-Space>'] = cmp.mapping.complete(),
-        ['<c-c>'] = {
-            i = cmp.mapping.abort(),
-            c = cmp.mapping.close(),
-        },
-        ['<cr>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        -- not really needed? just keep typing...
+        -- ['<c-c>'] = {
+        --     i = cmp.mapping.abort(),
+        --     c = cmp.mapping.close(),
+        -- },
 
     }),
 
