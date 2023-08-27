@@ -6,5 +6,6 @@ autoload -U compinit promptinit
 promptinit
 
 # needs to be after promptinit
+# standard term colors are set in wezterm/colors
 source "${ZDOTDIR}/.zsh-pure-cfg" # pure
 fast-theme ${ZDOTDIR}/sv-orple-mod.ini >/dev/null 

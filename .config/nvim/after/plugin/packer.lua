@@ -58,6 +58,7 @@ return require("packer").startup(function(use)
         "nvim-telescope/telescope-dap.nvim",
         "christoomey/vim-tmux-navigator",
         "ton/vim-bufsurf",
+        "nvim-treesitter/playground",
         -- completion
         "hrsh7th/nvim-cmp",
         "hrsh7th/cmp-nvim-lua",
