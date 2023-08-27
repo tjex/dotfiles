@@ -42,6 +42,14 @@ brew bundle install --file ${BREWFILE}
 # lf
 env CGO_ENABLED=0 go install -ldflags="-s -w" github.com/gokcehan/lf@latest # file manager
 
+# wails
+read -p 'install wails? (Y/N): ' confirm
+if [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]]; then
+    go install github.com/wailsapp/wails/v2/cmd/wails@latest
+else
+   echo 'not installing wails'
+fi
+
 # packages not installed through brew
 # packer
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
