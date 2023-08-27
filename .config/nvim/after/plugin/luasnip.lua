@@ -10,6 +10,9 @@ local s = ls.snippet
 local t = ls.text_node
 local i = ls.insert_node
 
+-- snippets source
+require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/snippets/" })
+
 ls.config.set_config {
     history = true,
     updateevents = "TextChanged,TextChangedI",
@@ -33,12 +36,3 @@ key({ "i", "s" }, "<c-l>", function()
         ls.change_choice(1)
     end
 end, { silent = true })
-
-
-
-ls.add_snippets(nil, {
-    -- basic, don't need to know anything else
-    --    arg 1: string
-    --    arg 2: a node
-    ls.s("simple", t "wow, you were right!"),
-})
