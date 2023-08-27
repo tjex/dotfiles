@@ -29,17 +29,20 @@ export GOPATH="$HOME/.local/go"
 export GOMODCACHE="$XDG_CACHE_HOME/go/mod"
 export ANSIBLE_CONFIG="$XDG_CONFIG_HOME/ansible/ansible.cfg"
 export UNISON="$XDG_DATA_HOME/unison"
-export HISTFILE="$XDG_CACHE_HOME/history/zshhistory"
 export MBSYNCRC="$XDG_CONFIG_HOME/mbsync/config"
 export ELECTRUMDIR="$XDG_DATA_HOME/electrum"
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
-export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite_history"
 export NVM_DIR="$XDG_DATA_HOME/nvm"
 export GPGKEY="45FC951C7A7F24C4A6AA566F28AADCA2EF680971"
 GPG_TTY=$(tty) ; export GPG_TTY
 
-# Other program settings:
+# history files
+export SQLITE_HISTORY="$XDG_CACHE_HOME/history/sqlite_history"
+export HISTFILE="$XDG_CACHE_HOME/history/zshhistory"
+export PYTHONHISTORY="$XDG_CACHE_HOME/history/python"
 export LESSHISTFILE="-"
+
+# Other program settings:
 export LESS=-R
 export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"
 export LESS_TERMCAP_md="$(printf '%b' '[1;36m')"
@@ -52,4 +55,3 @@ export LESSOPEN="| /usr/bin/highlight -O ansi %s 2>/dev/null"
 GPG_TTY=$(tty) ; export GPG_TTY
 
 [ ! -f ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ] && setsid shortcuts >/dev/null 2>&1
-source -- $XDG_DATA_HOME/venv/sys/bin/activate
