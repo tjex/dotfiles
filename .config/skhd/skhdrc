@@ -1,15 +1,14 @@
-# vim: filetype=sh
+#! /usr/bin/env bash
 
 # keycodes
 # https://github.com/koekeishiya/skhd/issues/1
 
 # mac builtin Applications must be opened with `open -a`
-alt + cmd - w : "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
+# alt + cmd - w : "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
 alt + cmd - return : Applications/WezTerm.app/Contents/MacOS/wezterm
-alt + cmd - d : open -a Dictionary
-alt + cmd - 0x29 : /Applications/WezTerm.app/Contents/MacOS/wezterm start qalc # 0x29 is ;
+alt + cmd - 0x27 : open -a Dictionary # key = '
 alt + cmd - e : /Applications/WezTerm.app/Contents/MacOS/wezterm start lf ~/tjroot
-
+alt + cmd - 0x29 : yabai -m window $(yabai -m query --windows | jq '.[] | select(.title == "tjex: qalc") | .id') --focus
 alt + cmd - f : yabai -m window --toggle zoom-fullscreen
 
 # yabai
@@ -47,3 +46,6 @@ alt + cmd - 7 : yabai -m space --focus 3
 alt + cmd - 8 : yabai -m space --focus 3
 alt + cmd - 9 : yabai -m space --focus 3
 
+
+# others
+alt + cmd - u : dbookmarks /Users/tjex/tjroot/lists/bm-dev
