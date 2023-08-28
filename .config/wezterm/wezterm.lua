@@ -34,7 +34,6 @@ config.skip_close_confirmation_for_processes_named = {
     'lf',
 }
 
-
 -- apply modules required above to config table
 font.apply(config)
 colors.apply(config)
