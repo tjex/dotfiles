@@ -15,7 +15,8 @@ local servers = {
     "marksman",
     "gopls",
     "pyright",
-    "stylelint_lsp"
+    "stylelint_lsp",
+    "astro"
 }
 
 require("mason").setup({})
@@ -49,7 +50,6 @@ local function lsp_keymaps(client, bufnr)
     local bufopts = { noremap = true, silent = true, buffer = bufnr }
     local key = vim.keymap.set
     local auto = vim.api.nvim_create_autocmd
-    -- Enable completion triggered by <c-x><c-o>
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
     key('n', 'gd', function() vim.lsp.buf.definition() end, bufopts)
@@ -68,6 +68,7 @@ local function lsp_keymaps(client, bufnr)
     end
 end
 
+-- source completion capabilities
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lsp_attach = function(client, bufnr)
     if client.name == "tsserver" then

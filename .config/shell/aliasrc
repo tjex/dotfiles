@@ -63,4 +63,6 @@ alias \
     abudget="${HOME}/.local/scripts/apps/actual-budget-start.sh" \
     neomutt="TERM=xterm-direct neomutt" \
     yabspace="yabai -m space --create" \
-    dbm="dbookmarks ~/tjroot/lists/bm-dev"
+    dbm="dbookmarks ~/tjroot/lists/bm-dev" \
+    yt="yt-dlp --embed-metadata -i" \
+    yta="yt -x -f bestaudio/best"
