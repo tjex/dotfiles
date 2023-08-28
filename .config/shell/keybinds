@@ -1,11 +1,11 @@
-bindkey -s '^o' '^ulfcd\n'
+bindkey -s '^o' '^ulfcd '
 
 bindkey '^[[P' delete-char
 
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
-bindkey '^i' edit-command-line
-bindkey -M vicmd '^i' edit-command-line
+bindkey '^e' edit-command-line
+bindkey -M vicmd '^e' edit-command-line
 
 bindkey 'ç' fzf-cd-widget
 bindkey '^f' fzf-file-widget

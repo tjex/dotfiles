@@ -7,7 +7,6 @@ wezterm.color.get_default_colors()
 local black = '#000000'
 local white = 'FFFFFF'
 local yellow = '#a6864d'
-local burnt_yellow = '#a6794d'
 local soft_red = '#936666'
 local purple = '#c3a0ba'
 local blue_1 = "#496c7a"
@@ -24,14 +23,14 @@ function module.apply(config)
         selection_bg = soft_red,
         selection_fg = black,
         ansi = {
-            black,        -- term: black
-            soft_red,     -- term: red
-            burnt_yellow, -- term: green
-            yellow,       -- term: yellow
-            blue_1,       -- term: blue
-            purple,       -- term: magenta
-            blue_2,       -- term: cyan
-            white         -- term: white
+            black,      -- term: black
+            soft_red,   -- term: red
+            foreground, -- term: green (i don't want any green in my term! yuck)
+            yellow,     -- term: yellow
+            blue_1,     -- term: blue
+            purple,     -- term: magenta
+            blue_2,     -- term: cyan
+            white       -- term: white
         },
     }
 end
