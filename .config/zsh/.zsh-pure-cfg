@@ -5,7 +5,7 @@
 PURE_PROMPT_SYMBOL='>'
 PURE_PROMPT_VICMD_SYMBOL='>'
 
-zstyle :prompt:pure:path color "#ffc46d"
+zstyle :prompt:pure:path color yellow
 zstyle :prompt:pure:prompt:success color white
 zstyle :prompt:pure:prompt:error color red
 zstyle :prompt:pure:execution_time color "#c3a0ba"

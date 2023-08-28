@@ -37,4 +37,4 @@ key({ "i", "s" }, "<c-l>", function()
     end
 end, { silent = true })
 
-key({ "n", "i" }, "<leader><leader>s", "<cmd>source ~/.config/nvim/after/plugin/luasnip.lua <cr>")
+key("n", "<leader><leader>s", "<cmd>source ~/.config/nvim/after/plugin/luasnip.lua <cr>")
