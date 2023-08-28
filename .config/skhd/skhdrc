@@ -51,3 +51,5 @@ alt + cmd - 9 : yabai -m space --focus 3
 
 # others
 alt + cmd - u : dbookmarks "/Users/tjex/tjroot/lists/bm-dev" &
+
+alt + 0x02 : skhd -k 'alt - f4'
