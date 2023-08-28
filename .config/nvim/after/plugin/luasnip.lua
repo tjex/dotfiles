@@ -36,3 +36,5 @@ key({ "i", "s" }, "<c-l>", function()
         ls.change_choice(1)
     end
 end, { silent = true })
+
+key({ "n", "i" }, "<leader><leader>s", "<cmd>source ~/.config/nvim/after/plugin/luasnip.lua <cr>")

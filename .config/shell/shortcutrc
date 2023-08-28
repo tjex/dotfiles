@@ -11,6 +11,7 @@ alias \
     m="cd ${TJROOT}/music && ls -A" \
     i="cd ${TJROOT}/images && ls -A" \
     l="cd ${HOME}/.local/ && ls -A" \
+    lsrc="cd ${HOME}/.local/src && ls -A" \
     vol="cd /Volumes && ls -A" \
 
 # projects / personal
