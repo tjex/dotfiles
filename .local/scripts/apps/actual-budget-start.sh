@@ -2,4 +2,4 @@
 
 source ${XDG_DATA_HOME}/nvm/nvm.sh 
 cd $HOME/tjroot/dev/personal/abudget/actual-tjex
-yarn start
+nohup yarn start > /dev/null &

@@ -2,13 +2,13 @@
 # https://github.com/sindresorhus/pure
 
 
-PURE_PROMPT_SYMBOL='>'
-PURE_PROMPT_VICMD_SYMBOL='>'
+PURE_PROMPT_SYMBOL='❯'
+PURE_PROMPT_VICMD_SYMBOL='—'
 
-zstyle :prompt:pure:path color red
-zstyle :prompt:pure:prompt:success color white
+zstyle :prompt:pure:path color yellow
+zstyle :prompt:pure:prompt:success color none
 zstyle :prompt:pure:prompt:error color red
-zstyle :prompt:pure:execution_time color "#c3a0ba"
+zstyle :prompt:pure:execution_time color magenta 
 zstyle :prompt:pure:git:stash show yes
 
 prompt pure # set prompt

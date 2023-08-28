@@ -19,7 +19,7 @@ vim.opt.hlsearch = false
 vim.opt.ignorecase = true
 vim.opt.incsearch = true -- update search highlight duting search
 
-vim.opt.cursorline = true
+-- vim.opt.cursorline = true
 vim.opt.cursorlineopt = "both"
 vim.opt.number = true
 vim.opt.relativenumber = true
