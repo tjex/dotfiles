@@ -50,6 +50,9 @@ else
    echo 'not installing wails'
 fi
 
+# delve (go debugger)
+go install github.com/go-delve/delve/cmd/dlv@latest
+
 # packages not installed through brew
 # packer
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
