@@ -5,15 +5,13 @@ wezterm.color.get_default_colors()
 
 -- neovim colors
 local black = '#000000'
+local white = 'FFFFFF'
 local yellow = '#a6864d'
 local burnt_yellow = '#a6794d'
 local soft_red = '#936666'
 local purple = '#c3a0ba'
 local blue_1 = "#496c7a"
 local blue_2 = "#566981"
-local bg_lighter = '#202436'
-local bg_light = '#1d2030'
-local bg_text = '#525d8a'
 local background = '#171A27'
 local foreground = '#949494'
 
@@ -26,14 +24,14 @@ function module.apply(config)
         selection_bg = soft_red,
         selection_fg = black,
         ansi = {
-            "#1b1d1e", -- Dark Gray
-            soft_red,
-            burnt_yellow,
-            yellow,
-            blue_1,
-            "#747271", -- Storm Gray
-            "#62605f", -- Iron Gray
-            "#c6c5bf"  -- Silver
+            black,        -- term: black
+            soft_red,     -- term: red
+            burnt_yellow, -- term: green
+            yellow,       -- term: yellow
+            blue_1,       -- term: blue
+            purple,       -- term: magenta
+            blue_2,       -- term: cyan
+            white         -- term: white
         },
     }
 end
