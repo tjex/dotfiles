@@ -21,7 +21,7 @@ return require("packer").startup(function(use)
             dependencies = {
                 'JoosepAlviste/nvim-ts-context-commentstring',
             },
-        },
+        }
     })
 
     -- GUI
@@ -31,6 +31,7 @@ return require("packer").startup(function(use)
         { "tjdevries/colorbuddy.nvim", branch = "dev" },
         'lukas-reineke/indent-blankline.nvim',
         "onsails/lspkind.nvim",
+        "folke/trouble.nvim"
     })
 
     -- text

@@ -56,7 +56,6 @@ require("dapui").setup({
         },
     },
     controls = {
-        -- Requires Neovim nightly (or 0.8 when released)
         enabled = true,
         -- Display controls in this element
         element = "repl",
