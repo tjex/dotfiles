@@ -57,7 +57,8 @@ local function lsp_keymaps(client, bufnr)
     key('n', ']d', vim.diagnostic.goto_next, bufopts)
 
     key('n', '<C-i>', vim.lsp.buf.hover, bufopts)
-    key('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
+    -- done with auto command
+    -- key('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
     key("n", "<leader>!", funcs.toggle_diagnostics)
 
     if client.name == "eslint" then

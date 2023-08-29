@@ -91,7 +91,7 @@ require("nvim-tree").setup({
         timeout = 500,
     },
     renderer = {
-        group_empty = true,
+        group_empty = false,
         indent_markers = {
             enable = true,
         },
@@ -114,8 +114,8 @@ require("nvim-tree").setup({
         }
     },
     hijack_directories = {
-        enable = false,
-        auto_open = false,
+        enable = true,
+        auto_open = true,
     },
     filters = {
         custom = {

@@ -1,4 +1,5 @@
 -- neovim keypings
+local funcs = require("tjex.funcs")
 local key = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
@@ -19,8 +20,7 @@ key("i", "KJ", "<ESC>", opts)
 --  command mode = 'c'
 
 -- file operations
-key("n", "W", ":w!<CR>", opts)
--- key("n", "<leader>x", "<cmd>!chmod +x %<CR>", opts)
+key("n", "W", "m`<CR>:w!<CR>", opts)
 key("n", "<leader>cd", ":cd %:h<CR>", opts)
 
 -- text operations
@@ -45,6 +45,7 @@ key("n", "<C-d>", "<C-d>zz", opts)      -- keep cursor in middle when jumping
 key("n", "<C-u>", "<C-u>zz", opts)      -- keep cursor in middle when jumping
 key("n", "n", "nzzzv", opts)            -- keep cursor in middle during search
 key("n", "N", "Nzzzv", opts)
+key("n", "``", '`"', opts)              -- nvim creates a " marker at last position before exiting file
 
 -- windows
 key("n", "<C-h>", "<C-w>h", opts)
@@ -68,3 +69,5 @@ key("v", "ga", ":EasyAlign", opts)
 
 -- netrw
 -- key("n", "<leader>e", ":Explore<CR>")
+
+key("n", "al", funcs.test)
