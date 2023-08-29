@@ -20,7 +20,7 @@ key("i", "KJ", "<ESC>", opts)
 --  command mode = 'c'
 
 -- file operations
-key("n", "W", "m`<CR>:w!<CR>", opts)
+key("n", "W", ":w<CR>", opts)
 key("n", "<leader>cd", ":cd %:h<CR>", opts)
 
 -- text operations

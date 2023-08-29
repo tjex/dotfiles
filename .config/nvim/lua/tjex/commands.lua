@@ -8,3 +8,4 @@ cmd("Cs", ":lua require('telescope.builtin').find_files({cwd='~/.config/nvim/che
 cmd("Conf", ":lua require('telescope.builtin').find_files({cwd='~/.config/nvim/lua/tjex', previewer=false})<CR>", {})
 cmd("EditSnippets", ":lua require('luasnip.loaders').edit_snippet_files()<CR>", {})
 cmd("Chmod", ":!chmod +x %<CR>", {})
+cmd("W", ":w<CR>", {}) -- sometimes I type :w too fast, and it becomes :W (which gives an error and breaks da flow yo)

@@ -15,7 +15,6 @@ key("n", "<F1>", ":lua require'dap'.continue()<CR>", opts)
 key("n", "<F4>", ":lua require'dap'.step_over()<CR>", opts)
 key("n", "<F3>", ":lua require'dap'.step_into()<CR>", opts)
 key("n", "<F2>", ":lua require'dap'.step_out()<CR>", opts)
-key("n", "<leader>d", function() require 'telescope'.extensions.dap.commands {} end, opts)
 
 
 -- nvim-dap-go plugin

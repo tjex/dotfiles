@@ -31,7 +31,6 @@ return require("packer").startup(function(use)
         { "tjdevries/colorbuddy.nvim", branch = "dev" },
         'lukas-reineke/indent-blankline.nvim',
         "onsails/lspkind.nvim",
-        "folke/trouble.nvim"
     })
 
     -- text
@@ -57,10 +56,13 @@ return require("packer").startup(function(use)
         { "nvim-telescope/telescope.nvim",            tag = "0.1.0" },
         { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
         "nvim-telescope/telescope-dap.nvim",
-        "christoomey/vim-tmux-navigator",
         "ton/vim-bufsurf",
         "nvim-treesitter/playground",
-        -- completion
+        "folke/todo-comments.nvim"
+    })
+
+    -- completion
+    use({
         "hrsh7th/nvim-cmp",
         "hrsh7th/cmp-nvim-lua",
         "hrsh7th/cmp-buffer",
@@ -69,7 +71,7 @@ return require("packer").startup(function(use)
         "saadparwaiz1/cmp_luasnip",
     })
 
-    -- integrations
+    -- external integrations
     use({
         "epwalsh/obsidian.nvim",
         requires = { "nvim-lua/plenary.nvim", },
@@ -81,8 +83,9 @@ return require("packer").startup(function(use)
         "mxsdev/nvim-dap-vscode-js",
         "rcarriga/nvim-dap-ui",
         "leoluz/nvim-dap-go",
-        opt = true,
-        cmd = { 'Dapui' },
+        -- it doesn't look right that these are here...?
+        -- opt = true,
+        -- cmd = { 'Dapui' },
     })
 
     -- lsp
@@ -90,5 +93,6 @@ return require("packer").startup(function(use)
         "neovim/nvim-lspconfig",
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
+        "folke/trouble.nvim"
     })
 end)
