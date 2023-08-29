@@ -1,9 +1,9 @@
 -- custom commands (run from :commandline)
--- insert todays date
-vim.api.nvim_create_user_command("Date", "norm! i " .. vim.fn.strftime('%Y-%m-%d'), {})
-vim.api.nvim_create_user_command("PubDate", "norm! i " .. vim.fn.strftime('%Y-%m-%dT%XZ'), {})
-vim.api.nvim_create_user_command("Dapui", ":lua require('dapui').toggle()<CR>", {})
-vim.api.nvim_create_user_command("Cs",
-    ":lua require('telescope.builtin').find_files({cwd='~/.config/nvim/cheat-sheets'})<CR>", {})
-vim.api.nvim_create_user_command("Conf",
-    ":lua require('telescope.builtin').find_files({cwd='~/.config/nvim/lua/tjex', previewer=false})<CR>", {})
+local cmd = vim.api.nvim_create_user_command
+
+cmd("Date", "norm! i " .. vim.fn.strftime('%Y-%m-%d'), {})
+cmd("PubDate", "norm! i " .. vim.fn.strftime('%Y-%m-%dT%XZ'), {})
+cmd("Dapui", ":lua require('dapui').toggle()<CR>", {})
+cmd("Cs", ":lua require('telescope.builtin').find_files({cwd='~/.config/nvim/cheat-sheets'})<CR>", {})
+cmd("Conf", ":lua require('telescope.builtin').find_files({cwd='~/.config/nvim/lua/tjex', previewer=false})<CR>", {})
+cmd("EditSnippets", ":lua require('luasnip.loaders').edit_snippet_files()<CR>", {})

@@ -5,6 +5,7 @@ local opts = { noremap = true, silent = true }
 -- main functionality remaps
 key("", "<Space>", "<Nop>", opts)
 key("n", "<ESC>", "<Nop>")
+key("n", "<F1>", "<Nop>", opts)
 key("i", "kj", "<ESC>", opts)
 key("i", "KJ", "<ESC>", opts)
 
@@ -51,6 +52,9 @@ key("n", "<C-l>", "<C-w>l", opts)
 key("n", "<C-k>", "<C-w>k", opts)
 key("n", "<C-j>", "<C-w>j", opts)
 
+-- tabs
+key("n", "gh", ":tabp<CR>", opts) -- previous tab
+key("n", "gl", ":tabn<CR>", opts) -- next tab
 
 -- plugins without their own conf file
 
@@ -61,3 +65,6 @@ key("n", "H", ":BufSurfBack<CR>", opts)
 -- easy-align --
 key("n", "ga", ":EasyAlign", opts)
 key("v", "ga", ":EasyAlign", opts)
+
+-- netrw
+-- key("n", "<leader>e", ":Explore<CR>")

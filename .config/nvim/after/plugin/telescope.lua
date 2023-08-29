@@ -9,8 +9,8 @@ local opts = { noremap = true, silent = true }
 local tb = require("telescope.builtin")
 
 key("n", "sb", tb.buffers, opts)
+-- key("n", "sd", tb.diagnostics, opts) -- using Trouble instead
 key("n", "sc", tb.commands, opts)
-key("n", "sd", tb.diagnostics, opts)
 -- setting previewer false here instead of in setup so that it can be enabled selectively for other commands
 key("n", "sf", function() require('telescope.builtin').find_files({ previewer = false }) end, opts)
 key("n", "sF", function() require('telescope').extensions.recent_files.pick() end, opts)

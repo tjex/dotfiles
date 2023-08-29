@@ -7,11 +7,14 @@ end
 local ls = require("luasnip")
 local key = vim.keymap.set
 local s = ls.snippet
-local t = ls.text_node
 local i = ls.insert_node
+local t = ls.text_node
+local extras = require("luasnip.extras")
+local rep = extras.rep
+local fmt = require("luasnip.extras.fmt").fmt
 
 -- snippets source
-require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/snippets/" })
+require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/snippets" })
 
 ls.config.set_config {
     history = true,
@@ -37,4 +40,4 @@ key({ "i", "s" }, "<c-l>", function()
     end
 end, { silent = true })
 
-key("n", "<leader><leader>s", "<cmd>source ~/.config/nvim/after/plugin/luasnip.lua <cr>")
+key("n", "<leader><leader>es", ":EditSnippets<CR>")

@@ -5,43 +5,20 @@ if not ok then
     return
 end
 
-local dap = require('dap')
+-- local dap = require('dap')
 local key = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
-key("n", "<leader>b", ":DapToggleBreakpoint<CR>", opts)
-key("n", "%", ":DapStepOver<CR>", opts)
-key("n", "$", ":DapStepInto<CR>", opts)
-key("n", "#", ":DapStepOut<CR>", opts)
+key("n", "<leader>b", ":lua require'dap'.toggle_breakpoint()<CR>", opts)
+key("n", "<leader>B", ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", opts)
+key("n", "<F1>", ":lua require'dap'.continue()<CR>", opts)
+key("n", "<F4>", ":lua require'dap'.step_over()<CR>", opts)
+key("n", "<F3>", ":lua require'dap'.step_into()<CR>", opts)
+key("n", "<F2>", ":lua require'dap'.step_out()<CR>", opts)
 key("n", "<leader>d", function() require 'telescope'.extensions.dap.commands {} end, opts)
 
-dap.adapters["pwa-node"] = {
-    type = "server",
-    host = "localhost",
-    port = "${port}",
-    executable = {
-        command = "node",
-        args = { os.getenv('HOME') .. "/.config/nvim/debuggers/vscode-js-debug/out/src/vsDebugServer.js", "${port}" },
-    }
-}
 
-dap.configurations.javascript = {
-    {
-        type = "pwa-node",
-        request = "launch",
-        name = "Launch file-vs-js",
-        program = "${file}",
-        cwd = "${workspaceFolder}",
-    },
-    {
-        type = "pwa-node",
-        request = "attach",
-        name = "Attach-vs-js",
-        processId = require 'dap.utils'.pick_process,
-        cwd = "${workspaceFolder}",
-    },
-}
-
+-- nvim-dap-go plugin
 require("dap-go").setup {
     -- :help dap-configuration
     dap_configurations = {
