@@ -1,7 +1,7 @@
 local funcs = require("tjex.funcs")
 local auto = vim.api.nvim_create_autocmd
 
-auto({ "VimEnter" }, { callback = funcs.open_nvim_tree })
+auto({ "VimEnter" }, { callback = funcs.open_tree_on_dir })
 
 -- show last used buffer if bdelete leaves you with nvim-tree only
 -- auto({ "VimEnter" }, {

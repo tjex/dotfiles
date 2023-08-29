@@ -8,7 +8,7 @@ PURE_PROMPT_VICMD_SYMBOL='—'
 zstyle :prompt:pure:path color yellow
 zstyle :prompt:pure:prompt:success color none
 zstyle :prompt:pure:prompt:error color red
-zstyle :prompt:pure:execution_time color magenta 
+zstyle :prompt:pure:execution_time color white
 zstyle :prompt:pure:git:stash show yes
 
 prompt pure # set prompt

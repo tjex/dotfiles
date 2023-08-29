@@ -5,7 +5,7 @@ wezterm.color.get_default_colors()
 
 -- neovim colors
 local black = '#000000'
-local white = 'FFFFFF'
+local white = '#949494'
 local yellow = '#a6864d'
 local soft_red = '#936666'
 local purple = '#c3a0ba'

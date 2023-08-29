@@ -17,7 +17,7 @@ funcs.toggle_diagnostics = function()
 end
 
 -- open nvim tree on directory entry
-funcs.open_nvim_tree = function(data)
+funcs.open_tree_on_dir = function(data)
     -- buffer is a directory
     local directory = vim.fn.isdirectory(data.file) == 1
 

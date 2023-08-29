@@ -114,8 +114,10 @@ require("nvim-tree").setup({
         }
     },
     hijack_directories = {
-        enable = true,
-        auto_open = true,
+        -- this autoopens nvim, but only in sidebar mode
+        -- i do this with autocmds instead
+        enable = false,
+        auto_open = false,
     },
     filters = {
         custom = {
