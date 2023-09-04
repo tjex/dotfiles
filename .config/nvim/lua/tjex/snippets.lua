@@ -17,7 +17,11 @@ local i = ls.insert_node
 -- }
 
 ls.add_snippets("all", {
-    s("trig", {
-        i(1), t "text", i(2), t "text again", i(3)
-    })
+	s("trig", {
+		i(1),
+		t "text",
+		i(2),
+		t "text again",
+		i(3),
+	}),
 })

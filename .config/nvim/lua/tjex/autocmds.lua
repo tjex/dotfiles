@@ -1,4 +1,4 @@
-local funcs = require("tjex.funcs")
+local funcs = require "tjex.funcs"
 local auto = vim.api.nvim_create_autocmd
 
 auto({ "VimEnter" }, { callback = funcs.open_tree_on_dir })

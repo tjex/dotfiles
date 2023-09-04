@@ -1,5 +1,5 @@
 -- neovim keypings
-local funcs = require("tjex.funcs")
+local funcs = require "tjex.funcs"
 local key = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
@@ -9,7 +9,6 @@ key("n", "<ESC>", "<Nop>")
 key("n", "<F1>", "<Nop>", opts)
 key("i", "kj", "<ESC>", opts)
 key("i", "KJ", "<ESC>", opts)
-
 
 -- Modes
 --  normal mode = 'n'
@@ -37,15 +36,15 @@ key("n", "fl", "mzgqq`z", opts) -- format line and leave cursor where it was
 key("n", "<leader>r", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/<Left>")
 
 -- naviagtion
-key("n", "j", "gj", opts)               -- cursor down inline
-key("n", "k", "gk", opts)               -- cursor up inline
+key("n", "j", "gj", opts) -- cursor down inline
+key("n", "k", "gk", opts) -- cursor up inline
 key("v", "J", ":m '>+1<CR>gv=gv", opts) -- move selected visual lines down
 key("v", "K", ":m '<-2<CR>gv=gv", opts) -- move selected visual lines up
-key("n", "<C-d>", "<C-d>zz", opts)      -- keep cursor in middle when jumping
-key("n", "<C-u>", "<C-u>zz", opts)      -- keep cursor in middle when jumping
-key("n", "n", "nzzzv", opts)            -- keep cursor in middle during search
+key("n", "<C-d>", "<C-d>zz", opts) -- keep cursor in middle when jumping
+key("n", "<C-u>", "<C-u>zz", opts) -- keep cursor in middle when jumping
+key("n", "n", "nzzzv", opts) -- keep cursor in middle during search
 key("n", "N", "Nzzzv", opts)
-key("n", "``", '`"', opts)              -- nvim creates a " marker at last position before exiting file
+key("n", "`l", '`"', opts) -- jump to where cursor was on file close
 
 -- windows
 key("n", "<C-h>", "<C-w>h", opts)

@@ -1,1 +1,1 @@
-require('tjex')
+require "tjex"

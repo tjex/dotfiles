@@ -1,11 +1,11 @@
-local ok, _ = pcall(require, "Comment" )
+local ok, _ = pcall(require, "Comment")
 if not ok then
-    print('comment not ok!')
-    return
+	print "comment not ok!"
+	return
 end
 -- comment numToStr/Comment.nvim
-require('Comment').setup()
+require("Comment").setup()
 
-local ft = require('Comment.ft')
+local ft = require "Comment.ft"
 
-ft.set('astro', '<!--%s-->')
+ft.set("astro", "<!--%s-->")
