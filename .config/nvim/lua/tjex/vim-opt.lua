@@ -13,6 +13,7 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 
 vim.opt.wrap = false
+vim.opt.textwidth = 110
 vim.opt.scrolloff = 8 -- maintain min8 lines between cursor window start/end
 
 vim.opt.hlsearch = false
@@ -20,7 +21,7 @@ vim.opt.ignorecase = true
 vim.opt.incsearch = true -- update search highlight duting search
 
 -- vim.opt.cursorline = true
-vim.opt.cursorlineopt = "both"
+-- vim.opt.cursorlineopt = "both"
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.foldcolumn = "auto:2"
