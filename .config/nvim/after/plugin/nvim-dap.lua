@@ -5,7 +5,7 @@ if not ok then
     return
 end
 
--- local dap = require('dap')
+local dap = require('dap')
 local key = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
@@ -51,4 +51,24 @@ require("dap-go").setup {
         -- ignored by delve in dap mode.
         build_flags = "",
     },
+}
+
+-- local lua debugger vscode
+dap.adapters["local-lua"] = {
+    type = "executable",
+    command = "node",
+    args = {
+        "/Users/tjex/.local/utils/local-lua-debugger-vscode/extensions/debugAdapter.js"
+    },
+    enrich_config = function(config, on_config)
+        if not config["extensionPath"] then
+            local c = vim.deepcopy(config)
+            -- 💀 If this is missing or wrong you'll see
+            -- "module 'lldebugger' not found" errors in the dap-repl when trying to launch a debug session
+            c.extensionPath = "/Users/tjex/.local/utils/local-lua-debugger-vscode/"
+            on_config(c)
+        else
+            on_config(config)
+        end
+    end,
 }
