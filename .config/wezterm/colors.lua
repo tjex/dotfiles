@@ -5,7 +5,7 @@ wezterm.color.get_default_colors()
 
 -- neovim colors
 local black = '#000000'
-local white = '#949494'
+local white = '#adadad'
 local yellow = '#a6864d'
 local soft_red = '#936666'
 local purple = '#c3a0ba'
@@ -30,7 +30,7 @@ function module.apply(config)
             blue_1,     -- term: blue
             purple,     -- term: magenta
             blue_2,     -- term: cyan
-            white       -- term: white
+            white,      -- term: white
         },
     }
 end
