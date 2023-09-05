@@ -69,13 +69,8 @@ local lsp_attach = function(client, bufnr)
     lsp_keymaps(client, bufnr)
     require("cmp_nvim_lsp").default_capabilities()
     client.server_capabilities.document_formatting = true
-
-    -- disable lsp semantic highlighting
-    for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
-        vim.api.nvim_set_hl(0, group, {})
-    end
-    -- this was another solution to disable lsp sem highlighting
-    -- client.server_capabilities.semanticTokensProvider = nil
+    -- disable lsp semantic highlighting. It flashes...
+    client.server_capabilities.semanticTokensProvider = nil
 end
 
 require("mason-lspconfig").setup_handlers {
