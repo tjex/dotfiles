@@ -67,7 +67,6 @@ keybindings:
   shuffle: "ctrl-s"
   repeat: "r"
   search: "/"
-  audio_analysis: "v"
   jump_to_context: "o"
   basic_view: "B"
   add_item_to_queue: "z"
