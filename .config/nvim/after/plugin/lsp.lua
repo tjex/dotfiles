@@ -31,6 +31,10 @@ require("mason-lspconfig").setup {
 -- Begin LSP Config ---
 -----------------------
 local function lsp_highlight_document(client)
+    -- Set autocommands conditional on server_capabilities
+    if client.server_capabilities.document_highlight then
+        print("hellow")
+    end
 end
 
 local function lsp_keymaps(client, bufnr)

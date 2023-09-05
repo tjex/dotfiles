@@ -25,6 +25,7 @@ vim.opt.incsearch = true -- update search highlight duting search
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.foldcolumn = "auto:2"
+vim.opt.signcolumn = "yes:1"
 vim.opt.wildoptions = "fuzzy"
 vim.opt.laststatus = 3
 

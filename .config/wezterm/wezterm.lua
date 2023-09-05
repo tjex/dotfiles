@@ -38,5 +38,4 @@ config.skip_close_confirmation_for_processes_named = {
 font.apply(config)
 colors.apply(config)
 
--- and finally, return the configuration to wezterm
 return config
