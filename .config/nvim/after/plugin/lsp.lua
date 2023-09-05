@@ -10,8 +10,6 @@ if not ok then
 end
 
 local lspconfig = require "lspconfig"
--- source completion capabilities
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local servers = {
     "lua_ls",
     "marksman",
@@ -30,12 +28,12 @@ require("mason-lspconfig").setup {
 -----------------------
 -- Begin LSP Config ---
 -----------------------
-local function lsp_highlight_document(client)
-    -- Set autocommands conditional on server_capabilities
-    if client.server_capabilities.document_highlight then
-        print("hellow")
-    end
-end
+-- local function lsp_highlight_document(client)
+--     -- Set autocommands conditional on server_capabilities
+--     if client.server_capabilities.document_highlight then
+--         print("hellow")
+--     end
+-- end
 
 local function lsp_keymaps(client, bufnr)
     -- See `:help vim.lsp.*` for documentation on any of the below functions
@@ -69,9 +67,9 @@ local lsp_attach = function(client, bufnr)
         client.server_capabilities.document_formatting = false
     end
     lsp_keymaps(client, bufnr)
-    lsp_highlight_document(client)
+    require("cmp_nvim_lsp").default_capabilities()
     client.server_capabilities.document_formatting = true
-    capabilities = capabilities
+    client.server_capabilities.semanticTokensProvider = nil
 end
 
 require("mason-lspconfig").setup_handlers {

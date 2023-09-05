@@ -49,17 +49,17 @@ Group.new("tab_focus", colors.yellow, colors.bg_lighter)
 --
 
 -- typography
-Group.new("Constant", colors.primary)
-Group.new("Comment", colors.gray_4)
-Group.new("Character", colors.gray_3)
-Group.new("Identifier", colors.gray_2)
-Group.new("Normal", colors.gray_2, colors.bground)
-Group.new("Statement", colors.gray_0)
-Group.new("PreProc", colors.primary)
-Group.new("Type", colors.secondary)
-Group.new("Special", colors.gray_3)
-Group.new("Todo", colors.primary, colors.gray_6)
-Group.new("Function", colors.gray_0)
+-- Group.new("Constant", colors.primary)
+-- Group.new("Comment", colors.gray_4)
+-- Group.new("Character", colors.gray_3)
+-- Group.new("Identifier", colors.gray_2)
+-- Group.new("Normal", colors.gray_2, colors.bground)
+-- Group.new("Statement", colors.gray_0)
+-- Group.new("PreProc", colors.primary)
+-- Group.new("Type", colors.secondary)
+-- Group.new("Special", colors.gray_3)
+-- Group.new("Todo", colors.primary, colors.gray_6)
+-- Group.new("Function", colors.gray_0)
 
 -- notices
 Group.new("DiagnosticError", colors.diag_error)
@@ -175,13 +175,15 @@ Group.new("@type", colors.gray_0)
 Group.new("@identifier", colors.gray_0)
 Group.new("@type.builtin", colors.gray_4)
 Group.new("@type.definition", colors.gray_0)
-Group.new("@variable", colors.gray_2)
+Group.new("@variable", colors.primary)
 Group.new("@variable.builtin", colors.gray_0)
-Group.new("@lsp.type.function", colors.soft_red)
-Group.new("@lsp.type.macro", colors.primary)
-Group.new("@lsp.type.method", colors.primary)
-Group.new("@lsp.type.variable", colors.gray_2)
-Group.new("@lsp.type.paramater", colors.gray_2)
+-- disabled lsp server highlighting (in lsp.lua) as it flashes on write
+-- and on load AND doesn't seem to offer so much extra highlighting functionatlity?
+-- Group.new("@lsp.type.function", colors.soft_red)
+-- Group.new("@lsp.type.macro", colors.primary)
+-- Group.new("@lsp.type.method", colors.primary)
+-- Group.new("@lsp.type.variable", colors.primary)
+-- Group.new("@lsp.type.paramater", colors.gray_2)
 
 -- PLUGINS --
 
