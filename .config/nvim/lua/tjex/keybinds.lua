@@ -68,5 +68,3 @@ key("v", "ga", ":EasyAlign", opts)
 
 -- netrw
 -- key("n", "<leader>e", ":Explore<CR>")
-
-key("n", "al", funcs.bash, opts)

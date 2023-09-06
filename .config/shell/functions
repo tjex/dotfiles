@@ -17,7 +17,7 @@ lfcd() {
 # 	[ -f "$HOME/.local/bin/$choice" ] && $EDITOR "$HOME/.local/bin/$choice"
 # 	;}
 #
-mkmv() {
+mvmk() {
     mkdir -p -- "$argv[-1]"
     mv "$@"
 }

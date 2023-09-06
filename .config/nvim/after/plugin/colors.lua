@@ -5,9 +5,9 @@
 -- tip: run ":so $VIMRUNTIME/syntax/hitest.vim" to see highlight naming and their set colors. Handy!
 
 local Color, colors, Group, groups, styles = require("colorbuddy").setup()
-Color.new("primary", "#496c7a")     -- blue_1
-Color.new("secondary", "#997d92")   -- purple
-Color.new("tertiary", "#a6794d")    -- burnt_yellow
+Color.new("primary", "#496c7a") -- blue_1
+Color.new("secondary", "#997d92") -- purple
+Color.new("tertiary", "#a6794d") -- burnt_yellow
 Color.new("quarternary", "#936666") -- soft_red
 Color.new("yellow", "#a6864d")
 Color.new("bground", "#171A24")
@@ -74,7 +74,8 @@ Group.new("statuslineNC", colors.gray_4, nil, styles.italic)
 Group.new("WinSeparator", colors.bg_lighter, nil)
 Group.new("VertSplit", colors.gray_6, colors.gray_6)
 
--- UI Elements?
+-- UI Elements
+Group.new("FloatBorder", groups.border_red)
 Group.new("FoldColumn", groups.border_red)
 Group.new("Folded", groups.border_red)
 Group.new("MatchParen", nil, colors.gray_5)
@@ -174,8 +175,6 @@ Group.new("@variable.builtin", colors.gray_3)
 -- these highlights get used when treesitter cant activate,
 -- for conf files with no extension and neomutt email writin in neovim
 
-
-
 Group.new("boolean", colors.tertiary)
 Group.new("character", colors.secondary)
 Group.new("character.special", colors.gray_0)
@@ -238,7 +237,6 @@ Group.new("type.builtin", colors.gray_4)
 Group.new("type.definition", colors.gray_0)
 Group.new("variable", colors.gray_3)
 Group.new("variable.builtin", colors.gray_3)
-
 
 -- PLUGINS --
 
