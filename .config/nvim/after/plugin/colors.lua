@@ -75,7 +75,7 @@ Group.new("WinSeparator", colors.bg_lighter, nil)
 Group.new("VertSplit", colors.gray_6, colors.gray_6)
 
 -- UI Elements
-Group.new("FloatBorder", groups.border_red)
+Group.new("FloatBorder", groups.border_yellow)
 Group.new("FoldColumn", groups.border_red)
 Group.new("Folded", groups.border_red)
 Group.new("MatchParen", nil, colors.gray_5)

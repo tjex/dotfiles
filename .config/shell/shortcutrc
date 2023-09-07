@@ -29,6 +29,7 @@ alias \
     cfz="$EDITOR ${XDG_CONFIG_HOME}/zsh/.zshrc" \
     cfa="$EDITOR ${XDG_CONFIG_HOME}/shell/aliasrc" \
     cfs="$EDITOR ${XDG_CONFIG_HOME}/shell/shortcutrc" \
+    cfsh="$EDITOR ${XDG_CONFIG_HOME}/shell" \
     cfp="$EDITOR ${HOME}/.zprofile" \
     cfm="$EDITOR ${XDG_CONFIG_HOME}/mutt/muttrc" \
     cfn="$EDITOR ${XDG_CONFIG_HOME}/newsboat/config" \

@@ -1,7 +1,8 @@
 # vim: filetype=bash
 
 # Paths
-eval $(/opt/homebrew/bin/brew shellenv)
+# somehow homebrew is already being added to path, but no idea where?!
+# eval $(/opt/homebrew/bin/brew shellenv)
 export PATH="/usr/local:$PATH"
 export PATH="${GOPATH}/bin:$PATH"
 export PATH="${HOME}/.local/scripts:$PATH"
