@@ -10,6 +10,7 @@ setopt interactive_comments
 HISTSIZE=10000000
 SAVEHIST=10000000
 HISTFILE="${XDG_CACHE_HOME}/zsh/history"
+setopt HIST_IGNORE_ALL_DUPS # ignore duplicate commands in history
 
 # settings via paths
 source "${XDG_CONFIG_HOME}/shell/shortcutrc"
