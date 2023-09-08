@@ -7,6 +7,7 @@ ignored/
 .config/abook/addressbook
 .config/abook/addressbook~
 .config/asciinema
+.config/mutt/mutt_aliases
 .config/nvim/plugin/packer_compiled.lua
 .config/pyradio/recordings
 .config/spotify-tui/.spotify_token_cache.json

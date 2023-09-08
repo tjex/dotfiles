@@ -6,7 +6,7 @@ local diagnostics_active = true
 
 funcs.format = function()
 	vim.cmd ":Format"
-	    -- if pcall(vim.cmd("FormatWrite")) then
+	-- if pcall(vim.cmd("FormatWrite")) then
 	--     print("formatted with formatter.nvim")
 	-- else
 	--  vim.lsp.buf.format({ async = true })

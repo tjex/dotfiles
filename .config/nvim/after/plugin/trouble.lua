@@ -6,13 +6,13 @@ end
 
 local key = vim.keymap.set
 
-key("n", "<leader>lo", function()
+key("n", "<leader>io", function()
 	require("trouble").open "document_diagnostics"
 end)
-key("n", "<leader>lw", function()
+key("n", "<leader>iw", function()
 	require("trouble").open "workspace_diagnostics"
 end)
 -- key("n", "<leader>lt", ":TodoTrouble<CR>", { noremap = true, silent = true }) -- liking TodoTelescope more for now
-key("n", "<leader>ll", function()
+key("n", "<leader>il", function()
 	require("trouble").open "loclist"
 end)

@@ -7,7 +7,7 @@ local funcs = require "tjex.funcs"
 -- auto commands
 --
 
-auto("BufWritePre", { callback = funcs.format })
+-- auto("BufWritePre", { callback = funcs.format })
 auto({ "VimEnter" }, { callback = funcs.open_tree_on_dir })
 
 -- writes output of go programs to set buffnr
