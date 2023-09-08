@@ -1,6 +1,6 @@
 local ok, _ = pcall(require, "packer")
 if not ok then
-	print "packer not ok!"
+	print("packer not ok!")
 	return
 end
 -- required as I have packer configured as `opt`
@@ -8,33 +8,33 @@ end
 
 return require("packer").startup(function(use)
 	-- never remove
-	use {
+	use({
 		"wbthomason/packer.nvim",
 		"nvim-lua/plenary.nvim",
 		"nvim-tree/nvim-web-devicons",
 		{
 			"nvim-treesitter/nvim-treesitter",
 			run = function()
-				local ts_update = require("nvim-treesitter.install").update { with_sync = true }
+				local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
 				ts_update()
 			end,
 			dependencies = {
 				"JoosepAlviste/nvim-ts-context-commentstring",
 			},
 		},
-	}
+	})
 
 	-- GUI
-	use {
+	use({
 		"nvim-tree/nvim-tree.lua",
 		{ "rose-pine/neovim", as = "rose-pine" },
 		{ "tjdevries/colorbuddy.nvim", branch = "dev" },
 		"lukas-reineke/indent-blankline.nvim",
 		"onsails/lspkind.nvim",
-	}
+	})
 
 	-- text
-	use {
+	use({
 		"junegunn/vim-easy-align",
 		"windwp/nvim-autopairs",
 		"numToStr/Comment.nvim",
@@ -44,13 +44,13 @@ return require("packer").startup(function(use)
 			"kylechui/nvim-surround",
 			tag = "*", -- Use for stability; omit to use `main` branch for the latest features
 			config = function()
-				require("nvim-surround").setup {}
+				require("nvim-surround").setup({})
 			end,
 		},
-	}
+	})
 
 	-- utility
-	use {
+	use({
 		"ThePrimeagen/harpoon",
 		"tpope/vim-fugitive",
 		{ "nvim-telescope/telescope.nvim", tag = "0.1.0" },
@@ -59,26 +59,26 @@ return require("packer").startup(function(use)
 		"ton/vim-bufsurf",
 		"nvim-treesitter/playground",
 		"folke/todo-comments.nvim",
-	}
+	})
 
 	-- completion
-	use {
+	use({
 		"hrsh7th/nvim-cmp",
 		"hrsh7th/cmp-nvim-lua",
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
 		"hrsh7th/cmp-nvim-lsp",
 		"saadparwaiz1/cmp_luasnip",
-	}
+	})
 
 	-- external integrations
-	use {
+	use({
 		"epwalsh/obsidian.nvim",
 		requires = { "nvim-lua/plenary.nvim" },
-	}
+	})
 
 	-- dap
-	use {
+	use({
 		"mfussenegger/nvim-dap",
 		"mxsdev/nvim-dap-vscode-js",
 		"rcarriga/nvim-dap-ui",
@@ -86,14 +86,14 @@ return require("packer").startup(function(use)
 		-- it doesn't look right that these are here...?
 		-- opt = true,
 		-- cmd = { 'Dapui' },
-	}
+	})
 
-	-- lsp
-	use {
+	-- lsp / formatting
+	use({
 		"neovim/nvim-lspconfig",
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
 		"folke/trouble.nvim",
-        "wesleimp/stylua.nvim"
-	}
+		"mhartington/formatter.nvim",
+	})
 end)

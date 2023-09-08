@@ -90,7 +90,7 @@ require("mason-lspconfig").setup_handlers({
 			on_attach = lsp_attach,
 			settings = {
 				Lua = {
-					-- formatting with stylua
+					-- formatting with stylua via formatter.nvim
 					format = { enable = false },
 					diagnostics = {
 						-- Get the language server to recognize the `vim` global
