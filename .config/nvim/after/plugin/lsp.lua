@@ -5,11 +5,11 @@
 -- mason
 local ok, _, _ = pcall(require, "mason", "mason-lspconfig")
 if not ok then
-	print("mason or mason-lspconfig not ok!")
+	print "mason or mason-lspconfig not ok!"
 	return
 end
 
-local lspconfig = require("lspconfig")
+local lspconfig = require "lspconfig"
 local servers = {
 	"lua_ls",
 	"marksman",
@@ -19,11 +19,11 @@ local servers = {
 	"astro",
 }
 
-require("mason").setup({})
-require("mason-lspconfig").setup({
+require("mason").setup {}
+require("mason-lspconfig").setup {
 	ensure_installed = servers,
 	automatic_installation = true,
-})
+}
 
 -----------------------
 -- Begin LSP Config ---
@@ -41,7 +41,6 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 
 local function lsp_keymaps(client, bufnr)
 	-- See `:help vim.lsp.*` for documentation on any of the below functions
-	local funcs = require("tjex.funcs")
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 	local key = vim.keymap.set
 	local auto = vim.api.nvim_create_autocmd
@@ -52,11 +51,7 @@ local function lsp_keymaps(client, bufnr)
 	end, bufopts)
 	key("n", "[d", vim.diagnostic.goto_prev, bufopts)
 	key("n", "]d", vim.diagnostic.goto_next, bufopts)
-
 	key("n", "<C-i>", vim.lsp.buf.hover, bufopts)
-	-- done with auto command
-	-- key('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
-	key("n", "<leader>!", funcs.toggle_diagnostics)
 
 	if client.name == "eslint" then
 		auto("BufWritePre", {
@@ -67,41 +62,59 @@ local function lsp_keymaps(client, bufnr)
 end
 
 local lsp_attach = function(client, bufnr)
-	if client.name == "tsserver" then
+	local bufopts = { noremap = true, silent = true, buffer = bufnr }
+	local non_format_clients = {
+        -- don't use formatters from these clients
+        -- formatter.nvim will be used instead (see below within block)
+		"tsserver",
+		"lua_ls",
+	}
+	if client.name == non_format_clients then
 		client.server_capabilities.document_formatting = false
+    else
+        client.server_capabilities.document_formatting = true
 	end
 	lsp_keymaps(client, bufnr)
 	require("cmp_nvim_lsp").default_capabilities()
-	client.server_capabilities.document_formatting = true
+	if client.server_capabilities.document_formatting then
+		vim.keymap.set({ "v", "n" }, "<leader>f", vim.lsp.buf.format, bufopts)
+	else
+		vim.keymap.set("n", "<leader>f", ":Format<cr>", bufopts)
+	end
 	-- disable lsp semantic highlighting. It flashes...
 	client.server_capabilities.semanticTokensProvider = nil
 end
 
-require("mason-lspconfig").setup_handlers({
+require("mason-lspconfig").setup_handlers {
 	function(server_name)
-		lspconfig[server_name].setup({
+		lspconfig[server_name].setup {
 			on_attach = lsp_attach,
-		})
+		}
 	end,
-	-- use this ["serverkey"] syntax to overwrite automatic setup
-	-- eg when custom config is needed
 	["lua_ls"] = function()
-		require("lspconfig").lua_ls.setup({
+		require("lspconfig").lua_ls.setup {
 			on_attach = lsp_attach,
 			settings = {
 				Lua = {
-					-- formatting with stylua via formatter.nvim
-					format = { enable = false },
+					format = {
+						-- NOTE: disabled in lsp_attach to make lsp / formatter.nvim if-then logic work
+						-- options
+						-- https://github.com/CppCXY/EmmyLuaCodeStyle/blob/master/lua.template.editorconfig
+						defaultConfig = {
+							quote_style = "single",
+							max_line_length = "120",
+						},
+					},
 					diagnostics = {
 						-- Get the language server to recognize the `vim` global
 						globals = { "vim" },
 					},
 				},
 			},
-		})
+		}
 	end,
 	["stylelint_lsp"] = function()
-		require("lspconfig").stylelint_lsp.setup({
+		require("lspconfig").stylelint_lsp.setup {
 			on_attach = lsp_attach,
 			settings = {
 				stylelintplus = {
@@ -109,6 +122,6 @@ require("mason-lspconfig").setup_handlers({
 					autoFixOnFormat = true,
 				},
 			},
-		})
+		}
 	end,
-})
+}
