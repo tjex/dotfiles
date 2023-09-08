@@ -34,3 +34,4 @@ alias \
     cfm="$EDITOR ${XDG_CONFIG_HOME}/mutt/muttrc" \
     cfn="$EDITOR ${XDG_CONFIG_HOME}/newsboat/config" \
     cfu="$EDITOR ${XDG_CONFIG_HOME}/newsboat/urls" \
+    packpath="$EDITOR ${XDG_DATA_HOME}/nvim/site/pack/packer/start/"

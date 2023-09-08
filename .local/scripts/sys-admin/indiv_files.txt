@@ -1,1 +1,1 @@
-~/.config/mutt/mutt_aliases
+.config/mutt/mutt_aliases

@@ -1,18 +1,17 @@
 -- what is this and why is it here?
 -- package.loaded.funcs = nil
-local Job = require("plenary.job")
+-- local Job = require("plenary.job")
 local funcs = {}
 local diagnostics_active = true
 
 funcs.format = function()
-	-- local buf = vim.api.nvim_get_current_buf()
-	local ft = vim.bo.filetype
-	if ft == "lua" then
-		require("stylua").format()
-	elseif ft == "bash" then
-		print("bash")
-	end
-	vim.lsp.buf.format({ async = true })
+	vim.cmd ":Format"
+	    -- if pcall(vim.cmd("FormatWrite")) then
+	--     print("formatted with formatter.nvim")
+	-- else
+	--  vim.lsp.buf.format({ async = true })
+	--     print("formatted with lsp")
+	-- end
 end
 
 -- tried to make my own clean format call
@@ -66,7 +65,7 @@ funcs.open_tree_on_dir = function(data)
 end
 
 funcs.test = function()
-	print("calling tjex.funcs.test")
+	print "calling tjex.funcs.test"
 end
 
 return funcs

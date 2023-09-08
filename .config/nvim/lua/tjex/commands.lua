@@ -1,9 +1,11 @@
 -- custom commands (run from :commandline)
 local usr_cmd = vim.api.nvim_create_user_command
-local funcs = require "tjex.funcs"
 local auto = vim.api.nvim_create_autocmd
+local funcs = require "tjex.funcs"
 
+-- 
 -- auto commands
+--
 
 auto("BufWritePre", { callback = funcs.format })
 auto({ "VimEnter" }, { callback = funcs.open_tree_on_dir })
@@ -29,7 +31,9 @@ local attach_to_buffer = function(output_bufnr, pattern, command)
     })
 end
 
+--
 -- user commands
+--
 usr_cmd("AutoRun", function()
     print "AutoRun starts now..."
     -- local bufnr = vim.cmd(":echo nvim_get_current_buf()")
