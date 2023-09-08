@@ -96,4 +96,7 @@ return require("packer").startup(function(use)
 		"folke/trouble.nvim",
 		"mhartington/formatter.nvim",
 	})
+
+    -- development
+    use "~/tjroot/dev/neovim/stackmap.nvim"
 end)

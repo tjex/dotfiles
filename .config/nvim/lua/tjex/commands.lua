@@ -51,3 +51,5 @@ usr_cmd("Conf", ":lua require('telescope.builtin').find_files({cwd='~/.config/nv
 usr_cmd("EditSnippets", ":lua require('luasnip.loaders').edit_snippet_files()<CR>", {})
 usr_cmd("Chmod", ":!chmod +x %<CR>", {})
 usr_cmd("W", ":w<CR>", {}) -- sometimes I type :w too fast, and it becomes :W (which gives an error and breaks da flow yo)
+
+
