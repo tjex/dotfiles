@@ -24,7 +24,7 @@ dotf checkout
 dotf config --local status.showUntrackedFiles no
 
 dotf add <stuff>
-dotf commit -m "broke everything"
+dotf commit -m "broke everything, so now I will force push"
 dotf push -f
 
 ```
