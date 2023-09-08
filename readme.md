@@ -23,4 +23,8 @@ dotf checkout
 # will be seen by git as files of interest to track.
 dotf config --local status.showUntrackedFiles no
 
+dotf add <stuff>
+dotf commit -m "broke everything"
+dotf push
+
 ```
