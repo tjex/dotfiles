@@ -28,12 +28,6 @@ require("mason-lspconfig").setup {
 -----------------------
 -- Begin LSP Config ---
 -----------------------
--- local function lsp_highlight_document(client)
---     -- Set autocommands conditional on server_capabilities
---     if client.server_capabilities.document_highlight then
---         print("hellow")
---     end
--- end
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 	border = "rounded",
@@ -65,7 +59,6 @@ local lsp_attach = function(client, bufnr)
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 	local non_format_clients = {
         -- don't use formatters from these clients
-        -- formatter.nvim will be used instead (see below within block)
 		"tsserver",
 		"lua_ls",
 	}
@@ -76,6 +69,7 @@ local lsp_attach = function(client, bufnr)
 	end
 	lsp_keymaps(client, bufnr)
 	require("cmp_nvim_lsp").default_capabilities()
+    -- if lsp does not provide formatting (or has been set false, above), use formatter.nvim
 	if client.server_capabilities.document_formatting then
 		vim.keymap.set({ "v", "n" }, "<leader>f", vim.lsp.buf.format, bufopts)
 	else

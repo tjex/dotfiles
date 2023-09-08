@@ -1,17 +1,8 @@
 -- what is this and why is it here?
+-- just uncommenting for now in case it breaks something later
 -- package.loaded.funcs = nil
 -- local Job = require("plenary.job")
 local funcs = {}
-local diagnostics_active = true
-
-funcs.toggle_diagnostics = function()
-	diagnostics_active = not diagnostics_active
-	if diagnostics_active then
-		vim.diagnostic.show()
-	else
-		vim.diagnostic.hide()
-	end
-end
 
 -- open nvim tree on directory entry
 funcs.open_tree_on_dir = function(data)
