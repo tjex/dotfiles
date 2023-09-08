@@ -30,16 +30,17 @@ alt + cmd - t : yabai -m window --toggle split
 shift + alt + cmd - 1 : yabai -m window --space 1
 shift + alt + cmd - 2 : yabai -m window --space 2
 shift + alt + cmd - 3 : yabai -m window --space 3
-shift + alt + cmd - 3 : yabai -m window --space 4
-shift + alt + cmd - 3 : yabai -m window --space 5
-shift + alt + cmd - 3 : yabai -m window --space 6
-shift + alt + cmd - 3 : yabai -m window --space 7
-shift + alt + cmd - 3 : yabai -m window --space 8
-shift + alt + cmd - 3 : yabai -m window --space 9
+shift + alt + cmd - 4 : yabai -m window --space 4
+shift + alt + cmd - 5 : yabai -m window --space 5
+shift + alt + cmd - 6 : yabai -m window --space 6
+shift + alt + cmd - 7 : yabai -m window --space 7
+shift + alt + cmd - 8 : yabai -m window --space 8
+shift + alt + cmd - 9 : yabai -m window --space 9
 
 shift + alt + cmd - r : yabai --restart-service
 
 alt + cmd - b : yabai -m space --balance
+alt + cmd - s : yabai -m space --create
 
 alt + cmd - 1 : yabai -m space --focus 1
 alt + cmd - 2 : yabai -m space --focus 2

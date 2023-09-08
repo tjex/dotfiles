@@ -18,6 +18,8 @@ alias \
 	bc="bc -ql" \
 	rsync="rsync -vrPlu" \
 	mkd="mkdir -pv" \
+    cdj="pushd" \
+    cdk="popd"
 
 # Colorize commands when possible.
 alias \
