@@ -46,8 +46,8 @@ usr_cmd("AutoRun", function()
 	attach_to_buffer(tonumber(bufnr), pattern, command)
 end, {})
 
-usr_cmd("Date", "norm! i " .. vim.fn.strftime "%Y-%m-%d", {})
-usr_cmd("PubDate", "norm! i " .. vim.fn.strftime "%Y-%m-%dT%XZ", {})
+usr_cmd("Date", "norm! i" .. vim.fn.strftime "%Y-%m-%d", {})
+usr_cmd("PubDate", "norm! i" .. vim.fn.strftime "%Y-%m-%dT%XZ", {})
 usr_cmd("Dapui", ":lua require('dapui').toggle()<CR>", {})
 usr_cmd("Cs", ":lua require('telescope.builtin').find_files({cwd='~/tjroot/dev/cheat-sheets'})<CR>", {})
 usr_cmd(

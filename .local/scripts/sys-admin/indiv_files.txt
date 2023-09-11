@@ -1,1 +1,0 @@
-.config/mutt/mutt_aliases

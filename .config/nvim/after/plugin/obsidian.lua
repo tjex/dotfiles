@@ -6,7 +6,7 @@ end
 
 require("obsidian").setup {
 	-- Required, the path to your vault directory.
-	dir = "~/tjroot/obsidian/paradigm-shifted/",
+	dir = "~/tjroot/obsidian/paradigm-shifted",
 	disable_frontmatter = true,
 
 	-- Optional, if you keep notes in a specific subdirectory of your vault.
@@ -22,6 +22,15 @@ require("obsidian").setup {
 		-- Optional, if you want to change the date format for daily notes.
 		date_format = "%Y-%m-%d",
 	},
+
+    completion = {
+        nvim_cmp = true,
+        min_chars = 2,
+        new_notes_location = "current_dir",
+        prepend_note_id = true
+    },
+
+    finder = "telescope.nvim",
 
 	templates = {
 		subdir = "extra/templates",

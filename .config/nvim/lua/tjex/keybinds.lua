@@ -66,5 +66,6 @@ key("n", "H", ":BufSurfBack<CR>", opts)
 key("n", "ga", ":EasyAlign", opts)
 key("v", "ga", ":EasyAlign", opts)
 
+key("i", "<C-d>", vim.fn.strftime("%Y-%m-%d"))
 -- netrw
 -- key("n", "<leader>e", ":Explore<CR>")
