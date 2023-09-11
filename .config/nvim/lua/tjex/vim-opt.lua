@@ -1,4 +1,10 @@
 -- tjex user settings
+-- vim.g.loaded_netrw = 1
+-- vim.g.loaded_netrwPlugin = 1
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+vim.g.BufSurfMessages = false
+
 -- blinking cursor (append within string below): ,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175
 vim.opt.guicursor = "n-c-sm-ci:block,i-v-ve-r-cr-o:hor20"
 

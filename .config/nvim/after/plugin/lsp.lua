@@ -57,25 +57,20 @@ end
 
 local lsp_attach = function(client, bufnr)
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
-	local non_format_clients = {
-        -- don't use formatters from these clients
-		"tsserver",
-		"lua_ls",
-	}
-	if client.name == non_format_clients then
-		client.server_capabilities.document_formatting = false
-    else
-        client.server_capabilities.document_formatting = true
-	end
-	lsp_keymaps(client, bufnr)
-	require("cmp_nvim_lsp").default_capabilities()
-    -- if lsp does not provide formatting (or has been set false, above), use formatter.nvim
-	if client.server_capabilities.document_formatting then
+	local force_formatter = client.name == "lua_ls"
+		or client.name == "tsserver"
+		or client.name == "pyright"
+		or client.name == "bashls"
+
+	client.server_capabilities.document_formatting = true
+	-- if lsp does not provide formatting (or has been set false, above), use formatter.nvim
+	if client.server_capabilities.documentFormattingProvider and not force_formatter then
 		vim.keymap.set({ "v", "n" }, "<leader>f", vim.lsp.buf.format, bufopts)
 	else
 		vim.keymap.set("n", "<leader>f", ":Format<cr>", bufopts)
 	end
-	-- disable lsp semantic highlighting. It flashes...
+	lsp_keymaps(client, bufnr)
+	require("cmp_nvim_lsp").default_capabilities()
 	client.server_capabilities.semanticTokensProvider = nil
 end
 

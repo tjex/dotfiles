@@ -1,5 +1,13 @@
--- vim.g.loaded_netrw = 1
--- vim.g.loaded_netrwPlugin = 1
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-vim.g.BufSurfMessages = false
+P = function(v)
+    print(vim.inspect(v))
+    return v
+end
+
+RELOAD = function(...)
+    return require("plenary.reload").reload_module(...)
+end
+
+R = function(name)
+    RELOAD(name)
+    return require(name)
+end
