@@ -16,7 +16,7 @@ if  mount | grep "cairo" > /dev/null ; then
 
     # list of individual files to copy (little backups)
     # /Users/tjex is the root folder for execution, i.e. the path that rsync will prepend to paths in the list
-    rsync -av --files-from="/Users/tjex/.local/scripts/sys-admin/indiv_files.txt" /Users/tjex/ /Volumes/cairo/backups ; echo "copied individual files from list"
+    rsync -av --files-from="/Users/tjex/.local/scripts/sys-admin/indiv_files.txt" /Users/tjex/ /Volumes/cairo/backups/tjex ; echo "copied individual files from list"
 fi
 
 
