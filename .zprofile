@@ -33,7 +33,6 @@ GPG_TTY=$(tty) ; export GPG_TTY
 
 # history files
 export SQLITE_HISTORY="$XDG_CACHE_HOME/history/sqlite_history"
-export HISTFILE="$XDG_CACHE_HOME/history/zshhistory"
 export PYTHONHISTORY="$XDG_CACHE_HOME/history/python"
 export LESSHISTFILE="-"
 
