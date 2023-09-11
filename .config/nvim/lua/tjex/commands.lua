@@ -8,19 +8,8 @@ local augroup = vim.api.nvim_create_augroup
 --
 
 auto({ "VimEnter" }, {
-	group = augroup("tjex", { clear = true }),
+	group = augroup("tjex", { clear = false }),
 	callback = funcs.open_tree_on_dir,
-})
-
--- delete quoted text in neomutt email reply composition
-auto("BufWritePre", {
-	group = augroup("tjex", { clear = true }),
-	callback = function()
-		local filename = vim.fn.expand "%:p"
-		if string.match(filename, "neomutt%-tjex%-lappy") ~= nil then
-			funcs.neomutt_del_quoted()
-		end
-	end,
 })
 
 -- writes output of go programs to set buffnr
@@ -68,4 +57,4 @@ usr_cmd(
 )
 usr_cmd("EditSnippets", ":lua require('luasnip.loaders').edit_snippet_files()<CR>", {})
 usr_cmd("Chmod", ":!chmod +x %<CR>", {})
-usr_cmd("Neomutt", funcs.neomutt_del_quoted, {})
+usr_cmd("NeomuttDelQuoted", funcs.neomutt_del_quoted, {})
