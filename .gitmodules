@@ -1,0 +1,3 @@
+[submodule ".config/mutt"]
+	path = .config/mutt
+	url = git@github.com:tjex/muttrc.git
