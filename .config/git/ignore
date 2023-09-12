@@ -5,7 +5,7 @@
 ignored/
 
 .config/asciinema
-.config/mutt/aliases
+.config/mutt/
 .config/nvim/plugin/packer_compiled.lua
 .config/pyradio/recordings
 .config/raycast/extensions/*
@@ -13,3 +13,5 @@ ignored/
 .config/spotify-tui/client.yml
 .config/zsh/.zcompdump
 .config/neomutt/aliases
+
+.local/share/abook/
