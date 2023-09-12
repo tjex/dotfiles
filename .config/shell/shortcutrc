@@ -7,16 +7,16 @@ alias \
     D="cd ${HOME}/Downloads && ls -A" \
     d="cd ${HOME}/tjroot/docs && ls -A" \
     dev="cd ${HOME}/tjroot/dev && ls -A" \
-    h="cd ${TJROOT} && ls -A" \
+    tjh="cd ${TJROOT} && ls -A" \
     m="cd ${TJROOT}/music && ls -A" \
     i="cd ${TJROOT}/images && ls -A" \
-    l="cd ${HOME}/.local/ && ls -A" \
+    l="cd ${HOME}/.local && ls -A" \
+    lsh="cd ${XDG_DATA_HOME} && ls -A" \
     lsrc="cd ${HOME}/.local/src && ls -A" \
     vol="cd /Volumes && ls -A" \
 
 # projects / personal
 alias \
-    tjr="cd ${TJROOT} && ls" \
     obs="cd ${TJROOT}/obsidian/paradigm-shifted && ls" \
     web="cd ${TJROOT}/dev/personal/websites && ls" \
     tjex.net="cd ${TJROOT}/dev/personal/websites/tjex.net && ls"
