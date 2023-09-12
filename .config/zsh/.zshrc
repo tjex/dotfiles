@@ -1,5 +1,18 @@
 # edited config from Luke Smith
 
+# settings via paths
+source "${XDG_CONFIG_HOME}/shell/shortcutrc"
+source "${XDG_CONFIG_HOME}/shell/aliasrc"
+source "${XDG_CONFIG_HOME}/shell/zshnameddirrc"
+source "${XDG_CONFIG_HOME}/shell/functions"
+source "${XDG_CONFIG_HOME}/shell/keybinds"
+source "${XDG_CONFIG_HOME}/shell/vi-mode"
+source "${XDG_CONFIG_HOME}/shell/paths"
+
+[ -f ~/.config/zsh/.fzf.zsh ] && source ~/.config/zsh/.fzf.zsh
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 # Enable colors:
 autoload -U colors && colors	# Load colors
 setopt autocd		# Automatically cd into typed directory.
@@ -11,19 +24,6 @@ HISTSIZE=10000000
 SAVEHIST=10000000
 HISTFILE="${XDG_CACHE_HOME}/history/zshhistory"
 setopt HIST_IGNORE_ALL_DUPS # ignore duplicate commands in history
-
-# settings via paths
-source "${XDG_CONFIG_HOME}/shell/shortcutrc"
-source "${XDG_CONFIG_HOME}/shell/aliasrc"
-source "${XDG_CONFIG_HOME}/shell/zshnameddirrc"
-source "${XDG_CONFIG_HOME}/shell/functions"
-source "${XDG_CONFIG_HOME}/shell/keybinds"
-source "${XDG_CONFIG_HOME}/shell/vi-mode"
-# source "${XDG_CONFIG_HOME}/shell/paths"
-
-[ -f ~/.config/zsh/.fzf.zsh ] && source ~/.config/zsh/.fzf.zsh
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Basic auto/tab settings:
 autoload -U compinit
