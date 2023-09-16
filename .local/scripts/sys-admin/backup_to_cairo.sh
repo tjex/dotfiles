@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 script_dir=$(dirname "$(realpath "$0")")
-echo $script_dir
 
 # only run if cairo is mounted
 if  mount | grep "cairo" > /dev/null ; then
@@ -17,6 +16,24 @@ if  mount | grep "cairo" > /dev/null ; then
     # list of individual files to copy (little backups)
     # /Users/tjex is the root folder for execution, i.e. the path that rsync will prepend to paths in the list
     rsync -av --files-from="/Users/tjex/.local/scripts/sys-admin/indiv_files.txt" /Users/tjex/ /Volumes/cairo/backups/tjex ; echo "copied individual files from list"
+
+    # Export Brewfile
+    echo "========== RSYNC COMPLETED =========="
+
+    cd /Volumes/cairo/backups 
+ 
+    # rm Brewfile if it is present
+    if [ -f Brewfile ] ; then
+        echo "Brewfile found, removing it"
+        rm Brewfile
+    fi
+
+    # generate new Brewfile
+    echo "exporting Brewfile"
+    brew bundle dump ; cd ${script_dir}
+
+else
+    echo "cairo not mounted"
 fi
 
 
