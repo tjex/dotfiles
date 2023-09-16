@@ -24,8 +24,10 @@ return {
 			"---",
 		})
 	),
+    -- default template for obsidian note frontmatter
+    -- inserts todays date and file name as H1 title
 	s(
-		"obsidian",
+		"ob-default",
 		fmt(
 			[[
         ---
