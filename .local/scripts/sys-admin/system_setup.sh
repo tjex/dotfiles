@@ -1,76 +1,92 @@
 # script that installs all the various things I use (incase I need to reinstall a system from scratch)
 
-# working directory for install
+# IMPORTANT
+# import ssh keys first
+# disable SIP. Boot into recovery mode and enter `csrutil disable` in terminal.
+
+# working directory for install (if needed)
 mkdir -p /tmp/system-setup
 
-BREWFILE=/path/to/brew/file/dump
-TMPDIR="/tmp/system-setup"
+read -p "enter absolute path to Brewfile" brewfile
+read -p "enter absolute path to sys_venv_requirements.txt" venv_req
 
 reload() {
     source ~/.zprofile
     exec zsh
 }
 
-# import ssh keys first
-# disable SIP. Boot into recovery mode and enter `csrutil disable` in terminal.
 
-# install homebrew, this should prompt to install xcode-terminal tools, which will include git
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew_and_dotfiles() {
+    # FIRST (has git)
+    # install homebrew, this should prompt to install xcode-terminal tools, which will include git
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-# make needed directories
-mkdir -p ~/.local/share/zsh/plugins
-mkdir -p ~/.local/share/zsh/themes
+    # dotfiles #
+    # ######## #
 
-# setup dotfiles repo
-alias dotf='/usr/bin/git --git-dir=$HOME/.dotf-cfg/ --work-tree=$HOME'
-cd ~
-git clone --bare git@github.com:tjex/dotfiles.git $HOME/.dotf-cfg
-dotf checkout
-dotf config --local status.showUntrackedFiles no
+    # setup dotfiles repo
+    alias dotf='/usr/bin/git --git-dir=$HOME/.dotf-cfg/ --work-tree=$HOME'
+    cd ~
+    git clone --bare git@github.com:tjex/dotfiles.git $HOME/.dotf-cfg
+    dotf checkout
+    dotf config --local status.showUntrackedFiles no
 
-# zsh
-git clone https://github.com/sindresorhus/pure.git ~/.local/share/zsh/themes/pure
-git clone https://github.com/zdharma-continuum/fast-syntax-highlighting ~/.local/share/zsh/plugins/fast-sytax-highlighting
+    # zsh
+    mkdir -p ~/.local/share/zsh/themes
+    mkdir -p ~/.local/share/zsh/plugins
+    git clone https://github.com/sindresorhus/pure.git ~/.local/share/zsh/themes/pure
+    git clone https://github.com/zdharma-continuum/fast-syntax-highlighting ~/.local/share/zsh/plugins/fast-sytax-highlighting
 
-# the restart shell so that all environment variables / pahths from dotfiles install are in scope
-exec zsh
+    # the restart shell so that all environment variables / pahths from dotfiles install are in scope
+    reload
+}
 
-##############################
-# install brew packages here 
-brew bundle install --file ${BREWFILE}
+homebrew_packages() {
+    brew bundle install --file ${brewfile}
+}
 
-# lf
-env CGO_ENABLED=0 go install -ldflags="-s -w" github.com/gokcehan/lf@latest # file manager
+packages_and_langs() {
 
-# wails
-read -p 'install wails? (Y/N): ' confirm
+    # lf
+    env CGO_ENABLED=0 go install -ldflags="-s -w" github.com/gokcehan/lf@latest # file manager
+
+    # delve (go debugger)
+    go install github.com/go-delve/delve/cmd/dlv@latest
+
+    # packer
+    git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+     ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
+    # nvm
+    git clone git@github.com:nvm-sh/nvm.git ~/.local/share/nvm
+    cd ${TMPDIR}/nvm
+    ./install.sh
+    . ./nvm.sh
+    cd ~
+
+    # node / bun / etc
+    nvm install node
+    npm install --global yarn bun
+
+    # tpm (tmux package manager)
+    git clone https://github.com/tmux-plugins/tpm ~/.local/share/tmux/plugins/tpm
+
+    # python venv
+    python3 -m venv ~/.local/share/venv/sys
+    python3 -m ensurepip --upgrade
+    pip install -r ${venv_req}
+}
+
+read -p 'install homebrew packages?' confirm
 if [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]]; then
-    go install github.com/wailsapp/wails/v2/cmd/wails@latest
+    homebrew_packages
 else
-   echo 'not installing wails'
+   echo 'exited'
 fi
 
-# delve (go debugger)
-go install github.com/go-delve/delve/cmd/dlv@latest
-
-# packages not installed through brew
-# packer
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-
-# nvm
-mkdir -p ${TMPDIR}/nvm
-git clone git@github.com:nvm-sh/nvm.git ${TMPDIR}/nvm
-cd ${TMPDIR}/nvm
-./install.sh
-. ./nvm.sh
-cd ~
-
-# node
-nvm install node
-npm install --global yarn
-
-# tpm (tmux package manager)
-git clone https://github.com/tmux-plugins/tpm ~/.local/share/tmux/plugins/tpm
-
-
+read -p 'install other non-brew packages and lanuages?' confirm
+if [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]]; then
+    packages_and_langs
+else
+   echo 'exited'
+fi

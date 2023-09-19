@@ -7,7 +7,7 @@ end
 local key = vim.keymap.set
 
 key("n", "<leader>io", function()
-	require("trouble").open "document_diagnostics"
+	require("trouble").toggle "document_diagnostics"
 end)
 key("n", "<leader>iw", function()
 	require("trouble").open "workspace_diagnostics"

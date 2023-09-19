@@ -28,9 +28,15 @@ if  mount | grep "cairo" > /dev/null ; then
         rm Brewfile
     fi
 
+    # DEV ENV #
+    # ####### #
+
     # generate new Brewfile
     echo "exporting Brewfile"
     brew bundle dump ; cd ${script_dir}
+
+    # sys python venv
+    pip freeze > /Volumes/cairo/backups/sys_venv_requirements.txt
 
 else
     echo "cairo not mounted"
