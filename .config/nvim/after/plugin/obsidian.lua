@@ -42,4 +42,4 @@ require("obsidian").setup({
 		time_format = "%H:%M",
 	},
 })
-vim.api.nvim_set_keymap("n", "od", ":ObsidianToday<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "<leader>od", ":ObsidianToday<CR>", {silent = true, noremap = true})

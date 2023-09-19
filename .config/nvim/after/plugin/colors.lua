@@ -10,7 +10,7 @@ Color.new("secondary", "#997d92") -- purple
 Color.new("tertiary", "#a6794d") -- burnt_yellow
 Color.new("quarternary", "#936666") -- soft_red
 Color.new("yellow", "#a6864d")
-Color.new("bground", "#171A24")
+Color.new("bground", "#1a1c23")
 Color.new("bg_lighter", "#202436")
 Color.new("bg_light", "#1b1e2d")
 Color.new("bg_text", "#525d8a")

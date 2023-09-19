@@ -3,6 +3,13 @@ local funcs = require("tjex.funcs")
 local key = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
+
+-- keybind leader pre keys
+-- don't map any commands to these, otherwise they'll run slow
+-- as they wait for mapping swith a subsequent keypress
+-- <leader>o = open
+-- <leader>i = information (e.g. lsp/trouble)
+
 -- main functionality remaps
 key("", "<Space>", "<Nop>", opts)
 key("n", "<ESC>", "<Nop>")
