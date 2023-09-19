@@ -1,10 +1,10 @@
 local ok, _ = pcall(require, "obsidian")
 if not ok then
-	print "obsidian not ok!"
+	print("obsidian not ok!")
 	return
 end
 
-require("obsidian").setup {
+require("obsidian").setup({
 	-- Required, the path to your vault directory.
 	dir = "~/tjroot/obsidian/paradigm-shifted",
 	disable_frontmatter = true,
@@ -23,18 +23,23 @@ require("obsidian").setup {
 		date_format = "%Y-%m-%d",
 	},
 
-    completion = {
-        nvim_cmp = true,
-        min_chars = 2,
-        new_notes_location = "current_dir",
-        prepend_note_id = true
-    },
+	completion = {
+		nvim_cmp = true,
+		min_chars = 2,
+		new_notes_location = "current_dir",
+		prepend_note_id = true,
+	},
+	mappings = {
+		-- Overrides the 'gf' mapping to work on markdown/wiki links within your vault.
+		["gf"] = require("obsidian.mapping").gf_passthrough(),
+	},
 
-    finder = "telescope.nvim",
+	finder = "telescope.nvim",
 
 	templates = {
 		subdir = "extra/templates",
 		date_format = "%Y-%m-%d-%a",
 		time_format = "%H:%M",
 	},
-}
+})
+vim.api.nvim_set_keymap("n", "od", ":ObsidianToday<CR>", {silent = true, noremap = true})

@@ -98,5 +98,4 @@ return require("packer").startup(function(use)
 	})
 
     -- development
-    use "~/tjroot/dev/neovim/stackmap.nvim"
 end)
