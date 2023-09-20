@@ -5,28 +5,57 @@
 -- tip: run ":so $VIMRUNTIME/syntax/hitest.vim" to see highlight naming and their set colors. Handy!
 
 local Color, colors, Group, groups, styles = require("colorbuddy").setup()
-Color.new("primary", "#496c7a") -- blue_1
-Color.new("secondary", "#997d92") -- purple
-Color.new("tertiary", "#a6794d") -- burnt_yellow
-Color.new("quarternary", "#936666") -- soft_red
-Color.new("yellow", "#a6864d")
+
+-- these stay the same regardless of using 
+-- a transparent / nontransparent term window
 Color.new("bground", "#1a1c23")
 Color.new("bg_lighter", "#202436")
 Color.new("bg_light", "#1b1e2d")
 Color.new("bg_text", "#525d8a")
-Color.new("diag_error", "#7a3d2f")
-Color.new("diag_info", "#496c7a")
-Color.new("diag_hint", "#25662a")
-Color.new("diag_warn", "#a6794d")
-Color.new("blue_2", "#566981")
-Color.new("black", "#000000")
-Color.new("gray_0", "#a0a0a0")
-Color.new("gray_1", "#a7a7a7")
-Color.new("gray_2", "#949494")
-Color.new("gray_3", "#737373")
-Color.new("gray_4", "#535353")
-Color.new("gray_5", "#323232")
-Color.new("gray_6", "#212121")
+
+-- colors for non transparent term
+--
+-- Color.new("primary", "#496c7a") -- blue_1
+-- Color.new("secondary", "#997d92") -- purple
+-- Color.new("tertiary", "#a6794d") -- burnt_yellow
+-- Color.new("quarternary", "#936666") -- soft_red
+-- Color.new("yellow", "#a6864d")
+-- Color.new("diag_error", "#7a3d2f")
+-- Color.new("diag_info", "#496c7a")
+-- Color.new("diag_hint", "#25662a")
+-- Color.new("diag_warn", "#a6794d")
+-- Color.new("blue_2", "#566981")
+-- Color.new("black", "#000000")
+-- Color.new("gray_0", "#a0a0a0")
+-- Color.new("gray_1", "#a7a7a7")
+-- Color.new("gray_2", "#949494")
+-- Color.new("gray_3", "#737373")
+-- Color.new("gray_4", "#535353")
+-- Color.new("gray_5", "#323232")
+-- Color.new("gray_6", "#212121")
+
+-- colors for transparent term window
+-- 30% brigher than above
+--
+Color.new("primary", "#647f9d") -- blue_1
+Color.new("secondary", "#c5a0b7") -- purple
+Color.new("tertiary", "#ba8c64") -- burnt_yellow
+Color.new("quarternary", "#bf8585") -- soft_red
+Color.new("yellow", "#b09e64")
+Color.new("diag_error", "#9c5543")
+Color.new("diag_info", "#647f9d")
+Color.new("diag_hint", "#339843")
+Color.new("diag_warn", "#ba8c64")
+Color.new("blue_2", "#6f88a6")
+Color.new("black", "#1a1a1a")
+Color.new("gray_0", "#b4b4b4")
+Color.new("gray_1", "#bcbcbc")
+Color.new("gray_2", "#aeaeae")
+Color.new("gray_3", "#969696")
+Color.new("gray_4", "#737373")
+Color.new("gray_5", "#484848")
+Color.new("gray_6", "#2b2b2b")
+
 
 -- Group Sets
 Group.new("hl_yellow", colors.tertiary)

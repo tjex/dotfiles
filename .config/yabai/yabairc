@@ -16,6 +16,7 @@ yabai -m config \
     left_padding   10 \
     right_padding  10 \
     window_gap     10 \
+    window_shadow off \
     auto_balance off \
     split_ratio 0.5
 
@@ -30,7 +31,8 @@ yabai -m config \
 
 # rules
 
-yabai -m rule --add app="^Todoist$" title="^Todoist$" manage=off 
+yabai -m rule --add app="^Brave Browser$" opacity=0.9
+yabai -m rule --add app="^Todoist$" title="^Todoist$" sticky="true" manage=off 
 yabai -m rule --add app="^System Settings$" manage=off opacity=1.0
 yabai -m rule --add app="^Dictionary$" manage=off opacity=1.0 grid=6:4:1:1:2:4
 yabai -m rule --add app="^WezTerm$" title="^lf$" manage=off opacity=1.0 grid=6:4:1:1:2:4
