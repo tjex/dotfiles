@@ -56,7 +56,6 @@ Color.new("gray_4", "#737373")
 Color.new("gray_5", "#484848")
 Color.new("gray_6", "#2b2b2b")
 
-
 -- Group Sets
 Group.new("hl_yellow", colors.tertiary)
 Group.new("hl_red", colors.quarternary)

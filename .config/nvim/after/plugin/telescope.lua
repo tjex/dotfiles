@@ -1,25 +1,25 @@
 local ok, _ = pcall(require, "telescope")
 if not ok then
-	print "telescope not ok!"
+	print("telescope not ok!")
 	return
 end
 
 -- load the extensions
-require("telescope").load_extension "fzf"
-require("telescope").load_extension "dap"
+require("telescope").load_extension("fzf")
+require("telescope").load_extension("dap")
 
 local key = vim.keymap.set
 local opts = { noremap = true, silent = true }
-local tb = require "telescope.builtin"
+local tb = require("telescope.builtin")
 
-key("n", "sb", tb.buffers, opts)
+key("n", "ss", tb.buffers, opts)
 key("n", "sc", tb.commands, opts)
 key("n", "sd", function()
-	require("telescope").extensions.dap.commands {}
+	require("telescope").extensions.dap.commands({})
 end)
 -- setting previewer false here instead of in setup so that it can be enabled selectively for other commands
 key("n", "sf", function()
-	require("telescope.builtin").find_files { previewer = false }
+	require("telescope.builtin").find_files({ previewer = false })
 end, opts)
 key("n", "sg", tb.live_grep, opts)
 key("n", "sh", tb.help_tags, opts)
@@ -30,7 +30,7 @@ key("n", "st", ":TodoTelescope<CR>", opts)
 key("n", "sx", tb.git_branches, opts)
 key("n", "sz", tb.git_stash, opts)
 
-require("telescope").setup {
+require("telescope").setup({
 	defaults = {
 		-- preview = false,
 
@@ -55,4 +55,4 @@ require("telescope").setup {
 			case_mode = "smart_case", -- or "ignore_case" or "respect_case"
 		},
 	},
-}
+})
