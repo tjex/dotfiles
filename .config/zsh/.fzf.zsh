@@ -19,3 +19,5 @@ export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border \
                          --color gutter:-1,bg+:-1,fg+:yellow,hl:yellow,hl+:yellow,pointer:yellow"
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+export BKMR_FZF_OPTS="--reverse --height 20% --show-tags"

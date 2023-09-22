@@ -19,7 +19,7 @@ alias \
 alias \
     obs="cd ${TJROOT}/obsidian/paradigm-shifted && ls" \
     web="cd ${TJROOT}/dev/personal/websites && ls" \
-    tjex.net="cd ${TJROOT}/dev/personal/websites/tjex.net && ls"
+    tjex.net="cd ~/.local/src/websites/tjex.net && ls"
 
 # open with editor
 alias \

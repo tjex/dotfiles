@@ -28,7 +28,7 @@ local foreground = '#b1b1b1'
 
 function module.apply(config)
     config.bold_brightens_ansi_colors = false
-    -- config.window_background_opacity = 0.9
+    -- config.window_background_opacity = 0.6
     config.colors = {
         background = background,
         foreground = foreground,

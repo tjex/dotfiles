@@ -16,6 +16,7 @@ end
 		lua = {
 			require("formatter.filetypes.lua").stylua,
 		},
+        -- TODO: shfmt isnt working via formatter.nvim
 		bash = {
 			require("formatter.filetypes.sh").shfmt,
 		},

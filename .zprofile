@@ -9,28 +9,34 @@ export TERMINAL_PROG="wezterm"
 export BROWSER="brave"
 
 
-# ~/ Clean-up:
+# system directories
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XCD_STATE_HOME="$HOME/.local/state"
 export XDG_CACHE_HOME="$HOME/.cache"
 export TJROOT="$HOME/tjroot"
-export NOTMUCH_CONFIG="$XDG_CONFIG_HOME/notmuch-config"
-export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
-export INPUTRC="$XDG_CONFIG_HOME/shell/inputrc"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+
+# program directories
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
-export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
-export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
+export GPGKEY="45FC951C7A7F24C4A6AA566F28AADCA2EF680971"
+GPG_TTY=$(tty) ; export GPG_TTY
+
 export ANDROID_SDK_HOME="$XDG_CONFIG_HOME/android"
+export BKMR_DB_URL="$XDG_DATA_HOME/bkmr_db"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
-export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 export GOPATH="$HOME/.local/go"
 export GOMODCACHE="$XDG_CACHE_HOME/go/mod"
 export MBSYNCRC="$XDG_CONFIG_HOME/mbsync/config"
+export NOTMUCH_CONFIG="$XDG_CONFIG_HOME/notmuch-config"
 export NVM_DIR="$XDG_DATA_HOME/nvm"
-export GPGKEY="45FC951C7A7F24C4A6AA566F28AADCA2EF680971"
-GPG_TTY=$(tty) ; export GPG_TTY
+export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
+export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
+export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
+
+# files
+export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
+export INPUTRC="$XDG_CONFIG_HOME/shell/inputrc"
 
 # history files
 export SQLITE_HISTORY="$XDG_CACHE_HOME/history/sqlite_history"
