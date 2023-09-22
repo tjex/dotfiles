@@ -1,8 +1,12 @@
 #!/bin/bash
 
 # Check if at least one argument (the folder path) is provided
+
+echo "this script replaces characters in ALL files within the given folder"
+echo ""
+
 if [ $# -lt 1 ]; then
-	echo "Usage: $0 <folder_path> || <file>"
+	echo "Usage: $0 <folder_path>"
 	exit 1
 fi
 
@@ -15,9 +19,13 @@ read -p "New (replacement) character (e.g., '_'): " replacement_char
 
 # Check if the user provided a non-empty character
 if [ -z "$char_to_replace" ]; then
-	echo "Character to replace cannot be empty."
-	exit 1
+    char_to_replace=" "
 fi
+
+if [ ! -d "$arg" ]; then
+    echo "error: argument must be a folder (and also without glob/* pattern)"
+fi
+
 
 if [ -d "$arg" ]; then
 	# Loop through all files in the folder
@@ -39,17 +47,17 @@ if [ -d "$arg" ]; then
 	echo "All files in $arg renamed."
 fi
 
-if [ ! -d "$arg" ]; then
-	if [ -f "$arg" ]; then
-		# Extract the file name without the path
-		file_name=$(basename "$arg")
-
-		# Replace the user-specified character with underscores in the file name
-		new_name="${file_name//$char_to_replace/$replacement_char}"
-
-		# Rename the file
-		mv "$arg" "$new_name"
-
-		echo "Renamed: $file_name -> $new_name"
-	fi
-fi
+# if [ ! -d "$arg" ]; then
+# 	if [ -f "$arg" ]; then
+# 		# Extract the file name without the path
+# 		file_name=$(basename "$arg")
+#
+# 		# Replace the user-specified character with underscores in the file name
+# 		new_name="${file_name//$char_to_replace/$replacement_char}"
+#
+# 		# Rename the file
+# 		mv "$arg" "$new_name"
+#
+# 		echo "Renamed: $file_name -> $new_name"
+# 	fi
+# fi
