@@ -11,3 +11,4 @@ ignored/
 .config/spotify-tui/.spotify_token_cache.json
 .config/spotify-tui/client.yml
 .config/zsh/.zcompdump
+.config/zsh/.zsh_sessions
