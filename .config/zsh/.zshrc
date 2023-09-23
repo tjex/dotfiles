@@ -1,6 +1,7 @@
 # edited config from Luke Smith
 
 # settings via paths
+source "${XDG_CONFIG_HOME}/shell/opts"
 source "${XDG_CONFIG_HOME}/shell/shortcutrc"
 source "${XDG_CONFIG_HOME}/shell/aliasrc"
 source "${XDG_CONFIG_HOME}/shell/zshnameddirrc"
@@ -13,13 +14,7 @@ source "${XDG_CONFIG_HOME}/shell/vi-mode"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# Enable colors:
-autoload -U colors && colors	# Load colors
-setopt autocd		# Automatically cd into typed directory.
-stty stop undef		# Disable ctrl-s to freeze terminal.
-setopt interactive_comments
-
-# History in cache directory:
+# History
 HISTSIZE=10000000
 SAVEHIST=10000000
 HISTFILE="${XDG_CACHE_HOME}/history/zshhistory"
@@ -32,14 +27,12 @@ zmodload zsh/complist
 compinit
 _comp_options+=(globdots) # Include hidden files.
 
-
 # Use vim keys in tab complete menu:
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
-
 
 # Load syntax highlighting.
 source "${HOME}/.local/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh" 
