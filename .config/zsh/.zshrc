@@ -1,5 +1,12 @@
 # edited config from Luke Smith
 
+# History
+HISTSIZE=10000000
+SAVEHIST=10000000
+HISTFILE="${XDG_CACHE_HOME}/history/zshhistory"
+setopt HIST_IGNORE_ALL_DUPS # ignore duplicate commands in history
+
+
 # settings via paths
 source "${XDG_CONFIG_HOME}/shell/opts"
 source "${XDG_CONFIG_HOME}/shell/shortcutrc"
@@ -13,12 +20,6 @@ source "${XDG_CONFIG_HOME}/shell/vi-mode"
 [ -f ~/.config/zsh/.fzf.zsh ] && source ~/.config/zsh/.fzf.zsh
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# History
-HISTSIZE=10000000
-SAVEHIST=10000000
-HISTFILE="${XDG_CACHE_HOME}/history/zshhistory"
-setopt HIST_IGNORE_ALL_DUPS # ignore duplicate commands in history
 
 # Basic auto/tab settings:
 autoload -U compinit
@@ -36,7 +37,7 @@ bindkey -v '^?' backward-delete-char
 
 # Load syntax highlighting.
 source "${HOME}/.local/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh" 
-#
+
 # theming should be be sourced last (after syntax highlighting as fast-theme is part of
 # fast-syntax-highlighting.plugin)
 source "${XDG_CONFIG_HOME}/shell/design"

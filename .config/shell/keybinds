@@ -13,3 +13,5 @@ bindkey '^h' fzf-history-widget
 
 bindkey '^k' up-line-or-history
 bindkey '^j' down-line-or-history
+
+
