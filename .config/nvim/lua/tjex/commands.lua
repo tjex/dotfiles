@@ -22,6 +22,7 @@ auto({ "VimEnter" }, {
 -- user commands
 --
 
+-- run a file on write and print its output to designated buf
 usr_cmd("AutoRun", function()
 	print("AutoRun starts now...")
 	-- local bufnr = vim.cmd(":echo nvim_get_current_buf()")

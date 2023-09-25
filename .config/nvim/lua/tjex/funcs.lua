@@ -22,8 +22,6 @@ end
 
 -- removes quoted text when editing email replies with Neomutt
 M.neomutt_del_quoted = function()
-	local buf = vim.api.nvim_get_current_buf
-
 	vim.cmd ":g/^On .* wrote:/d"
 	vim.cmd ":g/^>/d"
 end

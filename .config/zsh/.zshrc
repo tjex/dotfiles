@@ -23,7 +23,7 @@ source "${XDG_CONFIG_HOME}/shell/vi-mode"
 
 # Basic auto/tab settings:
 autoload -U compinit
-zstyle ':completion:*' menu select
+zstyle ':completion:*' menu select matcher-list 'm:{a-z}={A-Za-z}' # use menu select and case insesitive
 zmodload zsh/complist
 compinit
 _comp_options+=(globdots) # Include hidden files.

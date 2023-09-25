@@ -31,8 +31,8 @@ yabai -m config \
 
 # rules
 
-yabai -m rule --add app="^Todoist$" title="^Todoist$" manage=off sticky="true" opacity=1.0 
-yabai -m rule --add app="^System Settings$" manage=off sticky="true" opacity=1.0
+yabai -m rule --add app="^Todoist$" title="^Todoist$" manage=off opacity=1.0 
+yabai -m rule --add app="^System Settings$" manage=off sticky=on opacity=1.0
 yabai -m rule --add app="^Dictionary$" manage=off opacity=1.0 grid=6:4:1:1:2:4
 yabai -m rule --add app="^WezTerm$" title="^lf$" manage=off opacity=1.0 grid=6:4:1:1:2:4
 yabai -m rule --add app="^Carbon Copy Cloner$" manage=off 

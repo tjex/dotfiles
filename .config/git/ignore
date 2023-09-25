@@ -3,6 +3,7 @@
 .zshenv
 
 ignored/
+autorun.out
 
 .config/asciinema
 .config/nvim/plugin/packer_compiled.lua

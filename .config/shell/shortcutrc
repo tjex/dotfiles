@@ -7,7 +7,7 @@ alias \
     D="cd ${HOME}/Downloads && ls -A" \
     d="cd ${HOME}/tjroot/docs && ls -A" \
     dev="cd ${HOME}/tjroot/dev && ls -A" \
-    tjh="cd ${TJROOT} && ls -A" \
+    tjr="cd ${TJROOT} && ls -A" \
     m="cd ${TJROOT}/music && ls -A" \
     i="cd ${TJROOT}/images && ls -A" \
     l="cd ${HOME}/.local && ls -A" \
@@ -18,8 +18,8 @@ alias \
 # projects / personal
 alias \
     obs="cd ${TJROOT}/obsidian/paradigm-shifted && ls" \
-    web="cd ${TJROOT}/dev/personal/websites && ls" \
-    tjex.net="cd ~/.local/src/websites/tjex.net && ls"
+    web="cd ${DEVROOT}/personal/websites && ls" \
+    tjex.net="cd ${DEVROOT}/websites/tjex.net && ls"
 
 # open with editor
 alias \
