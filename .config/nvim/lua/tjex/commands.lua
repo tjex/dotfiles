@@ -12,6 +12,19 @@ auto({ "VimEnter" }, {
 	callback = funcs.open_tree_on_dir,
 })
 
+
+-- load tidal keymaps only if a tidal file
+auto({ "BufEnter" }, {
+	group = augroup("keybinds", { clear = true }),
+	callback = function()
+		if vim.bo.filetype == "tidal" then
+			vim.api.nvim_set_keymap("n", "<c-s>", "mz:TidalSend<cr>`z", { silent = true })
+			vim.api.nvim_set_keymap("n", "<c-h>", ":TidalHush<cr>", { silent = true })
+            print("tidal keymaps loaded")
+		end
+	end,
+})
+
 -- TODO: run :bufdo e on telescope git_branch and git_commit load
 -- auto(
 -- 	{ "User TelescopeResumePost" },
