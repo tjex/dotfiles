@@ -1,0 +1,13 @@
+cache: null
+downloader: Curl
+gpg-setting: null
+keep-dirs: null
+key-bindings: null
+meta-cache: null
+meta-mode: null
+mirrors: null
+no-network: null
+no-verify: null
+platform-override: null
+url-source: null
+verbose: null
