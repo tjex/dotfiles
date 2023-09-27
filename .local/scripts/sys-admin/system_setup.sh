@@ -13,6 +13,7 @@ read -p "enter absolute path to sys_venv_requirements.txt" venv_req
 reload() {
     source ~/.zprofile
     exec zsh
+    echo "if something weird just happened, close the shell and open a fresh one"
 }
 
 
@@ -20,6 +21,7 @@ brew_and_dotfiles() {
     # FIRST (has git)
     # install homebrew, this should prompt to install xcode-terminal tools, which will include git
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    brew upgrade
 
     # dotfiles #
     # ######## #
@@ -43,50 +45,46 @@ brew_and_dotfiles() {
 
 homebrew_packages() {
     brew bundle install --file ${brewfile}
+    reload
 }
 
-packages_and_langs() {
-
-    # lf
-    env CGO_ENABLED=0 go install -ldflags="-s -w" github.com/gokcehan/lf@latest # file manager
-
-    # delve (go debugger)
-    go install github.com/go-delve/delve/cmd/dlv@latest
+packages_and_programs() {
+    # node / bun / etc
+    nvm install node
+    npm install --global yarn bun
 
     # packer
     git clone --depth 1 https://github.com/wbthomason/packer.nvim\
      ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
+    # lf
+    env CGO_ENABLED=0 go install -ldflags="-s -w" github.com/gokcehan/lf@latest # file manager
+
+
+    # tpm (tmux package manager)
+    git clone https://github.com/tmux-plugins/tpm ~/.local/share/tmux/plugins/tpm
+
     # nvm
-    git clone git@github.com:nvm-sh/nvm.git ~/.local/share/nvm
-    cd ${TMPDIR}/nvm
+    git clone git@github.com:nvm-sh/nvm.git $NVM_DIR
+    cd $NVM_DIR
     ./install.sh
     . ./nvm.sh
     cd ~
 
-    # node / bun / etc
-    nvm install node
-    npm install --global yarn bun
 
-    # tpm (tmux package manager)
-    git clone https://github.com/tmux-plugins/tpm ~/.local/share/tmux/plugins/tpm
+}
+
+languages() {
+
+    # delve (go debugger)
+    go install github.com/go-delve/delve/cmd/dlv@latest
 
     # python venv
     python3 -m venv ~/.local/share/venv/sys
     python3 -m ensurepip --upgrade
     pip install -r ${venv_req}
+
+    # haskel via GHCup
+    curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
 }
 
-read -p 'install homebrew packages?' confirm
-if [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]]; then
-    homebrew_packages
-else
-   echo 'exited'
-fi
-
-read -p 'install other non-brew packages and lanuages?' confirm
-if [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]]; then
-    packages_and_langs
-else
-   echo 'exited'
-fi
