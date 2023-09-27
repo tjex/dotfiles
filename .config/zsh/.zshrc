@@ -17,8 +17,6 @@ source "${XDG_CONFIG_HOME}/shell/keybinds"
 source "${XDG_CONFIG_HOME}/shell/paths"
 source "${XDG_CONFIG_HOME}/shell/vi-mode"
 
-[ -f ~/.config/zsh/.fzf.zsh ] && source ~/.config/zsh/.fzf.zsh
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # completion
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -43,4 +41,5 @@ source "${HOME}/.local/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-hi
 # theming should be be sourced last (after syntax highlighting as fast-theme is part of
 # fast-syntax-highlighting.plugin)
 source "${XDG_CONFIG_HOME}/shell/design"
+
 

@@ -25,8 +25,10 @@ GPG_TTY=$(tty) ; export GPG_TTY
 
 export ANDROID_SDK_HOME="$XDG_CONFIG_HOME/android"
 export BKMR_DB_URL="$XDG_DATA_HOME/bkmr_db"
+export CABAL_DIR="$XDG_CONFIG_HOME/cabal"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export GOPATH="$HOME/.local/go"
+export GHCUP_USE_XDG_DIRS=true
 export GOMODCACHE="$XDG_CACHE_HOME/go/mod"
 export MBSYNCRC="$XDG_CONFIG_HOME/mbsync/config"
 export NOTMUCH_CONFIG="$XDG_CONFIG_HOME/notmuch-config"
@@ -34,6 +36,7 @@ export NVM_DIR="$XDG_DATA_HOME/nvm"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password_store"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
+
 
 # files
 export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
