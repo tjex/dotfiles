@@ -1,4 +1,5 @@
 # dotfiles config
+.DS.Store
 .dotf-git/
 .zshenv
 

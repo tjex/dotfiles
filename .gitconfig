@@ -8,3 +8,5 @@
 	autoSetupRemote = true
 [pull]
 	rebase = false
+[core]
+	excludesFile = /Users/tjex/.gitignore_global

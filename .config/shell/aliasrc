@@ -53,10 +53,9 @@ alias \
 # git management
 alias \
 	g="git" \
-    gits="git status -s" \
-    gita="git add -A" \
-    gitc="git commit -m" \
-    gitp="git push"
+    gs="git status -s" \
+    ga="git add -A" \
+    gc="git commit -m" \
 
 # programs
 alias \

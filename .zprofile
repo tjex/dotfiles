@@ -31,7 +31,7 @@ export GOMODCACHE="$XDG_CACHE_HOME/go/mod"
 export MBSYNCRC="$XDG_CONFIG_HOME/mbsync/config"
 export NOTMUCH_CONFIG="$XDG_CONFIG_HOME/notmuch-config"
 export NVM_DIR="$XDG_DATA_HOME/nvm"
-export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
+export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password_store"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
 

@@ -27,6 +27,11 @@ gi() {
     curl -sLw n https://www.toptal.com/developers/gitignore/api/$@ ;
 }
 
+gp() {
+    origin=$1
+    git push $1
+}
+
 # search .scripts folder and executer
 scripts() {
     if result=($(fd . -tf -Earchived ${HOME}/.local/scripts | fzf)); then
