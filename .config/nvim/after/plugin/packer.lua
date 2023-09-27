@@ -58,6 +58,7 @@ return require("packer").startup(function(use)
 		"ton/vim-bufsurf",
 		"nvim-treesitter/playground",
 		"folke/todo-comments.nvim",
+        "mbbill/undotree"
 	})
 
 	-- completion
@@ -96,5 +97,9 @@ return require("packer").startup(function(use)
 		"mhartington/formatter.nvim",
 	})
 
+    -- media
+    use({
+        "tidalcycles/vim-tidal"
+    })
     -- development
 end)
