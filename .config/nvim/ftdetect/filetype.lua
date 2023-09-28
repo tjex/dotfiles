@@ -5,5 +5,6 @@ vim.filetype.add {
 		sh = "bash",
 		mdx = "markdown",
 		bin = "markdown",
+        tidal = "tidal",
 	},
 }
