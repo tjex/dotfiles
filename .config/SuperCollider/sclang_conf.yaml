@@ -1,0 +1,8 @@
+includePaths:
+    -   /Users/tjex/.local/share/SuperCollider/downloaded-quarks/Vowel
+    -   /Users/tjex/.local/share/SuperCollider/downloaded-quarks/Dirt-Samples
+    -   /Users/tjex/.local/share/SuperCollider/downloaded-quarks/SuperDirt
+excludePaths:
+    []
+postInlineWarnings: false
+excludeDefaultPaths: false
