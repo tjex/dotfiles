@@ -8,7 +8,6 @@ export TERMINAL="wezterm"
 export TERMINAL_PROG="wezterm"
 export BROWSER="brave"
 
-
 # system directories
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -37,7 +36,6 @@ export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password_store"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
 
-
 # files
 export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
 export INPUTRC="$XDG_CONFIG_HOME/shell/inputrc"
@@ -59,4 +57,5 @@ export LESS_TERMCAP_ue="$(printf '%b' '[0m')"
 export LESSOPEN="| /usr/bin/highlight -O ansi %s 2>/dev/null"
 
 [ ! -f ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ] && setsid shortcuts >/dev/null 2>&1
-source ${XDG_DATA_HOME}/venv/sys/bin/activate
+
+

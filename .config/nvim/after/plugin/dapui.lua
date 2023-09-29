@@ -1,10 +1,10 @@
 local ok, _ = pcall(require, "dapui")
 if not ok then
-	print "dapui not ok!"
+	print("dapui not ok!")
 	return
 end
 
-local dap, dapui = require "dap", require "dapui"
+local dap, dapui = require("dap"), require("dapui")
 
 dap.listeners.after.event_initialized["dapui_config"] = function()
 	dapui.open()
@@ -16,7 +16,7 @@ dap.listeners.before.event_exited["dapui_config"] = function()
 	dapui.close()
 end
 
-require("dapui").setup {
+require("dapui").setup({
 	icons = { expanded = "", collapsed = "", current_frame = "" },
 	mappings = {
 		-- Use a table to apply multiple mappings
@@ -37,7 +37,7 @@ require("dapui").setup {
 	},
 	-- Expand lines larger than the window
 	-- Requires >= 0.7
-	expand_lines = vim.fn.has "nvim-0.7" == 1,
+	expand_lines = vim.fn.has("nvim-0.7") == 1,
 	-- Layouts define sections of the screen to place windows.
 	-- The position can be "left", "right", "top" or "bottom".
 	-- The size specifies the height/width depending on position. It can be an Int
@@ -95,4 +95,4 @@ require("dapui").setup {
 		max_type_length = nil, -- Can be integer or nil.
 		max_value_lines = 100, -- Can be integer or nil.
 	},
-}
+})

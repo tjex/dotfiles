@@ -80,6 +80,7 @@ return require("packer").startup(function(use)
 	-- dap
 	use({
 		"mfussenegger/nvim-dap",
+        'mfussenegger/nvim-dap-python',
 		"mxsdev/nvim-dap-vscode-js",
 		"rcarriga/nvim-dap-ui",
 		"leoluz/nvim-dap-go",

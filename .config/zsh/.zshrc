@@ -35,11 +35,12 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
 
-# Load syntax highlighting.
+# virtualenv (source BEFORE shell design)
+source ${XDG_DATA_HOME}/venv/sys/bin/activate
+
+# plugins
 source "${HOME}/.local/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh" 
 
 # theming should be be sourced last (after syntax highlighting as fast-theme is part of
 # fast-syntax-highlighting.plugin)
 source "${XDG_CONFIG_HOME}/shell/design"
-
-
