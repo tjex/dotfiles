@@ -1,15 +1,16 @@
 -- :h indent_blankline.txt
 
-local ok, _ = pcall(require, "indent_blankline")
+local ok, _ = pcall(require, "ibl")
 if not ok then
-	print "blankline plug not ok!"
+	print("blankline plug not ok!")
 	return
 end
 
-require("indent_blankline").setup {
-	show_current_context = true,
-	show_current_context_start = false,
-	char = "·",
-	context_char = "·",
-	show_trailing_blankline_indent = false,
-}
+require("ibl").setup({
+	scope = { enabled = false },
+	indent = {
+		show_current_context = true,
+		show_current_context_start = false,
+		show_trailing_blankline_indent = false,
+	},
+})
