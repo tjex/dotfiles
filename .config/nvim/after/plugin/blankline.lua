@@ -7,10 +7,8 @@ if not ok then
 end
 
 require("ibl").setup({
-	scope = { enabled = false },
+	scope = { enabled = false, show_start = false, show_end = false },
 	indent = {
-		show_current_context = true,
-		show_current_context_start = false,
 		show_trailing_blankline_indent = false,
 	},
 })

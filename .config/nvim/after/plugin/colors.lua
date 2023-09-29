@@ -302,8 +302,9 @@ Group.new("telescopematching", groups.ui_sel_fg_1)
 Group.new("TelescopeSelection", groups.ui_sel_fg_1)
 
 -- blankline
-Group.new("IndentBlanklineChar", colors.gray_4)
-Group.new("IndentBlanklineContextChar", groups.hl_yellow)
+-- these hl groups don't seem to work (2023-09-29)
+Group.new("IblIndent", colors.blue_1)
+Group.new("IblScope", groups.hl_yellow)
 
 -- cmp
 Group.new("CmpItemMenu", groups.ui_sel_fg_1)
