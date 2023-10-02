@@ -2,13 +2,13 @@
 #
 # Use lf to switch directories and bind it to ctrl-o
 lfcd() {
-    tmp="$(mktemp -uq)"
-    trap 'rm -f $tmp >/dev/null 2>&1 && trap - HUP INT QUIT TERM PWR EXIT' HUP INT QUIT TERM PWR EXIT
-    lf -last-dir-path="$tmp" "$@"
-    if [ -f "$tmp" ]; then
-        dir="$(cat "$tmp")"
-        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
-    fi
+	tmp="$(mktemp -uq)"
+	trap 'rm -f $tmp >/dev/null 2>&1 && trap - HUP INT QUIT TERM PWR EXIT' HUP INT QUIT TERM PWR EXIT
+	lf -last-dir-path="$tmp" "$@"
+	if [ -f "$tmp" ]; then
+		dir="$(cat "$tmp")"
+		[ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+	fi
 }
 
 # this was from luke, looks like a better way to pipe into fzf
@@ -18,94 +18,97 @@ lfcd() {
 # 	;}
 #
 mvmk() {
-    mkdir -p -- "$argv[-1]"
-    mv "$@"
+	mkdir -p -- "$argv[-1]"
+	mv "$@"
 }
 
 # get gitignore templates
-gi() { 
-    curl -sLw n https://www.toptal.com/developers/gitignore/api/$@ ;
+gi() {
+	curl -sLw n https://www.toptal.com/developers/gitignore/api/$@
 }
 
 gp() {
-    origin=$1
-    git push $1
+	remote=$1
+	if [ -Z "$remote"]; then
+		echo "error: specify which remote to push to"
+	else
+		git push $1
+	fi
 }
 
 # search .scripts folder and executer
 scripts() {
-    if result=($(fd . -tf -Earchived ${HOME}/.local/scripts | fzf)); then
-        $result
-    else
-        return
-    fi
+	if result=($(fd . -tf -Earchived ${HOME}/.local/scripts | fzf)); then
+		$result
+	else
+		return
+	fi
 }
 
 tref() {
-    if result=($(fd . ${HOME}/tjroot/dev/cheat-sheets | fzf )); then
-        nvim $result
-    else
-        return
-    fi
+	if result=($(fd . ${HOME}/tjroot/dev/cheat-sheets | fzf)); then
+		nvim $result
+	else
+		return
+	fi
 }
 
 trefg() {
-    local search=$1
-    rg -i -w $search ${HOME}/tjroot/dev/cheat-sheets 
+	local search=$1
+	rg -i -w $search ${HOME}/tjroot/dev/cheat-sheets
 }
 
 tlogs() {
-    if result=($(fd . -tf ${HOME}/tjroot/logs | fzf )); then
-        nvim $result
-    else
-        return
-    fi
+	if result=($(fd . -tf ${HOME}/tjroot/logs | fzf)); then
+		nvim $result
+	else
+		return
+	fi
 }
 
 tnotes() {
-    if result=($(fd . -tf ${HOME}/tjroot/notes | fzf)); then
-        nvim $result
-    else
-        return
-    fi
+	if result=($(fd . -tf ${HOME}/tjroot/notes | fzf)); then
+		nvim $result
+	else
+		return
+	fi
 }
 
 tlists() {
-    if result=($(fd . -tf ${HOME}/tjroot/lists | fzf )); then
-        nvim $result
-    else
-        return
-    fi
+	if result=($(fd . -tf ${HOME}/tjroot/lists | fzf)); then
+		nvim $result
+	else
+		return
+	fi
 
 }
 
 gremote() {
-    local remote=`git remote -v | head -n 1`
-    if [[ $remote =~ 'https' ]];
-    then
-        local repoUrl=`echo $remote | awk -F " " '{print $2}' | sed 's/\\.git//g'`
-    else
-        local repoUrl=`echo $remote | awk -F "@" '{print $2}' | awk -F " " '{print $1}' | sed 's/:/\\//g' | sed 's/.git//g' | awk '{print "https://"$1}'`
-    fi
-    echo "Opening $repoUrl"
-    open $repoUrl
+	local remote=$(git remote -v | head -n 1)
+	if [[ $remote =~ 'https' ]]; then
+		local repoUrl=$(echo $remote | awk -F " " '{print $2}' | sed 's/\\.git//g')
+	else
+		local repoUrl=$(echo $remote | awk -F "@" '{print $2}' | awk -F " " '{print $1}' | sed 's/:/\\//g' | sed 's/.git//g' | awk '{print "https://"$1}')
+	fi
+	echo "Opening $repoUrl"
+	open $repoUrl
 }
 
 tpass() {
-    if file=($(fd . -tf ${PASSWORD_STORE_DIR} | fzf)); then
-        file=${file//.gpg/} # strips ".gpg" from string input into pass
-        file=${file//"${PASSWORD_STORE_DIR}"/} # formats file path to begin at PASSWORD_STORE_DIR
-        pass show $1 $file
-    else
-        return
-    fi
+	if file=($(fd . -tf ${PASSWORD_STORE_DIR} | fzf)); then
+		file=${file//.gpg/}                    # strips ".gpg" from string input into pass
+		file=${file//"${PASSWORD_STORE_DIR}"/} # formats file path to begin at PASSWORD_STORE_DIR
+		pass show $1 $file
+	else
+		return
+	fi
 }
 
 vf() {
-    if result=($(fd . -tf | fzf )); then
-        nvim $result
-    else
-        return
-    fi
-    
+	if result=($(fd . -tf | fzf)); then
+		nvim $result
+	else
+		return
+	fi
+
 }
