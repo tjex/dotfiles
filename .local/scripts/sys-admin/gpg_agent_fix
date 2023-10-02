@@ -1,0 +1,5 @@
+#! /usr/bin/env bash
+
+pkill gpg-agent
+gpg-agent --pinentry-program=/opt/homebrew/bin/pinentry-mac --daemon
+
