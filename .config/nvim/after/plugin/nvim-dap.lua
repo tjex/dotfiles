@@ -1,11 +1,11 @@
 -- nvim-dap
 local ok, _ = pcall(require, "dap")
 if not ok then
-	print "nvim-dap not ok!"
+	print("nvim-dap not ok!")
 	return
 end
 
-local dap = require "dap"
+local dap = require("dap")
 local key = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
@@ -17,7 +17,7 @@ key("n", "<F3>", ":lua require'dap'.step_into()<CR>", opts)
 key("n", "<F2>", ":lua require'dap'.step_out()<CR>", opts)
 
 -- nvim-dap-go plugin
-require("dap-go").setup {
+require("dap-go").setup({
 	-- :help dap-configuration
 	dap_configurations = {
 		{
@@ -50,7 +50,7 @@ require("dap-go").setup {
 		-- ignored by delve in dap mode.
 		build_flags = "",
 	},
-}
+})
 
 -- local lua debugger vscode
 dap.adapters["local-lua"] = {
@@ -72,4 +72,8 @@ dap.adapters["local-lua"] = {
 	end,
 }
 
-
+-- dap-python, use venv/sys
+require("dap-python").setup("~/.local/share/venv/sys/bin/python")
+require("dap-python").resolve_python = function()
+	return "/Users/tjex/.local/share/venv/sys/bin/python"
+end

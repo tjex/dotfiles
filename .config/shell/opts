@@ -1,4 +1,6 @@
+#vim: filetype=bash
 
 setopt autocd		# Automatically cd into typed directory.
+setopt ignoreeof    # ignore c-d (exit shell)
 stty stop undef		# Disable ctrl-s to freeze terminal.
 setopt interactive_comments

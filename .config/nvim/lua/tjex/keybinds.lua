@@ -51,7 +51,7 @@ key("n", "<C-d>", "<C-d>zz", opts) -- keep cursor in middle when jumping
 key("n", "<C-u>", "<C-u>zz", opts) -- keep cursor in middle when jumping
 key("n", "n", "nzzzv", opts) -- keep cursor in middle during search
 key("n", "N", "Nzzzv", opts)
-key("n", "`o", '`"', opts) -- jump to where cursor was on file close (`" sucks to type)
+key("n", "`l", '`"', opts) -- jump to where cursor was on file close (`" sucks to type)
 
 -- windows
 key("n", "<C-h>", "<C-w>h", opts)

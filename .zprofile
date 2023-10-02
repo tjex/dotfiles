@@ -35,6 +35,7 @@ export NVM_DIR="$XDG_DATA_HOME/nvm"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password_store"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
+# export VIRTUAL_ENV="$XDG_DATA_HOME/share/venv/sys/bin"
 
 # files
 export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
