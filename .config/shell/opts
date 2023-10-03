@@ -1,6 +1,7 @@
-#vim: filetype=bash
+# vim: filetype=zsh
 
 setopt autocd		# Automatically cd into typed directory.
 setopt ignoreeof    # ignore c-d (exit shell)
+setopt HIST_IGNORE_ALL_DUPS # ignore duplicate commands in history
 stty stop undef		# Disable ctrl-s to freeze terminal.
 setopt interactive_comments

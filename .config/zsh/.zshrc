@@ -4,7 +4,6 @@
 HISTSIZE=10000000
 SAVEHIST=10000000
 HISTFILE="${XDG_CACHE_HOME}/history/zshhistory"
-setopt HIST_IGNORE_ALL_DUPS # ignore duplicate commands in history
 
 # fpath
 fpath+=("$(brew --prefix)/share/zsh/site-functions")
@@ -19,7 +18,6 @@ source "${XDG_CONFIG_HOME}/shell/keybinds"
 source "${XDG_CONFIG_HOME}/shell/paths"
 source "${XDG_CONFIG_HOME}/shell/vi-mode"
 
-
 completion() {
 
 	# Basic auto/tab settings:
@@ -31,16 +29,16 @@ completion() {
 
 	# completion
 	[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+
+	# Use vim keys in tab complete menu:
+	bindkey -M menuselect 'h' vi-backward-char
+	bindkey -M menuselect 'k' vi-up-line-or-history
+	bindkey -M menuselect 'l' vi-forward-char
+	bindkey -M menuselect 'j' vi-down-line-or-history
+	bindkey -v '^?' backward-delete-char
 }
 
 completion
-
-# Use vim keys in tab complete menu:
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
-bindkey -v '^?' backward-delete-char
 
 # virtualenv (source BEFORE shell design)
 source ${XDG_DATA_HOME}/venv/sys/bin/activate
