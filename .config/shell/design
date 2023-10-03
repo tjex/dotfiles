@@ -2,9 +2,8 @@
 # needs to be before promptinit
 autoload -U colors && colors	# Load colors
 fpath+=(${XDG_DATA_HOME}/zsh/themes/pure) # prompt theme path
-fpath+=("$(brew --prefix)/share/zsh/site-functions")
 
-autoload -U compinit promptinit
+autoload -U promptinit
 promptinit
 
 # Enable colors:
