@@ -1,19 +1,20 @@
+# vim: filetype=zsh
+
 # shell design / colors / etc
 # needs to be before promptinit
-autoload -U colors && colors	# Load colors
+autoload -U colors && colors              # Load colors
 fpath+=(${XDG_DATA_HOME}/zsh/themes/pure) # prompt theme path
 
 autoload -U promptinit
 promptinit
 
 # Enable colors:
-autoload -U colors && colors	# Load colors
-setopt autocd		# Automatically cd into typed directory.
-stty stop undef		# Disable ctrl-s to freeze terminal.
+autoload -U colors && colors # Load colors
+setopt autocd                # Automatically cd into typed directory.
+stty stop undef              # Disable ctrl-s to freeze terminal.
 setopt interactive_comments
-
 
 # needs to be after promptinit
 # standard term colors are set in wezterm/colors
 source "${ZDOTDIR}/.zsh-pure-cfg" # pure
-fast-theme ${ZDOTDIR}/sv-orple-mod.ini >/dev/null 
+fast-theme ${ZDOTDIR}/sv-orple-mod.ini >/dev/null

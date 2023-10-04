@@ -35,7 +35,6 @@ export NVM_DIR="$XDG_DATA_HOME/nvm"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password_store"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
-# export VIRTUAL_ENV="$XDG_DATA_HOME/share/venv/sys/bin"
 
 # files
 export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
@@ -55,8 +54,7 @@ export LESS_TERMCAP_so="$(printf '%b' '[01;44;33m')"
 export LESS_TERMCAP_se="$(printf '%b' '[0m')"
 export LESS_TERMCAP_us="$(printf '%b' '[1;32m')"
 export LESS_TERMCAP_ue="$(printf '%b' '[0m')"
-export LESSOPEN="| /usr/bin/highlight -O ansi %s 2>/dev/null"
 
-[ ! -f ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ] && setsid shortcuts >/dev/null 2>&1
+[ ! -f ${XDG_CONFIG_HOME}/shell/shortcutrc ] && setsid shortcuts >/dev/null 2>&1
 
 

@@ -39,7 +39,10 @@ key("n", "Z", "1z=e", opts)
 key("n", "fp", "mzvapgq`z", opts) -- format paragraph and leave cursor where it was
 key("n", "fl", "mzgqq`z", opts) -- format line and leave cursor where it was
 
--- thanks Prime. Replace mode using the word you were currently on
+key("i", "<C-d>", vim.fn.strftime("%Y-%m-%d")) -- insert date
+key("n", "<leader>u", ":bufdo e", opts) -- 'update' buffer
+
+-- Replace mode using the word you were currently on (thanks to the Primeageon). 
 key("n", "<leader>r", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/<Left>")
 
 -- naviagtion
@@ -73,6 +76,5 @@ key("n", "H", ":BufSurfBack<CR>", opts)
 key("n", "ga", ":EasyAlign", opts)
 key("v", "ga", ":EasyAlign", opts)
 
-key("i", "<C-d>", vim.fn.strftime("%Y-%m-%d"))
 -- netrw
 -- key("n", "<leader>e", ":Explore<CR>")
