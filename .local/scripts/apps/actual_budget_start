@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
 source ${XDG_DATA_HOME}/nvm/nvm.sh 
-cd $DEVROOT/abudget/actual-tjex
+cd ~/tjroot/dev/abudget/actual-tjex
 nohup yarn start > /dev/null &

@@ -5,8 +5,8 @@ alias \
     cac="cd ${HOME}/.cache && ls -A" \
     cf="cd ${XDG_CONFIG_HOME} && ls -A" \
     D="cd ${HOME}/Downloads && ls -A" \
-    d="cd ${HOME}/tjroot/docs && ls -A" \
-    dev="cd ${HOME}/tjroot/dev && ls -A" \
+    d="cd ${TJROOT}/docs && ls -A" \
+    dev="cd ${TJROOT}/dev && ls -A" \
     tjr="cd ${TJROOT} && ls -A" \
     m="cd ${TJROOT}/music && ls -A" \
     i="cd ${TJROOT}/images && ls -A" \
