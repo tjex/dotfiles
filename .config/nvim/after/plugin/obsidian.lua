@@ -6,7 +6,7 @@ end
 
 require("obsidian").setup({
 	-- Required, the path to your vault directory.
-	dir = "~/tjroot/obsidian/paradigm-shifted",
+	dir = "~/obsidian/paradigm-shifted",
 	disable_frontmatter = true,
 
 	-- Optional, if you keep notes in a specific subdirectory of your vault.
