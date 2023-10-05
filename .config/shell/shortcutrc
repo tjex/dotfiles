@@ -5,11 +5,11 @@ alias \
     cac="cd ${HOME}/.cache && ls -A" \
     cf="cd ${XDG_CONFIG_HOME} && ls -A" \
     D="cd ${HOME}/Downloads && ls -A" \
-    d="cd ${TJROOT}/docs && ls -A" \
-    dev="cd ${TJROOT}/dev && ls -A" \
-    tjr="cd ${TJROOT} && ls -A" \
-    m="cd ${TJROOT}/music && ls -A" \
-    i="cd ${TJROOT}/images && ls -A" \
+    d="cd ${HOME}/docs && ls -A" \
+    dev="cd ${HOME}/dev && ls -A" \
+    tjr="cd ${HOME} && ls -A" \
+    m="cd ${HOME}/music && ls -A" \
+    i="cd ${HOME}/images && ls -A" \
     l="cd ${HOME}/.local && ls -A" \
     lsh="cd ${XDG_DATA_HOME} && ls -A" \
     lsrc="cd ${HOME}/.local/src && ls -A" \
@@ -17,7 +17,7 @@ alias \
 
 # projects / personal
 alias \
-    obs="cd ${TJROOT}/obsidian/paradigm-shifted && ls" \
+    obs="cd ${HOME}/obsidian/paradigm-shifted && ls" \
     tjex.net="cd ${DEVROOT}/websites/tjex.net && ls"
 
 # open with editor

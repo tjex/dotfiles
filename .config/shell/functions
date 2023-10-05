@@ -68,7 +68,7 @@ scripts() {
 }
 
 tref() {
-	if result=($(fd . ${HOME}/tjroot/dev/cheat-sheets | fzf)); then
+	if result=($(fd . ${HOME}/dev/cheat-sheets | fzf)); then
 		nvim $result
 	else
 		return
@@ -77,11 +77,11 @@ tref() {
 
 trefg() {
 	local search=$1
-	rg -i -w $search ${HOME}/tjroot/dev/cheat-sheets
+	rg -i -w $search ${HOME}/dev/cheat-sheets
 }
 
 tlogs() {
-	if result=($(fd . -tf ${HOME}/tjroot/logs | fzf)); then
+	if result=($(fd . -tf ${HOME}/logs | fzf)); then
 		nvim $result
 	else
 		return
@@ -89,7 +89,7 @@ tlogs() {
 }
 
 tnotes() {
-	if result=($(fd . -tf ${HOME}/tjroot/notes | fzf)); then
+	if result=($(fd . -tf ${HOME}/notes | fzf)); then
 		nvim $result
 	else
 		return
@@ -97,7 +97,7 @@ tnotes() {
 }
 
 tlists() {
-	if result=($(fd . -tf ${HOME}/tjroot/lists | fzf)); then
+	if result=($(fd . -tf ${HOME}/lists | fzf)); then
 		nvim $result
 	else
 		return
