@@ -18,7 +18,7 @@ alias \
 # projects / personal
 alias \
     obs="cd ${HOME}/obsidian/paradigm-shifted && ls" \
-    tjex.net="cd ${DEVROOT}/websites/tjex.net && ls"
+    tjex.net="cd ${HOME}/dev/websites/tjex.net && ls"
 
 # open with editor
 alias \
