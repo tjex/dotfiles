@@ -58,7 +58,18 @@ return require("packer").startup(function(use)
 		"ton/vim-bufsurf",
 		"nvim-treesitter/playground",
 		"folke/todo-comments.nvim",
-        "mbbill/undotree"
+		"mbbill/undotree",
+	})
+
+    -- markdown
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = "cd app && npm install",
+		setup = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+		ft = { "markdown" },
+        cmd = "MarkdownPreview",
 	})
 
 	-- completion
@@ -80,7 +91,7 @@ return require("packer").startup(function(use)
 	-- dap
 	use({
 		"mfussenegger/nvim-dap",
-        'mfussenegger/nvim-dap-python',
+		"mfussenegger/nvim-dap-python",
 		"mxsdev/nvim-dap-vscode-js",
 		"rcarriga/nvim-dap-ui",
 		"leoluz/nvim-dap-go",
@@ -98,9 +109,9 @@ return require("packer").startup(function(use)
 		"mhartington/formatter.nvim",
 	})
 
-    -- media
-    use({
-        "tidalcycles/vim-tidal"
-    })
-    -- development
+	-- media
+	use({
+		"tidalcycles/vim-tidal",
+	})
+	-- development
 end)
