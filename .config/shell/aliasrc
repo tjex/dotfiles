@@ -59,11 +59,11 @@ alias \
 
 # programs
 alias \
-    bms="bkmr search --fzf"
+    bms="bkmr search --fzf" \
 	ffmpeg="ffmpeg -hide_banner" \
     abook="abook --config $XDG_DATA_HOME/abook/abookrc --datafile $XDG_DATA_HOME/abook/addressbook" \
-    abudget="${HOME}/.local/scripts/apps/actual_budget_start.sh" \
+    abudget="${HOME}/.local/scripts/apps/actual_budget_start" \
     neomutt="TERM=xterm-direct neomutt" \
     yabspace="yabai -m space --create" \
     yt="yt-dlp --embed-metadata -i" \
-    yta="yt -x -f bestaudio/best"
+    yta="yt-dlp -x -f bestaudio/best"

@@ -5,17 +5,14 @@ HISTSIZE=10000000
 SAVEHIST=10000000
 HISTFILE="${XDG_CACHE_HOME}/history/zshhistory"
 
-# fpath
-fpath+=("$(brew --prefix)/share/zsh/site-functions")
-
 # settings via paths
+source "${XDG_CONFIG_HOME}/shell/paths"
 source "${XDG_CONFIG_HOME}/shell/opts"
 source "${XDG_CONFIG_HOME}/shell/shortcutrc"
 source "${XDG_CONFIG_HOME}/shell/aliasrc"
 source "${XDG_CONFIG_HOME}/shell/zshnameddirrc"
 source "${XDG_CONFIG_HOME}/shell/functions"
 source "${XDG_CONFIG_HOME}/shell/keybinds"
-source "${XDG_CONFIG_HOME}/shell/paths"
 source "${XDG_CONFIG_HOME}/shell/vi-mode"
 
 completion() {

@@ -54,4 +54,3 @@ shift + alt + cmd - 9 : yabai -m window --space 9
 
 shift + alt + cmd - r : yabai --restart-service
 
-

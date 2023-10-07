@@ -1,5 +1,8 @@
 # vim: filetype=bash
 
+# fpath
+fpath+=("$(brew --prefix)/share/zsh/site-functions")
+
 # Paths (appends exports BOTTOM to TOP in $PATH - for whatever reason)
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # this loads nvm (and it's $PATH?)
 [ -f "$XDG_DATA_HOME/ghcup/env" ] && source "$XDG_DATA_HOME/ghcup/env" # ghcup-env
