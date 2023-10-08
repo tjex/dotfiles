@@ -29,6 +29,7 @@ export GHCUP_USE_XDG_DIRS=true
 export GOMODCACHE="$XDG_CACHE_HOME/go/mod"
 export MBSYNCRC="$XDG_CONFIG_HOME/mbsync/config"
 export NOTMUCH_CONFIG="$XDG_CONFIG_HOME/notmuch-config"
+export NODE_REPL_HISTORY="$XDG_CACHE_HOME/history/node_repl_history"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npmrc"
 export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
 export NVM_DIR="$XDG_DATA_HOME/nvm"
@@ -43,7 +44,7 @@ export INPUTRC="$XDG_CONFIG_HOME/shell/inputrc"
 
 # history files
 export SQLITE_HISTORY="$XDG_CACHE_HOME/history/sqlite_history"
-export PYTHONHISTORY="$XDG_CACHE_HOME/history/python"
+export PYTHONHISTORYFILE="$XDG_CACHE_HOME/history/python"
 export LESSHISTFILE="-"
 
 # Other program settings:
