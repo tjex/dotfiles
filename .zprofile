@@ -36,8 +36,11 @@ export NVM_DIR="$XDG_DATA_HOME/nvm"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password_store"
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/pythonrc"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
-export STACK_XDG=true
+export STACK_XDG=true # use xdg paths for haskell stack
 export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
+
+# zsh shell itself
+export SHELL_SESSIONS_DISABLE=1 # disables .zsh_sessions dumps
 
 # files
 export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
@@ -45,7 +48,6 @@ export INPUTRC="$XDG_CONFIG_HOME/shell/inputrc"
 
 # history files
 export SQLITE_HISTORY="$XDG_CACHE_HOME/history/sqlite_history"
-export PYTHONHISTORYFILE="$XDG_CACHE_HOME/history/python"
 export LESSHISTFILE="-"
 
 # Other program settings:
