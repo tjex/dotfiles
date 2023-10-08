@@ -59,7 +59,7 @@ alias \
 
 # programs
 alias \
-    yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarnrc"
+    yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarnrc" \
     bms="bkmr search --fzf" \
 	ffmpeg="ffmpeg -hide_banner" \
     abook="abook --config $XDG_DATA_HOME/abook/abookrc --datafile $XDG_DATA_HOME/abook/addressbook" \
