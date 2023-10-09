@@ -59,6 +59,7 @@ alias \
 
 # programs
 alias \
+    mpv="mpv --no-audio-display" \
     yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarnrc" \
     bms="bkmr search --fzf" \
 	ffmpeg="ffmpeg -hide_banner" \

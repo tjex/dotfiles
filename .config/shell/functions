@@ -68,7 +68,7 @@ scripts() {
 }
 
 tref() {
-	if result=($(fd . ${HOME}/dev/cheat_sheets | fzf)); then
+	if result=($(fd . ${HOME}/dev/tref | fzf)); then
 		nvim $result
 	else
 		return
@@ -77,7 +77,7 @@ tref() {
 
 trefg() {
 	local search=$1
-	rg -i -w $search ${HOME}/dev/cheat_sheets
+	rg -i -w $search ${HOME}/dev/tref
 }
 
 tlogs() {

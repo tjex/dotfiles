@@ -6,7 +6,7 @@ unsetopt PROMPT_SP
 export EDITOR="nvim"
 export TERMINAL="wezterm"
 export TERMINAL_PROG="wezterm"
-export BROWSER="brave"
+export BROWSER="brave browser"
 
 # system directories
 export XDG_CONFIG_HOME="$HOME/.config"
