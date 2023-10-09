@@ -1,0 +1,15 @@
+browser "open -a 'Brave Browser' %u"
+
+color background          default default
+color listnormal          white  default
+color listfocus           yellow  default  
+color listnormal_unread   white  default
+color listfocus_unread    yellow  default 
+color title               blue default   bold
+color info                blue  default   bold
+color hint-key            blue  default   bold
+color hint-keys-delimiter blue  default
+color hint-separator      blue  default  bold
+color hint-description    blue  default
+color article             white   default
+
