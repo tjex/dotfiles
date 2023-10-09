@@ -1,4 +1,10 @@
 browser "open -a 'Brave Browser' %u"
+max-items 100
+
+bind-key l open
+bind-key h quit
+bind-key k up
+bind-key j down
 
 color background          default default
 color listnormal          white  default
