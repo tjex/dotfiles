@@ -7,9 +7,9 @@ bind-key k up
 bind-key j down
 
 color background          default default
-color listnormal          white  default
+color listnormal          default  default
 color listfocus           yellow  default  
-color listnormal_unread   white  default
+color listnormal_unread   default  default
 color listfocus_unread    yellow  default 
 color title               blue default   bold
 color info                blue  default   bold
@@ -17,5 +17,13 @@ color hint-key            blue  default   bold
 color hint-keys-delimiter blue  default
 color hint-separator      blue  default  bold
 color hint-description    blue  default
-color article             white   default
+color article             default   default
+color end-of-text-marker  black default
 
+
+highlight article "^(Feed|Title|Author|Link|Date): .+" default default bold
+highlight article "^(Feed|Title|Author|Link|Date):" blue default bold
+
+highlight article "\\((link|image|video)\\)" red default
+highlight article "https?://[^ ]+" red default
+highlight article "\[[0-9]+\]" red default bold
