@@ -11,15 +11,29 @@ lfcd() {
 	fi
 }
 
-# this was from luke, looks like a better way to pipe into fzf
-# se() {
-# 	choice="$(find ~/.local/bin -mindepth 1 -printf '%P\n' | fzf)"
-# 	[ -f "$HOME/.local/bin/$choice" ] && $EDITOR "$HOME/.local/bin/$choice"
-# 	;}
-#
+# play a folder of files with mpv
+mpvf() {
+	mpv $(find . -type d -print | fzf --preview 'tree -C {} | head -200')
+}
+
+# mv a folder into a folder that you make, in the same command.
 mvmk() {
 	mkdir -p -- "$argv[-1]"
 	mv "$@"
+}
+
+# ### #
+# git #
+
+gremote() {
+	local remote=$(git remote -v | head -n 1)
+	if [[ $remote =~ 'https' ]]; then
+		local repoUrl=$(echo $remote | awk -F " " '{print $2}' | sed 's/\\.git//g')
+	else
+		local repoUrl=$(echo $remote | awk -F "@" '{print $2}' | awk -F " " '{print $1}' | sed 's/:/\//g' | sed 's/.git//g' | awk '{print "https://"$1}')
+	fi
+	echo "Opening $repoUrl"
+	open $repoUrl
 }
 
 # get gitignore templates
@@ -40,22 +54,22 @@ gp() {
 # eg git_sparse_clone "github.url" "./local/destination" "dir/to/checkout"
 # https://stackoverflow.com/questions/600079/how-do-i-clone-a-subdirectory-only-of-a-git-repository#13738951
 git_sparse_clone() (
-  rurl="$1" localdir="$2" && shift 2
+	rurl="$1" localdir="$2" && shift 2
 
-  mkdir -p "$localdir"
-  cd "$localdir"
+	mkdir -p "$localdir"
+	cd "$localdir"
 
-  git init
-  git remote add -f origin "$rurl"
+	git init
+	git remote add -f origin "$rurl"
 
-  git config core.sparseCheckout true
+	git config core.sparseCheckout true
 
-  # Loops over remaining args
-  for i; do
-    echo "$i" >> .git/info/sparse-checkout
-  done
+	# Loops over remaining args
+	for i; do
+		echo "$i" >>.git/info/sparse-checkout
+	done
 
-  git pull origin master
+	git pull origin master
 )
 
 # search .scripts folder and executer
@@ -103,17 +117,6 @@ tlists() {
 		return
 	fi
 
-}
-
-gremote() {
-	local remote=$(git remote -v | head -n 1)
-	if [[ $remote =~ 'https' ]]; then
-		local repoUrl=$(echo $remote | awk -F " " '{print $2}' | sed 's/\\.git//g')
-	else
-		local repoUrl=$(echo $remote | awk -F "@" '{print $2}' | awk -F " " '{print $1}' | sed 's/:/\\//g' | sed 's/.git//g' | awk '{print "https://"$1}')
-	fi
-	echo "Opening $repoUrl"
-	open $repoUrl
 }
 
 tpass() {
