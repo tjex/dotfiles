@@ -18,7 +18,7 @@ color hint-keys-delimiter blue  default
 color hint-separator      blue  default  bold
 color hint-description    blue  default
 color article             default   default
-color end-of-text-marker  black default
+color end-of-text-marker  black default invis
 
 
 highlight article "^(Feed|Title|Author|Link|Date): .+" default default bold
