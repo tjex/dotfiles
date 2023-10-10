@@ -84,7 +84,7 @@ scripts() {
 }
 
 tref() {
-	if result=($(fd . ${HOME}/dev/tref | fzf)); then
+	if result=($(fd . ${HOME}/dev/tref | fzf --preview='bat --color=always --style=numbers {}')); then
 		nvim $result
 	else
 		return
