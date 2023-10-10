@@ -8,6 +8,7 @@ autorun.out
 
 .config/asciinema
 .config/cabal/packages
+.config/npmrc
 .config/nvim/plugin/packer_compiled.lua
 .config/pyradio/recordings
 .config/raycast/extensions/*
