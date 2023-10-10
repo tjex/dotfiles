@@ -5,11 +5,11 @@
 -- mason
 local ok, _, _ = pcall(require, "mason", "mason-lspconfig")
 if not ok then
-	print "mason or mason-lspconfig not ok!"
+	print("mason or mason-lspconfig not ok!")
 	return
 end
 
-local lspconfig = require "lspconfig"
+local lspconfig = require("lspconfig")
 local servers = {
 	"lua_ls",
 	"marksman",
@@ -17,13 +17,14 @@ local servers = {
 	"pyright",
 	"stylelint_lsp",
 	"astro",
+	"pyright",
 }
 
-require("mason").setup {}
-require("mason-lspconfig").setup {
+require("mason").setup({})
+require("mason-lspconfig").setup({
 	ensure_installed = servers,
 	automatic_installation = true,
-}
+})
 
 -----------------------
 -- Begin LSP Config ---
@@ -57,6 +58,7 @@ end
 
 local lsp_attach = function(client, bufnr)
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
+	lsp_keymaps(client, bufnr)
 	local force_formatter = client.name == "lua_ls"
 		or client.name == "tsserver"
 		or client.name == "pyright"
@@ -69,25 +71,30 @@ local lsp_attach = function(client, bufnr)
 	else
 		vim.keymap.set("n", "<leader>f", ":Format<cr>", bufopts)
 	end
-	lsp_keymaps(client, bufnr)
 	require("cmp_nvim_lsp").default_capabilities()
 	client.server_capabilities.semanticTokensProvider = nil
 end
 
-require("mason-lspconfig").setup_handlers {
+
+require("mason-lspconfig").setup_handlers({
 	function(server_name)
-		lspconfig[server_name].setup {
+		lspconfig[server_name].setup({
 			on_attach = lsp_attach,
-		}
+		})
 	end,
+    ["cssls"] = function()
+        require("lspconfig").cssls.setup({
+            -- cssls needs to have completion enabled via capabilities in order to give LSP comp.
+			capabilities = require("cmp_nvim_lsp").default_capabilities(),
+        })
+    end,
 	["lua_ls"] = function()
-		require("lspconfig").lua_ls.setup {
+		require("lspconfig").lua_ls.setup({
 			on_attach = lsp_attach,
 			settings = {
 				Lua = {
 					format = {
 						-- NOTE: disabled in lsp_attach to make lsp / formatter.nvim if-then logic work
-						-- options
 						-- https://github.com/CppCXY/EmmyLuaCodeStyle/blob/master/lua.template.editorconfig
 						defaultConfig = {
 							quote_style = "single",
@@ -100,10 +107,10 @@ require("mason-lspconfig").setup_handlers {
 					},
 				},
 			},
-		}
+		})
 	end,
 	["stylelint_lsp"] = function()
-		require("lspconfig").stylelint_lsp.setup {
+		require("lspconfig").stylelint_lsp.setup({
 			on_attach = lsp_attach,
 			settings = {
 				stylelintplus = {
@@ -111,6 +118,6 @@ require("mason-lspconfig").setup_handlers {
 					autoFixOnFormat = true,
 				},
 			},
-		}
+		})
 	end,
-}
+})
