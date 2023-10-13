@@ -67,14 +67,15 @@ local lsp_attach = function(client, bufnr)
 	client.server_capabilities.document_formatting = true
 	-- if lsp does not provide formatting (or has been set false, above), use formatter.nvim
 	if client.server_capabilities.documentFormattingProvider and not force_formatter then
+		print("format with lsp")
 		vim.keymap.set({ "v", "n" }, "<leader>f", vim.lsp.buf.format, bufopts)
 	else
+		print("format with formatter")
 		vim.keymap.set("n", "<leader>f", ":Format<cr>", bufopts)
 	end
 	require("cmp_nvim_lsp").default_capabilities()
 	client.server_capabilities.semanticTokensProvider = nil
 end
-
 
 require("mason-lspconfig").setup_handlers({
 	function(server_name)
@@ -82,12 +83,15 @@ require("mason-lspconfig").setup_handlers({
 			on_attach = lsp_attach,
 		})
 	end,
-    ["cssls"] = function()
-        require("lspconfig").cssls.setup({
-            -- cssls needs to have completion enabled via capabilities in order to give LSP comp.
-			capabilities = require("cmp_nvim_lsp").default_capabilities(),
-        })
-    end,
+	["cssls"] = function()
+		require("lspconfig").cssls.setup({
+			on_attach = lsp_attach,
+			require("lspconfig").cssls.setup({
+				-- cssls needs to have completion enabled via capabilities in order to give LSP comp.
+				capabilities = require("cmp_nvim_lsp").default_capabilities(),
+			}),
+		})
+	end,
 	["lua_ls"] = function()
 		require("lspconfig").lua_ls.setup({
 			on_attach = lsp_attach,

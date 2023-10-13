@@ -23,9 +23,12 @@ require("formatter").setup({
 		javascript = {
 			require("formatter.filetypes.javascript").eslint_d,
 		},
-        css = {
+		css = {
 			require("formatter.filetypes.css").prettierd,
-        },
+		},
+		html = {
+			require("formatter.filetypes.html").prettierd,
+		},
 
 		-- for any filetype
 		["*"] = {
