@@ -1,3 +1,4 @@
+-- sytax: filextension = "filetype"
 vim.filetype.add {
 	extension = {
 		astro = "astro",
@@ -5,5 +6,7 @@ vim.filetype.add {
 		mdx = "markdown",
 		bin = "markdown",
         tidal = "tidal",
+        mustache = "html",
+
 	},
 }

@@ -49,7 +49,7 @@ local function lsp_keymaps(client, bufnr)
 	key("n", "<C-i>", vim.lsp.buf.hover, bufopts)
 
 	if client.name == "eslint" then
-		auto("BufWritePre", {
+		auto("BufWritePost", {
 			buffer = bufnr,
 			command = "EslintFixAll",
 		})

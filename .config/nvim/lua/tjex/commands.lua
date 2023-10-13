@@ -8,10 +8,16 @@ local augroup = vim.api.nvim_create_augroup
 --
 
 auto({ "VimEnter" }, {
-	group = augroup("tjex", { clear = false }),
+	group = augroup("tree", { clear = false }),
 	callback = funcs.open_tree_on_dir,
 })
 
+auto({ "BufWritePost" }, {
+	group = augroup("lint", { clear = true }),
+	callback = function()
+		require("lint").try_lint()
+	end,
+})
 
 -- TODO: run :bufdo e on telescope git_branch and git_commit load
 -- auto(

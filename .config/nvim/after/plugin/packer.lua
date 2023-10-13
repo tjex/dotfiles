@@ -89,13 +89,14 @@ return require("packer").startup(function(use)
 		-- cmd = { 'Dapui' },
 	})
 
-	-- lsp / formatting
+	-- lsp / formatting / linting
 	use({
 		"neovim/nvim-lspconfig",
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
 		"folke/trouble.nvim",
 		"mhartington/formatter.nvim",
+		"mfussenegger/nvim-lint",
 	})
 
 	-- media
