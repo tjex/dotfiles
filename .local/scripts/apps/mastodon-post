@@ -1,0 +1,104 @@
+#! /usr/bin/env bash
+
+# this script and instructions of how to get tokens/keys/ids
+# is found here: https://space.matthewphillips.info/posts/mastodon-from-the-cli/
+usage() {
+  program_name=$(basename $0)
+  bold=$(tput bold)
+  normal=$(tput sgr0)
+  cat <<EOM
+  Usage: $program_name [options] status
+
+  Post a status update to a Mastodon account.
+
+  Arguments:
+
+    ${bold}status${normal}  A status message (quoted).
+
+  Options:
+
+    -a    An access token used to post to the server.
+    -s    The domain name of the Mastodon server.
+    -r    Specify a status ID to post in reply to.
+    -h    Display the help message.
+
+  Environment variables:
+
+    The following environment variables may be used in place of the options.
+
+    MASTODON_SERVER         The domain name of the Mastodon server.
+    MASTODON_ACCESS_TOKEN   An access token used to post to the server.
+
+  Examples:
+
+    Post a status message.
+
+      $ $program_name -a 12345 -s mastodon.social "Hello from the command line"
+
+    Reply to a status.
+
+      $ $program_name -a 12345 -s mastodon.social -r 12345 "A reply to a message."
+
+EOM
+  exit 0
+}
+
+while getopts ":hs:a:r:" opt; do
+  case ${opt} in
+    h )
+      usage;
+      ;;
+    s )
+      MASTODON_SERVER=${OPTARG}
+      ;;
+    a )
+      MASTODON_ACCESS_TOKEN=${OPTARG}
+      ;;
+    r )
+      in_reply_to=${OPTARG}
+      ;;
+    \? )
+      echo "Invalid option -${OPTARG}"
+      exit 1
+      ;;
+    esac
+done
+shift $((OPTIND-1))
+
+status=$1
+
+if [ -z "$MASTODON_ACCESS_TOKEN" ]
+then
+  echo "  Must provide an access token"
+  echo ""
+  usage;
+fi
+
+if [ -z "$MASTODON_SERVER" ]
+then
+  echo "  Must provide a Mastodon server"
+  echo ""
+  usage;
+fi
+
+if [ -z "$status" ]
+then
+  echo "  Must provide a status"
+  echo ""
+  usage;
+fi
+
+payload="{\"status\": \"$status\", \"media_ids\": null, \"poll\": null"
+if [ ! -z "$in_reply_to" ]
+then
+  payload="$payload, \"in_reply_to_id\": \"$in_reply_to\""
+fi
+payload="$payload }"
+
+curl -X POST \
+  -d "$payload" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $MASTODON_ACCESS_TOKEN" \
+  "https://$MASTODON_SERVER/api/v1/statuses" > /dev/null
+
+
