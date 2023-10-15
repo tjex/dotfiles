@@ -1,11 +1,16 @@
 # vim: filetype=bash
 
-# Paths (appends exports BOTTOM to TOP in $PATH - for whatever reason)
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # this loads nvm (and it's $PATH?)
-[ -f "$XDG_DATA_HOME/ghcup/env" ] && source "$XDG_DATA_HOME/ghcup/env" # ghcup-env
+# evaluate glob pattern and join to create PATH sytax
+# then we can add it to $PATH later
+scripts_glob=(${HOME}/.local/scripts/*)
+scripts_path=$(printf "%s:" "${scripts_glob[@]}")
+
+# Last export is first/earliest in resultant $PATH
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # this loads nvm (and its $PATH?)
+[ -f "$XDG_DATA_HOME/ghcup/env" ] && source "$XDG_DATA_HOME/ghcup/env" # haskell/ghcup-env
 export PATH="$CARGO_HOME/bin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
-export PATH="$HOME/.local/scripts/*:$PATH"
+export PATH="${scripts_path}${PATH}" # see above glob/joining
 export PATH="$HOME/.local/bin:$PATH"
 eval $(/opt/homebrew/bin/brew shellenv)
 [ -f ~/.config/zsh/.fzf.zsh ] && source ~/.config/zsh/.fzf.zsh

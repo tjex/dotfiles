@@ -18,6 +18,7 @@ local servers = {
 	"stylelint_lsp",
 	"astro",
 	"pyright",
+	"jsonls",
 }
 
 require("mason").setup({})
@@ -34,11 +35,10 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 	border = "rounded",
 })
 
-local function lsp_keymaps(client, bufnr)
+local function lsp_keymaps(bufnr)
 	-- See `:help vim.lsp.*` for documentation on any of the below functions
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 	local key = vim.keymap.set
-	local auto = vim.api.nvim_create_autocmd
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
 	key("n", "gd", function()
@@ -48,29 +48,14 @@ local function lsp_keymaps(client, bufnr)
 	key("n", "]d", vim.diagnostic.goto_next, bufopts)
 	key("n", "<C-i>", vim.lsp.buf.hover, bufopts)
 
-	if client.name == "eslint" then
-		auto("BufWritePost", {
-			buffer = bufnr,
-			command = "EslintFixAll",
-		})
-	end
 end
 
 local lsp_attach = function(client, bufnr)
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
-	lsp_keymaps(client, bufnr)
-	local force_formatter = client.name == "lua_ls"
-		or client.name == "tsserver"
-		or client.name == "pyright"
-		or client.name == "bashls"
+	lsp_keymaps(bufnr)
 
+    -- see ./formatter.lua for formatting provider logic
 	client.server_capabilities.document_formatting = true
-	-- if lsp does not provide formatting (or has been set false, above), use formatter.nvim
-	if client.server_capabilities.documentFormattingProvider and not force_formatter then
-		vim.keymap.set({ "v", "n" }, "<leader>f", vim.lsp.buf.format, bufopts)
-	else
-		vim.keymap.set("n", "<leader>f", ":Format<cr>", bufopts)
-	end
 	require("cmp_nvim_lsp").default_capabilities()
 	client.server_capabilities.semanticTokensProvider = nil
 end
