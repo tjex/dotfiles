@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+
+# backup selected files and folders to cairo usb thumb drive
+
+script_dir=$(dirname "$(realpath "$0")")
+
+# only run if cairo is mounted
+if  mount | grep "cairo" > /dev/null ; then
+    # docs
+    rsync -arplu ~/docs /Volumes/cairo/backups ; echo "copied: docs"
+    rsync -arplu ~/notes /Volumes/cairo/backups ; echo "copied: notes"
+    rsync -arplu ~/lists /Volumes/cairo/backups ; echo "copied: lists"
+    rsync -arplu --exclude="massage" ~/obsidian /Volumes/cairo/backups ; echo "copied: obsidian"
+    
+    # system / program relevant
+    rsync -arplu ${PASSWORD_STORE_DIR} /Volumes/cairo/backups ; echo "copied: password store"
+    rsync -arplu ~/.local/src/abudget/actual-tjex/user-files/* /Volumes/cairo/backups/abudget-user-files ; echo "copied: abudgt user files"
+    rsync -arplu ~/.ssh/* /Volumes/cairo/backups/keys/ssh ; echo "backup: ssh"
+
+    # list of individual files to copy (little backups)
+    # /Users/tjex is the root folder for execution, i.e. the path that rsync will prepend to paths in the list
+    rsync -av --files-from="/Users/tjex/.local/scripts/sys-admin/indiv-files.txt" /Users/tjex/ /Volumes/cairo/backups/tjex ; echo "copied individual files from list"
+
+    # Export Brewfile
+    echo "========== RSYNC COMPLETED =========="
+
+    cd /Volumes/cairo/backups 
+ 
+    # rm Brewfile if it is present
+    if [ -f Brewfile ] ; then
+        echo "Brewfile found, removing it"
+        rm Brewfile
+    fi
+
+    # DEV ENV #
+    # ####### #
+
+    # generate new Brewfile
+    echo "exporting Brewfile"
+    brew bundle dump ; cd ${script_dir}
+
+    # sys python venv
+    pip freeze > /Volumes/cairo/backups/sys_venv_requirements.txt
+
+else
+    echo "cairo not mounted"
+fi
+
+
