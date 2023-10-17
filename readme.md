@@ -5,7 +5,11 @@
 [This article](https://www.atlassian.com/git/tutorials/dotfiles) goes into depth about 
 this technique of tracking dotfiles with a bare repo.
 
-To clone this setup:
+Scripts are [here](https://github.com/tjex/dotfiles/tree/mac/.local/scripts). Maybe some of them are useful
+for you too.
+
+To clone this setup (more so a message to myself, I don't recommend mass installing other people's
+configs...):
 
 ```zsh
 # set alias for current shell scope
