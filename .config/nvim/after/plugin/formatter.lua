@@ -17,13 +17,12 @@ require("formatter").setup({
 	log_level = vim.log.levels.WARN,
 	filetype = {
 		-- formatters are executed in order within their own tables
-		-- lua = {
-		-- 	require("formatter.filetypes.lua").stylua,
-		-- },
-		-- TODO: shfmt isnt working via formatter.nvim
-		-- sh = {
-		-- 	require("formatter.filetypes.sh").shfmt,
-		-- },
+		lua = {
+			require("formatter.filetypes.lua").stylua,
+		},
+		bash = {
+			require("formatter.filetypes.sh").shfmt,
+		},
 		javascript = {
 			require("formatter.filetypes.javascript").eslint_d,
 		},

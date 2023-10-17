@@ -1,0 +1,29 @@
+#! /usr/bin/env bash
+
+list=$1
+
+read -p 'Give alternate sequential file naming? (Y/N) ' choice
+if [[ $choice == [yY] ]]; then
+    read -p 'Alternate name (will be appended with sequential numbering) ' alt_file_name
+else
+    echo 'no alternate file name'
+fi
+
+read -p 'Are the files in the list audio or video? (A/V): ' choice
+if [[ $choice == [aA] ]]; then
+    counter=1
+    while IFS= read -r line; do
+        printf -v formatted_counter "%02d" $counter
+        yt-dlp -x -f bestaudio/best --output "${alt_file_name}-${formatted_counter}.%(ext)s" $line
+        ((counter++))
+    done <lecture-links.txt
+elif [[ $choice == [vV] ]]; then
+    counter=1
+    while IFS= read -r line; do
+        printf -v formatted_counter "%02d" $counter
+        yt-dlp --embed-metadata -i -o "${alt_file_name}-${formatted_counter}.%(ext)s" $line
+        ((counter++))
+    done <${list}
+else
+    echo 'aborted'
+fi
