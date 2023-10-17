@@ -11,6 +11,7 @@ autorun.out
 .config/npmrc
 .config/nvim/plugin/packer_compiled.lua
 .config/pyradio/recordings
+.config/pyradio/data
 .config/raycast/extensions/*
 .config/spotify-tui/.spotify_token_cache.json
 .config/spotify-tui/client.yml
