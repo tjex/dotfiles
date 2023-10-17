@@ -38,7 +38,7 @@ M.attach_to_buffer = function(output_bufnr, pattern, command)
 					vim.api.nvim_buf_set_lines(output_bufnr, -1, -1, false, data)
 				end
 			end
-			vim.api.nvim_buf_set_lines(output_bufnr, 0, -1, false, { "output of main.go:" })
+			vim.api.nvim_buf_set_lines(output_bufnr, 0, -1, false, { "output of AutoRun:"})
 			vim.fn.jobstart(command, {
 				stdout_buffered = true,
 				on_stdout = append_data,

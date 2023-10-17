@@ -2,5 +2,5 @@
 
 tmux new-session -d -ssystem -c ~/.config
 tmux new-session -d -sgeneral -c ~
-tmux new-session -d -sadmin -c ~
+tmux new-session -d -sadmin-media -c ~
 tmux a -tgeneral
