@@ -5,8 +5,8 @@
 [This article](https://www.atlassian.com/git/tutorials/dotfiles) goes into depth about 
 this technique of tracking dotfiles with a bare repo.
 
-Scripts are [here](https://github.com/tjex/dotfiles/tree/mac/.local/scripts). Maybe some of them are useful
-for you too.
+*DO NOT* blindly trust any of the [scripts](https://github.com/tjex/dotfiles/tree/mac/.local/scripts) that I
+have in my dotfiles. Always audit and test them yourself before running on any critical files.
 
 To clone this setup (more so a message to myself, I don't recommend mass installing other people's
 configs...):
