@@ -52,7 +52,7 @@ return require("packer").startup(function(use)
 	use({
 		"ThePrimeagen/harpoon",
 		"tpope/vim-fugitive",
-		{ "nvim-telescope/telescope.nvim", tag = "0.1.0" },
+		{ "nvim-telescope/telescope.nvim", tag = "0.1.4" },
 		{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
 		"nvim-telescope/telescope-dap.nvim",
 		"ton/vim-bufsurf",
