@@ -27,9 +27,9 @@ require("mason-lspconfig").setup({
 	automatic_installation = true,
 })
 
------------------------
--- Begin LSP Config ---
------------------------
+------------------------
+--- Begin LSP Config ---
+------------------------
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 	border = "rounded",
