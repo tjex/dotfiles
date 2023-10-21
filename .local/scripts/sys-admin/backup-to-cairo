@@ -4,46 +4,63 @@
 
 script_dir=$(dirname "$(realpath "$0")")
 
-# only run if cairo is mounted
-if  mount | grep "cairo" > /dev/null ; then
-    # docs
-    rsync -arplu --del ~/docs /Volumes/backups-cairo ; echo "copied: docs"
-    rsync -arplu --del ~/notes /Volumes/backups-cairo ; echo "copied: notes"
-    rsync -arplu --del ~/lists /Volumes/backups-cairo ; echo "copied: lists"
-    rsync -arplu --del --exclude="massage" ~/obsidian /Volumes/backups-cairo ; echo "copied: obsidian"
-    
-    # system / program relevant
-    rsync -arplu --del ${PASSWORD_STORE_DIR} /Volumes/backups-cairo ; echo "copied: password store"
-    rsync -arplu --del ~/.local/src/abudget/actual-tjex/user-files/* /Volumes/backups-cairo/abudget-user-files ; echo "copied: abudgt user files"
-    rsync -arplu --del ~/.ssh/* /Volumes/backups-cairo/keys/ssh ; echo "backup: ssh"
+backup() {
+	# docs
+	rsync -arplu --del ~/docs /Volumes/backups-cairo
+	echo "copied: docs"
+	rsync -arplu --del ~/notes /Volumes/backups-cairo
+	echo "copied: notes"
+	rsync -arplu --del ~/lists /Volumes/backups-cairo
+	echo "copied: lists"
+	rsync -arplu --del --exclude="massage" ~/obsidian /Volumes/backups-cairo
+	echo "copied: obsidian"
 
-    # list of individual files to copy (little backups)
-    # /Users/tjex is the root folder for execution, i.e. the path that rsync will prepend to paths in the list
-    rsync -av --del --files-from="/Users/tjex/.local/scripts/sys-admin/indiv-files.txt" /Users/tjex/ /Volumes/backups-cairo/tjex ; echo "copied individual files from list"
+	# system / program relevant
+	rsync -arplu --del ${PASSWORD_STORE_DIR} /Volumes/backups-cairo
+	echo "copied: password store"
+	rsync -arplu --del ~/.local/src/abudget/actual-tjex/user-files/* /Volumes/backups-cairo/abudget-user-files
+	echo "copied: abudgt user files"
+	rsync -arplu --del ~/.ssh/* /Volumes/backups-cairo/keys/ssh
+	echo "backup: ssh"
 
-    # Export Brewfile
-    echo "========== RSYNC COMPLETED =========="
+	# list of individual files to copy (little backups)
+	# /Users/tjex is the root folder for execution, i.e. the path that rsync will prepend to paths in the list
+	rsync -av --del --files-from="/Users/tjex/.local/scripts/sys-admin/indiv-files.txt" /Users/tjex/ /Volumes/backups-cairo/tjex
+	echo "copied individual files from list"
 
-    cd /Volumes/backups-cairo 
- 
-    # rm Brewfile if it is present
-    if [ -f Brewfile ] ; then
-        echo "Brewfile found, removing it"
-        rm Brewfile
-    fi
+	# Export Brewfile
+	echo "========== RSYNC COMPLETED =========="
 
-    # DEV ENV #
-    # ####### #
+	cd /Volumes/backups-cairo
 
-    # generate new Brewfile
-    echo "exporting Brewfile"
-    brew bundle dump ; cd ${script_dir}
+	# rm Brewfile if it is present
+	if [ -f Brewfile ]; then
+		echo "Brewfile found, removing it"
+		rm Brewfile
+	fi
 
-    # sys python venv
-    pip freeze > /Volumes/backups-cairo/sys_venv_requirements.txt
+	# DEV ENV #
+	# ####### #
 
+	# generate new Brewfile
+	echo "exporting Brewfile"
+	brew bundle dump
+	cd ${script_dir}
+
+	# sys python venv
+	pip freeze >/Volumes/backups-cairo/sys_venv_requirements.txt
+
+}
+
+# dummy check that the drive is mounted and 
+# encrypted image is open
+if mount | grep "cairo" >/dev/null; then
+	if mount | grep "backups-cairo" >/dev/null; then
+		backup
+	else
+		open /Volumes/cairo/backups-cairo.dmg
+		echo 'destination not available'
+	fi
 else
-    echo "cairo not mounted"
+	echo "'cairo' is not mounted"
 fi
-
-

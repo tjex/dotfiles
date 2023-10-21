@@ -39,6 +39,10 @@ usr_cmd("AutoRun", function()
 	funcs.attach_to_buffer(tonumber(bufnr), pattern, command)
 end, {})
 
+usr_cmd("Lara", function()
+	print("Hello lara")
+end, {})
+
 usr_cmd("Date", "norm! i" .. vim.fn.strftime("%Y-%m-%d"), {})
 usr_cmd("PubDate", "norm! i" .. vim.fn.strftime("%Y-%m-%dT%XZ"), {})
 usr_cmd("Dapui", ":lua require('dapui').toggle()<CR>", {})

@@ -56,10 +56,11 @@ alias \
     gs="git status -s" \
     ga="git add -A" \
     gc="git commit -m" \
+    gp="git push"
 
 # programs
 alias \
-    mpv="mpv --no-audio-display" \
+    mpva="mpv --no-audio-display" \
     yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarnrc" \
     bms="bkmr search --fzf" \
 	ffmpeg="ffmpeg -hide_banner" \

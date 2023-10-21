@@ -53,15 +53,6 @@ gi() {
 	curl -sLw n https://www.toptal.com/developers/gitignore/api/$@
 }
 
-gp() {
-	remote=$1
-	if [ -Z "$remote"]; then
-		echo "error: specify which remote to push to"
-	else
-		git push $1
-	fi
-}
-
 # clone a repo, but checkout only a specific directory
 # eg git_sparse_clone "github.url" "./local/destination" "dir/to/checkout"
 # https://stackoverflow.com/questions/600079/how-do-i-clone-a-subdirectory-only-of-a-git-repository#13738951
