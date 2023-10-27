@@ -38,7 +38,7 @@ Color.new("bg_text", "#525d8a")
 -- 30% brigher than above
 --
 Color.new("primary", "#647f9d") -- blue_1
-Color.new("secondary", "#C892C3") -- purple
+Color.new("secondary", "#7F718E") -- purple
 Color.new("tertiary", "#ba8c64") -- burnt_yellow
 Color.new("quart", "#bf8585") -- soft_red
 Color.new("yellow", "#b09e64")
@@ -57,13 +57,13 @@ Color.new("gray_5", "#484848")
 Color.new("gray_6", "#2b2b2b")
 
 -- Group Sets
-Group.new("border_primary", colors.primary)
-Group.new("border_secondary", colors.secondary)
-Group.new("border_quart", colors.quart)
-Group.new("hl_bg_primary", colors.black, colors.primary)
-Group.new("hl_bg_secondary", colors.black, colors.secondary)
-Group.new("hl_fg_primary", colors.primary, nil)
-Group.new("hl_fg_secondary", colors.secondary, nil)
+Group.new("border_1", colors.primary)
+Group.new("border_2", colors.secondary)
+Group.new("border_3", colors.quart)
+Group.new("hl_bg_1", colors.black, colors.primary)
+Group.new("hl_bg_2", colors.black, colors.secondary)
+Group.new("hl_fg_1", colors.primary, nil)
+Group.new("hl_fg_2", colors.quart, nil)
 Group.new("tab_unfocus", colors.gray_4, colors.bg_lighter)
 Group.new("tab_focus", colors.yellow, colors.bg_lighter)
 
@@ -100,19 +100,19 @@ Group.new("WinSeparator", colors.bg_lighter, nil)
 Group.new("VertSplit", colors.gray_6, colors.gray_6)
 
 -- UI Elements
-Group.new("FloatBorder", groups.border_primary)
-Group.new("FoldColumn", groups.border_primary)
-Group.new("Folded", groups.border_quart)
+Group.new("FloatBorder", groups.border_1)
+Group.new("FoldColumn", groups.border_1)
+Group.new("Folded", groups.border_3)
 Group.new("MatchParen", nil, colors.gray_5)
 Group.new("MoreMsg", nil, colors.gray_4)
 Group.new("NonText", colors.gray_6, nil)
 Group.new("Pmenu", colors.gray_0, colors.bg_light)
-Group.new("PmenuSel", colors.black, groups.hl_bg_primary)
+Group.new("PmenuSel", colors.black, groups.hl_bg_1)
 Group.new("PmenuSbar", colors.primary, colors.gray_6)
 Group.new("PmenuThumb", colors.primary, colors.gray_5)
 Group.new("Question", colors.gray_0, colors.gray_6)
-Group.new("Search", colors.black, groups.hl_bg_primary)
-Group.new("IncSearch", colors.black, groups.hl_bg_primary)
+Group.new("Search", colors.black, groups.hl_bg_1)
+Group.new("IncSearch", colors.black, groups.hl_bg_1)
 Group.new("SpecialKey", colors.gray_4, nil)
 Group.new("SpellBad", colors.primary)
 Group.new("SpellCap", colors.primary)
@@ -124,7 +124,7 @@ Group.new("TabLineSel", groups.tab_focus, groups.tab_focus)
 Group.new("Title", colors.gray_1)
 Group.new("WildMenu", colors.yellow, colors.bg_lighter)
 Group.new("VisualNOS", colors.primary, colors.gray_6)
-Group.new("Visual", colors.black, groups.hl_bg_secondary)
+Group.new("Visual", colors.black, groups.hl_bg_2)
 
 -- Treesitter Syntax Highlighting
 -- See :help treesitter-highlight-groups
@@ -273,7 +273,7 @@ Group.new("NvimTreeImageFile", colors.gray_4)
 Group.new("NvimTreeCursorLine", nil)
 Group.new("NvimTreeNormal", nil)
 Group.new("NvimTreeNormalFloat", nil)
-Group.new("NvimTreeWinSeparator", groups.border_primary)
+Group.new("NvimTreeWinSeparator", groups.border_1)
 Group.new("NvimTreeOpenedFile", colors.gray_0, nil)
 Group.new("NvimTreeExecFile", colors.gray_0, nil)
 Group.new("NvimTreeWindowPicker", groups.tab_focus)
@@ -293,16 +293,16 @@ Group.new("NvimTreeGitIgnored", colors.gray_4)
 
 -- Telescope
 Group.new("TelescopeTitle", colors.gray_0)
-Group.new("TelescopeBorder", groups.border_primary)
+Group.new("TelescopeBorder", groups.border_1)
 Group.new("TelescopeSearch", nil)
-Group.new("TelescopeMatching", groups.hl_fg_secondary)
-Group.new("TelescopeSelection", colors.black, groups.hl_bg_primary)
+Group.new("TelescopeMatching", groups.hl_fg_2)
+Group.new("TelescopeSelection", colors.black, groups.hl_bg_1)
 
 -- blankline
 -- these hl groups don't seem to work (2023-09-29)
 Group.new("IblIndent", colors.blue_1)
 
 -- cmp
-Group.new("CmpItemMenu", groups.hl_fg_secondary, nil)
-Group.new("CmpItemAbbrMatch", groups.hl_fg_secondary, nil)
+Group.new("CmpItemMenu", groups.hl_fg_2, nil)
+Group.new("CmpItemAbbrMatch", groups.hl_fg_2, nil)
 
