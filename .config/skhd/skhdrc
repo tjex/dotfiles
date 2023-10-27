@@ -16,7 +16,7 @@ alt + cmd - n : yabai -m window $(yabai -m query --windows | jq '.[] | select(.t
 
 # yabai #
 # ##### #
-alt + cmd - f : yabai -m window --toggle zoom-fullscreen
+alt + cmd - f : yabai -m window --toggle native-fullscreen
 alt + cmd - 0x2B : yabai -m window --opacity 1.0 # ,
 alt + cmd - 0x2F : yabai -m window --opacity 0.0 # .
 alt + cmd - 0x35 : yabai -m space --balance # ESC

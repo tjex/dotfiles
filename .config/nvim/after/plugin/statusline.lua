@@ -1,7 +1,7 @@
 local function status_line()
     local right_align = "%="
     local file_type = " %y"
-    local file_name = " %-.45t "
+    local file_name = " %-.45f "
 
     local buf_nr = "[%n]:"
     local modified = "%-m"
