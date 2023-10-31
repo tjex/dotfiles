@@ -17,7 +17,6 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 # program directories
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
-export GPGKEY="45FC951C7A7F24C4A6AA566F28AADCA2EF680971"
 GPG_TTY=$(tty) ; export GPG_TTY
 
 export ANDROID_SDK_HOME="$XDG_CONFIG_HOME/android"
