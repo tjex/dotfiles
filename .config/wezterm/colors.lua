@@ -28,11 +28,11 @@ local foreground = '#b1b1b1'
 
 function module.apply(config)
     config.bold_brightens_ansi_colors = false
-    -- config.window_background_opacity = 0.6
+    -- config.window_background_opacity = 0.8
     config.colors = {
         background = background,
         foreground = foreground,
-        cursor_bg = yellow,
+        cursor_bg = foreground,
         selection_bg = soft_red,
         selection_fg = black,
         ansi = {

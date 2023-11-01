@@ -21,12 +21,15 @@ backup() {
 	rsync -arplu --del ~/.local/src/abudget/actual-tjex/user-files/* /Volumes/backups-cairo/abudget-user-files
 	echo "copied: abudgt user files"
 	rsync -arplu --del ~/.ssh/* /Volumes/backups-cairo/keys/ssh
-	echo "backup: ssh"
+	echo "copied: ssh"
 
 	# list of individual files to copy (little backups)
 	# /Users/tjex is the root folder for execution, i.e. the path that rsync will prepend to paths in the list
 	rsync -av --del --files-from="/Users/tjex/.local/scripts/sys-admin/indiv-files.txt" /Users/tjex/ /Volumes/backups-cairo/tjex
-	echo "copied individual files from list"
+
+    while IFS= read -r line; do
+        echo "copied: $line"
+    done < "~/.local/scripts/sys-admin/indiv-files.txt"
 
 	# Export Brewfile
 	echo "========== RSYNC COMPLETED =========="
@@ -52,7 +55,7 @@ backup() {
 
 }
 
-# dummy check that the drive is mounted and 
+# dummy check that the drive is mounted and
 # encrypted image is open
 if mount | grep "cairo" >/dev/null; then
 	if mount | grep "backups-cairo" >/dev/null; then

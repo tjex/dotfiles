@@ -65,7 +65,7 @@ alias \
     bms="bkmr search --fzf" \
 	ffmpeg="ffmpeg -hide_banner" \
     abook="abook --config $XDG_DATA_HOME/abook/abookrc --datafile $XDG_DATA_HOME/abook/addressbook" \
-    abudget="${HOME}/.local/scripts/apps/actual_budget_start" \
+    abudget="${HOME}/.local/scripts/apps/actual-budget-start" \
     neomutt="TERM=xterm-direct neomutt" \
     yabspace="yabai -m space --create" \
     yt="yt-dlp --embed-metadata -i" \
