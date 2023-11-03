@@ -7,6 +7,7 @@ vim.filetype.add {
 		bin = "markdown",
         tidal = "tidal",
         mustache = "html",
+        cheat = "bash"
 
 	},
 }
