@@ -7,3 +7,6 @@
 [submodule ".local/src/go_scripts"]
 	path = .local/go_scripts
 	url = git@github.com:tjex/go_scripts.git
+[submodule ".local/share/navi"]
+	path = .local/share/navi
+	url = git@github.com:tjex/cheats.git
