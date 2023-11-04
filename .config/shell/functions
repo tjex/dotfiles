@@ -24,15 +24,20 @@ mvmk() {
 	mv "$@"
 }
 
-# use fzf to search for dirs and return them inplace in the current prompt
-fzf_dir(){
-    LBUFFER="${LBUFFER}$(fd . --type d | fzf --preview 'tree -C {} | head -200')"
-    ret=$?
+# use fzf to search for dirs and paste them inplace, in the current prompt
+fzf_dir() {
+
+    cmd=$(fd . --type d | fzf --preview ${FZF_ALT_C_OPTS})
+    # place the command to the right of the cursor (quoted to account
+    # for dirs with spaces)
+    RBUFFER="${(q)cmd}"
+    local ret=$?
     zle reset-prompt
     return $ret
 }
+
 # export the directory as a widget to use in keybinds
-zle -N fzf_dir 
+zle -N fzf_dir
 
 # ### #
 # git #
@@ -120,4 +125,3 @@ tlists() {
 	fi
 
 }
-
