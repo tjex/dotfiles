@@ -7,7 +7,7 @@ style:
     width_percentage: 10 # column width relative to the terminal window
     min_width: 10 # minimum column width as number of characters
   comment:
-    color: dark_yellow
+    color: grey
     width_percentage: 45
     min_width: 20
   snippet:

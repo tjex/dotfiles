@@ -89,16 +89,11 @@ scripts() {
 }
 
 tref() {
-	if result=($(fd . ${HOME}/dev/tref | fzf --preview='bat --color=always --style=numbers {}')); then
+	if result=($(fd . ${XDG_DATA_HOME}/tref | fzf --preview='bat --color=always --style=numbers {}')); then
 		nvim $result
 	else
 		return
 	fi
-}
-
-trefg() {
-	local search=$1
-	rg -i -w $search ${HOME}/dev/tref
 }
 
 tlogs() {
