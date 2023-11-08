@@ -1,5 +1,4 @@
 -- neovim keypings
-local funcs = require("tjex.funcs")
 local key = vim.keymap.set
 local opts = { noremap = true, silent = true }
 

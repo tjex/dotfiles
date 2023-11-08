@@ -25,11 +25,11 @@ backup() {
 
 	# list of individual files to copy (little backups)
 	# /Users/tjex is the root folder for execution, i.e. the path that rsync will prepend to paths in the list
-	rsync -av --del --files-from="/Users/tjex/.local/scripts/sys-admin/indiv-files.txt" /Users/tjex/ /Volumes/backups-cairo/tjex
+	rsync -av --del --files-from="${script_dir}/indiv-files.txt" /Users/tjex/ /Volumes/backups-cairo/tjex
 
     while IFS= read -r line; do
         echo "copied: $line"
-    done < "~/.local/scripts/sys-admin/indiv-files.txt"
+    done < "/Users/tjex/.local/scripts/sys-admin/indiv-files.txt"
 
 	# Export Brewfile
 	echo "========== RSYNC COMPLETED =========="

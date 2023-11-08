@@ -23,7 +23,7 @@ alias \
 
 # Colorize commands when possible.
 alias \
-	ls="ls --color=auto" \
+	ls="lsd" \
     ll="ls -l" \
 	grep="grep --color=auto" \
 	diff="diff --color=auto" \
@@ -40,7 +40,8 @@ alias \
 alias \
 	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME}/shell/shortcutrc ; 
         source ${XDG_CONFIG_HOME}/shell/zshnameddirrc ; 
-        source ${XDG_CONFIG_HOME}/shell/functions" \
+        source ${XDG_CONFIG_HOME}/shell/functions ;
+        source ${XDG_CONFIG_HOME}/shell/aliasrc" \
 
 # dotfiles management
 alias \
@@ -60,6 +61,7 @@ alias \
 
 # programs
 alias \
+    navie="nvim -c ':cd ~/.local/share/navi' -c ':Telescope find_files'" \
     mpva="mpv --no-audio-display" \
     yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarnrc" \
     bms="bkmr search --fzf" \

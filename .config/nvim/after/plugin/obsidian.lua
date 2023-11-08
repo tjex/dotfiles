@@ -21,6 +21,7 @@ require("obsidian").setup({
 		folder = "diaries",
 		-- Optional, if you want to change the date format for daily notes.
 		date_format = "%Y-%m-%d",
+		template = "nvim-daily.md",
 	},
 
 	completion = {
@@ -38,8 +39,17 @@ require("obsidian").setup({
 
 	templates = {
 		subdir = "extra/templates",
-		date_format = "%Y-%m-%d-%a",
+		date_format = "%Y-%m-%d",
 		time_format = "%H:%M",
+		substitutions = {
+			test = function()
+				return "test"
+			end,
+		},
 	},
 })
-vim.api.nvim_set_keymap("n", "<leader>od", ":ObsidianToday<CR>", {silent = true, noremap = true})
+
+local opts = { silent = true, noremap = true }
+vim.api.nvim_set_keymap("n", "<leader>od", ":ObsidianToday<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>osf", ":ObsidianQuickSwitch<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>osg", ":ObsidianSearch<CR>", opts)
