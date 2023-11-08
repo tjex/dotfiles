@@ -14,10 +14,10 @@ date:
   day-old: dark_grey
   older: dark_grey
 size:
-  none: dark_grey
-  small: dark_grey
-  medium: dark_grey
-  large: dark_grey
+  none: 247
+  small: 247
+  medium: 247
+  large: 247
 inode:
   valid: 13
   invalid: 245
