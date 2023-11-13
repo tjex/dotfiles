@@ -16,13 +16,15 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 # program directories
-export GNUPGHOME="$XDG_DATA_HOME/gnupg"
-GPG_TTY=$(tty) ; export GPG_TTY
 
 export ANDROID_SDK_HOME="$XDG_CONFIG_HOME/android"
 export BKMR_DB_URL="$XDG_DATA_HOME/bkmr_db"
 export CABAL_DIR="$XDG_CONFIG_HOME/cabal"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export GNUPGHOME="$XDG_DATA_HOME/gnupg" ; GPG_TTY=$(tty) ; export GPG_TTY
+export GOMUKS_CONFIG_HOME="$XDG_CONFIG_HOME/gomuks"
+export GOMUKS_DATA_HOME="$XDG_DATA_HOME/gomuks"
+export GOMUKS_CACHE_HOME="$XDG_CACHE_HOME/gomuks"
 export GOPATH="$HOME/.local/go"
 export GHCUP_USE_XDG_DIRS=true
 export GOMODCACHE="$XDG_CACHE_HOME/go/mod"
@@ -39,6 +41,8 @@ export PYTHONSTARTUP="$XDG_CONFIG_HOME/pythonrc"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 export STACK_XDG=true # use xdg paths for haskell stack
 export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
+
+
 
 # zsh shell itself
 export SHELL_SESSIONS_DISABLE=1 # disables .zsh_sessions dumps
