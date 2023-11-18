@@ -11,12 +11,6 @@ lfcd() {
 	fi
 }
 
-# play a folder of files with mpv
-mpvd() {
-	folder=$(fd . --type d | fzf --preview 'tree -C {} | head -200')
-    mpv --no-audio-display $folder
-}
-
 
 # mv a folder into a folder that you make, in the same command.
 mvmk() {
@@ -77,6 +71,12 @@ git_sparse_clone() (
 	git pull origin master
 )
 
+ytalbum() {
+    url=$1
+    yt-dlp -x -f bestaudio/best --restrict-filenames -o '%(track_number)s - %(track)s.%(ext)s' ${url}
+    rnm * -f '_' -r ' '
+
+}
 
 ##############
 # tjex files #

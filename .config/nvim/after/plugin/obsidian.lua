@@ -27,8 +27,8 @@ require("obsidian").setup({
 	completion = {
 		nvim_cmp = true,
 		min_chars = 2,
-		new_notes_location = "current_dir",
-		prepend_note_id = true,
+		new_notes_location = "notes_subdir",
+		prepend_note_id = false,
 	},
 	mappings = {
 		-- Overrides the 'gf' mapping to work on markdown/wiki links within your vault.
@@ -41,9 +41,10 @@ require("obsidian").setup({
 		subdir = "extra/templates",
 		date_format = "%Y-%m-%d",
 		time_format = "%H:%M",
+        -- {{test}} in a template folder will be replaced with "crispy"
 		substitutions = {
 			test = function()
-				return "test"
+				return "crispy"
 			end,
 		},
 	},
@@ -53,3 +54,4 @@ local opts = { silent = true, noremap = true }
 vim.api.nvim_set_keymap("n", "<leader>od", ":ObsidianToday<CR>", opts)
 vim.api.nvim_set_keymap("n", "<leader>osf", ":ObsidianQuickSwitch<CR>", opts)
 vim.api.nvim_set_keymap("n", "<leader>osg", ":ObsidianSearch<CR>", opts)
+vim.api.nvim_set_keymap("v", "<leader>ol", ":ObsidianLinkNew<CR>", opts)

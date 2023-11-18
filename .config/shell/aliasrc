@@ -60,15 +60,16 @@ alias \
     gp="git push"
 
 # programs
+# yt-dlp output template: https://github.com/yt-dlp/yt-dlp#output-template
 alias \
-    navie="nvim -c ':cd ~/.local/share/navi' -c ':Telescope find_files'" \
-    mpva="mpv --no-audio-display" \
-    yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarnrc" \
-    bms="bkmr search --fzf" \
-	ffmpeg="ffmpeg -hide_banner" \
     abook="abook --config $XDG_DATA_HOME/abook/abookrc --datafile $XDG_DATA_HOME/abook/addressbook" \
     abudget="${HOME}/.local/scripts/apps/actual-budget-start" \
+    bms="bkmr search --fzf" \
+	ffmpeg="ffmpeg -hide_banner" \
+    gopc="gopass show -c" \
+    mpva="mpv --no-audio-display" \
+    navie="nvim -c ':cd ~/.local/share/navi' -c ':Telescope find_files'" \
     neomutt="TERM=xterm-direct neomutt" \
     yabspace="yabai -m space --create" \
-    yt="yt-dlp --embed-metadata -i" \
-    yta="yt-dlp -x -f bestaudio/best"
+    yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarnrc" \
+    yt="yt-dlp --embed-metadata -i -o '%(title)s.%(ext)s'"
