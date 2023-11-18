@@ -1,0 +1,32 @@
+#! /usr/bin/env bash
+
+# change this if you have changed the default MacOS system HD name
+internalHD="Macintosh HD"
+filteredVolumes=()
+count=0
+
+echo "Disks to eject:"
+for v in /Volumes/*; do
+    if [[ $v != *"$internalHD" ]]; then
+        echo "• $v"
+        filteredVolumes+=("$v")
+        count=$((count +1))
+    fi
+done
+
+if [[ $count == "0" ]]; then
+    echo "No disks to eject"
+    exit
+fi
+
+echo ${disks[*]}
+
+read -p 'Eject ALL the above disks? (Y/N): ' confirm
+if [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]]; then
+    for v in ${filteredVolumes[*]}; do
+        echo "Ejecting $v..."
+        diskutil unmountDisk $v
+    done
+else
+    echo 'cancelled'
+fi
