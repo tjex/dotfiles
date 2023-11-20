@@ -2,5 +2,7 @@
 
 tmux new-session -d -ssystem -c ~/.config
 tmux new-session -d -sgeneral -c ~
-tmux new-session -d -sadmin-media -c ~
+tmux new-session -d -sadmin-media -c ~/music
+tmux new-session -d -swebsite -c ~/dev/websites/tjex.net
+tmux new-session -d -sthesis -c ~
 tmux a -tgeneral
