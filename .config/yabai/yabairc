@@ -27,11 +27,15 @@ yabai -m config \
     normal_window_opacity 0.85
 
 # rules
+# manage=off together with grid, places a custom window size on a custom grid.
+# units measured in 'tiles' - i.e. divisions of the screen resultant from (rows * cols).
+# grid=<rows>:<cols>:<start-x>:<start-y>:<width>:<height>
 
 yabai -m rule --add app="^Carbon Copy Cloner$" manage=off 
-yabai -m rule --add app="^Dictionary$" manage=off opacity=1.0 grid=6:4:1:1:2:4
+yabai -m rule --add app="^Dictionary$" manage=off opacity=1.0 grid=3:3:1:1:1:1
 yabai -m rule --add app="^Max$" manage=off
 yabai -m rule --add app="^Raycast$" title="Raycast Settings" manage=off 
 yabai -m rule --add app="^System Settings$" manage=off sticky=on opacity=1.0
-yabai -m rule --add app="^WezTerm$" title="^lf$" manage=off opacity=1.0 grid=6:4:1:1:2:4
+yabai -m rule --add app="^WezTerm$" title="^lf$" manage=off opacity=1.0 grid=5:5:2:1:1:2
+yabai -m rule --add app="^WezTerm$" title="^gopass$" manage=off opacity=1.0 grid=5:5:2:1:1:2
 
