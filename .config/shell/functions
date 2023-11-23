@@ -122,8 +122,3 @@ tlists() {
 	fi
 
 }
-# Huge credit:
-# https://github.com/wez/wezterm/issues/522#issuecomment-902203635
-rename_wezterm_title() {
-  echo "\x1b]1337;SetUserVar=window_title=$(echo -n $1 | base64)\x07"
-}
