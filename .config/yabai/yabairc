@@ -3,11 +3,6 @@
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 sudo yabai --load-sa
 
-# add an on_enter command to the default mode
-# yabai -m config active_window_border_color 0xff775759
-# yabai -m window --toggle border
-
-
 yabai -m config \
     debug_output on \
     layout bsp \
@@ -36,6 +31,8 @@ yabai -m rule --add app="^Dictionary$" manage=off opacity=1.0 grid=3:3:1:1:1:1
 yabai -m rule --add app="^Max$" manage=off
 yabai -m rule --add app="^Raycast$" title="Raycast Settings" manage=off 
 yabai -m rule --add app="^System Settings$" manage=off sticky=on opacity=1.0
-yabai -m rule --add app="^WezTerm$" title="^lf$" manage=off opacity=1.0 grid=5:5:2:1:1:2
-yabai -m rule --add app="^WezTerm$" title="^gopass$" manage=off opacity=1.0 grid=5:5:2:1:1:2
+yabai -m rule --add app="^WezTerm$" title="^lf$" manage=off opacity=0.9 grid=5:5:2:1:1:2
+yabai -m rule --add app="^WezTerm$" title="^gopass$" manage=off opacity=0.9 grid=3:3:1:1:1:1
+yabai -m rule --add app="^WezTerm$" title="^bkmr$" manage=off opacity=0.9 grid=3:3:1:1:1:1
+
 

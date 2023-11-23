@@ -53,5 +53,5 @@ usr_cmd(
 	{}
 )
 usr_cmd("EditSnippets", ":lua require('luasnip.loaders').edit_snippet_files()<CR>", {})
-usr_cmd("Chmod", ":!chmod +x %<CR>", {})
+usr_cmd("Chmod", ":!chmod +x %", {})
 usr_cmd("NeomuttDelQuoted", funcs.neomutt_del_quoted, {})
