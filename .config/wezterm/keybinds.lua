@@ -34,20 +34,25 @@ function module.apply(config)
 			mods = "LEADER",
 			action = act.ActivateLastTab,
 		},
-		-- {
-		-- 	key = "t",
-		-- 	mod = "LEADER",
-		-- 	action = act.ActivateKeyTable{
-		-- 		name = "tabs",
-		-- 		one_shot = false,
-		-- 	},
-		-- },
+		{
+			key = "t",
+			mods = "LEADER",
+			action = act.ActivateKeyTable({
+				name = "tabs",
+				one_shot = false,
+			}),
+		},
 
 		-- LAUNCHER
 		{
 			key = "e",
 			mods = "LEADER",
 			action = act.ShowLauncherArgs({ flags = "FUZZY|WORKSPACES" }),
+		},
+		{
+			key = "k",
+			mods = "CMD",
+			action = act.ShowLauncherArgs({ flags = "COMMANDS" }),
 		},
 
 		-- PANES

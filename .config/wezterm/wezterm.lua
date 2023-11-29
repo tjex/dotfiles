@@ -5,6 +5,7 @@ local wezterm = require("wezterm")
 local design = require("design")
 local keybinds = require("keybinds")
 local mux_startup = require("mux_startup")
+local launch_menu = require("launch_menu")
 
 -- This table will hold the configuration.
 local config = {}
@@ -22,6 +23,7 @@ config.default_gui_startup_args = { "connect", "unix" }
 -- config.send_composed_key_when_right_alt_is_pressed = true
 
 config.audible_bell = "Disabled"
+config.default_workspace = "general"
 
 -- exit
 config.skip_close_confirmation_for_processes_named = {
@@ -35,8 +37,9 @@ config.skip_close_confirmation_for_processes_named = {
 }
 
 -- apply the conf files required above
+mux_startup.apply()
 design.apply(config)
 keybinds.apply(config)
-mux_startup.apply()
+launch_menu.apply(config)
 
 return config
