@@ -52,7 +52,7 @@ function module.apply(config)
 		{
 			key = "k",
 			mods = "CMD",
-			action = act.ShowLauncherArgs({ flags = "COMMANDS" }),
+			action = act.ShowLauncherArgs({ flags = "FUZZY|LAUNCH_MENU_ITEMS" }),
 		},
 
 		-- PANES
@@ -126,14 +126,13 @@ function module.apply(config)
 	-- KEYTABLES
 	-- https://wezfurlong.org/wezterm/config/key-tables.html
 	config.key_tables = {
-		-- corresponds with "name = 'pane'" above.
 		pane = {
 			{ key = "h", action = act.AdjustPaneSize({ "Left", 2 }) },
 			{ key = "l", action = act.AdjustPaneSize({ "Right", 2 }) },
 			{ key = "k", action = act.AdjustPaneSize({ "Up", 2 }) },
 			{ key = "j", action = act.AdjustPaneSize({ "Down", 2 }) },
 
-			-- Cancel the mode by pressing escape
+			-- exits the mode
 			{ key = "Escape", action = "PopKeyTable" },
 		},
 		tabs = {
