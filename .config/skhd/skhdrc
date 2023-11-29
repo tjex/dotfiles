@@ -9,9 +9,9 @@
 # Apple's stock Applications must be opened with `open -a`
 alt + cmd - w : "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
 alt + cmd - return : Applications/WezTerm.app/Contents/MacOS/wezterm
-alt + cmd - b : /Applications/WezTerm.app/Contents/MacOS/wezterm cli spawn --new-window zsh -l -c "bkmr search --fzf"
-alt + cmd - e : /Applications/WezTerm.app/Contents/MacOS/wezterm cli spawn --new-window lf ~
-alt + cmd - g : /Applications/WezTerm.app/Contents/MacOS/wezterm cli spawn --new-window zsh -l -c gopass
+alt + cmd - b : /Applications/WezTerm.app/Contents/MacOS/wezterm start zsh -l -c "bkmr search --fzf"
+alt + cmd - e : /Applications/WezTerm.app/Contents/MacOS/wezterm start lf ~
+alt + cmd - g : /Applications/WezTerm.app/Contents/MacOS/wezterm start zsh -l -c gopass
 alt + cmd - 0x27 : open -a Dictionary # key = '
 
 # yabai #

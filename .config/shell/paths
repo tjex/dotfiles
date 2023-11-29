@@ -7,15 +7,12 @@ scripts_path=$(printf "%s:" "${scripts_glob[@]}")
 
 # Last export is first/earliest in resultant $PATH
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # this loads nvm (and its $PATH?)
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 [ -f "$XDG_DATA_HOME/ghcup/env" ] && source "$XDG_DATA_HOME/ghcup/env" # haskell/ghcup-env
 export PATH="$CARGO_HOME/bin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
 export PATH="${scripts_path}${PATH}" # see above glob/joining
 export PATH="$HOME/.local/bin:$PATH"
 eval $(/opt/homebrew/bin/brew shellenv)
-[ -f ~/.config/zsh/.fzf.zsh ] && source ~/.config/zsh/.fzf.zsh
 
-
-# fpath
-fpath+=("$(brew --prefix)/share/zsh/site-functions")
-
+fpath+=("$(brew --prefix)/share/zsh/site-functions") # zsh completions

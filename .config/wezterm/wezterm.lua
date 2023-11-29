@@ -3,13 +3,12 @@ local wezterm = require("wezterm")
 
 -- refactored configs
 local design = require("design")
-local mux_startup = require("mux_startup")
 local keybinds = require("keybinds")
+local mux_startup = require("mux_startup")
 
 -- This table will hold the configuration.
 local config = {}
 config = wezterm.config_builder()
-
 
 config.unix_domains = {
 	{
@@ -17,7 +16,6 @@ config.unix_domains = {
 	},
 }
 config.default_gui_startup_args = { "connect", "unix" }
-config.switch_to_last_active_tab_when_closing_tab = true
 
 -- disables mac unicode symbol input via ALT/META
 -- config.send_composed_key_when_left_alt_is_pressed = true
@@ -36,7 +34,7 @@ config.skip_close_confirmation_for_processes_named = {
 	"gopass",
 }
 
--- apply modules required above to config table
+-- apply the conf files required above
 design.apply(config)
 keybinds.apply(config)
 mux_startup.apply()

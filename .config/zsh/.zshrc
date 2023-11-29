@@ -1,4 +1,5 @@
-# edited config from Luke Smith
+# tonnes of ques from Luke Smith
+# www.lukesmith.xyz
 
 # History
 HISTSIZE=10000000
@@ -14,6 +15,7 @@ source "${XDG_CONFIG_HOME}/shell/zshnameddirrc"
 source "${XDG_CONFIG_HOME}/shell/functions"
 source "${XDG_CONFIG_HOME}/shell/keybinds"
 source "${XDG_CONFIG_HOME}/shell/vi-mode"
+source "${XDG_CONFIG_HOME}/zsh/.fzf.zsh"
 
 completion() {
 
@@ -24,9 +26,6 @@ completion() {
 	compinit
 	_comp_options+=(globdots) # Include hidden files.
 
-	# completion
-	[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
-
 	# Use vim keys in tab complete menu:
 	bindkey -M menuselect 'h' vi-backward-char
 	bindkey -M menuselect 'k' vi-up-line-or-history
@@ -35,6 +34,7 @@ completion() {
 	bindkey -v '^?' backward-delete-char
 }
 
+# function should be called after path sourcing
 completion
 
 # virtualenv (source BEFORE shell design)
@@ -46,3 +46,4 @@ source "${HOME}/.local/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-hi
 # theming should be be sourced last (after syntax highlighting as fast-theme is part of
 # fast-syntax-highlighting.plugin)
 source "${XDG_CONFIG_HOME}/shell/design"
+

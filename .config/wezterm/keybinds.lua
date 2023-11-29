@@ -3,7 +3,16 @@ local act = wezterm.action
 local module = {}
 
 function module.apply(config)
-	config.leader = { key = "o", mods = "CTRL", timeout_milliseconds = 500 }
+	-- Show which key table is active in the status area
+	wezterm.on("update-right-status", function(window, pane)
+		local name = window:active_key_table()
+		if name then
+			name = "TABLE: " .. name
+		end
+		window:set_right_status(name or "")
+	end)
+
+	config.leader = { key = "o", mods = "CTRL", timeout_milliseconds = 700 }
 
 	-- LEADER KEYBINDS
 	config.keys = {
@@ -13,11 +22,11 @@ function module.apply(config)
 			mods = "LEADER|CTRL",
 			action = act.SendKey({ key = "o", mods = "CTRL" }),
 		},
-        {
-            key = "y",
-            mods = "LEADER",
-            action = act.ActivateCopyMode,
-        },
+		{
+			key = "y",
+			mods = "LEADER",
+			action = act.ActivateCopyMode,
+		},
 
 		-- TABS
 		{
@@ -25,6 +34,14 @@ function module.apply(config)
 			mods = "LEADER",
 			action = act.ActivateLastTab,
 		},
+		-- {
+		-- 	key = "t",
+		-- 	mod = "LEADER",
+		-- 	action = act.ActivateKeyTable{
+		-- 		name = "tabs",
+		-- 		one_shot = false,
+		-- 	},
+		-- },
 
 		-- LAUNCHER
 		{
@@ -112,6 +129,23 @@ function module.apply(config)
 			{ key = "j", action = act.AdjustPaneSize({ "Down", 2 }) },
 
 			-- Cancel the mode by pressing escape
+			{ key = "Escape", action = "PopKeyTable" },
+		},
+		tabs = {
+			{
+				key = "r",
+				action = act.PromptInputLine({
+					description = "Enter new name for tab",
+					action = wezterm.action_callback(function(window, pane, line)
+						if line then
+							window:active_tab():set_title(line)
+						end
+					end),
+				}),
+			},
+			{ key = "h", action = act.MoveTabRelative(-1) },
+			{ key = "l", action = act.MoveTabRelative(1) },
+
 			{ key = "Escape", action = "PopKeyTable" },
 		},
 	}
