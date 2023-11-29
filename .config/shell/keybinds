@@ -9,7 +9,6 @@ bindkey -M visual '^[[P' vi-delete
 
 bindkey 'ç' fzf-cd-widget
 bindkey '^f' fzf-file-widget
-bindkey '^h' fzf-history-widget
 
 bindkey '^k' up-line-or-history
 bindkey '^j' down-line-or-history

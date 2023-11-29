@@ -1,9 +1,9 @@
 -- go snippets
-local ls = require "luasnip"
+local ls = require("luasnip")
 local i = ls.insert_node
 local s = ls.snippet
 local fmt = require("luasnip.extras.fmt").fmt
-local extras = require "luasnip.extras"
+local extras = require("luasnip.extras")
 local rep = extras.rep
 
 return {
@@ -18,6 +18,19 @@ return {
         end
         ]],
 			{ i(1), rep(1) }
+		)
+	),
+	s(
+		"wez-keybind",
+		fmt(
+			[[
+            {{
+                key = "{}",
+                mod = "{}",
+                action = act.{},
+            }},
+            ]],
+			{ i(1), i(2), i(3) }
 		)
 	),
 }

@@ -3,28 +3,41 @@ local mux = wezterm.mux
 local module = {}
 
 function module.apply()
-	-- default startup behaviour
 	wezterm.on("mux-startup", function()
-		local sys_tab, sys_pane, sys_window = mux.spawn_window({
+		-- system
+		local _, _, s1_window = mux.spawn_window({
 			workspace = "system",
 			cwd = "/Users/tjex/.config",
 		})
-		sys_window:spawn_tab({})
+		s1_window:spawn_tab({})
 
-		local admin_tab, admin_pane, admin_window = mux.spawn_window({
+		-- admin
+		local a1_tab, a1_pane, a1_window = mux.spawn_window({
 			workspace = "admin",
 			cwd = "/Users/tjex/docs",
-			args = { "TERM=xterm-direct neomutt" },
 		})
-		admin_window:spawn_tab({})
+		a1_tab:set_title("neomutt")
+		a1_pane:send_text("TERM=xterm-direct neomutt\n")
+		a1_window:spawn_tab({})
 
-		local general_tab, general_pane, gen_window = mux.spawn_window({
+		-- general
+		local _, _, _ = mux.spawn_window({
 			workspace = "general",
 		})
-		local web_tab, web_pane, web_window = mux.spawn_window({
+
+		-- website
+		local w1_tab, w1_pane, w1_window = mux.spawn_window({
 			workspace = "website",
+			cwd = "/Users/tjex/dev/websites/tjex.net",
 		})
-		local thesis_tab, thesis_pane, thesis_window = mux.spawn_window({
+		w1_pane:send_text("yarn run start\n")
+		w1_tab:set_title("node")
+
+		local w2_tab = w1_window:spawn_tab({})
+		w2_tab:set_title("tjex.net")
+
+		-- thesis
+		local _, _, _ = mux.spawn_window({
 			workspace = "thesis",
 		})
 

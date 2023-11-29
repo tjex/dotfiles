@@ -29,11 +29,11 @@ key("n", "W", ":w<CR>", opts)
 key("n", "<leader>cd", ":cd %:h<CR>", opts)
 
 -- text operations
-key("n", "˚", "mzJ`z", opts) -- append below to current line and leave cursor where it is
+key("n", "<M-k>", "mzJ`z", opts) -- append below to current line and leave cursor where it is
 key("x", "<leader>p", '"_d<Left>p', opts) -- paste over text and keep same item in paste buffer
 key("n", "<leader>y", '"+y', opts) -- copy to sys clipboard
 key("v", "<leader>y", '"+y', opts)
-key("n", "x", '"_x', opts) -- stop 'x' from adding to paste regsiter
+key("n", "x", '"_x', opts) -- stop 'x' from adding to paste 
 key("n", "Z", "1z=e", opts)
 key("n", "fp", "mzvapgq`z", opts) -- format paragraph and leave cursor where it was
 key("n", "fl", "mzgqq`z", opts) -- format line and leave cursor where it was
@@ -71,7 +71,7 @@ key("n", "gl", ":tabn<CR>", opts) -- next tab
 key("n", "L", ":BufSurfForward<CR>", opts)
 key("n", "H", ":BufSurfBack<CR>", opts)
 
--- easy-align --
+-- easy-align
 key("n", "ga", ":EasyAlign", opts)
 key("v", "ga", ":EasyAlign", opts)
 

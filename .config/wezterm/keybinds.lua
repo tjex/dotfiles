@@ -1,4 +1,5 @@
 local wezterm = require("wezterm")
+local act = wezterm.action
 local module = {}
 
 function module.apply(config)
@@ -10,24 +11,108 @@ function module.apply(config)
 		{
 			key = "o",
 			mods = "LEADER|CTRL",
-			action = wezterm.action.SendKey({ key = "o", mods = "CTRL" }),
+			action = act.SendKey({ key = "o", mods = "CTRL" }),
 		},
+        {
+            key = "y",
+            mods = "LEADER",
+            action = act.ActivateCopyMode,
+        },
+
+		-- TABS
 		{
-			key = "s",
+			key = "l",
 			mods = "LEADER",
-			action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
+			action = act.ActivateLastTab,
+		},
+
+		-- LAUNCHER
+		{
+			key = "e",
+			mods = "LEADER",
+			action = act.ShowLauncherArgs({ flags = "FUZZY|WORKSPACES" }),
+		},
+
+		-- PANES
+		{
+			key = "p",
+			mods = "LEADER",
+			action = act.ActivateKeyTable({
+				name = "pane",
+				one_shot = false,
+			}),
 		},
 		{
 			key = "x",
 			mods = "LEADER",
-			action = wezterm.action.CloseCurrentPane({ confirm = true }),
+			action = act.CloseCurrentPane({ confirm = true }),
+		},
+		{
+			key = "%",
+			mods = "LEADER|SHIFT",
+			action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }),
+		},
+		{
+			key = "h",
+			mods = "ALT",
+			action = act.ActivatePaneDirection("Left"),
+		},
+		{
+			key = "l",
+			mods = "ALT",
+			action = act.ActivatePaneDirection("Right"),
 		},
 
-		-- MUX / DOMAINS / WORKSPACES
+		-- WORKSPACES
 		{
-			key = "e",
-			mods = "LEADER",
-			action = wezterm.action.ShowLauncherArgs({ flags = "WORKSPACES" }),
+			key = "1",
+			mods = "ALT",
+			action = act.SwitchToWorkspace({
+				name = "system",
+			}),
+		},
+		{
+			key = "2",
+			mods = "ALT",
+			action = act.SwitchToWorkspace({
+				name = "admin",
+			}),
+		},
+		{
+			key = "3",
+			mods = "ALT",
+			action = act.SwitchToWorkspace({
+				name = "general",
+			}),
+		},
+		{
+			key = "4",
+			mods = "ALT",
+			action = act.SwitchToWorkspace({
+				name = "website",
+			}),
+		},
+		{
+			key = "5",
+			mods = "ALT",
+			action = act.SwitchToWorkspace({
+				name = "thesis",
+			}),
+		},
+	}
+
+	-- KEYTABLES
+	-- https://wezfurlong.org/wezterm/config/key-tables.html
+	config.key_tables = {
+		-- corresponds with "name = 'pane'" above.
+		pane = {
+			{ key = "h", action = act.AdjustPaneSize({ "Left", 2 }) },
+			{ key = "l", action = act.AdjustPaneSize({ "Right", 2 }) },
+			{ key = "k", action = act.AdjustPaneSize({ "Up", 2 }) },
+			{ key = "j", action = act.AdjustPaneSize({ "Down", 2 }) },
+
+			-- Cancel the mode by pressing escape
+			{ key = "Escape", action = "PopKeyTable" },
 		},
 	}
 end
