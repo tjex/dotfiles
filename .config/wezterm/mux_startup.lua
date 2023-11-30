@@ -1,8 +1,8 @@
 local wezterm = require("wezterm")
 local mux = wezterm.mux
-local module = {}
+local M = {}
 
-function module.apply()
+function M.apply()
 	wezterm.on("mux-startup", function()
 		-- system
 		local _, _, s1_window = mux.spawn_window({
@@ -45,4 +45,4 @@ function module.apply()
 	end)
 end
 
-return module
+return M

@@ -1,5 +1,5 @@
 local wezterm = require("wezterm")
-local module = {}
+local M = {}
 
 wezterm.color.get_default_colors()
 
@@ -18,7 +18,9 @@ function tab_title(tab_info)
 	if title and #title > 0 then
 		return title
 	end
-	return tab_info.tab_index
+    -- +1 so that keybinds for tab selection match up
+    -- e.g. not 0 indexed for functionality's sake
+	return tab_info.tab_index + 1
 end
 
 wezterm.on("format-tab-title", function(tab)
@@ -36,7 +38,7 @@ wezterm.on("format-tab-title", function(tab)
 	}
 end)
 
-function module.apply(config)
+function M.apply(config)
 	-- WINDOWS
 	config.hide_tab_bar_if_only_one_tab = true
 	config.window_decorations = "RESIZE" -- hide the title bar
@@ -83,4 +85,4 @@ function module.apply(config)
 	}
 end
 
-return module
+return M

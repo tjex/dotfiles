@@ -1,8 +1,8 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
-local module = {}
+local M = {}
 
-function module.apply(config)
+function M.apply(config)
 	-- Show which key table is active in the status area
 	wezterm.on("update-right-status", function(window, pane)
 		local name = window:active_key_table()
@@ -30,11 +30,6 @@ function module.apply(config)
 
 		-- TABS
 		{
-			key = "l",
-			mods = "LEADER",
-			action = act.ActivateLastTab,
-		},
-		{
 			key = "t",
 			mods = "LEADER",
 			action = act.ActivateKeyTable({
@@ -42,6 +37,33 @@ function module.apply(config)
 				one_shot = false,
 			}),
 		},
+		{
+			key = "l",
+			mods = "LEADER",
+			action = act.ActivateLastTab,
+		},
+		{
+			key = "r",
+			mods = "LEADER",
+			action = act.PromptInputLine({
+				description = "Enter new name for tab",
+				action = wezterm.action_callback(function(window, pane, line)
+					if line then
+						window:active_tab():set_title(line)
+					end
+				end),
+			}),
+		},
+
+		{ key = "1", mods = "SUPER", action = act.ActivateTab(0) },
+		{ key = "2", mods = "SUPER", action = act.ActivateTab(1) },
+		{ key = "3", mods = "SUPER", action = act.ActivateTab(2) },
+		{ key = "4", mods = "SUPER", action = act.ActivateTab(3) },
+		{ key = "5", mods = "SUPER", action = act.ActivateTab(4) },
+		{ key = "6", mods = "SUPER", action = act.ActivateTab(5) },
+		{ key = "7", mods = "SUPER", action = act.ActivateTab(6) },
+		{ key = "8", mods = "SUPER", action = act.ActivateTab(7) },
+		{ key = "9", mods = "SUPER", action = act.ActivateTab(8) },
 
 		-- LAUNCHER
 		{
@@ -136,17 +158,6 @@ function module.apply(config)
 			{ key = "Escape", action = "PopKeyTable" },
 		},
 		tabs = {
-			{
-				key = "r",
-				action = act.PromptInputLine({
-					description = "Enter new name for tab",
-					action = wezterm.action_callback(function(window, pane, line)
-						if line then
-							window:active_tab():set_title(line)
-						end
-					end),
-				}),
-			},
 			{ key = "h", action = act.MoveTabRelative(-1) },
 			{ key = "l", action = act.MoveTabRelative(1) },
 
@@ -155,4 +166,4 @@ function module.apply(config)
 	}
 end
 
-return module
+return M
