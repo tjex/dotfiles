@@ -4,8 +4,9 @@ local wezterm = require("wezterm")
 -- refactored configs
 local design = require("design")
 local keybinds = require("keybinds")
-local mux_startup = require("mux_startup")
 local launch_menu = require("launch_menu")
+local mux_startup = require("mux_startup")
+local status = require("status")
 
 -- This table will hold the configuration.
 local config = {}
@@ -24,8 +25,9 @@ config.default_gui_startup_args = { "connect", "unix" }
 
 config.audible_bell = "Disabled"
 config.default_workspace = "general"
+-- config.automatically_reload_config = false
+config.status_update_interval = 200
 
--- exit
 config.skip_close_confirmation_for_processes_named = {
 	"bash",
 	"sh",
@@ -37,7 +39,8 @@ config.skip_close_confirmation_for_processes_named = {
 }
 
 -- apply the conf files required above
-mux_startup.apply()
+mux_startup.load()
+status.load()
 design.apply(config)
 keybinds.apply(config)
 launch_menu.apply(config)

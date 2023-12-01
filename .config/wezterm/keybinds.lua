@@ -3,15 +3,6 @@ local act = wezterm.action
 local M = {}
 
 function M.apply(config)
-	-- Show which key table is active in the status area
-	wezterm.on("update-right-status", function(window, pane)
-		local name = window:active_key_table()
-		if name then
-			name = "TABLE: " .. name
-		end
-		window:set_right_status(name or "")
-	end)
-
 	config.leader = { key = "o", mods = "CTRL", timeout_milliseconds = 700 }
 
 	-- LEADER KEYBINDS

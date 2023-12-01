@@ -38,9 +38,10 @@ wezterm.on("format-tab-title", function(tab)
 	}
 end)
 
+
+
 function M.apply(config)
 	-- WINDOWS
-	config.hide_tab_bar_if_only_one_tab = true
 	config.window_decorations = "RESIZE" -- hide the title bar
 	config.window_padding = {
 		left = 10,
