@@ -1,12 +1,36 @@
 IDE:
+  editor:
+    blinkDuration: 600
+    disableBlinkingCursor: false
+    font:
+      antialias: 2
+      family: Monaco
+      size: 13
+    highlightBracketContents: true
+    highlightCurrentLine: false
+    inactiveEditorFadeAlpha: 64
+    indentWidth: 4
+    insertMatchingTokens: false
+    lineWrap: true
+    spaceIndent: false
+    stepForwardEvaluation: false
+    theme: solarizedDark
+    useComboBox: false
+    useComboBoxWhenSplitting: false
+  interpreter:
+    autoStart: true
+    configFile: /Users/tjex/.config/SuperCollider/sclang_conf.yaml
+    runtimeDir: ""
   mainWindow:
     detached: !QVariantMap
       documents-dock: ""
       help-dock: ""
       post-dock: ""
-    geometry: AdnQywADAAAAAAoXAAAAIgAADWYAAAWVAAAKFwAAAD4AAA1mAAAFlQAAAAAAAAAADXAAAAoXAAAAPgAADWYAAAWV
-    state: AAAA/wAAAAD9AAAAAgAAAAAAAAAAAAAAAPwCAAAAAfsAAAAcAGQAbwBjAHUAbQBlAG4AdABzAC0AZABvAGMAawAAAAAA/////wAAAF4A////AAAAAQAAAkQAAAU9/AIAAAAC+wAAABIAaABlAGwAcAAtAGQAbwBjAGsBAAAAAAAAA6AAAABMAP////sAAAASAHAAbwBzAHQALQBkAG8AYwBrAQAAA6EAAAGcAAAATAD///8AAAELAAAFPQAAAAEAAAACAAAAAQAAAAL8AAAAAA==
+    geometry: AdnQywADAAAAAAj6AAAAIwAADWYAAAWVAAAI+gAAAD8AAA1mAAAFlQAAAAAAAAAADXAAAAj6AAAAPwAADWYAAAWV
+    state: AAAA/wAAAAD9AAAAAgAAAAAAAAAAAAAAAPwCAAAAAfsAAAAcAGQAbwBjAHUAbQBlAG4AdABzAC0AZABvAGMAawAAAAAA/////wAAAF4A////AAAAAQAAAVgAAAU8/AIAAAAC+wAAABIAaABlAGwAcAAtAGQAbwBjAGsBAAAAAAAAA58AAABMAP////sAAAASAHAAbwBzAHQALQBkAG8AYwBrAQAAA6AAAAGcAAAATAD///8AAAMUAAAFPAAAAAEAAAACAAAAAQAAAAL8AAAAAA==
   postWindow:
     lineWrap: false
+    scrollback: 1000
   recentDocuments: !QVariantList
-    []
+    - /Users/tjex/.local/share/SuperCollider/downloaded-quarks/SuperDirt/superdirt_startup.scd
+  startWithSession: last
