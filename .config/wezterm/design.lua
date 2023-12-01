@@ -13,19 +13,19 @@ local blue_2 = "#6d86a6"
 local background = "#1a1c23"
 local foreground = "#b1b1b1"
 
-function tab_title(tab_info)
-	local title = tab_info.tab_title
-	if title and #title > 0 then
-		return title
+local function tab_title(tab_info)
+	local usr_title = tab_info.tab_title
+    local index = tab_info.tab_index + 1 .. " : "
+
+	if usr_title and #usr_title > 0 then
+		return index .. usr_title
 	end
-    -- +1 so that keybinds for tab selection match up
-    -- e.g. not 0 indexed for functionality's sake
 	return tab_info.tab_index + 1
 end
 
 wezterm.on("format-tab-title", function(tab)
 	local title = tab_title(tab)
-    foreground = "#737373"
+    foreground = "#737373" -- foreground (above)
     background = background
 
 	if tab.is_active then
