@@ -26,17 +26,19 @@ yabai -m config \
 # units measured in 'tiles' - i.e. divisions of the screen resultant from (rows * cols).
 # grid=<rows>:<cols>:<start-x>:<start-y>:<width>:<height>
 
+# floating window presets
+middle_narrow="manage=off opacity=0.9 grid=3:3:1:1:1:1"
+middle_square="manage=off opacity=0.9 grid=3:3:1:1:1:1"
+
 # things that get launched regularly
 yabai -m rule --add app="^Raycast$" title="Raycast Settings" manage=off 
-yabai -m rule --add app="^Dictionary$" manage=off opacity=1.0 grid=3:3:1:1:1:1
 yabai -m rule --add app="^System Settings$" manage=off sticky=on opacity=1.0
-yabai -m rule --add app="^WezTerm$" title="^lf$" manage=off opacity=0.9 grid=5:5:2:1:1:2
-yabai -m rule --add app="^WezTerm$" title="^gopass$" manage=off opacity=0.9 grid=3:3:1:1:1:1
-yabai -m rule --add app="^WezTerm$" title="^bkmr$" manage=off opacity=0.9 grid=5:3:1:2:1:1 
+yabai -m rule --add app="^WezTerm$" title="^lf$" ${middle_square}
+yabai -m rule --add app="^Dictionary$" ${middle_narrow}
+yabai -m rule --add app="^WezTerm$" title="^gopass$" ${middle_narrow}
+yabai -m rule --add app="^WezTerm$" title="^bkmr$" ${middle_narrow} 
+yabai -m rule --add app="^WezTerm$" title="^nvim$" ${middle_narrow} 
 
 # general apps that I don't want any tiling with
 yabai -m rule --add app="^Max$" manage=off
 yabai -m rule --add app="^Carbon Copy Cloner$" manage=off 
-
-# workspace management
-# yabai -m rule --add app="^Todoist$"

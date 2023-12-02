@@ -5,6 +5,7 @@
 
 ignored/
 autorun.out
+autorun
 
 .config/asciinema
 .config/cabal/packages
