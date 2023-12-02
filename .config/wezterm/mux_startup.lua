@@ -5,11 +5,10 @@ local M = {}
 function M.load()
 	wezterm.on("mux-startup", function()
 		-- system
-		local s1_tab, _, s1_window = mux.spawn_window({
+		local _, _, s1_window = mux.spawn_window({
 			workspace = "system",
 			cwd = "/Users/tjex/.config",
 		})
-        s1_tab:set_title("system")
 		s1_window:spawn_tab({})
 
 		-- admin
@@ -22,10 +21,9 @@ function M.load()
 		a1_window:spawn_tab({})
 
 		-- general
-		local g1_tab, _, _ = mux.spawn_window({
+		local _, _, _ = mux.spawn_window({
 			workspace = "general",
 		})
-        g1_tab:set_title("general")
 
 		-- website
 		local w1_tab, w1_pane, w1_window = mux.spawn_window({
@@ -39,11 +37,10 @@ function M.load()
 		w2_tab:set_title("tjex.net")
 
 		-- thesis
-		local t1_tab, _, t1_window = mux.spawn_window({
+		local _, _, t1_window = mux.spawn_window({
 			workspace = "thesis",
             cwd = "/Users/tjex/thesis"
 		})
-        t1_tab:set_title("thesis")
         local t1_tab2, t1_pane2 = t1_window:spawn_tab({
             cwd = "/Users/tjex/obsidian/paradigm-shifted/masters/thesis"
         })

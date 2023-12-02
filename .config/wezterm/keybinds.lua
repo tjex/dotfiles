@@ -56,7 +56,7 @@ function M.apply(config)
 		{ key = "8", mods = "SUPER", action = act.ActivateTab(7) },
 		{ key = "9", mods = "SUPER", action = act.ActivateTab(8) },
 
-		-- LAUNCHER
+		-- LAUNCHER / FILES / DIRECTORIES
 		{
 			key = "e",
 			mods = "LEADER",
@@ -144,6 +144,12 @@ function M.apply(config)
 			{ key = "l", action = act.AdjustPaneSize({ "Right", 2 }) },
 			{ key = "k", action = act.AdjustPaneSize({ "Up", 2 }) },
 			{ key = "j", action = act.AdjustPaneSize({ "Down", 2 }) },
+			{ key = "r", action = act.RotatePanes("Clockwise") },
+			{
+				key = "s",
+				action = act.PaneSelect({ mode = "SwapWithActiveKeepFocus", alphabet = "1234567890" }),
+			},
+			{ key = "t", action = act.PaneSelect({ mode = "MoveToNewTab" }) },
 
 			-- exits the mode
 			{ key = "Escape", action = "PopKeyTable" },
