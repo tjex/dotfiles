@@ -25,6 +25,9 @@ require("formatter").setup({
 		css = {
 			require("formatter.filetypes.css").prettierd,
 		},
+		scss = {
+			require("formatter.filetypes.css").prettierd,
+		},
 		html = {
 			require("formatter.filetypes.html").prettierd,
 		},
