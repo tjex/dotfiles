@@ -35,9 +35,9 @@ yabai -m rule --add app="^Raycast$" title="Raycast Settings" manage=off
 yabai -m rule --add app="^System Settings$" manage=off sticky=on opacity=1.0
 yabai -m rule --add app="^WezTerm$" title="^lf$" ${middle_square}
 yabai -m rule --add app="^Dictionary$" ${middle_narrow}
-yabai -m rule --add app="^WezTerm$" title="^gopass$" ${middle_narrow}
-yabai -m rule --add app="^WezTerm$" title="^bkmr$" ${middle_narrow} 
-yabai -m rule --add app="^WezTerm$" title="^nvim$" ${middle_narrow} 
+yabai -m rule --add app="^WezTerm$" title="^gopass$" sticky=on ${middle_narrow}
+yabai -m rule --add app="^WezTerm$" title="^bkmr$" sticky=on ${middle_narrow} 
+yabai -m rule --add app="^WezTerm$" title="^nvim$" sticky=on ${middle_narrow} 
 
 # general apps that I don't want any tiling with
 yabai -m rule --add app="^Max$" manage=off

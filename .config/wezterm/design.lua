@@ -15,7 +15,7 @@ local foreground = "#b1b1b1"
 
 local function tab_title(tab_info)
 	local usr_title = tab_info.tab_title
-    local index = tab_info.tab_index + 1 .. " : "
+	local index = tab_info.tab_index + 1 .. " : "
 
 	if usr_title and #usr_title > 0 then
 		return index .. usr_title
@@ -25,11 +25,11 @@ end
 
 wezterm.on("format-tab-title", function(tab)
 	local title = tab_title(tab)
-    foreground = "#737373" -- foreground (above)
-    background = background
+	foreground = "#737373" -- foreground (above)
+	background = background
 
 	if tab.is_active then
-        foreground = yellow
+		foreground = yellow
 	end
 	return {
 		{ Background = { Color = background } },
@@ -37,8 +37,6 @@ wezterm.on("format-tab-title", function(tab)
 		{ Text = " " .. title .. " " },
 	}
 end)
-
-
 
 function M.apply(config)
 	-- WINDOWS
@@ -51,6 +49,11 @@ function M.apply(config)
 	}
 	config.window_frame = {
 		active_titlebar_bg = background,
+	}
+
+	config.inactive_pane_hsb = {
+		saturation = 0.9,
+		brightness = 0.6,
 	}
 
 	-- CURSOR

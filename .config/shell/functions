@@ -77,6 +77,12 @@ ytalbum() {
     rnm * -f '_' -r ' '
 
 }
+yttitle() {
+    url=$1
+    title=$2
+    yt-dlp -x -f bestaudio/best ${url} -o "${2}.%(ext)s" 
+
+}
 
 ##############
 # tjex files #

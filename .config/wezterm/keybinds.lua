@@ -147,7 +147,7 @@ function M.apply(config)
 			{ key = "r", action = act.RotatePanes("Clockwise") },
 			{
 				key = "s",
-				action = act.PaneSelect({ mode = "SwapWithActiveKeepFocus", alphabet = "1234567890" }),
+				action = act.PaneSelect({ mode = "SwapWithActive", alphabet = "1234567890" }),
 			},
 			{ key = "t", action = act.PaneSelect({ mode = "MoveToNewTab" }) },
 
