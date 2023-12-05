@@ -51,8 +51,11 @@ require("formatter").setup({
 				local lsp_clients = vim.lsp.buf_get_clients()
 				for _, client in pairs(lsp_clients) do
 					if client.server_capabilities.document_formatting then
-						print("formatted with lsp")
+						-- formatter.nvim freaks out sometimes, but still formats.
+						-- here just avoiding the error message alltogether and formatting twice for
+						-- good measure
 						vim.lsp.buf.format()
+						print("formatted with lsp")
 						return
 					end
 				end

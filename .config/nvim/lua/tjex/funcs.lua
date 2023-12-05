@@ -22,10 +22,9 @@ end
 
 -- removes quoted text when editing email replies with Neomutt
 M.neomutt_del_quoted = function()
-	vim.cmd ":g/^On .* wrote:/d"
-	vim.cmd ":g/^>/d"
+	vim.cmd(":g/^On .* wrote:/d")
+	vim.cmd(":g/^>/d")
 end
-
 
 -- writes output of go programs to set buffnr
 M.attach_to_buffer = function(output_bufnr, pattern, command)
@@ -38,7 +37,7 @@ M.attach_to_buffer = function(output_bufnr, pattern, command)
 					vim.api.nvim_buf_set_lines(output_bufnr, -1, -1, false, data)
 				end
 			end
-			vim.api.nvim_buf_set_lines(output_bufnr, 0, -1, false, { "output of AutoRun:"})
+			vim.api.nvim_buf_set_lines(output_bufnr, 0, -1, false, { "output of AutoRun:" })
 			vim.fn.jobstart(command, {
 				stdout_buffered = true,
 				on_stdout = append_data,

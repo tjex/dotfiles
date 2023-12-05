@@ -6,10 +6,16 @@ end
 
 require("obsidian").setup({
 	-- Required, the path to your vault directory.
-	dir = "~/obsidian/paradigm-shifted",
+	workspaces = {
+		{
+			name = "paradigm-shifted",
+			path = "~/obsidian/paradigm-shifted",
+		},
+	},
+	detect_cwd = false,
 	disable_frontmatter = true,
 
-	-- Optional, if you keep notes in a specific subdirectory of your vault.
+	-- main notes sub dirctory
 	notes_subdir = "forrest-floor",
 
 	-- Optional, set the log level for obsidian.nvim. This is an integer corresponding to one of the log
@@ -28,11 +34,17 @@ require("obsidian").setup({
 		nvim_cmp = true,
 		min_chars = 2,
 		new_notes_location = "notes_subdir",
-		prepend_note_id = false,
+		prepend_note_id = true,
 	},
+
 	mappings = {
 		-- Overrides the 'gf' mapping to work on markdown/wiki links within your vault.
-		["gf"] = require("obsidian.mapping").gf_passthrough(),
+		["gf"] = {
+			action = function()
+				return require("obsidian").util.gf_passthrough()
+			end,
+			opts = { noremap = false, expr = true, buffer = true },
+		},
 	},
 
 	finder = "telescope.nvim",
@@ -41,13 +53,19 @@ require("obsidian").setup({
 		subdir = "extra/templates",
 		date_format = "%Y-%m-%d",
 		time_format = "%H:%M",
-        -- {{test}} in a template folder will be replaced with "crispy"
+		-- {{test}} in a template folder will be replaced with "crispy"
 		substitutions = {
 			test = function()
 				return "crispy"
 			end,
 		},
 	},
+
+	follow_url_func = function(url)
+		-- Open the URL in the default web browser.
+		vim.fn.jobstart({ "open", url }) -- Mac OS
+		-- vim.fn.jobstart({"xdg-open", url})  -- linux
+	end,
 })
 
 local opts = { silent = true, noremap = true }
