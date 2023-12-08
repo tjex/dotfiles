@@ -45,4 +45,3 @@ completion
 # theming should be be sourced last (after syntax highlighting as fast-theme is part of
 # fast-syntax-highlighting.plugin)
 source "${XDG_CONFIG_HOME}/shell/design"
-
