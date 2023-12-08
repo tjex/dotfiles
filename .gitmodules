@@ -1,6 +1,3 @@
-[submodule ".local/share/abook"]
-	path = .local/share/abook
-	url = git@github.com:tjex/abookrc.git
 [submodule ".config/mutt"]
 	path = .config/mutt
 	url = git@github.com:tjex/muttrc.git

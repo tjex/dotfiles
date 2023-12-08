@@ -6,7 +6,7 @@ autoload -U colors && colors              # Load colors
 
 autoload -Uz promptinit
 promptinit
-prompt adam2
+prompt bart
 
 # Enable colors:
 autoload -U colors && colors # Load colors

@@ -23,7 +23,6 @@ alias \
 
 # Colorize commands when possible.
 alias \
-	ls="lsd" \
     ll="ls -l" \
 	grep="grep --color=auto" \
 	diff="diff --color=auto" \
