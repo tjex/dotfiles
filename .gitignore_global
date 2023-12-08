@@ -1,6 +1,6 @@
 # dotfiles config
 .DS_Store
-.dotf-git/
+.dotf-cfg/
 .zshenv
 
 ignored/
