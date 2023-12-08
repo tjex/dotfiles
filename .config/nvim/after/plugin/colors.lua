@@ -6,37 +6,11 @@
 
 local Color, colors, Group, groups, styles = require("colorbuddy").setup()
 
--- these stay the same regardless of using 
--- a transparent / nontransparent term window
 Color.new("bground", "#1a1c23")
 Color.new("bg_lighter", "#202436")
 Color.new("bg_light", "#1b1e2d")
 Color.new("bg_text", "#525d8a")
 
--- colors for non transparent term
---
--- Color.new("primary", "#496c7a") -- blue_1
--- Color.new("secondary", "#997d92") -- purple
--- Color.new("tertiary", "#a6794d") -- burnt_yellow
--- Color.new("quart", "#936666") -- soft_red
--- Color.new("yellow", "#a6864d")
--- Color.new("diag_error", "#7a3d2f")
--- Color.new("diag_info", "#496c7a")
--- Color.new("diag_hint", "#25662a")
--- Color.new("diag_warn", "#a6794d")
--- Color.new("blue_2", "#566981")
--- Color.new("black", "#000000")
--- Color.new("gray_0", "#a0a0a0")
--- Color.new("gray_1", "#a7a7a7")
--- Color.new("gray_2", "#949494")
--- Color.new("gray_3", "#737373")
--- Color.new("gray_4", "#535353")
--- Color.new("gray_5", "#323232")
--- Color.new("gray_6", "#212121")
-
--- colors for transparent term window
--- 30% brigher than above
---
 Color.new("primary", "#647f9d") -- blue_1
 Color.new("secondary", "#7F718E") -- purple
 Color.new("tertiary", "#ba8c64") -- burnt_yellow
@@ -292,10 +266,11 @@ Group.new("NvimTreeGitDeleted", colors.gray_4)
 Group.new("NvimTreeGitIgnored", colors.gray_4)
 
 -- Telescope
+-- https://github.com/nvim-telescope/telescope.nvim/blob/master/plugin/telescope.lua
 Group.new("TelescopeTitle", colors.gray_0)
 Group.new("TelescopeBorder", groups.border_1)
 Group.new("TelescopeSearch", nil)
-Group.new("TelescopeMatching", groups.hl_fg_2)
+Group.new("TelescopeMatching", colors.gray_0)
 Group.new("TelescopeSelection", colors.black, groups.hl_bg_1)
 
 -- blankline

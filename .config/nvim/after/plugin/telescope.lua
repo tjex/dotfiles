@@ -32,12 +32,10 @@ key("n", "sz", tb.git_stash, opts)
 
 require("telescope").setup({
 	defaults = {
-		-- preview = false,
-
 		path_display = { "truncate" },
 		results_title = "",
 		sorting_strategy = "ascending",
-		layout_strategy = "horizontal",
+		layout_strategy = "vertical",
 		layout_config = {
 			horizontal = {
 				prompt_position = "top",
@@ -45,11 +43,14 @@ require("telescope").setup({
 				width = 0.8,
 				preview_cutoff = 100,
 			},
+            vertical = {
+                prompt_position = "top",
+            }
 		},
 	},
 	extensions = {
 		fzf = {
-			fuzzy = true, -- false will only do exact matching
+			fuzzy = false, -- false will only do exact matching
 			override_generic_sorter = true, -- override the generic sorter
 			override_file_sorter = true, -- override the file sorter
 			case_mode = "smart_case", -- or "ignore_case" or "respect_case"

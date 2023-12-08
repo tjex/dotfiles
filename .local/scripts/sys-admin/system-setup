@@ -62,7 +62,7 @@ packages_and_programs() {
 
 
     # tpm (tmux package manager)
-    git clone https://github.com/tmux-plugins/tpm ~/.local/share/tmux/plugins/tpm
+    # git clone https://github.com/tmux-plugins/tpm ~/.local/share/tmux/plugins/tpm
 
     # nvm
     git clone git@github.com:nvm-sh/nvm.git $NVM_DIR

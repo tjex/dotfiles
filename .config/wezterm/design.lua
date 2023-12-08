@@ -5,11 +5,11 @@ wezterm.color.get_default_colors()
 
 local black = "#000000"
 local white = "#d8d8d8"
-local yellow = "#d8a274"
-local soft_red = "#bf7a7a"
-local purple = "#ba859e"
-local blue_1 = "#6492a1"
-local blue_2 = "#6d86a6"
+local yellow = "#b09e64"
+local soft_red = "#bf8585"
+local purple = "#7F718E"
+local blue_1 = "#647f9d"
+local blue_2 = "#6f88a6"
 local background = "#1a1c23"
 local foreground = "#b1b1b1"
 
