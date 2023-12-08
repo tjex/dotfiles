@@ -15,7 +15,6 @@ source "${XDG_CONFIG_HOME}/shell/zshnameddirrc"
 source "${XDG_CONFIG_HOME}/shell/functions"
 source "${XDG_CONFIG_HOME}/shell/keybinds"
 source "${XDG_CONFIG_HOME}/shell/vi-mode"
-source "${XDG_CONFIG_HOME}/zsh/.fzf.zsh"
 
 completion() {
 
@@ -38,10 +37,10 @@ completion() {
 completion
 
 # virtualenv (source BEFORE shell design)
-source ${XDG_DATA_HOME}/venv/sys/bin/activate
+# source ${XDG_DATA_HOME}/venv/sys/bin/activate
 
 # plugins
-source "${HOME}/.local/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
+# source "${HOME}/.local/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
 
 # theming should be be sourced last (after syntax highlighting as fast-theme is part of
 # fast-syntax-highlighting.plugin)
