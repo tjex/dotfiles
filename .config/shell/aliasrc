@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env zsh
 
 # Use neovim for vim if present.
 [ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d"
@@ -38,9 +38,7 @@ alias \
 
 # system-utility style
 alias \
-	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME}/shell/shortcutrc ; 
-        source ${XDG_CONFIG_HOME}/shell/zshnameddirrc ; 
-        source ${XDG_CONFIG_HOME}/shell/functions ;
+	ref="source ${XDG_CONFIG_HOME}/shell/functions ;
         source ${XDG_CONFIG_HOME}/shell/aliasrc" \
 
 # dotfiles management
@@ -73,3 +71,39 @@ alias \
     yabspace="yabai -m space --create" \
     yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarnrc" \
     yt="yt-dlp --embed-metadata -i -o '%(title)s.%(ext)s'"
+
+
+# common directories
+alias \
+    cac="cd ${HOME}/.cache && ls -A" \
+    cf="cd ${XDG_CONFIG_HOME} && ls -A" \
+    D="cd ${HOME}/Downloads && ls -A" \
+    d="cd ${HOME}/docs && ls -A" \
+    dev="cd ${HOME}/dev && ls -A" \
+    tjr="cd ${HOME} && ls -A" \
+    m="cd ${HOME}/music && ls -A" \
+    i="cd ${HOME}/images && ls -A" \
+    l="cd ${HOME}/.local && ls -A" \
+    lsh="cd ${XDG_DATA_HOME} && ls -A" \
+    lsrc="cd ${HOME}/.local/src && ls -A" \
+    vol="cd /Volumes && ls -A" \
+
+# projects / personal
+alias \
+    obs="cd ${HOME}/obsidian/paradigm-shifted && ls" \
+    tjex.net="cd ${HOME}/dev/websites/tjex.net && ls"
+
+# open with editor
+alias \
+    bf="$EDITOR ${XDG_CONFIG_HOME}/shell/bm-files" \
+    bd="$EDITOR ${XDG_CONFIG_HOME}/shell/bm-dirs" \
+    cfv="$EDITOR ${XDG_CONFIG_HOME}/nvim/init.vim" \
+    cfz="$EDITOR ${XDG_CONFIG_HOME}/zsh/.zshrc" \
+    cfa="$EDITOR ${XDG_CONFIG_HOME}/shell/aliasrc" \
+    cfs="$EDITOR ${XDG_CONFIG_HOME}/shell/shortcutrc" \
+    cfsh="$EDITOR ${XDG_CONFIG_HOME}/shell" \
+    cfp="$EDITOR ${HOME}/.zprofile" \
+    cfm="$EDITOR ${XDG_CONFIG_HOME}/mutt/muttrc" \
+    cfn="$EDITOR ${XDG_CONFIG_HOME}/newsboat/config" \
+    cfu="$EDITOR ${XDG_CONFIG_HOME}/newsboat/urls" \
+    packpath="$EDITOR ${XDG_DATA_HOME}/nvim/site/pack/packer/start/"
