@@ -1,6 +1,7 @@
 -- basically a complete theft of https://github.com/jesseleite/nvim-noirbuddy
 -- with some of my own additions. I just wanted stability to only use colorbuddy
--- and found that there was flashing of colors as noirbuddy loaded ontop of colorbuddy.
+-- and found that there was flashing of colors as noirbuddy loaded ontop of colorbuddy, 
+-- made worse with treesitter delay as well.
 
 -- tip: run ":so $VIMRUNTIME/syntax/hitest.vim" to see highlight naming and their set colors. Handy!
 
@@ -15,7 +16,7 @@ Color.new("primary", "#647f9d") -- blue_1
 Color.new("secondary", "#7F718E") -- purple
 Color.new("tertiary", "#ba8c64") -- burnt_yellow
 Color.new("quart", "#bf8585") -- soft_red
-Color.new("yellow", "#b09e64")
+Color.new("yellow", "#ccb266")
 Color.new("diag_error", "#9c5543")
 Color.new("diag_info", "#647f9d")
 Color.new("diag_hint", "#339843")
@@ -281,3 +282,5 @@ Group.new("IblIndent", colors.blue_1)
 Group.new("CmpItemMenu", groups.hl_fg_2, nil)
 Group.new("CmpItemAbbrMatch", groups.hl_fg_2, nil)
 
+-- obsidian
+Group.new("ObsidianRefText", colors.secondary, nil, styles.underline)

@@ -47,7 +47,9 @@ function installWezterm() {
     git submodule update --init --recursive
     ./get-deps
     cargo build --release
-    cargo run --release --bin wezterm -- start
+    # TODO - from here I think I can just copy the wezterm-mux-server binary int /usr/bin
+    # I don't need anything else
+    # cargo run --release --bin wezterm -- start
     cd ~
 }
 
