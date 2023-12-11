@@ -31,9 +31,7 @@ alias \
 
 # These common commands are just too long! Abbreviate them.
 alias \
-	ka="killall" \
 	sdn="shutdown -h now" \
-	e="$EDITOR" \
 	v="$EDITOR" \
 
 # system-utility style

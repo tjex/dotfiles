@@ -8,6 +8,11 @@ this technique of tracking dotfiles with a bare repo.
 *DO NOT* blindly trust any of the [scripts](https://github.com/tjex/dotfiles/tree/mac/.local/scripts) that I
 have in my dotfiles. Always audit and test them yourself before running on any critical files.
 
+Here are color schemes for:
+- [neovim](.config/nvim/after/colors.lua)
+- [neomutt](.config/mutt/colors)
+- [wezterm](.config/wezterm/design.lua)
+
 To clone this setup (more so a message to myself, I don't recommend mass installing other people's
 configs...):
 
