@@ -6,6 +6,7 @@ scripts_glob=(${HOME}/.local/scripts/*)
 scripts_path=$(printf "%s:" "${scripts_glob[@]}")
 
 # Last export is first/earliest in resultant $PATH
+export PATH="$CARGO_HOME/bin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
 export PATH="${scripts_path}${PATH}" # see above glob/joining
 export PATH="$HOME/.local/bin:$PATH"
