@@ -7,3 +7,6 @@
 [submodule ".local/share/navi"]
 	path = .local/share/navi
 	url = git@github.com:tjex/cheats.git
+[submodule "/Users/tjex/.local/share/bkmr"]
+	path = /Users/tjex/.local/share/bkmr
+	url = git@github.com:tjex/my-bkmr-db.git
