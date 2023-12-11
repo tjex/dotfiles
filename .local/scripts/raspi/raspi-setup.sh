@@ -47,9 +47,14 @@ function installWezterm() {
     git submodule update --init --recursive
     ./get-deps
     cargo build --release
-    # TODO - from here I think I can just copy the wezterm-mux-server binary int /usr/bin
-    # I don't need anything else
-    # cargo run --release --bin wezterm -- start
+    cd target/release
+    echo "----------"
+    echo "installing wezterm binaries to /usr/local/bin"
+    mkdir -p /usr/local/bin /etc/profile.d
+    sudo install -Dm755 assets/open-wezterm-here wezterm wezterm-mux-server strip-ansi-escapes -t /usr/local/bin
+    sudo install -Dm644 assets/shell-integration/* -t /etc/profile.d
+    sudo install -Dm644 assets/shell-completion/zsh /usr/share/zsh/site-functions/_wezterm
+    sudo install -Dm644 assets/shell-completion/bash /etc/bash_completion.d/wezterm
     cd ~
 }
 

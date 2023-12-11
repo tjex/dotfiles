@@ -19,6 +19,18 @@ config.unix_domains = {
 }
 config.default_gui_startup_args = { "connect", "unix" }
 
+config.ssh_domains = {
+  {
+    -- This name identifies the domain
+    name = 'raspi',
+    -- The hostname or address to connect to. Will be used to match settings
+    -- from your ssh config file
+    remote_address = 'rpi.local',
+    -- The username to use on the remote host
+    username = 'tjex',
+  },
+}
+
 -- disables mac unicode symbol input via ALT/META
 -- config.send_composed_key_when_left_alt_is_pressed = true
 -- config.send_composed_key_when_right_alt_is_pressed = true

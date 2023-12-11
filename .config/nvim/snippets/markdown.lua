@@ -27,22 +27,21 @@ return {
     -- default template for obsidian note frontmatter
     -- inserts todays date and file name as H1 title
 	s(
-		"ob-default",
+		"blog post",
 		fmt(
 			[[
         ---
-        date-created: {}
-        timeframe: thesis
-        tags:
-        - seed
-        spawned-from: {}
-        keywords: []
-        the-way-here:
+        title: {}
+        description: {}
+        pubDate: {}
+        author: tjex
+        tags: ["{}"]
+        license: {}
+        draft: true
         ---
-
-        # {}
         ]],
-			{ i(1, vim.fn.strftime("%Y-%m-%d")), i(2), i(3, vim.fn.expand("%:t:r")) }
+			{ i(1), i(2), i(3, vim.fn.strftime("%Y-%m-%dT%XZ")), i(4), i(5) }
 		)
 	),
 }
+

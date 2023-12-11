@@ -15,4 +15,5 @@ export PATH="${scripts_path}${PATH}" # see above glob/joining
 export PATH="$HOME/.local/bin:$PATH"
 eval $(/opt/homebrew/bin/brew shellenv)
 
-fpath+=("$(brew --prefix)/share/zsh/site-functions") # zsh completions
+fpath+=("$(brew --prefix)/share/zsh/site-functions") # zsh completions installed via shell
+fpath+=("~/.local/share/zsh/completion") # zsh completions installed manually
