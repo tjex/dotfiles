@@ -16,7 +16,6 @@ local servers = {
 	"gopls",
 	"pyright",
 	"stylelint_lsp",
-	"astro",
 	"pyright",
 	"jsonls",
 }
