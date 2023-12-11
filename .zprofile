@@ -18,7 +18,7 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 # program directories
 
 export ANDROID_SDK_HOME="$XDG_CONFIG_HOME/android"
-export BKMR_DB_URL="$XDG_DATA_HOME/bkmr_db"
+export BKMR_DB_URL="$XDG_DATA_HOME/bkmr/bkmr_db"
 export CABAL_DIR="$XDG_CONFIG_HOME/cabal"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg" ; GPG_TTY=$(tty) ; export GPG_TTY

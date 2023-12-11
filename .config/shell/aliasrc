@@ -12,12 +12,14 @@ done; unset command
 
 # Verbosity and settings that you pretty much just always are going to want.
 alias \
+	bc="bc -ql" \
 	cp="cp -iv" \
+	mkd="mkdir -pv" \
 	mv="mv -iv" \
 	rm="rm -vI" \
-	bc="bc -ql" \
+    rmd="rm -rfvI" \
 	rsync="rsync -vrPlu" \
-	mkd="mkdir -pv" \
+	v="$EDITOR" \
     gd="pushd" \
     pd="popd"
 
@@ -28,11 +30,6 @@ alias \
 	grep="grep --color=auto" \
 	diff="diff --color=auto" \
 	ccat="highlight --out-format=ansi" \
-
-# These common commands are just too long! Abbreviate them.
-alias \
-	sdn="shutdown -h now" \
-	v="$EDITOR" \
 
 # system-utility style
 alias \
@@ -85,9 +82,6 @@ alias \
     lsh="cd ${XDG_DATA_HOME} && ls -A" \
     lsrc="cd ${HOME}/.local/src && ls -A" \
     vol="cd /Volumes && ls -A" \
-
-# projects / personal
-alias \
     obs="cd ${HOME}/obsidian/paradigm-shifted && ls" \
     tjex.net="cd ${HOME}/dev/websites/tjex.net && ls"
 
