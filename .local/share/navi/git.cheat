@@ -1,0 +1,11 @@
+% git
+
+# remove file / folder from entire git commit history
+git filter-branch -f --tree-filter 'rm -rf <file>' HEAD 
+
+# checkout branch
+$ branch: git branch | awk '{print $NF}'
+git checkout <branch>
+
+# squash commits
+git rebase -i HEAD~<n-commits>

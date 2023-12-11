@@ -1,0 +1,37 @@
+% grep
+
+# search a regular expression in a file
+rg <regex> <filename>
+
+# search a line which will start from only A-Z, a-z & 0-9 (Alphanumeric Characters).
+rg "^[[:alnum:]]"  <filename>
+
+# search line which will start from only [A-Z & a-z] i.e. Alpha Characters.
+rg "^[[:alpha:]]" <filename>
+
+# search line which will start from [Tab & Space] i.e. Blank Characters.
+rg "^[[:blank:]]" <filename>
+
+# search line which will start from digit [0-9] i.e. Digit Characters.
+rg "^[[:digit:]]" <filename>
+
+# search line which will start from lower letters i.e [a-z] (Lower Letters).
+rg "^[[:lower:]]" <filename>
+
+# search line which will start from [! ” # $ % & ‘ ( ) * + , – . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~. ] i.e. Punctuation Characters.
+rg "^[[:punct:]]" <filename>
+
+# search a line which will start from Alphanumeric & Punctuation Characters called as Graphical Characters.
+rg "^[[:graph:]]" tecmint.tx
+
+search a line which will start from Alphanumeric, Punctuation and space characters.
+rg "^[[:print:]]" <filename>
+
+# search a line which will start from [tab, newline, vertical tab, form feed, carriage return, and space] i.e. Space Characters.
+rg "^[[:space:]]" <filename>
+
+# search a line which will start from [A-Z] i.e Upper-case Letters.
+rg "^[[:upper:]]" <filename>
+
+# searches a line which will start from [0-9, A-F and a-f] i.e Hexadecimal Digits.
+rg "^[[:xdigit:]]" <filename>

@@ -1,0 +1,4 @@
+% sed
+
+# replace string x with y in file or glob
+sed -i -e 's/<x>/<y>/g' <file-or-glob>

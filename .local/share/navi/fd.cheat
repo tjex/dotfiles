@@ -1,0 +1,4 @@
+% fd
+
+# remove all files that match pattern
+fd -H '<pattern>' -tf -X rm

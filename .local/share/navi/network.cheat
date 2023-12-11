@@ -1,0 +1,8 @@
+% network
+
+# show whats happening on a network port
+lsof -i :<port_number>                                  
+
+# kill the process of a PID (sourced from lsof)
+kill -9 <PID>                                          
+

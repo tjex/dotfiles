@@ -1,0 +1,8 @@
+% bkmr
+
+# Bulk update: all bms with tag x also get tag y
+bkmr update -t <y> $(bkmr search -t <x> --np)
+
+# Bulk update: all bms with tag x should have y removed
+bkmr update -n <y> $(bkmr search -t <x> --np)
+

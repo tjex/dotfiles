@@ -1,0 +1,7 @@
+% crypto
+
+# encode string to base64
+echo "string" | base64
+
+# decode base64 string
+echo <base64 string> | base64 --decode

@@ -1,0 +1,4 @@
+% zsh
+
+# lists all files that get sourced by shell
+zsh -o SOURCE_TRACE -lic ''                            

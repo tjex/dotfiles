@@ -1,0 +1,7 @@
+% tmux
+
+# make a new session with custom name
+tmux new -s<session_name>
+
+# attach to session by name
+tmux a -t<session_name>

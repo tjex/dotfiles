@@ -1,0 +1,4 @@
+% wget
+
+# download full website for local use
+wget -pkr <url>

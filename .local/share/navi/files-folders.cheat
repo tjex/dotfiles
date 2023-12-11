@@ -1,0 +1,11 @@
+% files-folders
+
+# size of curr. folder
+du -sh .
+
+# uncompress
+tar -zxvf <input>.tar.gz
+
+# compress
+$ ext: echo 'tar.gz zip' | tr ' ' '\n'
+tar -zcvf <input_folder>.<ext> <input_folder>

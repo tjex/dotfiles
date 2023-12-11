@@ -1,0 +1,8 @@
+% ffmpeg
+
+# convert anything using ffmpeg
+ffmpeg -i <input> <output>
+
+# convert images into .mp4 container for gif
+ffmpeg -i <input>%04d.<ext> <output>.mp4
+
