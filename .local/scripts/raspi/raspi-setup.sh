@@ -4,6 +4,8 @@
 # it will install my raspi dotfiles and other base tools I need
 
 function setup() {
+    # make some non standard dirs that I use
+    mkdir -p ~/.cache/history ~/.local/src ~/.local/bin ~/.local/share
     echo "updating and upgrading raspberry"
     sudo apt-get update -y
     sudo apt-get upgrade -y
@@ -62,22 +64,50 @@ function installNeovim() {
     cd ~/.local/src/installed
     sudo apt-get install ninja-build gettext cmake unzip curl
     git clone https://github.com/neovim/neovim
-    cd neovim 
+    cd neovim
     git checkout stable
     make CMAKE_BUILD_TYPE=RelWithDebInfo
     sudo make install
 }
 
 installTheRest() {
+    echo "----------"
+    echo "installing go"
     sudo apt-get install golang-go
-    # python etc...
+    # symlink python3 to python
+    echo "----------"
+    echo "symlinking python3 / python"
+    if [ $(which python) ]; then
+        python2=$(which python)
+        sudo rm $(which python)
+    fi
+    sudo rm $(which python)
+    sudo ln -s $(which python3) ${python2}
+    # get pip
+    echo "----------"
+    echo "installing pip"
+    sudo apt install python3-pip
+
+    # node / npm
+    echo "----------"
+    echo "installing node and npm"
+    sudo apt-get update
+    sudo apt-get install -y ca-certificates curl gnupg
+    sudo mkdir -p /etc/apt/keyrings
+    curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
+
+    # NOTE: this will need to be updated at some point
+    NODE_MAJOR=20
+    echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
+    sudo apt-get update
+    sudo apt-get install nodejs -y
 }
 
 # base setup
 read -p 'Installing dot files. Have you copied over:
     - ssh credentials (for git) / or generated a new pair and added to github?
     - ~/.zshenv?
-    
+
     If so, do you want to confirm with dot file installation? (Y/N): ' confirm
 if [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]]; then
     echo 'confirmed'
@@ -95,20 +125,19 @@ else
     echo 'skipping'
 fi
 
-
 echo "----------"
 read -p 'Install neovim (from source)? (Y/N): ' confirm
 if [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]]; then
-   echo 'confirmed'
-   installNeovim
+    echo 'confirmed'
+    installNeovim
 else
-   echo 'skipping'
+    echo 'skipping'
 fi
 
 read -p 'Install "the rest", languages, utils, etc? (Y/N): ' confirm
 if [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]]; then
-   echo 'confirmed'
-   installTheRest
+    echo 'confirmed'
+    installTheRest
 else
-   echo 'denied'
+    echo 'denied'
 fi
