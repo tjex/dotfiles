@@ -59,27 +59,56 @@ function installWezterm() {
 }
 
 function installNeovim() {
+    cd ~/.local/src/installed
     sudo apt-get install ninja-build gettext cmake unzip curl
+    git clone https://github.com/neovim/neovim
+    cd neovim 
+    git checkout stable
+    make CMAKE_BUILD_TYPE=RelWithDebInfo
+    sudo make install
+}
+
+installTheRest() {
+    sudo apt-get install golang-go
+    # python etc...
 }
 
 # base setup
-read -p 'have you copied over:
+read -p 'Installing dot files. Have you copied over:
     - ssh credentials (for git) / or generated a new pair and added to github?
     - ~/.zshenv?
-    (Y/N): ' confirm
+    
+    If so, do you want to confirm with dot file installation? (Y/N): ' confirm
 if [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]]; then
     echo 'confirmed'
     setup
 else
-    echo 'denied. not running script'
+    echo 'skipping'
 fi
 
-# extra
 echo "----------"
-read -p 'install wezterm? (Y/N): ' confirm
+read -p 'Install wezterm (from source)? (Y/N): ' confirm
 if [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]]; then
     echo 'confirmed'
     installWezterm
 else
-    echo 'denied'
+    echo 'skipping'
+fi
+
+
+echo "----------"
+read -p 'Install neovim (from source)? (Y/N): ' confirm
+if [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]]; then
+   echo 'confirmed'
+   installNeovim
+else
+   echo 'skipping'
+fi
+
+read -p 'Install "the rest", languages, utils, etc? (Y/N): ' confirm
+if [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]]; then
+   echo 'confirmed'
+   installTheRest
+else
+   echo 'denied'
 fi
