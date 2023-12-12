@@ -6,7 +6,7 @@ autoload -U colors && colors              # Load colors
 
 autoload -Uz promptinit
 promptinit
-prompt bart
+prompt redhat
 
 # Enable colors:
 autoload -U colors && colors # Load colors
