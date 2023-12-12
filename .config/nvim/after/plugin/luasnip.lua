@@ -16,13 +16,14 @@ ls.config.set_config {
 	-- enable_autosnippets = true,
 }
 
-key({ "i", "s" }, "<c-s>", function()
+
+key({ "i", "s" }, "<c-j>", function()
 	if ls.expand_or_jumpable() then
 		ls.expand_or_jump()
 	end
 end, { silent = true })
 
-key({ "i", "s" }, "<c-u>", function()
+key({ "i", "s" }, "<c-k>", function()
 	if ls.jumpable(-1) then
 		ls.jump(-1)
 	end
