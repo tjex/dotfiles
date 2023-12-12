@@ -6,29 +6,48 @@ script_dir=$(dirname "$(realpath "$0")")
 cairo="/Volumes/cairo"
 restic=$(which restic)
 
+#restic repos
+r_docs="${cairo}/backups/r-docs"
+r_ssh="${cairo}/backups/r-ssh"
+r_gnupg="${cairo}/backups/r-gnupg"
+r_abudget="${cairo}/backups/r-abudget"
+
+resticRepos=(${r_docs} ${r_ssh} ${r_gnupg} ${r_abudget})
+
 printStep() {
     echo ""
     echo "-> ${1}"
+}
+
+resticCleanup() {
+    for repo in ${resticRepos[@]}; do
+        printStep "Pruning: ${repo}"
+        restic -r ${repo} forget --keep-last 4
+        restic -r ${repo} prune
+    done
 }
 
 backup() {
     echo "========== RESTIC BACKUPS =========="
 
     printStep "backup docs"
-    restic -r "${cairo}/backups/r-docs" backup \
+    restic -r ${r_docs} backup \
         --tag script-bup $HOME/docs
 
     printStep "backup ssh"
-    restic -r "${cairo}/backups/r-ssh" backup \
+    restic -r ${r_ssh} backup \
         --tag script-bup $HOME/.ssh
 
     printStep "backup gnupg"
-    restic -r "${cairo}/backups/r-gnupg" backup \
+    restic -r ${r_gnupg} backup \
         --tag script-bup $XDG_DATA_HOME/gnupg
 
     printStep "backup actual"
-    restic -r "${cairo}/backups/r-abudget" backup \
+    restic -r ${r_abudget} backup \
         --tag script-bup ~/.local/src/installed/abudget/actual-tjex/user-files
+
+    # cleanup restic repos
+    resticCleanup
 
     echo "========== RESTIC COMPLETED =========="
 
@@ -60,7 +79,9 @@ backup() {
     printStep "backup python virtualenv"
     pip freeze >"${cairo}/backups/sys_venv_requirements.txt"
 
+
 }
+
 
 # dummy check that the drive is mounted and
 # encrypted image is open
