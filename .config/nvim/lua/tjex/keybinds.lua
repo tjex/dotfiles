@@ -38,9 +38,6 @@ key("n", "Z", "1z=e", opts)
 key("n", "fp", "mzvapgq`z", opts) -- format paragraph and leave cursor where it was
 key("n", "fl", "mzgqq`z", opts) -- format line and leave cursor where it was
 
-key("i", "<C-d>", vim.fn.strftime("%Y-%m-%d")) -- insert date
-key("n", "<leader>u", ":bufdo e", opts) -- 'update' buffer
-
 -- Replace mode using the word you were currently on (thanks to the Primeageon). 
 key("n", "<leader>r", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/<Left>")
 
@@ -58,8 +55,6 @@ key("n", "`l", '`"', opts) -- jump to where cursor was on file close (`" sucks t
 -- windows
 key("n", "<C-h>", "<C-w>h", opts)
 key("n", "<C-l>", "<C-w>l", opts)
-key("n", "<C-k>", "<C-w>k", opts)
-key("n", "<C-j>", "<C-w>j", opts)
 
 -- tabs
 key("n", "gh", ":tabp<CR>", opts) -- previous tab
