@@ -56,7 +56,6 @@ alias \
 # yt-dlp output template: https://github.com/yt-dlp/yt-dlp#output-template
 alias \
     abook="abook --config $XDG_DATA_HOME/abook/abookrc --datafile $XDG_DATA_HOME/abook/addressbook" \
-    abudget="${HOME}/.local/scripts/apps/actual-budget-start" \
     bms="bkmr search --fzf" \
 	ffmpeg="ffmpeg -hide_banner" \
     gopc="gopass show -c" \

@@ -1,5 +1,5 @@
 # vim: filetype=bash
-#
+
 # Use lf to switch directories and bind it to ctrl-o
 lfcd() {
 	local tmp="$(mktemp -uq)"
@@ -80,7 +80,7 @@ ytalbum() {
 yttitle() {
     url=$1
     title=$2
-    yt-dlp -x -f bestaudio/best ${url} -o "${2}.%(ext)s" 
+    yt-dlp -x -f bestaudio/best ${url} -o "${2}.%(ext)s"
 
 }
 

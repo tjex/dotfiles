@@ -38,6 +38,7 @@ export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
 export NVM_DIR="$XDG_DATA_HOME/nvm"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/pythonrc"
+export RESTIC_CACHE_DIR="$XDG_CACHE_HOME/restic"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 export STACK_XDG=true # use xdg paths for haskell stack
 export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
