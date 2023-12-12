@@ -3,31 +3,31 @@
 # This script is used to setup a raspberry pi after initial imaging
 # it will install my raspi dotfiles and other base tools I need
 
+pstep() {
+    echo "--> ${1}"
+}
 function setup() {
     # make some non standard dirs that I use
     mkdir -p ~/.cache/history ~/.local/src ~/.local/bin ~/.local/share
-    echo "updating and upgrading raspberry"
+    pstep "updating and upgrading raspberry"
     sudo apt-get update -y
     sudo apt-get upgrade -y
 
-    echo "----------"
-    echo "installing git and zsh"
+    pstep "installing git and zsh"
     sudo apt-get install git zsh curl -y
 
     # install dotfiles
-    echo "----------"
-    echo "adding ssh key to agent for passwordless execution"
+    pstep "adding ssh key to agent for passwordless execution"
     eval $(ssh-agent)
     ssh-add ~/.ssh/raspi
-    echo "cloning dot files"
+    pstep "cloning dot files"
     dotf_alias="/usr/bin/git --git-dir=$HOME/.dotf-cfg/ --work-tree=$HOME"
     cd ~
     git clone --bare git@github.com:tjex/dotfiles.git $HOME/.dotf-cfg
     ${dotf_alias} config --local status.showUntrackedFiles no
     ${dotf_alias} checkout raspi
 
-    echo "----------"
-    echo "changing default shell to zsh"
+    pstep "echochanging default shell to zsh"
     chsh -s $(which zsh)
 
 }
@@ -36,7 +36,7 @@ function installWezterm() {
     cd ~
     read -p 'do you need to install rust? (Y/N): ' confirm
     if [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]]; then
-        echo "installing rust"
+        pstep "installing rust"
         curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
     else
         echo 'declined'
@@ -50,8 +50,7 @@ function installWezterm() {
     ./get-deps
     cargo build --release
     cd target/release
-    echo "----------"
-    echo "installing wezterm binaries to /usr/local/bin"
+    pstep "installing wezterm binaries to /usr/local/bin"
     mkdir -p /usr/local/bin /etc/profile.d
     sudo install -Dm755 assets/open-wezterm-here wezterm wezterm-mux-server strip-ansi-escapes -t /usr/local/bin
     sudo install -Dm644 assets/shell-integration/* -t /etc/profile.d
@@ -71,12 +70,10 @@ function installNeovim() {
 }
 
 installTheRest() {
-    echo "----------"
-    echo "installing go"
+    pstep "installing go"
     sudo apt-get install golang-go
     # symlink python3 to python
-    echo "----------"
-    echo "symlinking python3 / python"
+    pstep "symlinking python3 / python"
     if [ $(which python) ]; then
         python2=$(which python)
         sudo rm $(which python)
@@ -84,13 +81,11 @@ installTheRest() {
     sudo rm $(which python)
     sudo ln -s $(which python3) ${python2}
     # get pip
-    echo "----------"
-    echo "installing pip"
+    pstep "installing pip"
     sudo apt install python3-pip
 
     # node / npm
-    echo "----------"
-    echo "installing node and npm"
+    pstep "installing node and npm"
     sudo apt-get update
     sudo apt-get install -y ca-certificates curl gnupg
     sudo mkdir -p /etc/apt/keyrings
@@ -101,6 +96,17 @@ installTheRest() {
     echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
     sudo apt-get update
     sudo apt-get install nodejs -y
+
+    p_step "installing ntfy"
+    sudo mkdir -p /etc/apt/keyrings
+    curl -fsSL https://archive.heckel.io/apt/pubkey.txt | sudo gpg --dearmor -o /etc/apt/keyrings/archive.heckel.io.gpg
+    sudo apt install apt-transport-https
+    sudo sh -c "echo 'deb [arch=arm64 signed-by=/etc/apt/keyrings/archive.heckel.io.gpg] https://archive.heckel.io/apt debian main' \
+    > /etc/apt/sources.list.d/archive.heckel.io.list"
+    sudo apt update
+    sudo apt install ntfy
+    sudo systemctl enable ntfy
+    sudo systemctl start ntfy
 }
 
 # base setup
