@@ -1,0 +1,4 @@
+#! /usr/bin/env bash
+# renews mailbox.org disposable email addresses
+
+/opt/homebrew/bin/gopass show tillmanx@mailbox.org | ~/.local/go/bin/mailbox-org-cli --username tillmanx@mailbox.org --password-on-stdin renew-all
