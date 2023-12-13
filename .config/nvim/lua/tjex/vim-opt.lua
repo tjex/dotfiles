@@ -5,9 +5,9 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.g.BufSurfMessages = false
 
+-- look to implement this in wezterm directly if I ever turn back on
 -- blinking cursor (append within string below): ,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175
 vim.opt.guicursor = "n-c-sm-ci:block,i-v-ve-r-cr-o:hor20"
-
 vim.opt.termguicolors = true
 vim.opt.updatetime = 50
 
@@ -19,8 +19,8 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.splitright = true
 
+vim.opt.textwidth = 90
 vim.opt.wrap = false
-vim.opt.textwidth = 100 -- auto line breaks. format paragraph / line respects this value.
 vim.opt.scrolloff = 8 -- maintain min8 lines between cursor window start/end
 
 vim.opt.hlsearch = false
