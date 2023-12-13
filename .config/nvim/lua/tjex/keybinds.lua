@@ -54,6 +54,8 @@ key("n", "`l", '`"', opts) -- jump to where cursor was on file close (`" sucks t
 
 -- windows
 key("n", "<C-h>", "<C-w>h", opts)
+key("n", "<C-j>", "<C-w>j", opts)
+key("n", "<C-k>", "<C-w>k", opts)
 key("n", "<C-l>", "<C-w>l", opts)
 
 -- tabs

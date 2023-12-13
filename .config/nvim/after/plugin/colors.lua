@@ -283,4 +283,4 @@ Group.new("CmpItemMenu", groups.hl_fg_2, nil)
 Group.new("CmpItemAbbrMatch", groups.hl_fg_2, nil)
 
 -- obsidian
-Group.new("ObsidianRefText", colors.secondary, nil, styles.underline)
+Group.new("ObsidianRefText", colors.primary, nil, styles.underline)
