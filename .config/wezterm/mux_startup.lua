@@ -15,6 +15,11 @@ function M.load()
 		d2_tab:set_title("raspi")
 		d2_pane:send_text("ssh tjex@rpi.local\n")
 
+        local d3_tab = d1_window:spawn_tab({
+            cwd = "/Users/tjex/dev"
+        })
+        d3_tab:set_title("dev")
+
 		-- admin
 		local a1_tab, a1_pane, a1_window = mux.spawn_window({
 			workspace = "admin",
