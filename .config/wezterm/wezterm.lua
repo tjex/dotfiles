@@ -21,12 +21,8 @@ config.default_gui_startup_args = { "connect", "unix" }
 
 config.ssh_domains = {
   {
-    -- This name identifies the domain
     name = 'raspi',
-    -- The hostname or address to connect to. Will be used to match settings
-    -- from your ssh config file
     remote_address = 'rpi.local',
-    -- The username to use on the remote host
     username = 'tjex',
   },
 }
@@ -36,7 +32,7 @@ config.send_composed_key_when_left_alt_is_pressed = true
 config.send_composed_key_when_right_alt_is_pressed = true
 
 config.audible_bell = "Disabled"
-config.default_workspace = "general"
+config.default_workspace = "general" -- for actions like "spwan", which will otherwise use workspace "default"
 -- config.automatically_reload_config = false
 config.status_update_interval = 200
 
