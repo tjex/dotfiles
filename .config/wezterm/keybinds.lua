@@ -67,6 +67,12 @@ function M.apply(config)
 			mods = "CMD",
 			action = act.ShowLauncherArgs({ flags = "FUZZY|LAUNCH_MENU_ITEMS" }),
 		},
+		-- WINDOWS / TABS
+		{
+			key = "w",
+			mods = "CMD",
+			action = wezterm.action.CloseCurrentTab({ confirm = false }),
+		},
 
 		-- PANES
 		{

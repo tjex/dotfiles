@@ -26,6 +26,18 @@ M.neomutt_del_quoted = function()
 	vim.cmd(":g/^>/d")
 end
 
+-- M.neomutt_format_as_lines = function()
+--     -- Get the selected text
+--     local start_line, start_col, end_line, end_col = unpack(vim.fn.getpos("'<") + vim.fn.getpos("'>"))
+--     local selected_text = vim.fn.getline(start_line, end_line)
+--
+--     -- Concatenate lines and remove leading/trailing whitespaces
+--     local formatted_text = table.concat(selected_text, ' '):gsub("^%s*(.-)%s*$", "%1")
+--
+--     -- Replace the selected text with the formatted text
+--     vim.api.nvim_buf_set_lines(0, start_line, end_line, false, {formatted_text})
+-- end
+
 -- writes output of go programs to set buffnr
 M.attach_to_buffer = function(output_bufnr, pattern, command)
 	vim.api.nvim_create_autocmd("BufWritePost", {

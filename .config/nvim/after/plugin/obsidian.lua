@@ -61,6 +61,12 @@ require("obsidian").setup({
 		},
 	},
 
+    -- there needs to be an empty hl_groups table for color assignments 
+    -- to work in ./colors.lua
+	ui = {
+		hl_groups = {},
+	},
+
 	follow_url_func = function(url)
 		-- Open the URL in the default web browser.
 		vim.fn.jobstart({ "open", url }) -- Mac OS

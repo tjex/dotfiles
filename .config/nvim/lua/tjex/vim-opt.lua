@@ -19,7 +19,7 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.splitright = true
 
-vim.opt.textwidth = 90
+vim.opt.textwidth = 80
 vim.opt.wrap = false
 vim.opt.scrolloff = 8 -- maintain min8 lines between cursor window start/end
 

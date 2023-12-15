@@ -44,6 +44,7 @@ config.skip_close_confirmation_for_processes_named = {
 	"qalc",
 	"lf",
 	"gopass",
+
 }
 
 -- apply the conf files required above
