@@ -32,7 +32,7 @@ config.send_composed_key_when_left_alt_is_pressed = true
 config.send_composed_key_when_right_alt_is_pressed = true
 
 config.audible_bell = "Disabled"
-config.default_workspace = "general" -- for actions like "spwan", which will otherwise use workspace "default"
+config.default_workspace = "admin"
 -- config.automatically_reload_config = false
 config.status_update_interval = 200
 

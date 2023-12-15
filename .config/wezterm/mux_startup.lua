@@ -5,20 +5,15 @@ local M = {}
 function M.load()
 	wezterm.on("mux-startup", function()
 		-- dev
-		local d1_tab, d1_window = mux.spawn_window({
+		local d1_tab, _, d1_window = mux.spawn_window({
 			workspace = "dev",
 			cwd = "/Users/tjex/.config",
 		})
 		d1_tab:set_title("config")
 
-		local d2_tab, d2_pane = d1_window:spawn_tab({})
-		d2_tab:set_title("raspi")
-		d2_pane:send_text("ssh tjex@rpi.local\n")
-
-        local d3_tab = d1_window:spawn_tab({
-            cwd = "/Users/tjex/dev"
-        })
-        d3_tab:set_title("dev")
+		d1_window:spawn_tab({
+			cwd = "/Users/tjex/dev",
+		})
 
 		-- admin
 		local a1_tab, a1_pane, a1_window = mux.spawn_window({
@@ -27,12 +22,20 @@ function M.load()
 		})
 		a1_tab:set_title("neomutt")
 		a1_pane:send_text("TERM=xterm-direct neomutt\n")
-		a1_window:spawn_tab({})
+		local a2_tab, _, _ = a1_window:spawn_tab({})
+		a2_tab:set_title("docs")
+
+		local a3_tab, _, _ = a1_window:spawn_tab({
+			cwd = "/Users/tjex/music",
+		})
+		a3_tab:set_title("music")
 
 		-- general
-		local _ = mux.spawn_window({
-			workspace = "general",
+		local o1_tab, _, _ = mux.spawn_window({
+			workspace = "obsidian",
+			cwd = "/Users/tjex/obsidian",
 		})
+		o1_tab:set_title("obsidian")
 
 		-- website
 		local w1_tab, w1_pane, w1_window = mux.spawn_window({
@@ -46,17 +49,15 @@ function M.load()
 		w2_tab:set_title("tjex.net")
 
 		-- thesis
-		local t1_window = mux.spawn_window({
+		local _, _, t1_window = mux.spawn_window({
 			workspace = "thesis",
 			cwd = "/Users/tjex/thesis",
 		})
-		local t1_tab2, t1_pane2 = t1_window:spawn_tab({
+		local t1_tab2, t1_pane2, _ = t1_window:spawn_tab({
 			cwd = "/Users/tjex/obsidian/paradigm-shifted/masters/thesis",
 		})
 		t1_tab2:set_title("obsidian")
 		t1_pane2:send_text("nvim running-notes.md\n")
-
-		mux.set_active_workspace("dev")
 	end)
 end
 

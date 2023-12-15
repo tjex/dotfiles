@@ -109,7 +109,7 @@ function M.apply(config)
 			key = "1",
 			mods = "ALT",
 			action = act.SwitchToWorkspace({
-				name = "system",
+				name = "dev",
 			}),
 		},
 		{
@@ -123,7 +123,7 @@ function M.apply(config)
 			key = "3",
 			mods = "ALT",
 			action = act.SwitchToWorkspace({
-				name = "general",
+				name = "obsidian",
 			}),
 		},
 		{
