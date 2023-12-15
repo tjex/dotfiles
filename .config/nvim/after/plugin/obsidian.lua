@@ -5,7 +5,7 @@ if not ok then
 end
 
 require("obsidian").setup({
-	-- Required, the path to your vault directory.
+	log_level = vim.log.levels.WARN,
 	workspaces = {
 		{
 			name = "paradigm-shifted",
@@ -14,13 +14,14 @@ require("obsidian").setup({
 	},
 	detect_cwd = false,
 	disable_frontmatter = true,
+	notes_subdir = "forrest-floor", -- main notes sub dirctory
+	finder = "telescope.nvim",
 
-	-- main notes sub dirctory
-	notes_subdir = "forrest-floor",
-
-	-- Optional, set the log level for obsidian.nvim. This is an integer corresponding to one of the log
-	-- levels defined by "vim.log.levels.*" or nil, which is equivalent to DEBUG (1).
-	log_level = vim.log.levels.DEBUG,
+	completion = {
+		nvim_cmp = true,
+		min_chars = 2,
+		new_notes_location = "notes_subdir",
+	},
 
 	daily_notes = {
 		-- Optional, if you keep daily notes in a separate directory.
@@ -28,13 +29,6 @@ require("obsidian").setup({
 		-- Optional, if you want to change the date format for daily notes.
 		date_format = "%Y-%m-%d",
 		template = "nvim-daily.md",
-	},
-
-	completion = {
-		nvim_cmp = true,
-		min_chars = 2,
-		new_notes_location = "notes_subdir",
-		prepend_note_id = true,
 	},
 
 	mappings = {
@@ -46,8 +40,6 @@ require("obsidian").setup({
 			opts = { noremap = false, expr = true, buffer = true },
 		},
 	},
-
-	finder = "telescope.nvim",
 
 	templates = {
 		subdir = "extra/templates",
@@ -61,8 +53,8 @@ require("obsidian").setup({
 		},
 	},
 
-    -- there needs to be an empty hl_groups table for color assignments 
-    -- to work in ./colors.lua
+	-- there needs to be an empty hl_groups table for color assignments
+	-- to work in ./colors.lua
 	ui = {
 		hl_groups = {},
 	},

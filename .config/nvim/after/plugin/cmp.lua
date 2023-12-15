@@ -1,13 +1,13 @@
 local ok, _ = pcall(require, "cmp")
 if not ok then
-	print "nvim-cmp not ok!"
+	print("nvim-cmp not ok!")
 	return
 end
 
-local cmp = require "cmp"
-local lspkind = require "lspkind"
+local cmp = require("cmp")
+local lspkind = require("lspkind")
 
-cmp.setup {
+cmp.setup({
 	completion = {
 		autocomplete = false,
 	},
@@ -22,13 +22,13 @@ cmp.setup {
 		-- documentation = cmp.config.window.bordered(),
 	},
 	performance = { max_view_entries = 15 },
-	mapping = cmp.mapping.preset.insert {
+	mapping = cmp.mapping.preset.insert({
 		-- saving next/prev keymaps as i think typing is good enough to bring it into selection
 		["<c-k>"] = cmp.mapping.select_prev_item(),
 		["<c-j>"] = cmp.mapping.select_next_item(),
 		["<c-;>"] = cmp.mapping.complete(),
-		["<c-l>"] = cmp.mapping.confirm { select = true }, -- Accept item at top of list. Set `select` to `false` to only confirm explicitly selected items.
-	},
+		["<c-l>"] = cmp.mapping.confirm({ select = true }), -- Accept item at top of list. Set `select` to `false` to only confirm explicitly selected items.
+	}),
 
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
@@ -40,7 +40,7 @@ cmp.setup {
 		{ name = "buffer" },
 	}),
 	formatting = {
-		format = lspkind.cmp_format {
+		format = lspkind.cmp_format({
 			mode = "symbol",
 			maxwidth = 50,
 			ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
@@ -51,6 +51,6 @@ cmp.setup {
 				path = "[path]",
 				luasnip = "[snip]",
 			},
-		},
+		}),
 	},
-}
+})
