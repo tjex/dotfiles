@@ -112,7 +112,7 @@ tlogs() {
 	fi
 }
 
-tnotes() {
+tn() {
 	if result=($(fd . -tf ${HOME}/notes | fzf)); then
 		nvim $result
 	else
@@ -120,7 +120,7 @@ tnotes() {
 	fi
 }
 
-tlists() {
+tl() {
 	if result=($(fd . -tf ${HOME}/lists | fzf)); then
 		nvim $result
 	else

@@ -10,6 +10,9 @@ local key = vim.keymap.set
 -- snippets source
 require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/snippets" })
 
+-- stop vimwiki from blocking markdown snippets registered in luasnip
+ls.filetype_extend("vimwiki", { "markdown" })
+
 ls.config.set_config({
 	history = true,
 	updateevents = "TextChanged,TextChangedI",
@@ -43,7 +46,7 @@ local function map_snippet(keys, snippet_key)
 		local function keybind_snip()
 			require("luasnip").snip_expand(require("snippets.keysnips-" .. ftype)[snippet_key]) -- nvim/lua/keybind-snips
 		end
-        local snip_found, _ = pcall(keybind_snip)
+		local snip_found, _ = pcall(keybind_snip)
 		if not snip_found then
 			print("no keybind snippets for this filetype")
 			return
