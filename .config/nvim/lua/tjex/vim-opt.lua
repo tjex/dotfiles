@@ -4,6 +4,7 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.g.BufSurfMessages = false
+vim.g.noswapfile = true
 
 -- look to implement this in wezterm directly if I ever turn back on
 -- blinking cursor (append within string below): ,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175
