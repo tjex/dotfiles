@@ -4,7 +4,7 @@ vim.filetype.add({
 		astro = "astro",
 		sh = "bash",
 		mdx = "markdown",
-		bin = "markdown",
+		md = "markdown",
 		tidal = "tidal",
 		mustache = "html",
 		cheat = "bash",

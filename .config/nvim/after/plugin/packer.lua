@@ -46,6 +46,7 @@ return require("packer").startup(function(use)
 				require("nvim-surround").setup({})
 			end,
 		},
+        -- "vimwiki/vimwiki",
 	})
 
 	-- utility

@@ -1,15 +1,13 @@
 -- go snippets
-local ls = require("luasnip")
-local i = ls.insert_node
-local s = ls.snippet
-local fmt = require("luasnip.extras.fmt").fmt
-local extras = require("luasnip.extras")
-local rep = extras.rep
+local I = require("tjex.luasnip_vars")
+local s = I.s
+local i = I.i
+local rep = I.rep
 
 return {
 	s(
 		"plugcheck",
-		fmt(
+		I.fmt(
 			[[
         local ok, _ = pcall(require, "{}")
         if not ok then
@@ -22,7 +20,7 @@ return {
 	),
 	s(
 		"wez-keybind",
-		fmt(
+		I.fmt(
 			[[
             {{
                 key = "{}",

@@ -1,11 +1,9 @@
 -- latex snippets
-local ls = require("luasnip")
-local i = ls.insert_node
-local s = ls.snippet
-local t = ls.text_node
-local fmt = require("luasnip.extras.fmt").fmt
-local extras = require("luasnip.extras")
-local rep = extras.rep
+local I = require("tjex.luasnip_vars")
+local i = I.i
+local s = I.s
+local t = I.t
+local fmt = I.fmt
 
 return {
 	s(

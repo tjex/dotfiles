@@ -1,9 +1,9 @@
 -- go snippets
-local ls = require("luasnip")
-local i = ls.insert_node
-local s = ls.snippet
-local t = ls.text_node
-local fmt = require("luasnip.extras.fmt").fmt
+local I = require("tjex.luasnip_vars")
+local i = I.i
+local s = I.s
+local t = I.t
+local fmt = I.fmt
 
 return {
 	s(
@@ -29,7 +29,19 @@ return {
             }}
 
             ]],
-			{ i(1)}
+			{ i(1) }
+		)
+	),
+	s(
+		"for loop",
+		fmt(
+			[[
+            for {}, {} := range {} {{
+                {}
+            }}
+
+            ]],
+			{ i(1), i(2), i(3), i(4) }
 		)
 	),
 }

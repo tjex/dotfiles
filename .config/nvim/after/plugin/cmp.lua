@@ -13,17 +13,16 @@ cmp.setup({
 	},
 	snippet = {
 		expand = function(args)
-			require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
+			require("luasnip").lsp_expand(args.body)
 		end,
 	},
 	window = {
-		documentation = cmp.config.disable, -- disable docs
+		documentation = cmp.config.disable, -- disable docs popup
 		completion = cmp.config.window.bordered(),
 		-- documentation = cmp.config.window.bordered(),
 	},
 	performance = { max_view_entries = 15 },
 	mapping = cmp.mapping.preset.insert({
-		-- saving next/prev keymaps as i think typing is good enough to bring it into selection
 		["<c-k>"] = cmp.mapping.select_prev_item(),
 		["<c-j>"] = cmp.mapping.select_next_item(),
 		["<c-;>"] = cmp.mapping.complete(),
