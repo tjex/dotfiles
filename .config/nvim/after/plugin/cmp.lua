@@ -8,9 +8,9 @@ local cmp = require("cmp")
 local lspkind = require("lspkind")
 
 cmp.setup({
-	completion = {
-		autocomplete = false,
-	},
+	-- completion = {
+	-- 	autocomplete = false,
+    -- },
 	snippet = {
 		expand = function(args)
 			require("luasnip").lsp_expand(args.body)
@@ -30,13 +30,11 @@ cmp.setup({
 	}),
 
 	sources = cmp.config.sources({
-		{ name = "nvim_lsp" },
-		{ name = "nvim_lua" },
-		{ name = "path" },
-		{ name = "luasnip" },
+		{ name = "nvim_lsp", keyword_length = 5 },
+		{ name = "luasnip", keyword_length = 3 },
 		{ name = "buffer", keyword_length = 5 },
-	}, {
-		{ name = "buffer" },
+		-- { name = "nvim_lua", keyword_length = 20 },
+		{ name = "path", keyword_length = 4 },
 	}),
 	formatting = {
 		format = lspkind.cmp_format({
@@ -46,9 +44,9 @@ cmp.setup({
 			menu = {
 				buffer = "[buf]",
 				nvim_lsp = "[LSP]",
-				nvim_lua = "[api]",
-				path = "[path]",
 				luasnip = "[snip]",
+				path = "[path]",
+				nvim_lua = "[api]",
 			},
 		}),
 	},
