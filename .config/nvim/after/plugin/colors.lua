@@ -235,6 +235,7 @@ Group.new("type", colors.gray_0)
 Group.new("identifier", colors.gray_0)
 Group.new("type.builtin", colors.gray_4)
 Group.new("type.definition", colors.gray_0)
+Group.new("underlined", colors.gray_4, nil, styles.underline)
 Group.new("variable", colors.gray_3)
 Group.new("variable.builtin", colors.gray_3)
 
