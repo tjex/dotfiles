@@ -25,8 +25,8 @@ cmp.setup({
 	mapping = cmp.mapping.preset.insert({
 		["<c-k>"] = cmp.mapping.select_prev_item(),
 		["<c-j>"] = cmp.mapping.select_next_item(),
-		["<c-;>"] = cmp.mapping.complete(),
-		["<c-l>"] = cmp.mapping.confirm({ select = true }), -- Accept item at top of list. Set `select` to `false` to only confirm explicitly selected items.
+		["<c-l>"] = cmp.mapping.complete(),
+		["<c-i>"] = cmp.mapping.confirm({ select = true }), -- Accept item at top of list. Set `select` to `false` to only confirm explicitly selected items.
 	}),
 
 	sources = cmp.config.sources({
