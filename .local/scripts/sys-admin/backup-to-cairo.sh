@@ -8,11 +8,12 @@ restic=$(which restic)
 
 #restic repos
 r_docs="${cairo}/backups/r-docs"
+r_notes="${cairo}/backups/r-notes"
 r_ssh="${cairo}/backups/r-ssh"
 r_gnupg="${cairo}/backups/r-gnupg"
 r_abudget="${cairo}/backups/r-abudget"
 
-resticRepos=(${r_docs} ${r_ssh} ${r_gnupg} ${r_abudget})
+resticRepos=(${r_docs} ${r_notes} ${r_ssh} ${r_gnupg} ${r_abudget})
 
 printStep() {
     echo ""
@@ -33,6 +34,10 @@ backup() {
     printStep "backup docs"
     restic -r ${r_docs} backup \
         --tag script-bup $HOME/docs
+
+    printStep "backup notes"
+    restic -r ${r_notes} backup \
+        --tag script-bup $HOME/notes
 
     printStep "backup ssh"
     restic -r ${r_ssh} backup \

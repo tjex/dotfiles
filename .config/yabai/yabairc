@@ -18,8 +18,8 @@ yabai -m config \
 
 yabai -m config \
     window_opacity on \
-    active_window_opacity 0.85 \
-    normal_window_opacity 0.85
+    active_window_opacity 0.8 \
+    normal_window_opacity 0.8
 
 # rules
 # manage=off together with grid, places a custom window size on a custom grid.

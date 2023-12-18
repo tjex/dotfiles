@@ -54,7 +54,7 @@ function M.load()
 			cwd = "/Users/tjex/thesis",
 		})
 		local t1_tab2, t1_pane2, _ = t1_window:spawn_tab({
-			cwd = "/Users/tjex/obsidian/paradigm-shifted/masters/thesis",
+			cwd = "/Users/tjex/obsidian/paradigm-shifted/thesis",
 		})
 		t1_tab2:set_title("obsidian")
 		t1_pane2:send_text("nvim running-notes.md\n")

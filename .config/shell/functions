@@ -12,7 +12,7 @@ lfcd() {
 }
 
 
-# mv a folder into a folder that you make, in the same command.
+# mv an item into a folder that you make, in the same command.
 mvmk() {
 	mkdir -p -- "$argv[-1]"
 	mv "$@"

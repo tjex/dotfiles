@@ -2,13 +2,16 @@
 
 $ snapshot_id: restic -r <repository> snapshots
 
+# restore the latest snapshot
+restic -r <repo> restore latest --target <dest>
+
 # Restoring snapshot to a specific directory
 restic -r <repository> restore <snapshot_id> --target <restore_dir>
 
 # Restoring snapshot from a specific host to a specific directory
 restic -r <repository> restore <snapshot_id> --target <restore_dir> --host <host>
 
-# Restoring a folder/file form a snapshot to a specific directory
+# Restoring a specific folder/file from a snapshot to a specific directory
 restic -r <repository> restore <snapshot_id> --target <restore_dir> --include <include>
 
 # Restoring a snapshot except a given folder/file to a specific directory

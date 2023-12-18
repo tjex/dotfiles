@@ -15,6 +15,7 @@ key("n", "<ESC>", "<Nop>")
 key("n", "<F1>", "<Nop>", opts)
 key("i", "kj", "<ESC>", opts)
 key("i", "KJ", "<ESC>", opts)
+key("i", "<c-l>", "<Nop>", opts)
 
 -- Modes
 --  normal mode = 'n'
