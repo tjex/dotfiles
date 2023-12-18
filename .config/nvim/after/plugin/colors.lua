@@ -96,7 +96,7 @@ Group.new("SpellRare", colors.primary)
 Group.new("TablineFill", nil, nil)
 Group.new("Tabline", groups.tab_unfocus, groups.tab_unfocus)
 Group.new("TabLineSel", groups.tab_focus, groups.tab_focus)
-Group.new("Title", colors.gray_1)
+Group.new("Title", colors.primary)
 Group.new("WildMenu", colors.yellow, colors.bg_lighter)
 Group.new("VisualNOS", colors.primary, colors.gray_6)
 Group.new("Visual", colors.black, groups.hl_bg_2)
@@ -163,18 +163,8 @@ Group.new("@type.builtin", colors.gray_4)
 Group.new("@type.definition", colors.gray_0)
 Group.new("@variable", colors.gray_3)
 Group.new("@variable.builtin", colors.gray_3)
--- disabled lsp server highlighting (in lsp.lua) as it flashes on write
--- and on load AND doesn't seem to offer so much extra highlighting functionatlity?
--- Group.new("@lsp.type.function", colors.quart)
--- Group.new("@lsp.type.macro", colors.primary)
--- Group.new("@lsp.type.method", colors.primary)
--- Group.new("@lsp.type.variable", colors.primary)
--- Group.new("@lsp.type.paramater", colors.gray_2)
 
--- Typography (copied from treesitter with '@' remove)
--- these highlights get used when treesitter cant activate,
--- for conf files with no extension and neomutt email writin in neovim
-
+-- vim standard (non treesitter) highlights
 Group.new("boolean", colors.tertiary)
 Group.new("character", colors.secondary)
 Group.new("character.special", colors.gray_0)
@@ -284,4 +274,9 @@ Group.new("CmpItemMenu", groups.hl_fg_2, nil)
 Group.new("CmpItemAbbrMatch", groups.hl_fg_2, nil)
 
 -- obsidian
-Group.new("ObsidianRefText", colors.primary, nil, styles.underline)
+Group.new("ObsidianRefText", colors.primary, nil, nil)
+
+-- vimwki
+Group.new("VimwikiLink", colors.primary, nil, nil)
+Group.new("VimwikiHeader1", colors.primary, nil)
+Group.new("VimwikiHeaderChar", colors.primary, nil)

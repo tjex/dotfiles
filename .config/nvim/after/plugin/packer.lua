@@ -46,7 +46,6 @@ return require("packer").startup(function(use)
 				require("nvim-surround").setup({})
 			end,
 		},
-		"vimwiki/vimwiki",
 	})
 
 	-- utility
@@ -74,8 +73,8 @@ return require("packer").startup(function(use)
 
 	-- external integrations
 	use({
-		"epwalsh/obsidian.nvim",
-		requires = { "nvim-lua/plenary.nvim", "hrsh7th/nvim-cmp" },
+		{ "epwalsh/obsidian.nvim", requires = { "nvim-lua/plenary.nvim", "hrsh7th/nvim-cmp" } },
+        {"vimwiki/vimwiki", requires = "kiyoon/telescope-insert-path.nvim"}
 	})
 
 	-- dap
@@ -85,9 +84,6 @@ return require("packer").startup(function(use)
 		"mxsdev/nvim-dap-vscode-js",
 		"rcarriga/nvim-dap-ui",
 		"leoluz/nvim-dap-go",
-		-- it doesn't look right that these are here...?
-		-- opt = true,
-		-- cmd = { 'Dapui' },
 	})
 
 	-- lsp / formatting / linting

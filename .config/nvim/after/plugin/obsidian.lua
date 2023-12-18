@@ -14,12 +14,13 @@ require("obsidian").setup({
 	},
 	detect_cwd = false,
 	disable_frontmatter = true,
+    prepend_note_id = false,
 	notes_subdir = "forrest-floor", -- main notes sub dirctory
 	finder = "telescope.nvim",
 
 	completion = {
 		nvim_cmp = true,
-		min_chars = 2,
+		min_chars = 3,
         new_notes_location = "notes_subdir",
 	},
 

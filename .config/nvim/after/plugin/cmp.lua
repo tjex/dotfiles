@@ -8,9 +8,9 @@ local cmp = require("cmp")
 local lspkind = require("lspkind")
 
 cmp.setup({
-	-- completion = {
-	-- 	autocomplete = false,
-    -- },
+	completion = {
+		autocomplete = false,
+    },
 	snippet = {
 		expand = function(args)
 			require("luasnip").lsp_expand(args.body)
@@ -21,12 +21,13 @@ cmp.setup({
 		completion = cmp.config.window.bordered(),
 		-- documentation = cmp.config.window.bordered(),
 	},
-	performance = { max_view_entries = 15 },
+	performance = { max_view_entries = 10 },
 	mapping = cmp.mapping.preset.insert({
+        -- <c-l> has a delay? 
 		["<c-k>"] = cmp.mapping.select_prev_item(),
 		["<c-j>"] = cmp.mapping.select_next_item(),
-		["<c-l>"] = cmp.mapping.complete(),
-		["<c-i>"] = cmp.mapping.confirm({ select = true }), -- Accept item at top of list. Set `select` to `false` to only confirm explicitly selected items.
+		["<c-i>"] = cmp.mapping.complete(),
+		["<c-space>"] = cmp.mapping.confirm({ select = true }), -- Accept item at top of list. Set `select` to `false` to only confirm explicitly selected items.
 	}),
 
 	sources = cmp.config.sources({

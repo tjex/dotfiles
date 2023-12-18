@@ -10,6 +10,7 @@ require("telescope").load_extension("dap")
 
 local key = vim.keymap.set
 local opts = { noremap = true, silent = true }
+local path_actions = require("telescope_insert_path")
 local tb = require("telescope.builtin")
 
 key("n", "ss", tb.buffers, opts)
@@ -30,6 +31,10 @@ key("n", "st", ":TodoTelescope<CR>", opts)
 key("n", "sx", tb.git_branches, opts)
 key("n", "sz", tb.git_stash, opts)
 
+key("i", "<c-f>", function()
+	require("telescope.builtin").find_files({ previewer = false })
+end, opts)
+
 require("telescope").setup({
 	defaults = {
 		path_display = { "truncate" },
@@ -43,9 +48,21 @@ require("telescope").setup({
 				width = 0.8,
 				preview_cutoff = 100,
 			},
-            vertical = {
-                prompt_position = "top",
-            }
+			vertical = {
+				prompt_position = "top",
+			},
+		},
+		mappings = {
+			-- when in normal mode within telescope prompt
+			n = {
+				-- https://github.com/kiyoon/telescope-insert-path.nvim
+				-- If you want to get relative path that is relative to the cwd, use
+				-- `relpath` instead of `reltobufpath`
+				-- "_i_" = insert at cursor (no leader required)
+				-- "_a_" = insert after cursor
+				["i"] = path_actions.insert_reltobufpath_i_insert,
+				["a"] = path_actions.insert_abspath_i_insert,
+			},
 		},
 	},
 	extensions = {
