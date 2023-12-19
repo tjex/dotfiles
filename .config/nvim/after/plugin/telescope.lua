@@ -58,10 +58,10 @@ require("telescope").setup({
 				-- https://github.com/kiyoon/telescope-insert-path.nvim
 				-- If you want to get relative path that is relative to the cwd, use
 				-- `relpath` instead of `reltobufpath`
-				-- "_i_" = insert at cursor (no leader required)
-				-- "_a_" = insert after cursor
-				["i"] = path_actions.insert_reltobufpath_i_insert,
-				["a"] = path_actions.insert_abspath_i_insert,
+				-- "_i_normal" = insert at cursor, enter normal mode (i.e, no leader required)
+				-- "_a_insert" = insert after cursor, enter insert mode
+				["i"] = path_actions.insert_reltobufpath_i_normal,
+				["a"] = path_actions.insert_abspath_i_normal,
 			},
 		},
 	},

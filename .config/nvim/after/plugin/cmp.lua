@@ -10,7 +10,7 @@ local lspkind = require("lspkind")
 cmp.setup({
 	completion = {
 		autocomplete = false,
-    },
+	},
 	snippet = {
 		expand = function(args)
 			require("luasnip").lsp_expand(args.body)
@@ -23,18 +23,17 @@ cmp.setup({
 	},
 	performance = { max_view_entries = 10 },
 	mapping = cmp.mapping.preset.insert({
-        -- <c-l> has a delay? 
 		["<c-k>"] = cmp.mapping.select_prev_item(),
 		["<c-j>"] = cmp.mapping.select_next_item(),
 		["<c-i>"] = cmp.mapping.complete(),
-		["<c-space>"] = cmp.mapping.confirm({ select = true }), -- Accept item at top of list. Set `select` to `false` to only confirm explicitly selected items.
+		["<c-l>"] = cmp.mapping.confirm({ select = true }), -- Accept item at top of list. Set `select` to `false` to only confirm explicitly selected items.
 	}),
 
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp", keyword_length = 5 },
 		{ name = "luasnip", keyword_length = 3 },
 		{ name = "buffer", keyword_length = 5 },
-		-- { name = "nvim_lua", keyword_length = 20 },
+		{ name = "nvim_lua", keyword_length = 20 },
 		{ name = "path", keyword_length = 4 },
 	}),
 	formatting = {
@@ -52,3 +51,4 @@ cmp.setup({
 		}),
 	},
 })
+

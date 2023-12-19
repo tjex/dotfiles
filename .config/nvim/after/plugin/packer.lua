@@ -52,15 +52,19 @@ return require("packer").startup(function(use)
 	use({
 		"ThePrimeagen/harpoon",
 		"tpope/vim-fugitive",
-		{ "nvim-telescope/telescope.nvim", tag = "0.1.4" },
-		{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
-		"nvim-telescope/telescope-dap.nvim",
 		"ton/vim-bufsurf",
 		"nvim-treesitter/playground",
 		"folke/todo-comments.nvim",
 		"mbbill/undotree",
 	})
 
+	-- telescope
+	use({
+		{ "nvim-telescope/telescope.nvim", tag = "0.1.*" },
+		{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
+		"nvim-telescope/telescope-dap.nvim",
+		"kiyoon/telescope-insert-path.nvim",
+	})
 	-- completion
 	use({
 		"hrsh7th/nvim-cmp",
@@ -73,8 +77,9 @@ return require("packer").startup(function(use)
 
 	-- external integrations
 	use({
-		{ "epwalsh/obsidian.nvim", requires = { "nvim-lua/plenary.nvim", "hrsh7th/nvim-cmp" } },
-        {"vimwiki/vimwiki", requires = "kiyoon/telescope-insert-path.nvim"}
+		"vimwiki/vimwiki",
+		"epwalsh/obsidian.nvim",
+		requires = { "nvim-lua/plenary.nvim", "hrsh7th/nvim-cmp" },
 	})
 
 	-- dap
