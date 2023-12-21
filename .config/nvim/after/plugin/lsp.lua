@@ -9,10 +9,11 @@ if not ok then
 	return
 end
 
+-- NOTE: zk lsp is managed by /plugin/zk.lua
 local lspconfig = require("lspconfig")
 local servers = {
 	"lua_ls",
-	"marksman",
+    "marksman",
 	"gopls",
 	"pyright",
 	"stylelint_lsp",
@@ -47,17 +48,15 @@ local function lsp_keymaps(bufnr)
 	key("n", "[d", vim.diagnostic.goto_prev, bufopts)
 	key("n", "]d", vim.diagnostic.goto_next, bufopts)
 	key("n", "<C-i>", vim.lsp.buf.hover, bufopts)
-
 end
 
 local lsp_attach = function(client, bufnr)
-	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 	lsp_keymaps(bufnr)
 
-    -- see ./formatter.lua for formatting provider logic
+	-- see ./formatter.lua for formatting provider logic
 	client.server_capabilities.document_formatting = true
-	require("cmp_nvim_lsp").default_capabilities()
 	client.server_capabilities.semanticTokensProvider = nil
+	require("cmp_nvim_lsp").default_capabilities()
 end
 
 require("mason-lspconfig").setup_handlers({
@@ -69,10 +68,9 @@ require("mason-lspconfig").setup_handlers({
 	["cssls"] = function()
 		require("lspconfig").cssls.setup({
 			on_attach = lsp_attach,
-			require("lspconfig").cssls.setup({
-				-- cssls needs to have completion enabled via capabilities in order to give LSP comp.
-				capabilities = require("cmp_nvim_lsp").default_capabilities(),
-			}),
+			-- cssls needs to have completion enabled via capabilities in
+			-- order to give LSP comp.
+			capabilities = require("cmp_nvim_lsp").default_capabilities(),
 		})
 	end,
 	["lua_ls"] = function()

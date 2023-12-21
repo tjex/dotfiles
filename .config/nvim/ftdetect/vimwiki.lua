@@ -1,6 +1,6 @@
 vim.g.vimwiki_list = {
-	{ path = "~/notes/tech", syntax = "markdown", ext = "md" },
-	{ path = "~/notes/ps", syntax = "markdown", ext = "md" },
+	{ path = "~/wikis/tech", syntax = "markdown", ext = "md" },
+	{ path = "~/wikis/ps", syntax = "markdown", ext = "md" },
 }
 vim.g.vimwiki_global_ext = 1
 

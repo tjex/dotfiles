@@ -8,9 +8,9 @@ local cmp = require("cmp")
 local lspkind = require("lspkind")
 
 cmp.setup({
-	completion = {
-		autocomplete = false,
-	},
+	-- completion = {
+	-- 	autocomplete = false,
+	-- },
 	snippet = {
 		expand = function(args)
 			require("luasnip").lsp_expand(args.body)
@@ -25,17 +25,18 @@ cmp.setup({
 	mapping = cmp.mapping.preset.insert({
 		["<c-k>"] = cmp.mapping.select_prev_item(),
 		["<c-j>"] = cmp.mapping.select_next_item(),
-		["<c-i>"] = cmp.mapping.complete(),
-		["<c-l>"] = cmp.mapping.confirm({ select = true }), -- Accept item at top of list. Set `select` to `false` to only confirm explicitly selected items.
+		["<c-l>"] = cmp.mapping.complete(),
+		["<c-i>"] = cmp.mapping.confirm({ select = true }), -- Accept item at top of list. Set `select` to `false` to only confirm explicitly selected items.
 	}),
 
 	sources = cmp.config.sources({
-		{ name = "nvim_lsp", keyword_length = 5 },
-		{ name = "luasnip", keyword_length = 3 },
-		{ name = "buffer", keyword_length = 5 },
-		{ name = "nvim_lua", keyword_length = 20 },
-		{ name = "path", keyword_length = 4 },
+		{ name = "nvim_lsp", keyword_length = 6},
+		{ name = "luasnip"},
+		{ name = "nvim_lua", keyword_length = 6},
+		{ name = "path"},
+		{ name = "buffer", keyword_length = 8},
 	}),
+
 	formatting = {
 		format = lspkind.cmp_format({
 			mode = "symbol",

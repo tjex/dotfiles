@@ -77,9 +77,10 @@ return require("packer").startup(function(use)
 
 	-- external integrations
 	use({
-		"vimwiki/vimwiki",
-		"epwalsh/obsidian.nvim",
-		requires = { "nvim-lua/plenary.nvim", "hrsh7th/nvim-cmp" },
+        "mickael-menu/zk-nvim"
+        -- "~/.local/src/plugins/zk-nvim"
+		-- "epwalsh/obsidian.nvim",
+		-- requires = { "nvim-lua/plenary.nvim", "hrsh7th/nvim-cmp" },
 	})
 
 	-- dap
