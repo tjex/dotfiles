@@ -7,10 +7,11 @@ convert <input> -alpha off <output>
 convert -colorspace GRAY <input.pdf> <output.pdf> 
 
 # convert images
-mogrify -format <destformat> <input>
+$ dest_format: echo 'jpg png gif HEIC' | tr ' ' '\n'
+mogrify -format <dest_format> <file_or_pattern>
 
 # scale image smaller
-mogrify -scale <amountinpct>% <input>
+mogrify -scale <amountinpct>% <file_or_pattern>
 
 # blur an image
 $ amount: echo '0x2 0x4 0x8 0x16' | tr ' ' '\n'

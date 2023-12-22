@@ -2,3 +2,7 @@
 
 # remove all files that match pattern
 fd -H '<pattern>' -tf -X rm
+
+# move/copy all search results to dir
+$ cmd: echo 'cp mv' | tr ' ' '\n'
+fd -e <pattern> -tf -x <cmd> {} <dir>

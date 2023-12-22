@@ -92,6 +92,7 @@ backup() {
 # encrypted image is open
 if mount | grep "cairo" >/dev/null; then
     backup
+    cd ~
 else
     echo "'cairo' is not mounted"
 fi

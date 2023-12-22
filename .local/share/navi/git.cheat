@@ -9,3 +9,6 @@ git checkout <branch>
 
 # squash commits
 git rebase -i HEAD~<n-commits>
+
+# delete a branch from remote
+git push <remote_name> -d <branch>
