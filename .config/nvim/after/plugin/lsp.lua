@@ -55,7 +55,8 @@ local lsp_attach = function(client, bufnr)
 
 	-- see ./formatter.lua for formatting provider logic
 	client.server_capabilities.document_formatting = true
-	client.server_capabilities.semanticTokensProvider = nil
+    -- why was this disabled? Seems to be a good thing...
+	-- client.server_capabilities.semanticTokensProvider = nil
 	require("cmp_nvim_lsp").default_capabilities()
 end
 

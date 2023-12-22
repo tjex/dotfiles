@@ -32,12 +32,9 @@ require("zk").setup({
 					"<leader>zn",
 					":ZkNew {title = vim.fn.input('Title: '), dir = vim.fn.input('Dir: '), template = vim.fn.input('Template: ')}<cr>"
 				)
-                -- daily notes
 				key("n", "<leader>zd", function()
 					local dir = "d/" .. vim.fn.strftime("%Y")
-					local title = vim.fn.strftime("%Y-%M-D")
-					print(zk_root, dir)
-					cmd.get("ZkNew")({ dir = dir, title = title, group = "daily", template = "daily.md" })
+					cmd.get("ZkNew")({ dir = dir, group = "daily"})
 				end)
 				key("n", "<leader>zt", ":ZkTags<cr>")
 				key("n", "<leader>zf", ":ZkNotes<cr>")
@@ -49,7 +46,7 @@ require("zk").setup({
 				key(
 					"v",
 					"<leader>zl",
-					":ZkInsertLinkAtSelection {matchSelected = vim.fn.input('look for matches? ')}<cr>"
+					":ZkInsertLinkAtSelection<cr>"
 				)
 				key("v", "<leader>zm", ":ZkMatch<cr>")
 				key("v", "<leader>zn", ":ZkNewFromTitleSelection {dir = vim.fn.input('Dir: ')}<cr>")
@@ -58,6 +55,11 @@ require("zk").setup({
 					"<leader>ze",
 					":ZkNewFromContentSelection {title = vim.fn.input('Title: '), dir = vim.fn.input('Dir: ')}<cr>"
 				)
+
+                -- insert mode
+                key("i", "<c-r>", function()
+                    cmd.get("ZkInsertLink")({title = vim.fn.input('Link text: ')})
+                end)
 			end,
 		},
 
