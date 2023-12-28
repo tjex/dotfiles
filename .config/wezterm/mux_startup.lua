@@ -31,11 +31,13 @@ function M.load()
 		a3_tab:set_title("music")
 
 		-- general
-		local o1_tab, _, _ = mux.spawn_window({
-			workspace = "obsidian",
-			cwd = "/Users/tjex/obsidian",
+		local z1_tab, z1_pane, _ = mux.spawn_window({
+			workspace = "zk",
+			cwd = "/Users/tjex/wikis/ps",
 		})
-		o1_tab:set_title("obsidian")
+		z1_tab:set_title("zk - ps")
+        z1_pane:send_text("zk open\n")
+
 
 		-- website
 		local w1_tab, w1_pane, w1_window = mux.spawn_window({
