@@ -56,6 +56,14 @@ return require("packer").startup(function(use)
 		"nvim-treesitter/playground",
 		"folke/todo-comments.nvim",
 		"mbbill/undotree",
+		{
+			"iamcco/markdown-preview.nvim",
+			run = "cd app && npm install",
+			setup = function()
+				vim.g.mkdp_filetypes = { "markdown" }
+			end,
+			ft = { "markdown" },
+		},
 	})
 
 	-- telescope
@@ -65,6 +73,7 @@ return require("packer").startup(function(use)
 		"nvim-telescope/telescope-dap.nvim",
 		"kiyoon/telescope-insert-path.nvim",
 	})
+
 	-- completion
 	use({
 		"hrsh7th/nvim-cmp",
@@ -106,5 +115,4 @@ return require("packer").startup(function(use)
 	use({
 		"tidalcycles/vim-tidal",
 	})
-	-- development
 end)
