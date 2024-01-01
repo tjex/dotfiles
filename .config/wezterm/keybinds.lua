@@ -123,7 +123,7 @@ function M.apply(config)
 			key = "3",
 			mods = "ALT",
 			action = act.SwitchToWorkspace({
-				name = "obsidian",
+				name = "zk",
 			}),
 		},
 		{
