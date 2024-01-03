@@ -39,6 +39,8 @@ key("n", "Z", "1z=e", opts)
 key("n", "fp", "mzvapgq`z", opts) -- format paragraph and leave cursor where it was
 key("n", "fl", "mzgqq`z", opts) -- format line and leave cursor where it was
 
+key("i", "<c-d>", vim.fn.strftime("%Y-%m-%d")) -- insert iso date
+
 -- Replace mode using the word you were currently on (thanks to the Primeageon). 
 key("n", "<leader>r", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/<Left>")
 

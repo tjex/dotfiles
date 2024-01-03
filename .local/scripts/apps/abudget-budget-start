@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-source ${XDG_DATA_HOME}/nvm/nvm.sh 
-cd ~/.local/src/installed/abudget/actual-tjex
-nohup yarn start > /dev/null &

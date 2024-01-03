@@ -6,6 +6,8 @@ bind-key h quit
 bind-key k up
 bind-key j down
 
+text-width 90
+
 color background          default default
 color listnormal          default  default
 color listfocus           yellow  default  

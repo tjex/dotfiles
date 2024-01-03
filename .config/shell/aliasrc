@@ -63,8 +63,8 @@ alias \
     navie="nvim -c ':cd ~/.local/share/navi' -c ':Telescope find_files'" \
     neomutt="TERM=xterm-direct neomutt" \
     yabspace="yabai -m space --create" \
-    yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarnrc" \
     yt="yt-dlp --embed-metadata -i -o '%(title)s.%(ext)s'"
+    # yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/.yarnrc" \
 
 
 # common directories
