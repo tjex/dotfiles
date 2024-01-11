@@ -2,13 +2,6 @@
 local key = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
-
--- keybind leader pre keys
--- don't map any commands to these, otherwise they'll run slow
--- as they wait for mapping swith a subsequent keypress
--- <leader>o = open
--- <leader>i = information (e.g. lsp/trouble)
-
 -- main functionality remaps
 key("", "<Space>", "<Nop>", opts)
 key("n", "<ESC>", "<Nop>")
@@ -36,8 +29,6 @@ key("n", "<leader>y", '"+y', opts) -- copy to sys clipboard
 key("v", "<leader>y", '"+y', opts)
 key("n", "x", '"_x', opts) -- stop 'x' from adding to paste 
 key("n", "Z", "1z=e", opts)
-key("n", "fp", "mzvapgq`z", opts) -- format paragraph and leave cursor where it was
-key("n", "fl", "mzgqq`z", opts) -- format line and leave cursor where it was
 
 key("i", "<c-d>", vim.fn.strftime("%Y-%m-%d")) -- insert iso date
 
@@ -77,3 +68,6 @@ key("v", "ga", ":EasyAlign", opts)
 
 -- netrw
 -- key("n", "<leader>e", ":Explore<CR>")
+
+-- centerpad
+key("n", "<c-ESC>", ":Centerpad 120<cr>", opts)

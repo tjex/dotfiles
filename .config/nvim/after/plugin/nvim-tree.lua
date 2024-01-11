@@ -121,7 +121,6 @@ require("nvim-tree").setup {
 	filters = {
 		custom = {
 			".DS.Store",
-			".git",
 		},
 	},
 	ui = {

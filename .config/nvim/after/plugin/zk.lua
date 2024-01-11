@@ -30,7 +30,7 @@ require("zk").setup({
 				key(
 					"n",
 					"<leader>zn",
-					":ZkNew {title = vim.fn.input('Title: '), dir = vim.fn.input('Dir: '), template = vim.fn.input('Template: ')}<cr>"
+					":ZkNew {title = vim.fn.input('Title: '), dir = vim.fn.input('Dir: '), template = vim.fn.input('Template: ') .. '.md'}<cr>"
 				)
 				key("n", "<leader>zd", function()
 					local dir = "d/" .. vim.fn.strftime("%Y")
@@ -40,7 +40,7 @@ require("zk").setup({
 				key("n", "<leader>zf", ":ZkNotes {excludeHrefs = {'d'}}<cr>")
 				key("n", "<leader>zl", ":ZkInsertLink {title = vim.fn.input('Link text: ')}<cr>")
 				key("n", "<leader>zo", ":ZkLinks<cr>")
-				key("n", "<leader>zb", ":ZkBackLinks<cr>")
+				key("n", "<leader>zb", ":ZkBacklinks<cr>")
 
 				-- visual mode
 				key(
@@ -58,7 +58,8 @@ require("zk").setup({
 
                 -- insert mode
                 key("i", "<c-r>", function()
-                    cmd.get("ZkInsertLink")({title = vim.fn.input('Link text: ')})
+                    -- cmd.get("ZkInsertLink")({title = vim.fn.input('Link text: ')})
+                    cmd.get("ZkInsertLink")()
                 end)
 			end,
 		},

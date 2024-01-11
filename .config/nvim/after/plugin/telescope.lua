@@ -11,6 +11,7 @@ require("telescope").load_extension("dap")
 local key = vim.keymap.set
 local opts = { noremap = true, silent = true }
 local path_actions = require("telescope_insert_path")
+local actions = require("telescope.actions")
 local tb = require("telescope.builtin")
 
 key("n", "ss", tb.buffers, opts)
@@ -45,23 +46,23 @@ require("telescope").setup({
 			horizontal = {
 				prompt_position = "top",
 				height = 0.8,
-				width = 0.8,
+				width = 0.4,
 				preview_cutoff = 100,
 			},
 			vertical = {
 				prompt_position = "top",
+				height = 0.8,
+				width = 0.4,
 			},
 		},
 		mappings = {
 			-- when in normal mode within telescope prompt
 			n = {
 				-- https://github.com/kiyoon/telescope-insert-path.nvim
-				-- If you want to get relative path that is relative to the cwd, use
-				-- `relpath` instead of `reltobufpath`
-				-- "_i_normal" = insert at cursor, enter normal mode (i.e, no leader required)
-				-- "_a_insert" = insert after cursor, enter insert mode
-				["i"] = path_actions.insert_reltobufpath_i_normal,
+				["r"] = path_actions.insert_reltobufpath_i_normal,
 				["a"] = path_actions.insert_abspath_i_normal,
+                ["d"] = actions.delete_buffer + actions.move_to_top,
+
 			},
 		},
 	},

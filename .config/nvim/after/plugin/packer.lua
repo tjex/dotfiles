@@ -30,6 +30,7 @@ return require("packer").startup(function(use)
 		{ "tjdevries/colorbuddy.nvim", branch = "dev" },
 		"lukas-reineke/indent-blankline.nvim",
 		"onsails/lspkind.nvim",
+        'smithbm2316/centerpad.nvim',
 	})
 
 	-- text
@@ -85,7 +86,7 @@ return require("packer").startup(function(use)
 	})
 
 	-- external integrations
-    use("zk-notes/zk.nvim")
+    use("zk-org/zk-nvim")
 
 	-- dap
 	use({
