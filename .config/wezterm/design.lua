@@ -53,7 +53,7 @@ function M.apply(config)
 
 	config.inactive_pane_hsb = {
 		saturation = 0.9,
-		brightness = 0.6,
+		brightness = 0.7,
 	}
 
 	-- CURSOR

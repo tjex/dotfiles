@@ -37,8 +37,9 @@ function M.wide_screen()
 		})
 		music_tab:set_title("music")
 
-		local rss_tab = admin_window:spawn_tab({args = {"newsboat"}})
+		local rss_tab, rss_pane = admin_window:spawn_tab({args = {"newsboat"}})
         rss_tab:set_title("rss")
+        rss_pane:split({direction = "Left", cwd = "/Users/tjex/wikis/ps/"})
 
 		-- writing
 		local writing_tab, writing_pane, _ = mux.spawn_window({
