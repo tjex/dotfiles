@@ -91,12 +91,22 @@ function M.apply(config)
 		{
 			key = "%",
 			mods = "LEADER|SHIFT",
-			action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }),
+			action = act.SplitHorizontal({ domain = "CurrentPaneDomain"}),
 		},
 		{
 			key = "h",
 			mods = "ALT",
 			action = act.ActivatePaneDirection("Left"),
+		},
+		{
+			key = "j",
+			mods = "ALT",
+			action = act.ActivatePaneDirection("Down"),
+		},
+		{
+			key = "k",
+			mods = "ALT",
+			action = act.ActivatePaneDirection("Up"),
 		},
 		{
 			key = "l",
@@ -109,35 +119,28 @@ function M.apply(config)
 			key = "1",
 			mods = "ALT",
 			action = act.SwitchToWorkspace({
-				name = "dev",
-			}),
-		},
-		{
-			key = "2",
-			mods = "ALT",
-			action = act.SwitchToWorkspace({
 				name = "admin",
-			}),
-		},
-		{
-			key = "3",
-			mods = "ALT",
-			action = act.SwitchToWorkspace({
-				name = "zk",
 			}),
 		},
 		{
 			key = "4",
 			mods = "ALT",
 			action = act.SwitchToWorkspace({
-				name = "website",
+				name = "dev",
 			}),
 		},
 		{
 			key = "5",
 			mods = "ALT",
 			action = act.SwitchToWorkspace({
-				name = "thesis",
+				name = "website",
+			}),
+		},
+		{
+			key = "6",
+			mods = "ALT",
+			action = act.SwitchToWorkspace({
+				name = "writing",
 			}),
 		},
 	}
