@@ -105,7 +105,7 @@ tref() {
 }
 
 tlogs() {
-	if result=($(fd . -tf ${HOME}/logs | fzf)); then
+	if result=($(fd . -tf ${HOME}/docs/logs | fzf)); then
 		nvim $result
 	else
 		return
@@ -113,7 +113,7 @@ tlogs() {
 }
 
 tn() {
-	if result=($(fd . -tf ${HOME}/notes | fzf)); then
+	if result=($(fd . -tf ${HOME}/docs/notes | fzf)); then
 		nvim $result
 	else
 		return
@@ -121,7 +121,7 @@ tn() {
 }
 
 tl() {
-	if result=($(fd . -tf ${HOME}/lists | fzf)); then
+	if result=($(fd . -tf ${HOME}/docs/lists | fzf)); then
 		nvim $result
 	else
 		return
