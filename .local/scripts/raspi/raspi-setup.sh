@@ -69,7 +69,7 @@ function installNeovim() {
     sudo make install
 }
 
-installTheRest() {
+installDevTools() {
     pstep "installing go"
     sudo apt-get install golang-go
     # symlink python3 to python
@@ -97,6 +97,9 @@ installTheRest() {
     sudo apt-get update
     sudo apt-get install nodejs -y
 
+}
+
+installNiceToHave() {
     p_step "installing ntfy"
     sudo mkdir -p /etc/apt/keyrings
     curl -fsSL https://archive.heckel.io/apt/pubkey.txt | sudo gpg --dearmor -o /etc/apt/keyrings/archive.heckel.io.gpg
@@ -107,6 +110,11 @@ installTheRest() {
     sudo apt install ntfy
     sudo systemctl enable ntfy
     sudo systemctl start ntfy
+
+    # media
+    p_step "installing media tools"
+    sudo apt-get install mpv
+    curl -sL https://dtcooper.github.io/raspotify/install.sh | sh # raspotify
 }
 
 # base setup
@@ -140,10 +148,18 @@ else
     echo 'skipping'
 fi
 
-read -p 'Install "the rest", languages, utils, etc? (Y/N): ' confirm
+read -p 'Install dev tools, languages, utils, etc? (Y/N): ' confirm
 if [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]]; then
     echo 'confirmed'
-    installTheRest
+    installDevTools
+else
+    echo 'denied'
+fi
+
+read -p 'Install "nice to haves", ntfy, raspotify, mpv, etc? (Y/N): ' confirm
+if [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]]; then
+    echo 'confirmed'
+    installNiceToHave
 else
     echo 'denied'
 fi

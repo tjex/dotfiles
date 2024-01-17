@@ -109,6 +109,13 @@ function M.apply(config)
 			key = "1",
 			mods = "ALT",
 			action = act.SwitchToWorkspace({
+				name = "website",
+			}),
+		},
+		{
+			key = "2",
+			mods = "ALT",
+			action = act.SwitchToWorkspace({
 				name = "admin",
 			}),
 		},
@@ -116,14 +123,14 @@ function M.apply(config)
 			key = "4",
 			mods = "ALT",
 			action = act.SwitchToWorkspace({
-				name = "dev",
+				name = "sys",
 			}),
 		},
 		{
 			key = "5",
 			mods = "ALT",
 			action = act.SwitchToWorkspace({
-				name = "website",
+				name = "dev",
 			}),
 		},
 		{

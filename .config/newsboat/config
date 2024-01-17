@@ -7,13 +7,14 @@ bind-key k up
 bind-key j down
 
 text-width 90
+bookmark-autopilot no
 bookmark-cmd ~/.config/newsboat/bookmark.sh
 
 color background          default default
 color listnormal          default  default
-color listfocus           yellow  default  
+color listfocus           black  blue  
 color listnormal_unread   default  default
-color listfocus_unread    yellow  default 
+color listfocus_unread    black  blue 
 color title               blue default   bold
 color info                blue  default   bold
 color hint-key            blue  default   bold

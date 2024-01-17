@@ -9,7 +9,6 @@ local key = vim.keymap.set
 local key_opts = { noremap = true, silent = true }
 local zk_root = require("zk.util").notebook_root(vim.fn.expand("%:p"))
 
-
 require("zk").setup({
 	picker = "telescope",
 
@@ -34,7 +33,7 @@ require("zk").setup({
 				)
 				key("n", "<leader>zd", function()
 					local dir = "d/" .. vim.fn.strftime("%Y")
-					cmd.get("ZkNew")({ dir = dir, group = "daily"})
+					cmd.get("ZkNew")({ dir = dir, group = "daily" })
 				end)
 				key("n", "<leader>zt", ":ZkTags<cr>")
 				key("n", "<leader>zf", ":ZkNotes {excludeHrefs = {'d'}}<cr>")
@@ -43,11 +42,7 @@ require("zk").setup({
 				key("n", "<leader>zb", ":ZkBacklinks<cr>")
 
 				-- visual mode
-				key(
-					"v",
-					"<leader>zl",
-					":ZkInsertLinkAtSelection<cr>"
-				)
+				key("v", "<leader>zl", ":ZkInsertLinkAtSelection<cr>")
 				key("v", "<leader>zm", ":ZkMatch<cr>")
 				key("v", "<leader>zn", ":ZkNewFromTitleSelection {dir = vim.fn.input('Dir: ')}<cr>")
 				key(
@@ -56,11 +51,13 @@ require("zk").setup({
 					":ZkNewFromContentSelection {title = vim.fn.input('Title: '), dir = vim.fn.input('Dir: ')}<cr>"
 				)
 
-                -- insert mode
-                key("i", "<c-r>", function()
-                    -- cmd.get("ZkInsertLink")({title = vim.fn.input('Link text: ')})
-                    cmd.get("ZkInsertLink")()
-                end)
+				-- insert mode
+				key("i", "<c-r>", function()
+					vim.cmd("norm! i") -- otherwise link gets inserted after cursor
+					cmd.get("ZkInsertLink")()
+                    -- vim.cmd("norm! f)a ") -- how to position the cursor 
+                    -- after the inserted link?..
+				end)
 			end,
 		},
 
