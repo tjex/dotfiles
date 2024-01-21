@@ -1,6 +1,7 @@
 local key = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
+-- vim.opt.textwidth = 10
 
 -- markdown style for Zk ref note taking... this is for sure the hack way...
 key("i", "<c-c>", function()

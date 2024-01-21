@@ -36,7 +36,7 @@ require("zk").setup({
 					cmd.get("ZkNew")({ dir = dir, group = "daily" })
 				end)
 				key("n", "<leader>zt", ":ZkTags<cr>")
-				key("n", "<leader>zf", ":ZkNotes {excludeHrefs = {'d'}}<cr>")
+				key("n", "<leader>zf", ":ZkNotes<cr>")
 				key("n", "<leader>zl", ":ZkInsertLink {title = vim.fn.input('Link text: ')}<cr>")
 				key("n", "<leader>zo", ":ZkLinks<cr>")
 				key("n", "<leader>zb", ":ZkBacklinks<cr>")
@@ -54,8 +54,8 @@ require("zk").setup({
 				-- insert mode
 				key("i", "<c-r>", function()
 					vim.cmd("norm! i") -- otherwise link gets inserted after cursor
+                    -- should use nvim_put({}, true, true) in ZkInsertLink. see help 
 					cmd.get("ZkInsertLink")()
-                    -- vim.cmd("norm! f)a ") -- how to position the cursor 
                     -- after the inserted link?..
 				end)
 			end,

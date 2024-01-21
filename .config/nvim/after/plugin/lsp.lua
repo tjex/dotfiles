@@ -43,6 +43,7 @@ local function lsp_keymaps(bufnr)
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
 	key("n", "gd", function()
+        vim.cmd("norm! m'") --set the current cursor location as 'last' location for easy jumping back
 		vim.lsp.buf.definition()
 	end, bufopts)
 	key("n", "[d", vim.diagnostic.goto_prev, bufopts)

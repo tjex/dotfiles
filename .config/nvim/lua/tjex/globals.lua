@@ -1,3 +1,5 @@
+-- copied these from TjDevries but never use them...?
+
 P = function(v)
     print(vim.inspect(v))
     return v

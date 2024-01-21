@@ -30,7 +30,8 @@ vim.opt.incsearch = true -- update search highlight duting search
 -- editor window
 -- vim.opt.cursorline = true
 -- vim.opt.cursorlineopt = "both"
-vim.opt.wrap = false
+vim.opt.tw = 80
+vim.opt.fo = "crqn1jp" -- see :h fo-table (basically format comments only)
 vim.opt.scrolloff = 8 -- maintain min8 lines between cursor window start/end
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -39,5 +40,3 @@ vim.opt.signcolumn = "yes:1"
 vim.opt.wildoptions = "fuzzy"
 vim.opt.laststatus = 3
 
-vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })

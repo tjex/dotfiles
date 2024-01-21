@@ -5,6 +5,10 @@
 
 -- tip: run ":so $VIMRUNTIME/syntax/hitest.vim" to see highlight naming and their set colors. Handy!
 
+-- don't color backgrounds of floating windows (and backgrounds?..)
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+
 local Color, colors, Group, groups, styles = require("colorbuddy").setup()
 
 Color.new("bground", "#1a1c23")
@@ -262,8 +266,8 @@ Group.new("NvimTreeGitIgnored", colors.gray_4)
 Group.new("TelescopeTitle", colors.gray_0)
 Group.new("TelescopeBorder", groups.border_1)
 Group.new("TelescopeSearch", nil)
-Group.new("TelescopeMatching", colors.gray_0)
-Group.new("TelescopeSelection", colors.black, groups.hl_bg_1)
+Group.new("TelescopeMatching", colors.white)
+Group.new("TelescopeSelection", colors.white, nil)
 
 -- blankline
 -- these hl groups don't seem to work (2023-09-29)
