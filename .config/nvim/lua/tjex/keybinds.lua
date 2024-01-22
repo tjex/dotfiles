@@ -23,8 +23,6 @@ key("n", "W", ":w<CR>", opts)
 key("n", "<leader>cd", ":cd %:h<CR>", opts)
 
 -- text operations
-key("n", "fp", "mzvapgq`z", opts) -- format paragraph and leave cursor where it was
-key("n", "fl", "mzgqq`z", opts) -- format line and leave cursor where it was
 key("n", "˚", "mzJ`z", opts) -- append below to current line and leave cursor where it is
 key("x", "<leader>p", '"_d<Left>p', opts) -- paste over text and keep same item in paste buffer
 key("n", "<leader>y", '"+y', opts) -- copy to sys clipboard
