@@ -1,12 +1,23 @@
 local ok, _ = pcall(require, "nvim-treesitter")
 if not ok then
-	print "treesitter not ok!"
+	print("treesitter not ok!")
 	return
 end
 
-require("nvim-treesitter.configs").setup {
+require("nvim-treesitter.configs").setup({
 	-- A list of parser names, or "all" (the five listed parsers should always be installed)
-	ensure_installed = { "c", "lua", "vim", "query", "markdown", "markdown_inline", "css", "typescript", "tsx", "astro" },
+	ensure_installed = {
+		"c",
+		"lua",
+		"vim",
+		"query",
+		"markdown",
+		"markdown_inline",
+		"css",
+		"typescript",
+		"tsx",
+		"astro",
+	},
 	context_commentstring = { enabled = true },
 	-- Install parsers synchronously (only applied to `ensure_installed`)
 	sync_install = false,
@@ -20,6 +31,15 @@ require("nvim-treesitter.configs").setup {
 
 	---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
 	-- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
+	incremental_selection = {
+		enable = true,
+		keymaps = {
+			init_selection = "<BS>",
+			node_incremental = "<BS>",
+			scope_incremental = "<BS>",
+			node_decremental = "<c-BS>",
+		},
+	},
 
 	highlight = {
 		enable = true,
@@ -60,8 +80,7 @@ require("nvim-treesitter.configs").setup {
 			show_help = "?",
 		},
 	},
-}
+})
 
 -- because there is no parser for zsh, but bash and zsh are the same syntactically.
 vim.treesitter.language.register("zsh", "bash")
-

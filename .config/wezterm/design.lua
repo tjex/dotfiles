@@ -56,6 +56,9 @@ function M.apply(config)
 		brightness = 0.7,
 	}
 
+    config.underline_thickness = "1pt"
+    config.underline_position = "-4pt"
+
 	-- CURSOR
 	config.cursor_blink_rate = 0
 	config.cursor_thickness = 2
