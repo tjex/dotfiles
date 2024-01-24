@@ -106,7 +106,8 @@ require("nvim-tree").setup({
 				folder_arrow = false,
 				git = false,
 			},
-			glyphs = {
+            glyphs = {
+            bookmark = "†",
 				folder = {
 					default = "•",
 					open = "•",
