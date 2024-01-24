@@ -39,20 +39,21 @@ local function on_attach(bufnr)
 	api.config.mappings.default_on_attach(bufnr)
 
 	-- custom mappings
-	key("n", "h", up_and_collapse, tree_opts("Up and collapse"))
-	key("n", "l", api.tree.change_root_to_node, tree_opts("CD"))
-	key("n", "e", api.node.open.no_window_picker, tree_opts("Open"))
-	-- key("n", "h", api.node.navigate.parent_close, tree_opts "Close Directory")
+	key("n", "h", up_and_collapse, tree_opts("up and collapse"))
+	key("n", "l", api.tree.change_root_to_node, tree_opts("cd"))
+	key("n", "e", api.node.open.no_window_picker, tree_opts("open"))
+	key("n", "r", api.fs.rename_basename, tree_opts("rename basename"))
+	key("n", "R", api.fs.rename, tree_opts("rename"))
 	key("n", "<leader>m", api.marks.bulk.move, tree_opts("Move Bookmarked"))
 end
 
-local HEIGHT_RATIO = 0.8 -- You can change this
+local HEIGHT_RATIO = 0.6 -- You can change this
 local WIDTH_RATIO = 0.2 -- You can change this too
 
 require("nvim-tree").setup({
 	on_attach = on_attach,
 	sort_by = "case_sensitive",
-	hijack_cursor = false,
+	hijack_cursor = true,
 	disable_netrw = true,
 	sync_root_with_cwd = true,
 	respect_buf_cwd = true,
