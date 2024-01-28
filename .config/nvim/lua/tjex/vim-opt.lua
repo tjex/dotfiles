@@ -13,10 +13,11 @@ vim.opt.termguicolors = true
 vim.opt.updatetime = 50
 
 -- text / typography
+vim.opt.tw = 80
+vim.opt.fo = "crqpn1" -- see :h fo-table (basically format comments only)
 vim.opt.expandtab = true
-vim.opt.smartindent = true
+vim.opt.autoindent = true
 vim.opt.splitright = true
--- vim.opt.textwidth = 85
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
@@ -30,8 +31,6 @@ vim.opt.incsearch = true -- update search highlight duting search
 -- editor window
 -- vim.opt.cursorline = true
 -- vim.opt.cursorlineopt = "both"
-vim.opt.tw = 80
-vim.opt.fo = "cr" -- see :h fo-table (basically format comments only)
 vim.opt.scrolloff = 8 -- maintain min8 lines between cursor window start/end
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -39,4 +38,3 @@ vim.opt.foldcolumn = "auto:2"
 vim.opt.signcolumn = "yes:1"
 vim.opt.wildoptions = "fuzzy"
 vim.opt.laststatus = 3
-

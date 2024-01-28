@@ -34,6 +34,9 @@ require("formatter").setup({
 		json = {
 			require("formatter.filetypes.json").prettierd,
 		},
+        markdown = {
+            require("formatter.filetypes.markdown").prettierd,
+        },
 
 		-- for any filetype
 		["*"] = {
