@@ -42,7 +42,7 @@ export RESTIC_CACHE_DIR="$XDG_CACHE_HOME/restic"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 export STACK_XDG=true # use xdg paths for haskell stack
 export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
-export ZK_NOTEBOOK_DIR="$HOME/wikis/testing"
+export ZK_NOTEBOOK_DIR="$HOME/wikis/ps"
 
 
 

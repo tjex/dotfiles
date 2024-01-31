@@ -40,6 +40,8 @@ end)
 
 function M.apply(config)
 	-- WINDOWS
+	-- config.window_background_opacity = 0.9
+	-- config.macos_window_background_blur = 20
 	config.window_decorations = "RESIZE" -- hide the title bar
 	config.window_padding = {
 		left = 10,
@@ -56,8 +58,8 @@ function M.apply(config)
 		brightness = 0.7,
 	}
 
-    config.underline_thickness = "1pt"
-    config.underline_position = "-4pt"
+	config.underline_thickness = "1pt"
+	config.underline_position = "-4pt"
 
 	-- CURSOR
 	config.cursor_blink_rate = 0

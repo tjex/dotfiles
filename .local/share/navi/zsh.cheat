@@ -2,3 +2,9 @@
 
 # lists all files that get sourced by shell
 zsh -o SOURCE_TRACE -lic ''                            
+
+# list all processes that have secure input keyboard enabled (for skhd)
+ioreg -l -w 0 \
+    | perl -nle 'print $1 if /"kCGSSessionSecureInputPID"=(\d+)/' \
+    | uniq \
+    | xargs -I{} ps -p {} -o comm=

@@ -72,7 +72,7 @@ function M.wide_screen()
 			cwd = "/Users/tjex/wikis/ps",
 		})
 		writing_tab:set_title("zk - ps")
-		writing_pane:send_text("zk open\n")
+		writing_pane:send_text("zk s\n")
 
 	end)
 end

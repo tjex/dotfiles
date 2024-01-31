@@ -48,7 +48,7 @@ local function on_attach(bufnr)
 end
 
 local HEIGHT_RATIO = 0.6 -- You can change this
-local WIDTH_RATIO = 0.2 -- You can change this too
+local WIDTH_RATIO = 0.25 -- You can change this too
 
 require("nvim-tree").setup({
 	on_attach = on_attach,

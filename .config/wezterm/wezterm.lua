@@ -31,6 +31,7 @@ config.ssh_domains = {
 config.send_composed_key_when_left_alt_is_pressed = true
 config.send_composed_key_when_right_alt_is_pressed = true
 
+config.front_end = "WebGpu"
 config.audible_bell = "Disabled"
 config.default_workspace = "admin"
 -- config.automatically_reload_config = false
