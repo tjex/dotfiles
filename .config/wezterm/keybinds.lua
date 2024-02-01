@@ -2,8 +2,11 @@ local wezterm = require("wezterm")
 local act = wezterm.action
 local M = {}
 
+-- custom events
+require("events")
+
 function M.apply(config)
-	config.leader = { key = "o", mods = "CTRL", timeout_milliseconds = 700 }
+	config.leader = { key = "o", mods = "ALT", timeout_milliseconds = 700 }
 
 	-- LEADER KEYBINDS
 	config.keys = {
@@ -17,6 +20,11 @@ function M.apply(config)
 			key = "y",
 			mods = "LEADER",
 			action = act.ActivateCopyMode,
+		},
+		{
+			key = "s",
+			mods = "CTRL",
+			action = act.EmitEvent("trigger-nvim-with-scrollback"),
 		},
 
 		-- TABS
@@ -91,7 +99,7 @@ function M.apply(config)
 		{
 			key = "%",
 			mods = "LEADER|SHIFT",
-			action = act.SplitHorizontal({ domain = "CurrentPaneDomain"}),
+			action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }),
 		},
 		{
 			key = "h",
