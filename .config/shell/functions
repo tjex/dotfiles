@@ -71,19 +71,6 @@ git_sparse_clone() (
 	git pull origin master
 )
 
-yt-album() {
-    url=$1
-    yt-dlp -x -f bestaudio/best --restrict-filenames -o '%(track_number)s - %(track)s.%(ext)s' ${url}
-    rnm * -f '_' -r ' '
-
-}
-yt-title() {
-    url=$1
-    title=$2
-    yt-dlp -x -f bestaudio/best ${url} -o "${2}.%(ext)s"
-
-}
-
 ##############
 # tjex files #
 

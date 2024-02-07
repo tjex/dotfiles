@@ -27,17 +27,20 @@ yabai -m config \
 # grid=<rows>:<cols>:<start-x>:<start-y>:<width>:<height>
 
 # floating window presets
-middle_narrow="manage=off opacity=0.9 grid=3:3:1:1:1:1"
-middle_square="manage=off opacity=0.9 grid=3:3:1:1:1:1"
+# cb9 = occupy the center-bottom, in a grid of 9
+cc9="manage=off grid=3:3:1:1:1:1"
+cb9="manage=off grid=3:3:1:2:1:1"
+cl9="manage=off grid=3:3:2:2:1:1"
 
 # things that get launched regularly
 yabai -m rule --add app="^Raycast$" title="Raycast Settings" manage=off 
 yabai -m rule --add app="^System Settings$" manage=off sticky=on opacity=1.0
-yabai -m rule --add app="^WezTerm$" title="^lf$" ${middle_square}
-yabai -m rule --add app="^Dictionary$" ${middle_narrow}
-yabai -m rule --add app="^WezTerm$" title="^gopass$" sticky=on ${middle_narrow}
-yabai -m rule --add app="^WezTerm$" title="^bkmr$" sticky=on ${middle_narrow} 
-yabai -m rule --add app="^WezTerm$" title="^nvim$" sticky=on ${middle_narrow} 
+yabai -m rule --add app="^WezTerm$" title="^lf$" ${cc9}
+yabai -m rule --add app="^Dictionary$" ${cc9}
+yabai -m rule --add app="^WezTerm$" title="^gopass$" sticky=on ${cc9}
+yabai -m rule --add app="^WezTerm$" title="^bkmr$" sticky=on ${cc9} 
+yabai -m rule --add app="^WezTerm$" title="^nvim$" sticky=on ${cc9} 
+yabai -m rule --add app="^WezTerm$" title="^qalc$" sticky=on ${cb9} 
 yabai -m rule --add app="^Todoist$" title[!]="^- Todoist$" manage=off
 
 # general apps that I don't want any tiling with

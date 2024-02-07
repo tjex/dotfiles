@@ -12,6 +12,7 @@ alt + cmd - return : Applications/WezTerm.app/Contents/MacOS/wezterm
 alt + cmd - b : /Applications/WezTerm.app/Contents/MacOS/wezterm start zsh -l -c "bkmr search --fzf"
 alt + cmd - e : /Applications/WezTerm.app/Contents/MacOS/wezterm start lf ~
 alt + cmd - g : /Applications/WezTerm.app/Contents/MacOS/wezterm start zsh -l -c gopass
+alt + cmd - x : /Applications/WezTerm.app/Contents/MacOS/wezterm start qalc
 alt + cmd - 0x27 : open -a Dictionary # key = '
 
 # yabai #
