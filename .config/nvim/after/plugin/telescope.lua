@@ -7,14 +7,16 @@ end
 -- load the extensions
 require("telescope").load_extension("fzf")
 require("telescope").load_extension("dap")
+-- require('telescope').load_extension('bookmarks')
 
 local key = vim.keymap.set
 local opts = { noremap = true, silent = true }
-local path_actions = require("telescope_insert_path")
 local actions = require("telescope.actions")
+local path_actions = require("telescope_insert_path")
 local tb = require("telescope.builtin")
+-- local te = require("telescope").extensions
 
-key("n", "ss", tb.buffers, opts)
+-- key("n", "sb", te.bookmarks.list, opts)
 key("n", "sc", tb.commands, opts)
 key("n", "sd", function()
 	require("telescope").extensions.dap.commands({})
@@ -28,6 +30,7 @@ key("n", "sh", tb.help_tags, opts)
 key("n", "sm", tb.marks, opts)
 key("n", "sp", tb.registers, opts)
 key("n", "sr", tb.lsp_references, opts)
+key("n", "ss", tb.buffers, opts)
 key("n", "st", ":TodoTelescope<CR>", opts)
 key("n", "sx", tb.git_branches, opts)
 key("n", "sz", tb.git_stash, opts)
@@ -61,8 +64,7 @@ require("telescope").setup({
 				-- https://github.com/kiyoon/telescope-insert-path.nvim
 				["r"] = path_actions.insert_reltobufpath_i_normal,
 				["a"] = path_actions.insert_abspath_i_normal,
-                ["d"] = actions.delete_buffer + actions.move_to_top,
-
+				["d"] = actions.delete_buffer + actions.move_to_top,
 			},
 		},
 	},
@@ -73,5 +75,20 @@ require("telescope").setup({
 			override_file_sorter = true,
 			case_mode = "ignore_case",
 		},
+		["ui-select"] = {
+			require("telescope.themes").get_dropdown({
+				layout_strategy = "vertical",
+				layout_config = {
+					vertical = {
+						prompt_position = "top",
+						height = 0.4,
+						width_= 0.2,
+					},
+				},
+			}),
+		},
 	},
 })
+
+-- must be after setup
+require("telescope").load_extension("ui-select")

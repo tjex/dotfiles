@@ -48,7 +48,8 @@ local function lsp_keymaps(bufnr)
 	end, bufopts)
 	key("n", "[d", vim.diagnostic.goto_prev, bufopts)
 	key("n", "]d", vim.diagnostic.goto_next, bufopts)
-	key("n", "<C-i>", vim.lsp.buf.hover, bufopts)
+	key("n", "<c-i>", vim.lsp.buf.hover, bufopts)
+    key("n", "<c-x>", vim.lsp.buf.code_action, bufopts)
 end
 
 local lsp_attach = function(client, bufnr)

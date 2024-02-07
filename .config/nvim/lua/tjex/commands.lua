@@ -2,7 +2,6 @@ local usr_cmd = vim.api.nvim_create_user_command
 local auto = vim.api.nvim_create_autocmd
 local funcs = require("tjex.funcs")
 local augroup = vim.api.nvim_create_augroup
-
 --
 -- auto commands
 --
@@ -51,3 +50,4 @@ usr_cmd(
 usr_cmd("EditSnippets", ":lua require('luasnip.loaders').edit_snippet_files()<CR>", {})
 usr_cmd("Chmod", ":!chmod +x %", {})
 usr_cmd("NeomuttDelQuoted", funcs.neomutt_del_quoted, {})
+usr_cmd("GenSelectModel", require("gen").select_model, {})

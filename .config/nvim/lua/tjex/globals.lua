@@ -1,4 +1,4 @@
--- copied these from TjDevries but never use them...?
+-- called via `:lua ...`
 
 P = function(v)
     print(vim.inspect(v))
@@ -13,3 +13,4 @@ R = function(name)
     RELOAD(name)
     return require(name)
 end
+

@@ -1,0 +1,1 @@
+{"data":{"\/Users\/tjex\/.local\/src\/wezterm\/wezterm-gui\/src\/termwindow\/mod.rs":{"2845":{"m":"            SwitchWorkspaceRelative(delta) => {"},"2134":{"m":"    fn activate_last_tab(&mut self) -> anyhow::Result<()> {"}}}}

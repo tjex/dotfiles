@@ -1,0 +1,1 @@
+{"data":{"\/Users\/tjex\/.local\/src\/gen.nvim\/lua\/gen\/init.lua":{"347":{"m":"M.prompts = prompts"},"46":{"m":"M.setup = function(opts) for k, v in pairs(opts) do M[k] = v end end"}}}}

@@ -15,6 +15,7 @@ vim.opt.updatetime = 50
 -- text / typography
 vim.opt.tw = 80
 vim.opt.fo = "crqpn1" -- see :h fo-table (basically format comments only)
+vim.opt.wrap = false
 vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.splitright = true
@@ -38,3 +39,4 @@ vim.opt.foldcolumn = "auto:2"
 vim.opt.signcolumn = "yes:1"
 vim.opt.wildoptions = "fuzzy"
 vim.opt.laststatus = 3
+vim.opt.showmode = false

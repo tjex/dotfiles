@@ -30,7 +30,7 @@ return require("packer").startup(function(use)
 		{ "tjdevries/colorbuddy.nvim", branch = "dev" },
 		"lukas-reineke/indent-blankline.nvim",
 		"onsails/lspkind.nvim",
-        'smithbm2316/centerpad.nvim',
+		"smithbm2316/centerpad.nvim",
 	})
 
 	-- text
@@ -52,11 +52,14 @@ return require("packer").startup(function(use)
 	-- utility
 	use({
 		"ThePrimeagen/harpoon",
+		{ "ten3roberts/bookmarks.nvim", branch = "feat-scoped-bookmarks" },
+		-- "tomasky/bookmarks.nvim",
 		"tpope/vim-fugitive",
 		"ton/vim-bufsurf",
 		"nvim-treesitter/playground",
 		"folke/todo-comments.nvim",
 		"mbbill/undotree",
+        "axieax/urlview.nvim",
 		{
 			"iamcco/markdown-preview.nvim",
 			run = "cd app && npm install",
@@ -73,6 +76,7 @@ return require("packer").startup(function(use)
 		{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
 		"nvim-telescope/telescope-dap.nvim",
 		"kiyoon/telescope-insert-path.nvim",
+		"nvim-telescope/telescope-ui-select.nvim",
 	})
 
 	-- completion
@@ -86,7 +90,8 @@ return require("packer").startup(function(use)
 	})
 
 	-- external integrations
-    use("zk-org/zk-nvim")
+	use({ "zk-org/zk-nvim" })
+	use({ "~/.local/src/gen.nvim" })
 
 	-- dap
 	use({

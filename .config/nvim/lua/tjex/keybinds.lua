@@ -29,7 +29,6 @@ key("n", "<leader>y", '"+y', opts) -- copy to sys clipboard
 key("v", "<leader>y", '"+y', opts)
 key("n", "x", '"_x', opts) -- stop 'x' from adding to paste 
 key("n", "Z", "1z=e", opts)
-
 key("i", "<c-d>", vim.fn.strftime("%Y-%m-%d")) -- insert iso date
 
 -- Replace mode using the word you were currently on (thanks to the Primeageon). 
