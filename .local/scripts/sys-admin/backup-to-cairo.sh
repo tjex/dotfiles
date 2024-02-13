@@ -49,7 +49,7 @@ backup() {
 
     printStep "backup actual"
     restic -r ${r_abudget} backup \
-        --tag script-bup ~/.local/src/installed/abudget/actual-tjex/user-files
+        --tag script-bup ~/.local/src/abudget/actual-tjex/user-files
 
     # cleanup restic repos
     resticCleanup

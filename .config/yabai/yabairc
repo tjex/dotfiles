@@ -33,14 +33,15 @@ cb9="manage=off grid=3:3:1:2:1:1"
 cl9="manage=off grid=3:3:2:2:1:1"
 
 # things that get launched regularly
+# yabai -m rule --add app="^WezTerm$" opacity=1.0
 yabai -m rule --add app="^Raycast$" title="Raycast Settings" manage=off 
 yabai -m rule --add app="^System Settings$" manage=off sticky=on opacity=1.0
 yabai -m rule --add app="^WezTerm$" title="^lf$" ${cc9}
 yabai -m rule --add app="^Dictionary$" ${cc9}
-yabai -m rule --add app="^WezTerm$" title="^gopass$" sticky=on ${cc9}
-yabai -m rule --add app="^WezTerm$" title="^bkmr$" sticky=on ${cc9} 
-yabai -m rule --add app="^WezTerm$" title="^nvim$" sticky=on ${cc9} 
-yabai -m rule --add app="^WezTerm$" title="^qalc$" sticky=on ${cb9} 
+yabai -m rule --add app="^WezTerm$" title="^gopass$" opacity=1.0 sticky=on ${cc9}
+yabai -m rule --add app="^WezTerm$" title="^bkmr$" opacity=1.0 sticky=on ${cc9} 
+yabai -m rule --add app="^WezTerm$" title="^nvim$" opacity=1.0 sticky=on ${cc9} 
+yabai -m rule --add app="^WezTerm$" title="^qalc$" opacity=1.0 sticky=on ${cb9} 
 yabai -m rule --add app="^Todoist$" title[!]="^- Todoist$" manage=off
 
 # general apps that I don't want any tiling with

@@ -40,8 +40,8 @@ end)
 
 function M.apply(config)
 	-- WINDOWS
-	-- config.window_background_opacity = 0.9
-	-- config.macos_window_background_blur = 20
+	-- config.window_background_opacity = 0.8
+	config.macos_window_background_blur = 7
 	config.window_decorations = "RESIZE" -- hide the title bar
 	config.window_padding = {
 		left = 10,

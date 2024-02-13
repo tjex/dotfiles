@@ -1,4 +1,5 @@
 % wget
 
 # download full website for local use
-wget -pkr <url>
+wget --recursive --page-requisites --convert-links --adjust-extension --no-parent <website_URL>
+

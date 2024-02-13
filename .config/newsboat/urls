@@ -1,15 +1,24 @@
-https://zignar.net/index.xml tech, neovim
-https://cdixon.org/rss.xml tech, philosphy, investing
-https://minutestomidnight.co.uk/feed.xml tech
+---culture---
+
+https://www.anildash.com/feed.xml tech
+https://cdn.jwz.org/blog/feed/ "~jwz.org" tech culture
+https://cdixon.org/rss.xml tech philosphy investing
 https://drewdevault.com/blog/index.xml tech open-source
-https://blog.suborbital.dev/rss.xml wasm
+
+---tech---
+https://zignar.net/index.xml "~Mfussneger" tech neovim
+https://minutestomidnight.co.uk/feed.xml tech
 https://cprimozic.net/rss.xml tech
 https://jordemort.dev/rss.xml tech
 https://00f.net/atom.xml "~Frank Denis" tech
 https://wyssmann.com/blog/index.xml tech
-https://www.humanskills.co/feed.xml podcasts
 https://thevaluable.dev/index.xml "~The Valuable Dev" tech education
-https://cdn.jwz.org/blog/feed/ "~jwz.org" tech culture
 https://www.thecodedmessage.com/index.xml "~The Coded Message" tech
-https://www.anildash.com/feed.xml tech
 https://tjex.net/rss.xml
+
+---podcasts---
+https://www.humanskills.co/feed.xml podcasts
+
+---youtube---
+https://www.youtube.com/feeds/videos.xml?channel_id=UCd3dNckv1Za2coSaHGHl5aA programming neovim education
+

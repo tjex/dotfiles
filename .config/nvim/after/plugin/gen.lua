@@ -4,6 +4,7 @@ if not ok then
 	return
 end
 
+require("gen").prompts = {}
 local prompt = require("gen").prompts
 
 require("gen").setup({
@@ -12,7 +13,6 @@ require("gen").setup({
 	show_prompt = false, -- Shows the Prompt submitted to Ollama.
 	show_model = true, -- Displays which model you are using at the beginning of your chat session.
 	no_auto_close = true, -- Never closes the window automatically.
-	load_default_prompts = false,
 	init = function()
 		pcall(io.popen, "ollama serve > /dev/null 2>&1 &")
 	end,
@@ -24,12 +24,9 @@ require("gen").setup({
 	-- (context property is optional).
 
 	debug = false, -- Prints errors and the command which is run.
-	user_prompts = {
-		["Test_prompt"] = {
-			prompt = "tell me something interesting",
-			replace = false,
-			model = "codellama",
-		},
-	},
 })
 
+prompt["test_prompt"] = {
+	prompt = "test",
+	replace = false,
+}
