@@ -1,7 +1,7 @@
 -- nvim-tree nvim-tree/nvim-tree.lua
 local ok, _ = pcall(require, "nvim-tree")
 if not ok then
-	print("nvim-tre not ok!")
+	print("nvim-tree not ok!")
 	return
 end
 
