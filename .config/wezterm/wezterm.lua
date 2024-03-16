@@ -49,7 +49,7 @@ config.skip_close_confirmation_for_processes_named = {
 }
 
 -- apply the conf files required above
-mux_startup.wide_screen()
+mux_startup.laptop()
 status.load()
 design.apply(config)
 keybinds.apply(config)
