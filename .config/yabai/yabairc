@@ -50,7 +50,7 @@ yabai -m rule --add app="^Carbon Copy Cloner$" manage=off
 
 # signals
 # focus on the launched application (always given a higher id... i think)
-yabai -m signal --add event=application_launched active=yes action="yabai -m window --focus \$(yabai -m query --windows --space | jq 'max_by(.id)')"
+yabai -m signal --add event=application_launched active=yes action="yabai -m window --focus \$(yabai -m query --windows | jq 'max_by(.id).id')"
 
 # focusses on the previous window after an apps last window is destroyed, or the
 # app is fully terminated
