@@ -9,10 +9,11 @@
 # Apple's stock Applications must be opened with `open -a`
 alt + cmd - w : "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
 alt + cmd - return : Applications/WezTerm.app/Contents/MacOS/wezterm
-alt + cmd - b : /Applications/WezTerm.app/Contents/MacOS/wezterm start zsh -l -c "bkmr search --fzf"
-alt + cmd - e : /Applications/WezTerm.app/Contents/MacOS/wezterm start lf ~
-alt + cmd - g : /Applications/WezTerm.app/Contents/MacOS/wezterm start zsh -l -c gopass
-alt + cmd - x : /Applications/WezTerm.app/Contents/MacOS/wezterm start qalc
+alt + cmd - b : Applications/WezTerm.app/Contents/MacOS/wezterm start zsh -l -c "bkmr search --fzf"
+alt + cmd - e : Applications/WezTerm.app/Contents/MacOS/wezterm start lf ~
+alt + cmd - g : Applications/WezTerm.app/Contents/MacOS/wezterm start zsh -l -c gopass
+alt + cmd - x : Applications/WezTerm.app/Contents/MacOS/wezterm start qalc
+
 alt + cmd - 0x27 : open -a Dictionary # key = '
 
 # yabai #
@@ -37,6 +38,19 @@ alt + cmd - h : yabai -m window --focus west
 alt + cmd - j : yabai -m window --focus south
 alt + cmd - k : yabai -m window --focus north
 alt + cmd - l : yabai -m window --focus east
+
+# cycle between stacked windows
+alt + cmd - n : yabai -m query --spaces --space \
+  | jq -re ".index" \
+  | xargs -I{} yabai -m query --windows --space {} \
+  | jq -sre 'add | map(select(."is-minimized"==false)) | sort_by(.display, .frame.y, .frame.x, .id) | . as $array | length as $array_length | index(map(select(."has-focus"==true))) as $has_index | if $has_index > 0 then nth($has_index - 1).id else nth($array_length - 1).id end' \
+  | xargs -I{} yabai -m window --focus {}
+
+alt + cmd - p : yabai -m query --spaces --space \
+  | jq -re ".index" \
+  | xargs -I{} yabai -m query --windows --space {} \
+  | jq -sre 'add | map(select(."is-minimized"==false)) | sort_by(.display, .frame.y, .frame.x, .id) | . as $array | length as $array_length | index(map(select(."has-focus"==true))) as $has_index | if $array_length - 1 > $has_index then nth($has_index + 1).id else nth(0).id end' \
+  | xargs -I{} yabai -m window --focus {}
 
 shift + alt + cmd - h : yabai -m window --swap west
 shift + alt + cmd - j : yabai -m window --swap south
