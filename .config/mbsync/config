@@ -2,7 +2,7 @@ IMAPStore tillmanx@mailbox.org-remote
 Host imap.mailbox.org
 Port 993
 User tillmanx@mailbox.org
-PassCmd "pass tillmanx@mailbox.org"
+PassCmd "gopass email/tillmanx@mailbox.org"
 AuthMechs LOGIN
 SSLType IMAPS
 CertificateFile /etc/ssl/cert.pem
