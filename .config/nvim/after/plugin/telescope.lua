@@ -4,27 +4,25 @@ if not ok then
 	return
 end
 
--- load the extensions
-require("telescope").load_extension("fzf")
-require("telescope").load_extension("dap")
--- require('telescope').load_extension('bookmarks')
-
 local key = vim.keymap.set
 local opts = { noremap = true, silent = true }
 local actions = require("telescope.actions")
 local path_actions = require("telescope_insert_path")
 local tb = require("telescope.builtin")
--- local te = require("telescope").extensions
 
--- key("n", "sb", te.bookmarks.list, opts)
 key("n", "sc", tb.commands, opts)
 key("n", "sd", function()
 	require("telescope").extensions.dap.commands({})
 end)
+
 -- setting previewer false here instead of in setup so that it can be enabled selectively for other commands
 key("n", "sf", function()
 	require("telescope.builtin").find_files({ previewer = false })
 end, opts)
+key("i", "<c-f>", function()
+	require("telescope.builtin").find_files({ previewer = false })
+end, opts)
+
 key("n", "sg", tb.live_grep, opts)
 key("n", "sh", tb.help_tags, opts)
 key("n", "sm", tb.marks, opts)
@@ -34,10 +32,6 @@ key("n", "ss", tb.buffers, opts)
 key("n", "st", ":TodoTelescope<CR>", opts)
 key("n", "sx", tb.git_branches, opts)
 key("n", "sz", tb.git_stash, opts)
-
-key("i", "<c-f>", function()
-	require("telescope.builtin").find_files({ previewer = false })
-end, opts)
 
 require("telescope").setup({
 	defaults = {
@@ -90,5 +84,7 @@ require("telescope").setup({
 	},
 })
 
--- must be after setup
+-- load the extensions
+require("telescope").load_extension("fzf")
+require("telescope").load_extension("dap")
 require("telescope").load_extension("ui-select")
