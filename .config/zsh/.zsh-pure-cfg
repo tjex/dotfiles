@@ -1,0 +1,14 @@
+# config file for pure prompt theme
+# https://github.com/sindresorhus/pure
+
+
+PURE_PROMPT_SYMBOL='>'
+PURE_PROMPT_VICMD_SYMBOL='—'
+PURE_CMD_MAX_EXEC_TIME=300
+
+zstyle :prompt:pure:path color none
+zstyle :prompt:pure:prompt:success color none
+zstyle :prompt:pure:prompt:error color red
+zstyle :prompt:pure:execution_time color gray
+zstyle :prompt:pure:git:stash show yes
+
