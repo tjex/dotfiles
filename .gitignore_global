@@ -1,0 +1,9 @@
+# dotfiles config
+.DS_Store
+.dotf-cfg/
+.tjex-cfg/
+.zshenv
+
+ignored/
+autorun.out
+autorun

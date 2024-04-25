@@ -53,7 +53,7 @@ return require("packer").startup(function(use)
 	use({
 		"ThePrimeagen/harpoon",
 		"tpope/vim-fugitive",
-		"~/plugins/git-worktree.nvim",
+		"~/.local/plugins/git-worktree.nvim",
 		"nvim-treesitter/playground",
 		"folke/todo-comments.nvim",
 		"mbbill/undotree",

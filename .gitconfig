@@ -1,0 +1,11 @@
+[user]
+	email = tjex@tjex.net
+	name = tjex
+[init]
+	defaultBranch = main
+[push]
+	autoSetupRemote = true
+[pull]
+	rebase = false
+[core]
+	excludesFile = /Users/tjex/.gitignore_global
