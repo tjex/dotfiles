@@ -2,7 +2,7 @@
 
 # evaluate glob pattern and join to create PATH sytax
 # then we can add it to $PATH later
-scripts_glob=(${HOME}/.local/scripts/*)
+scripts_glob=(${HOME}/.scripts/*)
 scripts_path=$(printf "%s:" "${scripts_glob[@]}")
 
 # Last export is first/earliest in resultant $PATH

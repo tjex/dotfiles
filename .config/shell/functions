@@ -76,7 +76,7 @@ git_sparse_clone() (
 
 # search .scripts folder and executer
 scripts() {
-	if result=($(fd . -tf -Earchived ${HOME}/.local/scripts | fzf)); then
+	if result=($(fd . -tf -Earchived ${HOME}/.scripts | fzf)); then
 		$result
 	else
 		return

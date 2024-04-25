@@ -115,7 +115,7 @@ function M.laptop()
 			cwd = "/Users/tjex/.config",
 		})
 		sys_tab:set_title("report")
-		sys_pane:send_text("~/.local/scripts/sys-admin/goimapnotify-mailboxorg\n")
+		sys_pane:send_text("~/.scripts/sys-admin/goimapnotify-mailboxorg\n")
 		sys_pane:split({ size = 0.5, direction = "Right" })
 
 		local config_tab, _ = sys_window:spawn_tab({})

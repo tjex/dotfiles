@@ -9,7 +9,7 @@ function M.apply(config)
 		},
 		{
 			label = "edit shell scripts",
-			cwd = "/Users/tjex/.local/scripts",
+			cwd = "/Users/tjex/.scripts",
 			args = { "zsh", "-c", "nvim $(fzf)" },
 		},
 		{
