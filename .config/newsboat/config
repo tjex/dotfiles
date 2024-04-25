@@ -1,0 +1,44 @@
+browser "open -a 'Brave Browser' %u"
+macro m set browser "mpv --volume=100 --really-quiet %u"; open-in-browser ; set browser "open %u"
+
+cleanup-on-quit false
+max-items 100
+
+bind-key "SPACE" macro-prefix
+bind-key l open
+bind-key h quit
+bind-key k up
+bind-key j down
+
+text-width 90
+bookmark-autopilot no
+bookmark-cmd ~/.config/newsboat/bookmark.sh
+
+color background          default default
+color listnormal          default  default
+color listfocus           black  blue
+color listnormal_unread   default  default
+color listfocus_unread    black  blue
+color title               blue default   bold
+color info                blue  default   bold
+color hint-key            blue  default   bold
+color hint-keys-delimiter blue  default
+color hint-separator      blue  default  bold
+color hint-description    blue  default
+color article             default   default
+color end-of-text-marker  black default invis
+
+
+highlight article "^(Feed|Title|Author|Link|Date): .+" default default bold
+highlight article "^(Feed|Title|Author|Link|Date):" blue default bold
+
+highlight article "\\((link|image|video)\\)" red default
+highlight article "https?://[^ ]+" red default
+highlight article "\[[0-9]+\]" red default bold
+
+highlight articlelist "^(.*:: )" color246 default
+highlight feedlist "^(.*:: )" color246 default
+
+
+articlelist-format " %4i %n %D :: %t %> "
+feedlist-format " %4i %n :: %t %> %U/%c"

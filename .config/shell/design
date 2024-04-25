@@ -1,0 +1,14 @@
+# vim: filetype=zsh
+
+# shell design / colors / etc
+# standard term colors are set in wezterm/colors
+
+# Enable colors: needs to be before promptinit
+autoload -U colors && colors
+
+autoload -U promptinit; promptinit
+prompt pure # set the prompt theme here
+source "${ZDOTDIR}/.zsh-pure-cfg" # pure
+
+# needs to be after promptinit
+fast-theme ${ZDOTDIR}/sv-orple-mod.ini >/dev/null

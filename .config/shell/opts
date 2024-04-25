@@ -1,0 +1,12 @@
+# vim: filetype=zsh
+
+# 'setopts' that don't need to be called wherever.
+#  kept here for some orderliness
+
+stty stop undef		# Disable ctrl-s to freeze terminal.
+setopt autocd		# Automatically cd into typed directory.
+setopt ignoreeof    # ignore c-d (exit shell)
+setopt hist_ignore_all_dups # ignore duplicate commands in history
+setopt share_history # share history between shell instances
+setopt interactive_comments  # no real idea what this does
+setopt hash_dirs

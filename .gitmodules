@@ -10,3 +10,15 @@
 [submodule "/Users/tjex/.config/asciinema"]
 	path = /Users/tjex/.config/asciinema
 	url = git@git.sr.ht:~tjex/asciinema-conf
+[submodule "/Users/tjex/.config/aerc"]
+	path = /Users/tjex/.config/aerc
+	url = git@git.sr.ht:~tjex/aerc-conf
+[submodule "/Users/tjex/.config/goimap"]
+	path = /Users/tjex/.config/goimap
+	url = git@git.sr.ht:~tjex/goimap-conf
+[submodule "/Users/tjex/.config/mbsync"]
+	path = /Users/tjex/.config/mbsync
+	url = git@git.sr.ht:~tjex/mbsync-conf
+[submodule "/Users/tjex/.config/msmtp"]
+	path = /Users/tjex/.config/msmtp
+	url = git@git.sr.ht:~tjex/msmtp-conf

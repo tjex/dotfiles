@@ -1,0 +1,5 @@
+[mounts]
+	path = /Users/tjex/.local/share/password-store
+[core]
+	notifications = false
+    autosync = false

@@ -1,0 +1,9 @@
+# PyRadio User Configuration File
+# To get a full list of options execute: pyradio -pc
+# or examine the file: /Users/tjex/.local/pipx/venvs/pyradio/lib/python3.11/site-packages/pyradio/config
+#
+# Please do not change this paramter manually
+# Use the in program Window instead
+# (Config / General Options / Recordings dir)
+recording_dir = ~/music/Mixes/pyradio
+theme = white_on_black

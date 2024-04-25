@@ -1,0 +1,69 @@
+# vim: filetype=bash
+
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
+
+yabai -m config \
+    debug_output on \
+    layout stack \
+    top_padding 5 \
+    bottom_padding 5 \
+    left_padding 5 \
+    right_padding 5 \
+    window_gap 10 \
+    window_shadow off \
+    auto_balance off \
+    split_ratio 0.5
+
+# yabai -m config \
+#     window_opacity on \
+#     active_window_opacity 0.8 \
+#     normal_window_opacity 0.8
+
+# spaces
+
+yabai -m space 1 --layout bsp
+yabai -m space 2 --layout bsp
+
+# rules
+# grid=<rows>:<cols>:<start-x>:<start-y>:<width>:<height>
+
+# floating window presets
+# ultra-wide monitor
+# cc="manage=off grid=3:3:1:1:1:1"
+# cb="manage=off grid=3:3:1:2:1:1"
+# cl="manage=off grid=3:3:2:2:1:1"
+
+# laptop / small screen
+cc="manage=off grid=5:4:1:1:2:2"
+cb="manage=off grid=5:4:1:3:2:2"
+
+yabai -m rule --add app="^Raycast$" title="Raycast Settings" manage=off
+yabai -m rule --add app="^System Settings$" manage=off sticky=on opacity=1.0
+yabai -m rule --add app="^Dictionary$" ${cc}
+yabai -m rule --add app="^WezTerm$" title="^lf$" ${cc}
+yabai -m rule --add app="^WezTerm$" title="^gopass$" opacity=1.0 sticky=on ${cc}
+yabai -m rule --add app="^WezTerm$" title="^bkmr$" opacity=1.0 sticky=on ${cc}
+yabai -m rule --add app="^WezTerm$" title="^nvim$" opacity=1.0 sticky=on ${cc}
+yabai -m rule --add app="^WezTerm$" title="^qalc$" opacity=1.0 sticky=on ${cb}
+
+yabai -m rule --add app="^Todoist$" title[!]="^- Todoist$" manage=off
+yabai -m rule --add app="^Max$" manage=off
+yabai -m rule --add app="^Carbon Copy Cloner$" manage=off
+
+# designated spaces
+space1_apps="^(Calendar|Todoist)$"
+space2_apps="^(Signal|Messages)$"
+space6_apps="^(Zotero)$"
+
+yabai -m rule --add app=${space1_apps} space=1
+yabai -m rule --add app=${space2_apps} space=2
+yabai -m rule --add app=${space6_apps} space=6
+
+# signals
+# focus on the launched application (always given a higher id... i think)
+yabai -m signal --add event=application_launched active=yes action="yabai -m window --focus \$(yabai -m query --windows | jq 'max_by(.id).id')"
+
+# focusses on the previous window after an apps last window is destroyed, or the
+# app is fully terminated
+yabai -m signal --add event=window_destroyed active=yes action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse &> /dev/null || yabai -m window --focus \$(yabai -m query --windows --space | jq .[0].id) &> /dev/null"

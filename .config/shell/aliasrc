@@ -1,0 +1,100 @@
+#!/usr/bin/env zsh
+
+# Use neovim for vim if present.
+[ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d"
+
+[ -f "$MBSYNCRC" ] && alias mbsync="mbsync -c $MBSYNCRC"
+
+# sudo not required for some system commands
+for command in poweroff reboot tlmgr; do
+	alias $command="sudo $command"
+done; unset command
+
+# Verbosity and settings that you pretty much just always are going to want.
+alias \
+	bc="bc -ql" \
+	cp="cp -iv" \
+	mkd="mkdir -pv" \
+	mv="mv -iv" \
+	rm="rm -vI" \
+    rmd="rm -rfvI" \
+	rsync="rsync -vrPlu" \
+	v="$EDITOR" \
+    gd="pushd" \
+    pd="popd"
+
+# Colorize commands when possible.
+alias \
+	ls="lsd" \
+    ll="ls -l" \
+	grep="grep --color=auto" \
+	diff="diff --color=auto" \
+	ccat="highlight --out-format=ansi" \
+
+# system-utility style
+alias \
+	ref="source ${XDG_CONFIG_HOME}/shell/functions ;
+        source ${XDG_CONFIG_HOME}/shell/aliasrc" \
+
+# dotfiles management
+alias \
+	dotf="git --git-dir=$HOME/.tjex-cfg/ --work-tree=$HOME" \
+    dotfs="dotf status -s" \
+    dotfa="dotf add -u" \
+    dotfc="dotf commit -m" \
+    dotfp="dotf push"
+
+# git management
+alias \
+	g="git" \
+    gs="git status -s" \
+    ga="git add -A" \
+    gc="git commit -m" \
+    gp="git push"
+
+# programs
+# yt-dlp output template: https://github.com/yt-dlp/yt-dlp#output-template
+alias \
+    abook="abook --config $XDG_DATA_HOME/abook/abookrc --datafile $XDG_DATA_HOME/abook/addressbook" \
+    bms="bkmr search --fzf" \
+	ffmpeg="ffmpeg -hide_banner" \
+    gopc="gopass show -c" \
+    mpva="mpv --no-audio-display" \
+    navie="nvim -c ':cd ~/.local/share/navi' -c ':Telescope find_files'" \
+    neomutt="TERM=xterm-direct neomutt" \
+    yabspace="yabai -m space --create" \
+    yt="yt-dlp --embed-metadata -i -o '%(title)s.%(ext)s'" \
+    diary="zk --notebook-dir ~/wikis/diary daily"
+
+
+# common directories
+alias \
+    cac="cd ${HOME}/.cache && ls -A" \
+    cf="cd ${XDG_CONFIG_HOME} && ls -A" \
+    D="cd ${HOME}/Downloads && ls -A" \
+    d="cd ${HOME}/docs && ls -A" \
+    dev="cd ${HOME}/dev && ls -A" \
+    tjr="cd ${HOME} && ls -A" \
+    m="cd ${HOME}/music && ls -A" \
+    i="cd ${HOME}/images && ls -A" \
+    l="cd ${HOME}/.local && ls -A" \
+    lsh="cd ${XDG_DATA_HOME} && ls -A" \
+    lsrc="cd ${HOME}/.local/src && ls -A" \
+    vol="cd /Volumes && ls -A" \
+    obs="cd ${HOME}/obsidian/paradigm-shifted && ls" \
+    tjex.net="cd ${HOME}/dev/websites/tjex.net && ls"
+
+# open with editor
+alias \
+    bf="$EDITOR ${XDG_CONFIG_HOME}/shell/bm-files" \
+    bd="$EDITOR ${XDG_CONFIG_HOME}/shell/bm-dirs" \
+    cfv="$EDITOR ${XDG_CONFIG_HOME}/nvim/init.vim" \
+    cfz="$EDITOR ${XDG_CONFIG_HOME}/zsh/.zshrc" \
+    cfa="$EDITOR ${XDG_CONFIG_HOME}/shell/aliasrc" \
+    cfs="$EDITOR ${XDG_CONFIG_HOME}/shell/shortcutrc" \
+    cfsh="$EDITOR ${XDG_CONFIG_HOME}/shell" \
+    cfp="$EDITOR ${HOME}/.zprofile" \
+    cfm="$EDITOR ${XDG_CONFIG_HOME}/mutt/muttrc" \
+    cfn="$EDITOR ${XDG_CONFIG_HOME}/newsboat/config" \
+    cfu="$EDITOR ${XDG_CONFIG_HOME}/newsboat/urls" \
+    packpath="$EDITOR ${XDG_DATA_HOME}/nvim/site/pack/packer/start/"
