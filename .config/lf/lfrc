@@ -1,1 +1,17 @@
+set scrolloff 8
+set ifs "\n"
+
+cmd trash ${{ rm $fx }}
+
+cmd move_selected_to_new_dir ${{
+    set -f
+    printf "Directory name: "
+    read newd
+    mkdir -- "$newd"
+    mv -- $fx "$newd"
+}}
+
 map . set hidden!
+map <c-c> quit
+map D delete ; y<enter>
+map <c-n> move_selected_to_new_dir
