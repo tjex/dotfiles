@@ -8,10 +8,11 @@
 
 # Apple's stock Applications must be opened with `open -a`
 alt + cmd - w : "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
-alt + cmd - g : "/Applications/kitty.app/Contents/MacOS/kitty" -1 -T gopass --session - gopass
+alt + cmd - g : "/Applications/kitty.app/Contents/MacOS/kitty" -1 -T gopass --session - zsh -l -c gopass
 alt + cmd - b : "/Applications/kitty.app/Contents/MacOS/kitty" -1 -T bkmr --session - zsh -l -c "bkmr search --fzf"
 alt + cmd - e : "/Applications/kitty.app/Contents/MacOS/kitty" -1 -T lf --session - lf ~/docs
 alt + cmd - x : "/Applications/kitty.app/Contents/MacOS/kitty" -1 -T qalc --session - qalc
+alt + cmd - y : "/Applications/kitty.app/Contents/MacOS/WezTerm" cli spawn --new-window -- bash
 
 alt + cmd - 0x27 : open -a Dictionary # key = '
 
