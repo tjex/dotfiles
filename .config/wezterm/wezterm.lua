@@ -12,11 +12,11 @@ local status = require("status")
 local config = {}
 config = wezterm.config_builder()
 
--- config.unix_domains = {
--- 	{
--- 		name = "unix",
--- 	},
--- }
+config.unix_domains = {
+	{
+		name = "unix",
+	},
+}
 -- config.default_gui_startup_args = { "connect", "unix" }
 
 config.ssh_domains = {
