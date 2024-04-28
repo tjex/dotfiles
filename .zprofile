@@ -55,7 +55,7 @@ export SQLITE_HISTORY="$XDG_CACHE_HOME/history/sqlite_history"
 export LESSHISTFILE="-"
 
 # Other program settings:
-export LESS=-R
+export LESS=-Rc
 export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"
 export LESS_TERMCAP_md="$(printf '%b' '[1;36m')"
 export LESS_TERMCAP_me="$(printf '%b' '[0m')"
