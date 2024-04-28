@@ -66,7 +66,15 @@ require("formatter").setup({
 
 		-- for any filetype
 		["*"] = {
-			require("formatter.filetypes.any").remove_trailing_whitespace,
+			function()
+				local ft = vim.bo.filetype
+				-- white space is required for signatures "-- " and paragraph breaks
+				if ft == "mail" then
+					return
+				end
+				require("formatter.filetypes.any").remove_trailing_whitespace()
+			end,
+
 			-- formatting logic: See if formatter.nvim can do it, then check if lsp can do it,
 			-- then notify if neither can do it. The keybind is then universally ":Format", as this
 			-- logic is run when formatter.nvim is run.

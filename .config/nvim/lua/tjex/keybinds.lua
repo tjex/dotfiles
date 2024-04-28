@@ -62,7 +62,7 @@ key("n", "gh", ":tabp<CR>", opts) -- previous tab
 key("n", "gl", ":tabn<CR>", opts) -- next tab
 
 -- buffers
-key("n", "<leader>bd", ":bp<bar>sp<bar>bn<bar>bd<CR>")
+key("n", "<leader>bd", ":bn<bar>sp<bar>bp<bar>bd<CR>")
 
 -- plugins without their own conf file
 

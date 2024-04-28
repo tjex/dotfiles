@@ -13,7 +13,7 @@ return {
             {}
             --
             Tillman Jex
-            https://tjex.net
+            www.tjex.net
             ]],
 			{ i(1) }
 		)
