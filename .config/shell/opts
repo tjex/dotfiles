@@ -10,3 +10,4 @@ setopt hist_ignore_all_dups # ignore duplicate commands in history
 setopt share_history # share history between shell instances
 setopt interactive_comments  # no real idea what this does
 setopt hash_dirs
+set shellopts '-euy' # for this https://github.com/gokcehan/lf/wiki/Tips#new-folder-with-selected-items
