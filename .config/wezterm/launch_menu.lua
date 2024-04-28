@@ -16,7 +16,7 @@ function M.apply(config)
 			set_environment_variables = {
 				PATH = "/bin:/usr/bin:/usr/local/bin:/opt/homebrew/bin",
 			},
-			args = { "zsh", "-c", "nvim $(fzf)" },
+			args = { "zsh", "-c", "nvim $(fd | fzf)" },
 		},
 		{
 			label = "edit navi files",
@@ -25,7 +25,7 @@ function M.apply(config)
 				PATH = "/bin:/usr/bin:/usr/local/bin:/opt/homebrew/bin",
 			},
 			-- for some reason, this command needs to be explicityly cd'd into?
-			args = { "zsh", "-c", "cd /Users/tjex/.local/share/navi && nvim $(fzf)" },
+			args = { "zsh", "-c", "cd /Users/tjex/.local/share/navi && nvim $(fd | fzf)" },
 		},
 	}
 end
