@@ -25,26 +25,3 @@ usr_cmd(
 	{}
 )
 usr_cmd("Chmod", ":silent !chmod +x %", {})
-
--- dotfiles
-usr_cmd("Dfa", function()
-	local file = vim.fn.expand("%:p")
-	local exists = funcs.file_tracked_in_dotfiles(file)
-	if exists then
-		funcs.dotfiles_stage_file(file)
-	else
-		local response = vim.fn.input("File is untracked in dotfiles. Stage it (y/n)? ")
-		response = response.gsub(response, "%s+", "")
-		if response == "y" or response == "Y" then
-			funcs.dotfiles_stage_file(file)
-		end
-	end
-end, {})
-usr_cmd("Dfc", function()
-	local message = vim.fn.input("Commit message:  ")
-	funcs.dotfiles_commit(message)
-end, {})
-usr_cmd("Dfr", function()
-	local file = vim.fn.expand("%:p")
-	funcs.dotfiles_restore_staged_file(file)
-end, {})

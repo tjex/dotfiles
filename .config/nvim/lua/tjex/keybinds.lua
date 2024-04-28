@@ -33,9 +33,6 @@ key("n", "<leader>y", '"+y', opts) -- copy to sys clipboard
 key("v", "<leader>y", '"+y', opts)
 key("n", "x", '"_x', opts) -- stop 'x' from adding to paste
 key("n", "Z", "1z=e", opts)
-key("n", "<leader>dfa", ":Dfa<cr>", opts)
-key("n", "<leader>dfc", ":Dfc<cr>", opts)
-key("n", "<leader>dfr", ":Dfr<cr>", opts)
 
 -- Replace mode using the word you were currently on (thanks to the Primeageon).
 key("n", "<leader>r", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/<Left>")
