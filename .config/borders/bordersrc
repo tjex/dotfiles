@@ -4,7 +4,7 @@ options=(
 	style=round
 	width=3.0
 	hidpi=on
-    whitelist="kitty"
+    whitelist="kitty,Dictionary"
 	active_color=0xff647f9d
 	# inactive_color=0xff414550
 )

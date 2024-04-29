@@ -71,7 +71,7 @@ function M.wide_screen()
 			cwd = "/Users/tjex/wikis/ps",
 		})
 		writing_tab:set_title("zk - ps")
-		writing_pane:send_text("zk s\n")
+		writing_pane:send_text("zk start\n")
 	end)
 end
 
@@ -115,7 +115,7 @@ function M.laptop()
 			cwd = "/Users/tjex/.config",
 		})
 		sys_tab:set_title("report")
-		sys_pane:send_text("~/.scripts/sys-admin/goimapnotify-mailboxorg\n")
+		sys_pane:send_text("~/.scripts/sys-admin/goimapnotify-mailboxorg.sh\n")
 		sys_pane:split({ size = 0.5, direction = "Right" })
 
 		local config_tab, _ = sys_window:spawn_tab({})
@@ -145,7 +145,7 @@ function M.laptop()
 			cwd = "/Users/tjex/wikis/ps",
 		})
 		writing_tab:set_title("zk - ps")
-		writing_pane:send_text("zk s\n")
+		writing_pane:send_text("zk start\n")
 	end)
 end
 
