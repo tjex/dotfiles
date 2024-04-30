@@ -8,13 +8,12 @@ if not ok then
 end
 
 local dap = require("dap")
-local key = vim.keymap.set
-local opts = { noremap = true, silent = true }
+local key = require("tjex.keymap")
 
-key("n", "<F1>", ":lua require'dap'.continue()<CR>", opts)
-key("n", "<F4>", ":lua require'dap'.step_over()<CR>", opts)
-key("n", "<F3>", ":lua require'dap'.step_into()<CR>", opts)
-key("n", "<F2>", ":lua require'dap'.step_out()<CR>", opts)
+key.nmap({ "<F1>", ":lua require'dap'.continue()<CR>" })
+key.nmap({ "<F4>", ":lua require'dap'.step_over()<CR>" })
+key.nmap({ "<F3>", ":lua require'dap'.step_into()<CR>" })
+key.nmap({ "<F2>", ":lua require'dap'.step_out()<CR>" })
 
 -- nvim-dap-go plugin
 require("dap-go").setup({

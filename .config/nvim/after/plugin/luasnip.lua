@@ -6,8 +6,8 @@ if not ok then
 	return
 end
 
+local key = require("tjex.keymap")
 local ls = require("luasnip")
-local key = vim.keymap.set
 
 -- snippets source
 require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/snippets" })
@@ -21,26 +21,26 @@ ls.config.set_config({
 	-- enable_autosnippets = true,
 })
 
-key({ "i", "s" }, "<c-j>", function()
+vim.keymap.set({ "i", "s" }, "<c-j>", function()
 	if ls.expand_or_jumpable() then
 		ls.expand_or_jump()
 	end
 end, { silent = true })
 
-key({ "i", "s" }, "<c-k>", function()
+vim.keymap.set({ "i", "s" }, "<c-k>", function()
 	if ls.jumpable(-1) then
 		ls.jump(-1)
 	end
 end, { silent = true })
 
-key({ "i", "s" }, "<c-l>", function()
+vim.keymap.set({ "i", "s" }, "<c-l>", function()
 	if ls.choice_active() then
 		ls.change_choice(1)
 	end
 end, { silent = true })
 
-key("n", "<leader><leader>ls", "<cmd>source ~/.config/nvim/after/plugin/luasnip.lua<cr>")
-key("n", "<leader><leader>es", ":lua require('luasnip.loaders').edit_snippet_files()<CR>")
+key.nmap({ "<leader><leader>ls", "<cmd>source ~/.config/nvim/after/plugin/luasnip.lua<cr>" })
+key.nmap({ "<leader><leader>es", ":lua require('luasnip.loaders').edit_snippet_files()<CR>" })
 
 local function map_snippet(keys, snippet_key)
 	vim.keymap.set("i", keys, function()

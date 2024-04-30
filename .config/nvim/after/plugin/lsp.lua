@@ -41,17 +41,21 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 local function lsp_keymaps(bufnr)
 	-- See `:help vim.lsp.*` for documentation on any of the below functions
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
-	local key = vim.keymap.set
+	local key = require("tjex.keymap")
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
-	key("n", "gd", function()
-		vim.cmd("norm! ml")
-		require("telescope.builtin").lsp_definitions()
-	end, bufopts)
-	key("n", "[d", vim.diagnostic.goto_prev, bufopts)
-	key("n", "]d", vim.diagnostic.goto_next, bufopts)
-	key("n", "<c-p>", vim.lsp.buf.hover, bufopts)
-	key("n", "<c-x>", vim.lsp.buf.code_action, bufopts)
+	key.nmap({
+		"gd",
+		function()
+			vim.cmd("norm! ml")
+			require("telescope.builtin").lsp_definitions()
+		end,
+		bufopts,
+	})
+	key.nmap({ "[d", vim.diagnostic.goto_prev, bufopts })
+	key.nmap({ "]d", vim.diagnostic.goto_next, bufopts })
+	key.nmap({ "<c-p>", vim.lsp.buf.hover, bufopts })
+	key.nmap({ "<c-x>", vim.lsp.buf.code_action, bufopts })
 end
 
 local lsp_attach = function(client, bufnr)

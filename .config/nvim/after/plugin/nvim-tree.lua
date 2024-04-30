@@ -1,18 +1,18 @@
 -- nvim-tree nvim-tree/nvim-tree.lua
 local ok, _ = pcall(require, "nvim-tree")
 if not ok then
-    vim.cmd(':set cmdheight=0') -- makes messages persist
+	vim.cmd(":set cmdheight=0") -- makes messages persist
 	print("nvim-tree not ok!")
-    vim.cmd(':set cmdheight=1') -- set to default
+	vim.cmd(":set cmdheight=1") -- set to default
 	return
 end
 
-local key = vim.keymap.set
-local opts = { noremap = true, silent = true }
+local key = require("tjex.keymap")
 
-key("n", "<ESC>", ":NvimTreeClose<CR>", opts)
-key("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
-key("n", "<leader>l", ":NvimTreeFindFile!<CR>", opts)
+key.nmap({ "<ESC>", ":NvimTreeClose<CR>" })
+key.nmap({ "<leader>e", ":NvimTreeToggle<CR>" })
+key.nmap({ "<leader>l", ":NvimTreeFindFile!<CR>" })
+
 -- Please see https://github.com/nvim-tree/nvim-tree.lua/wiki/Migrating-To-on_attach for assistance in migrating.
 local function on_attach(bufnr)
 	local api = require("nvim-tree.api")
@@ -41,12 +41,13 @@ local function on_attach(bufnr)
 	api.config.mappings.default_on_attach(bufnr)
 
 	-- custom mappings
-	key("n", "h", up_and_collapse, tree_opts("up and collapse"))
-	key("n", "l", api.tree.change_root_to_node, tree_opts("cd"))
-	key("n", "e", api.node.open.no_window_picker, tree_opts("open"))
-	key("n", "r", api.fs.rename_basename, tree_opts("rename basename"))
-	key("n", "R", api.fs.rename, tree_opts("rename"))
-	key("n", "<leader>m", api.marks.bulk.move, tree_opts("Move Bookmarked"))
+	key.nmap({ "h", up_and_collapse, tree_opts("up and collapse") })
+	key.nmap({ "l", api.tree.change_root_to_node, tree_opts("cd") })
+	key.nmap({ "e", api.node.open.no_window_picker, tree_opts("open") })
+	key.nmap({ "r", api.fs.rename_basename, tree_opts("rename basename") })
+	key.nmap({ "R", api.fs.rename, tree_opts("rename") })
+	key.nmap({ "<leader>m", api.marks.bulk.move, tree_opts("Move Bookmarked") })
+	key.nmap({ "<leader>m", api.marks.bulk.move, tree_opts("Move Bookmarked") })
 end
 
 local HEIGHT_RATIO = 0.6 -- You can change this
@@ -108,8 +109,8 @@ require("nvim-tree").setup({
 				folder_arrow = false,
 				git = false,
 			},
-            glyphs = {
-            bookmark = "†",
+			glyphs = {
+				bookmark = "†",
 				folder = {
 					default = "•",
 					open = "•",

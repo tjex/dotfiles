@@ -6,35 +6,40 @@ if not ok then
 	return
 end
 
-local key = vim.keymap.set
-local opts = { noremap = true, silent = true }
+local key = require("tjex.keymap")
 local actions = require("telescope.actions")
 local path_actions = require("telescope_insert_path")
 local tb = require("telescope.builtin")
 
 -- setting previewer false here instead of in setup so that it can be enabled selectively for other commands
-key("i", "<c-f>", function()
-	require("telescope.builtin").find_files({ previewer = false })
-end, opts)
+key.imap({
+	"<c-f>",
+	function()
+		require("telescope.builtin").find_files({ previewer = false })
+	end,
+})
 
-key("n", "sc", tb.commands, opts)
-key("n", "sd", tb.lsp_document_symbols, opts)
-key("n", "sf", function()
-	require("telescope.builtin").find_files({ previewer = false })
-end, opts)
-key("n", "sg", tb.live_grep, opts)
-key("n", "sG", tb.grep_string, opts)
-key("n", "sh", tb.help_tags, opts)
-key("n", "si", tb.lsp_incoming_calls, opts)
-key("n", "sl", tb.resume, opts)
-key("n", "so", tb.lsp_outgoing_calls, opts)
-key("n", "sp", tb.registers, opts)
-key("n", "sr", tb.lsp_references, opts)
-key("n", "ss", tb.buffers, opts)
--- key("n", "st", tb.treesitter, opts) -- not very useful?
-key("n", "sX", ":lua require('telescope').extensions.git_worktree.git_worktrees()<cr>", opts)
-key("n", "sx", tb.git_branches, opts)
-key("n", "sz", tb.git_stash, opts)
+key.nmap({ "sc", tb.commands })
+key.nmap({ "sd", tb.lsp_document_symbols })
+key.nmap({
+	"sf",
+	function()
+		require("telescope.builtin").find_files({ previewer = false })
+	end,
+})
+key.nmap({ "sg", tb.live_grep })
+key.nmap({ "sG", tb.grep_string })
+key.nmap({ "sh", tb.help_tags })
+key.nmap({ "si", tb.lsp_incoming_calls })
+key.nmap({ "sl", tb.resume })
+key.nmap({ "so", tb.lsp_outgoing_calls })
+key.nmap({ "sp", tb.registers })
+key.nmap({ "sr", tb.lsp_references })
+key.nmap({ "ss", tb.buffers })
+-- key.nmap({"st", tb.treesitter}) -- not very useful?
+key.nmap({ "sX", ":lua require('telescope').extensions.git_worktree.git_worktrees()<cr>" })
+key.nmap({ "sx", tb.git_branches })
+key.nmap({ "sz", tb.git_stash })
 
 require("telescope").setup({
 	defaults = {

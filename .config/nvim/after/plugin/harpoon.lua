@@ -1,12 +1,12 @@
 local ok, _ = pcall(require, "harpoon")
 if not ok then
-    vim.cmd(':set cmdheight=0')
+	vim.cmd(":set cmdheight=0")
 	print("harpoon not ok!")
-    vim.cmd(':set cmdheight=1')
+	vim.cmd(":set cmdheight=1")
 	return
 end
 
-local key = vim.keymap.set
+local key = require("tjex.keymap")
 local mark = require("harpoon.mark")
 
 require("harpoon").setup({
@@ -16,22 +16,37 @@ require("harpoon").setup({
 })
 
 local ui = require("harpoon.ui")
-key("n", "<leader>a", mark.add_file)
-key("n", "<leader>h", ui.toggle_quick_menu)
-key("n", "<C-1>", function()
-	ui.nav_file(1)
-end)
-key("n", "<C-2>", function()
-	ui.nav_file(2)
-end)
-key("n", "<C-3>", function()
-	ui.nav_file(3)
-end)
-key("n", "<C-4>", function()
-	ui.nav_file(4)
-end)
-key("n", "<C-5>", function()
-	ui.nav_file(5)
-end)
-key("n", "K", ui.nav_next)
-key("n", "J", ui.nav_prev)
+key.nmap({ "<leader>a", mark.add_file })
+key.nmap({ "<leader>h", ui.toggle_quick_menu })
+key.nmap({
+	"<C-1>",
+	function()
+		ui.nav_file(1)
+	end,
+})
+key.nmap({
+	"<C-2>",
+	function()
+		ui.nav_file(2)
+	end,
+})
+key.nmap({
+	"<C-3>",
+	function()
+		ui.nav_file(3)
+	end,
+})
+key.nmap({
+	"<C-4>",
+	function()
+		ui.nav_file(4)
+	end,
+})
+key.nmap({
+	"<C-5>",
+	function()
+		ui.nav_file(5)
+	end,
+})
+key.nmap({ "K", ui.nav_next })
+key.nmap({ "J", ui.nav_prev })
