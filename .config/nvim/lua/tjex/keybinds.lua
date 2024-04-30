@@ -1,13 +1,12 @@
 -- neovim keypings
-local funcs = require("tjex.funcs")
-local key = vim.keymap.set
+local key = require("tjex.keymap")
 local opts = { noremap = true, silent = true }
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- main functionality remaps
-key("", "<Space>", "<Nop>", opts)
+vim.api.nvim_set_keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })
 key("n", "<ESC>", "<Nop>")
 key("n", "<F1>", "<Nop>", opts)
 key("i", "kj", "<ESC>", opts)
