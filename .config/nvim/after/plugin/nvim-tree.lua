@@ -46,6 +46,7 @@ local function on_attach(bufnr)
 	key.nmap({ "e", api.node.open.no_window_picker, tree_opts("open") })
 	key.nmap({ "r", api.fs.rename_basename, tree_opts("rename basename") })
 	key.nmap({ "R", api.fs.rename, tree_opts("rename") })
+	key.nmap({ "H", api.node.navigate.parent_close, tree_opts("close directory") })
 	key.nmap({ "<leader>m", api.marks.bulk.move, tree_opts("Move Bookmarked") })
 	key.nmap({ "<leader>m", api.marks.bulk.move, tree_opts("Move Bookmarked") })
 end
@@ -56,13 +57,13 @@ local WIDTH_RATIO = 0.4 -- You can change this too
 require("nvim-tree").setup({
 	on_attach = on_attach,
 	sort_by = "case_sensitive",
-	hijack_cursor = true,
+	hijack_cursor = false,
 	disable_netrw = true,
 	sync_root_with_cwd = true,
 	respect_buf_cwd = true,
 	view = {
-		number = true,
-		relativenumber = true,
+		number = false,
+		relativenumber = false,
 		adaptive_size = true,
 		cursorline = true,
 		float = {
