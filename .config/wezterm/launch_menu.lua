@@ -3,6 +3,14 @@ local M = {}
 function M.apply(config)
 	config.launch_menu = {
 		{
+			label = "tech wiki",
+			cwd = "/Users/tjex/wikis/tech/",
+			set_environment_variables = {
+				PATH = "/bin:/usr/bin:/usr/local/bin:/opt/homebrew/bin:/Users/tjex/.local/go/bin",
+			},
+			args = { "zsh", "-c", "nvim $(fd -E .zk -t f | fzf)" },
+		},
+		{
 			label = "edit nvim conf",
 			cwd = "/Users/tjex/.config/nvim",
 			set_environment_variables = {
