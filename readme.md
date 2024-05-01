@@ -8,4 +8,3 @@ this technique of tracking dotfiles with a bare repo.
 Here are (matching) color schemes for:
 - [neovim](.config/nvim/after/plugin/colors.lua)
 - [wezterm](.config/wezterm/design.lua)
-
