@@ -8,4 +8,5 @@
 [pull]
 	rebase = false
 [core]
-	excludesFile = /Users/tjex/.gitignore_global
+	excludesFile = /Users/tjex/.config/git/ignore
+	hooksPath = /Users/tjex/.config/git/hooks
