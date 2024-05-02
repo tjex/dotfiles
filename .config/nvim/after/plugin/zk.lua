@@ -23,14 +23,8 @@ cmd.add("ZkOrphans", function(options)
 end)
 
 local keymaps = function()
-	key.nmap({
-		"gd",
-		function()
-			vim.lsp.buf.definition()
-		end,
-	})
 	-- normal mode
-	key.nmap({ "zn", ":ZkNew {title = vim.fn.input('Title: '), dir = vim.fn.input('Dir: ')}<cr>" })
+	-- make daily note
 	key.nmap({
 		"zd",
 		function()
@@ -52,27 +46,20 @@ local keymaps = function()
 			end
 		end,
 	})
-	key.nmap({ "zt", ":ZkTags<cr>" })
+	key.nmap({ "zn", ":ZkNew {title = vim.fn.input('Title: '), dir = vim.fn.input('Dir: ')}<cr>" })
+	key.nmap({ "st", ":ZkTags<cr>" })
 	key.nmap({ "sf", ":ZkNotes<cr>" })
-	key.nmap({ "zl", ":ZkInsertLink {title = vim.fn.input('Link text: ')}<cr>" })
-	key.nmap({ "zo", ":ZkLinks<cr>" })
-	key.nmap({ "zb", ":ZkBacklinks<cr>" })
+	key.nmap({ "sl", ":ZkLinks<cr>" })
+	key.nmap({ "sb", ":ZkBacklinks<cr>" })
 
 	-- visual mode
-	key.vmap({ "zl", ":ZkInsertLinkAtSelection<cr>" })
-	key.vmap({ "zm", ":ZkMatch<cr>" })
+	key.vmap({ "sm", ":ZkMatch<cr>" })
 	key.vmap({ "zn", ":ZkNewFromTitleSelection {dir = vim.fn.input('Dir: ')}<cr>" })
 	key.vmap({
 		"ze",
 		":ZkNewFromContentSelection {title = vim.fn.input('Title: '), dir = vim.fn.input('Dir: ')}<cr>",
 	})
 
-	key.imap({
-		"<c-r>",
-		function()
-			cmd.get("ZkInsertLink")()
-		end,
-	})
 	-- insert mode
 	key.imap({
 		"<c-r>",
