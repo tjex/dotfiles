@@ -8,8 +8,8 @@ vim.g.maplocalleader = " "
 vim.api.nvim_set_keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })
 key.nmap({ "<ESC>", "<Nop>" })
 key.nmap({ "<F1>", "<Nop>" })
-key.imap({ "kj", "<ESC>" })
-key.imap({ "KJ", "<ESC>" })
+key.imap({ "kj", "<ESC><Right>" })
+key.imap({ "KJ", "<ESC><Right>" })
 key.imap({ "<c-l>", "<Nop>" })
 
 -- Modes
