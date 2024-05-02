@@ -9,4 +9,3 @@
 	rebase = false
 [core]
 	excludesFile = /Users/tjex/.config/git/ignore
-	hooksPath = /Users/tjex/.config/git/hooks
