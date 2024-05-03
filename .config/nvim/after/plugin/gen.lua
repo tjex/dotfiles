@@ -51,8 +51,9 @@ prompt["explain_code"] = {
 
 prompt["fix_code"] = {
 	model = "deepseek-coder:6.7b",
-	prompt = "The following code is buggy, fix it:\n\n```$filetype\n$text\n```",
+	prompt = "The following code is buggy, fix it. Output ONLY the fixed code. DONOT include anything except the specific code required to fix this problem:\n\n```$filetype\n$text\n```",
 	replace = true,
+	extract = "```$filetype\n(.-)```",
 }
 
 prompt["optimize_code"] = {
@@ -84,6 +85,6 @@ prompt["summarise_text"] = {
 	prompt = "Summarise the following text: $text",
 }
 
-prompt["ask_a_question_about_some_text"] = {
+prompt["ask_about_text"] = {
 	prompt = "I have a question about some text. Answer the question concisely and DO NOT elaborate. Here is the text: $text. And my question is as follows: $input",
 }

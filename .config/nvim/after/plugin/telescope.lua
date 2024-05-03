@@ -6,8 +6,8 @@ if not ok then
 	return
 end
 
-local key = require("tjex.keymap")
 local actions = require("telescope.actions")
+local key = require("tjex.keymap")
 local path_actions = require("telescope_insert_path")
 local tb = require("telescope.builtin")
 
@@ -36,7 +36,7 @@ key.nmap({ "so", tb.lsp_outgoing_calls })
 key.nmap({ "sp", tb.registers })
 key.nmap({ "sr", tb.lsp_references })
 key.nmap({ "ss", tb.buffers })
--- key.nmap({"st", tb.treesitter}) -- not very useful?
+key.nmap({ "st", ":Trouble<cr>" }) -- not very useful?
 key.nmap({ "sX", ":lua require('telescope').extensions.git_worktree.git_worktrees()<cr>" })
 key.nmap({ "sx", tb.git_branches })
 key.nmap({ "sz", tb.git_stash })
