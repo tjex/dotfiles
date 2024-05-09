@@ -65,9 +65,7 @@ local keymaps = function()
 		"<c-r>",
 		function()
 			vim.cmd("norm! i") -- otherwise link gets inserted after cursor
-			-- should use nvim_put({}, true, true) in ZkInsertLink. see help
 			cmd.get("ZkInsertLink")()
-			-- after the inserted link?..
 		end,
 	})
 end

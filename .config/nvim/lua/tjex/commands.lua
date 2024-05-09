@@ -18,7 +18,6 @@ end, {})
 usr_cmd("Date", "norm! i" .. vim.fn.strftime("%Y-%m-%d"), {})
 usr_cmd("PubDate", "norm! a " .. vim.fn.strftime("%Y-%m-%dT%XZ"), {}) -- norm command includes adding the white space
 usr_cmd("Dapui", ":lua require('dapui').toggle()<CR>", {})
-usr_cmd("Cs", ":lua require('telescope.builtin').find_files({cwd='~/.local/share/tref'})<CR>", {})
 usr_cmd(
 	"Conf",
 	":lua require('telescope.builtin').find_files({cwd='~/.config/nvim/', previewer=false})<CR>",
