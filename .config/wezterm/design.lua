@@ -67,7 +67,7 @@ function M.apply(config)
 
 	-- FONTS
 	config.font = wezterm.font("Fira Code")
-	config.font_size = 15
+	config.font_size = 16
 	-- for now, setting variations of 'i' is buggy with cv06 etc
 	-- https://github.com/tonsky/FiraCode/issues/1497
 	config.harfbuzz_features =

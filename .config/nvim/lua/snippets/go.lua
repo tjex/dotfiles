@@ -15,24 +15,6 @@ return {
 		})
 	),
 	s(
-		"main",
-		fmt(
-			[[
-			package main
-
-            import(
-                "fmt"
-            )
-
-            func main(){{
-                {}
-            }}
-
-            ]],
-			{ i(1) }
-		)
-	),
-	s(
 		"for loop",
 		fmt(
 			[[
@@ -43,5 +25,24 @@ return {
             ]],
 			{ i(1), i(2), i(3), i(4) }
 		)
+	),
+	s(
+		"get user config dir",
+		fmt([[
+            func {} string {{
+                path, ok := os.LookupEnv("XDG_CONFIG_HOME")
+                if !ok {{
+                    home, ok := os.LookupEnv("HOME")
+                    if !ok {{
+                        home = "~/"
+                    }}
+                    path = filepath.Join(home, ".config")
+                }}
+                return path
+
+            }}
+            ]],
+            { i(1) }
+            )
 	),
 }

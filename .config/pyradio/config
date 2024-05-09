@@ -5,5 +5,5 @@
 # Please do not change this paramter manually
 # Use the in program Window instead
 # (Config / General Options / Recordings dir)
-recording_dir = ~/music/Mixes/pyradio
+recording_dir = ~/music/mixes/pyradio
 theme = white_on_black

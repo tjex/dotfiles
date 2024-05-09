@@ -38,11 +38,11 @@ alias \
 
 # dotfiles management
 alias \
-	dotf="git --git-dir=$HOME/.tjex-cfg/ --work-tree=$HOME" \
     dotfs="dotf status -s" \
     dotfa="dotf add -u" \
     dotfc="dotf commit -m" \
     dotfp="dotf push"
+    # dotf="git --git-dir=$HOME/.tjex-cfg/ --work-tree=$HOME" \
 
 # git management
 alias \
