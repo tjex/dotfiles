@@ -14,3 +14,10 @@ key.imap({
 		vim.cmd("norm i" .. link .. "  ")
 	end,
 })
+key.imap({
+	"<c-c>",
+	function()
+		local ref = vim.fn.input("ref: ")
+		vim.api.nvim_put({ "~ " .. ref, "", "...", "" }, "l", false, true)
+	end,
+})
