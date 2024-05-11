@@ -9,6 +9,8 @@ export TERMINAL_PROG="wezterm"
 export BROWSER="brave browser"
 
 # system directories
+export CPATH="/usr/local/include:/opt/homebrew/include"
+export LIBRARY_PATH="/usr/local/lib:/opt/homebrew/lib"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XCD_STATE_HOME="$HOME/.local/state"
