@@ -46,18 +46,21 @@ yabai -m rule --add app="(^WezTerm$|^kitty$)" title="^lf$" opacity=1.0 ${cc}
 yabai -m rule --add app="(^WezTerm$|^kitty$)" title="^gopass$" opacity=1.0 sticky=on ${cc}
 yabai -m rule --add app="(^WezTerm$|^kitty$)" title="^bkmr$" opacity=1.0 sticky=on ${cc}
 yabai -m rule --add app="(^WezTerm$|^kitty$)" title="^qalc$" opacity=1.0 sticky=on ${cb}
+yabai -m rule --add app="(^WezTerm$|^kitty$)" title="^scratch$" opacity=1.0 sticky=on ${cb}
+yabai -m rule --add app="(^Max$)" opacity=1.0 sticky=on ${cb}
 
 yabai -m rule --add app="^Todoist$" title[!]="^- Todoist$" manage=off
-yabai -m rule --add app="^Max$" manage=off
 yabai -m rule --add app="^Carbon Copy Cloner$" manage=off
 
 # designated spaces
 space1_apps="^(Calendar|Todoist)$"
 space2_apps="^(Signal|Messages)$"
+space3_apps="^(Swinsian|Max)$"
 space6_apps="^(Zotero)$"
 
 yabai -m rule --add app=${space1_apps} space=1
 yabai -m rule --add app=${space2_apps} space=2
+yabai -m rule --add app=${space3_apps} space=3
 yabai -m rule --add app=${space6_apps} space=6
 
 # signals
