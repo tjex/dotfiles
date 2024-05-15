@@ -55,6 +55,7 @@ local keymaps = function()
 	-- visual mode
 	key.vmap({ "sm", ":ZkMatch<cr>" })
 	key.vmap({ "zn", ":ZkNewFromTitleSelection {dir = vim.fn.input('Dir: ')}<cr>" })
+	key.vmap({ "zl", ":ZkInsertLinkAtSelection<cr>" })
 	key.vmap({
 		"ze",
 		":ZkNewFromContentSelection {title = vim.fn.input('Title: '), dir = vim.fn.input('Dir: ')}<cr>",

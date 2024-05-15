@@ -12,6 +12,8 @@ key.imap({ "kj", "<ESC><Right>" })
 key.imap({ "KJ", "<ESC><Right>" })
 key.imap({ "<c-l>", "<Nop>" })
 
+key.vmap({ "zl", "<Nop>" })
+
 -- Modes
 --  normal mode = 'n'
 --  insert mode = 'i'
