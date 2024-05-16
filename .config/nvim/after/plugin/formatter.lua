@@ -64,6 +64,13 @@ require("formatter").setup({
 			end,
 		},
 
+		mail = {
+			function()
+				vim.opt_local.tw = 5000
+				vim.cmd("norm! Vgggq")
+			end,
+		},
+
 		-- for any filetype
 		["*"] = {
 			function()
