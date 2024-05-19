@@ -1,0 +1,14 @@
+hide_user_list: false
+hide_room_list: false
+hide_timestamp: false
+bare_message_view: false
+disable_images: false
+disable_typing_notifs: false
+disable_emojis: false
+disable_markdown: false
+disable_html: false
+disable_downloads: false
+disable_notifications: true
+disable_show_urls: false
+alt_enter_to_send: false
+inline_url_mode: ""
