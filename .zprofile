@@ -70,4 +70,6 @@ export LESS_TERMCAP_ue="$(printf '%b' '[0m')"
 
 export BAT_THEME="ansi"
 
+export "BKMR_FZF_OPTS=--reverse --height 100%"
+
 [ ! -f ${XDG_CONFIG_HOME}/shell/shortcutrc ] && setsid shortcuts >/dev/null 2>&1
