@@ -103,7 +103,8 @@ return require("packer").startup(function(use)
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
 		"folke/trouble.nvim",
-		"mhartington/formatter.nvim",
+		-- "mhartington/formatter.nvim",
+		"~/.local/plugins/formatter.nvim", -- waiting for my pr to be merged (https://github.com/mhartington/formatter.nvim/pull/333)
 		"mfussenegger/nvim-lint",
 	})
 end)

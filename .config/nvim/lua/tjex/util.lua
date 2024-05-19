@@ -13,8 +13,8 @@ M.file_exists = function(name)
 end
 
 M.build_md_link = function(link, title)
-	if title == nil then
-		title = "ext"
+	if title == "" or title == nil then
+		title = "ref"
 	end
 	local result = "([" .. title .. "](" .. link .. "))"
 	return result

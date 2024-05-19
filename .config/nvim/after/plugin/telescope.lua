@@ -56,8 +56,8 @@ require("telescope").setup({
 			},
 			vertical = {
 				prompt_position = "top",
-				height = 0.8,
-				width = 0.4,
+				height = 0.9,
+				width = 0.6,
 			},
 		},
 		mappings = {

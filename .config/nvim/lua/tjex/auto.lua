@@ -72,7 +72,7 @@ auto({ "BufWritePost" }, {
 	group = "formatter",
 	callback = function()
 		local ft = vim.bo.filetype
-		if ft ~= "markdown" then
+		if ft ~= "markdown" and ft ~= "mail" then
 			vim.cmd(":FormatWrite")
 		end
 	end,

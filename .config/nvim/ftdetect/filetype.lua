@@ -10,5 +10,3 @@ vim.filetype.add({
 		cheat = "bash",
 	},
 })
-
-

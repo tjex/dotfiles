@@ -10,8 +10,10 @@ key.imap({ "<c-d>", vim.fn.strftime("%Y-%m-%d") }) -- insert iso date
 key.imap({
 	"<c-e>",
 	function()
-		local link = util.build_md_link(vim.fn.input("link: "))
-		vim.cmd("norm i" .. link .. "  ")
+		local url = vim.fn.input("link: ")
+		-- local title = vim.fn.input("ref type: ")
+		local link = util.build_md_link(url)
+		vim.api.nvim_put({ link }, "c", false, true)
 	end,
 })
 key.imap({
