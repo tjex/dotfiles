@@ -47,7 +47,6 @@ yabai -m rule --add app="(^WezTerm$|^kitty$)" title="^gopass$" opacity=1.0 stick
 yabai -m rule --add app="(^WezTerm$|^kitty$)" title="^bkmr$" opacity=1.0 sticky=on ${cc}
 yabai -m rule --add app="(^WezTerm$|^kitty$)" title="^qalc$" opacity=1.0 sticky=on ${cb}
 yabai -m rule --add app="(^WezTerm$|^kitty$)" title="^scratch$" opacity=1.0 sticky=on ${cb}
-yabai -m rule --add app="(^Max$)" opacity=1.0 sticky=on ${cb}
 
 yabai -m rule --add app="^Todoist$" title[!]="^- Todoist$" manage=off
 yabai -m rule --add app="^Carbon Copy Cloner$" manage=off
