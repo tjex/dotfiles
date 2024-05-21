@@ -6,8 +6,8 @@ username_display = "localpart"
 default_room = "lounge"
 
 [dirs]
-cache = "~/.cache/iamb"
-data = "~/.local/share/iamb"
+cache = "/Users/tjex/.cache/iamb"
+data = "/Users/tjex/.local/share/iamb"
 
 [layout]
 style = "new"
