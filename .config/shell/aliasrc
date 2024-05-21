@@ -42,7 +42,6 @@ alias \
     dotfa="dotf add -u" \
     dotfc="dotf commit -m" \
     dotfp="dotf push"
-    # dotf="git --git-dir=$HOME/.tjex-cfg/ --work-tree=$HOME" \
 
 # git management
 alias \
@@ -63,7 +62,8 @@ alias \
     neomutt="TERM=xterm-direct neomutt" \
     yabspace="yabai -m space --create" \
     yt="yt-dlp --embed-metadata -i -o '%(title)s.%(ext)s'" \
-    diary="zk --notebook-dir ~/wikis/diary daily"
+    diary="zk --notebook-dir ~/wikis/diary daily" \
+    iamb="iamb -C ~/.config"
 
 
 # common directories

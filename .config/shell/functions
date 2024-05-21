@@ -1,17 +1,5 @@
 # vim: filetype=bash
 
-# Use lf to switch directories and bind it to ctrl-o
-lfcd() {
-	local tmp="$(mktemp -uq)"
-	trap 'rm -f $tmp >/dev/null 2>&1 && trap - HUP INT QUIT TERM PWR EXIT' HUP INT QUIT TERM PWR EXIT
-	lf -last-dir-path="$tmp" "$@"
-	if [ -f "$tmp" ]; then
-		dir="$(cat "$tmp")"
-		[ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
-	fi
-}
-
-
 # mv an item into a folder that you make, in the same command.
 mvmk() {
 	mkdir -p -- "$argv[-1]"
@@ -71,6 +59,11 @@ git_sparse_clone() (
 	git pull origin master
 )
 
+# git rebase shortcut
+gr() {
+    git rebase -i HEAD~$1
+}
+
 ##############
 # tjex files #
 
@@ -78,22 +71,6 @@ git_sparse_clone() (
 scripts() {
 	if result=($(fd . -tf -Earchived ${HOME}/.scripts | fzf)); then
 		$result
-	else
-		return
-	fi
-}
-
-tref() {
-	if result=($(fd . ${XDG_DATA_HOME}/tref | fzf --preview='bat --color=always --style=numbers {}')); then
-		nvim $result
-	else
-		return
-	fi
-}
-
-tlogs() {
-	if result=($(fd . -tf ${HOME}/docs/logs | fzf)); then
-		nvim $result
 	else
 		return
 	fi
