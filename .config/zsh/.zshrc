@@ -35,9 +35,6 @@ completion() {
 # function should be called after path sourcing
 completion
 
-# virtualenv (source BEFORE shell design)
-source ${XDG_DATA_HOME}/venv/sys/bin/activate
-
 # plugins
 source "${HOME}/.local/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
 

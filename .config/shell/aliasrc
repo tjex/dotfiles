@@ -63,7 +63,22 @@ alias \
     yabspace="yabai -m space --create" \
     yt="yt-dlp --embed-metadata -i -o '%(title)s.%(ext)s'" \
     diary="zk --notebook-dir ~/wikis/diary daily" \
-    iamb="iamb -C ~/.config"
+    iamb="iamb -C ~/.config" \
+    fooocus="source ~/.local/share/venv/fooocus/bin/activate \
+        && python ~/.local/src/Fooocus/entry_with_update.py \
+        --disable-analytics \
+        --disable-metadata \
+        --always-cpu \
+        --dissable-offload-from-vram
+        --all-in-fp16 \
+        --attention-pytorch \
+        --always-high-vram \
+        --gpy-device-id 0 \
+        --async-cuda-allocation \
+        --unet-in-fp16 \
+        --vae-in-fp16 \
+        --clip-in-fp16"
+
 
 
 # common directories
