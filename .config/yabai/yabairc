@@ -38,6 +38,7 @@ yabai -m space 2 --layout bsp
 cc="manage=off grid=5:4:1:1:2:2"
 cb="manage=off grid=5:4:1:3:2:2"
 
+yabai -m rule --add app="^Finder$" manage=off
 yabai -m rule --add app="^Raycast$" title="Raycast Settings" manage=off
 yabai -m rule --add app="^System Settings$" manage=off sticky=on opacity=1.0
 yabai -m rule --add app="^Dictionary$" ${cc}
