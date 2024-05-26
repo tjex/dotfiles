@@ -23,11 +23,16 @@ auto({ "VimEnter" }, {
 -------------
 
 -- Open all new windows as vertical splits
-auto({ "WinNew" }, {
+local excludes = { "NvimTree", "Trouble", "qf" }
+auto({ "BufEnter" }, {
 	group = "windows",
 	pattern = "*",
 	callback = function()
-		vim.cmd("wincmd L")
+		print(vim.bo.filetype)
+		local ftype = vim.bo.filetype
+		if not vim.tbl_contains(excludes, ftype) then
+			vim.cmd("wincmd L")
+		end
 	end,
 })
 
@@ -40,8 +45,8 @@ local fo_ftypes = { "mail", "markdown" }
 auto({ "BufEnter", "BufNewFile" }, {
 	group = "format_options",
 	callback = function()
-		local ft = vim.bo.filetype
-		if not vim.tbl_contains(fo_ftypes, ft) then
+		local ftype = vim.bo.filetype
+		if not vim.tbl_contains(fo_ftypes, ftype) then
 			vim.opt.fo = "crqn1jp"
 		end
 	end,
@@ -54,8 +59,8 @@ local horizontal_ftypes = { "qf", "trouble" }
 auto({ "BufEnter" }, {
 	group = "windows",
 	callback = function()
-		local ft = vim.bo.filetype
-		if vim.tbl_contains(horizontal_ftypes, ft) then
+		local ftype = vim.bo.filetype
+		if vim.tbl_contains(horizontal_ftypes, ftype) then
 			vim.cmd("wincmd J")
 		end
 	end,
@@ -71,8 +76,8 @@ auto({ "BufWritePost" }, {
 auto({ "BufWritePost" }, {
 	group = "formatter",
 	callback = function()
-		local ft = vim.bo.filetype
-		if ft ~= "markdown" and ft ~= "mail" then
+		local ftype = vim.bo.filetype
+		if ftype ~= "markdown" and ftype ~= "mail" then
 			vim.cmd(":FormatWrite")
 		end
 	end,
