@@ -17,3 +17,7 @@ members = ["power"]
 
 [macros.insert]
 "kj" = "<Esc>"
+
+[macros.normal]
+"V" = "<C-w>m"
+"<C-r>" = ":rooms<CR>"
