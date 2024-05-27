@@ -35,9 +35,9 @@ local function admin(choice)
 		aerc:activate()
 
 		local music_tab, _, _ = admin_window:spawn_tab({
-			cwd = "/Users/tjex/music",
+			cwd = "/Users/tjex/audio/atmos",
 		})
-		music_tab:set_title("music")
+		music_tab:set_title("atmos")
 
 		local rss_tab, rss_pane = admin_window:spawn_tab({ args = { "newsboat" } })
 		rss_tab:set_title("rss")
@@ -51,15 +51,15 @@ local function admin(choice)
 		admin_tab:set_title("aerc")
 		admin_pane:send_text("aerc\n")
 
-		local music_tab, _, _ = admin_window:spawn_tab({
-			cwd = "/Users/tjex/audio/atmos",
-		})
-		music_tab:set_title("atmos")
-
 		local rss_tab = admin_window:spawn_tab({ args = { "newsboat" } })
 		rss_tab:set_title("rss")
 
 		admin_tab:activate()
+
+		local music_tab, _, _ = admin_window:spawn_tab({
+			cwd = "/Users/tjex/audio/atmos",
+		})
+		music_tab:set_title("atmos")
 	end
 end
 
@@ -106,7 +106,7 @@ end
 
 function M.start(choice)
 	wezterm.on("gui-startup", function()
-		website(choice)
+		website()
 		admin(choice)
 		sys()
 		dev()
