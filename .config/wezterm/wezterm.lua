@@ -48,7 +48,7 @@ config.skip_close_confirmation_for_processes_named = {
 }
 
 -- apply the conf files required above
-startup.laptop()
+startup.start("widescreen")
 status.load()
 design.apply(config)
 keybinds.apply(config)
