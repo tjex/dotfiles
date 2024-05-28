@@ -53,8 +53,8 @@ yabai -m rule --add app="^Todoist$" title[!]="^- Todoist$" manage=off
 yabai -m rule --add app="^Carbon Copy Cloner$" manage=off
 
 # designated spaces
-space1_apps="^(Calendar|Todoist)$"
-space2_apps="^(Signal|Messages)$"
+space1_apps="^(Signal|Messages)$"
+space2_apps="^(Calendar|Todoist)$"
 space3_apps="^(Swinsian|Max)$"
 space6_apps="^(Zotero)$"
 

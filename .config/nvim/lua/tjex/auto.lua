@@ -22,19 +22,19 @@ auto({ "VimEnter" }, {
 -- Windows --
 -------------
 
--- Open all new windows as vertical splits
-local excludes = { "NvimTree", "Trouble", "qf" }
-auto({ "BufEnter" }, {
-	group = "windows",
-	pattern = "*",
-	callback = function()
-		print(vim.bo.filetype)
-		local ftype = vim.bo.filetype
-		if not vim.tbl_contains(excludes, ftype) then
-			vim.cmd("wincmd L")
-		end
-	end,
-})
+-- Open all new windows as vertical splits. THIS IS A NEEDED FEATURE!
+-- local excludes = { "NvimTree", "Trouble", "qf" }
+-- auto({ "WinNew" }, {
+-- 	group = "windows",
+-- 	pattern = "*",
+-- 	callback = function()
+-- 		print(vim.bo.filetype)
+-- 		local ftype = vim.bo.filetype
+-- 		if not vim.tbl_contains(excludes, ftype) then
+-- 			vim.cmd("wincmd L")
+-- 		end
+-- 	end,
+-- })
 
 -- Buffers --
 --------------
