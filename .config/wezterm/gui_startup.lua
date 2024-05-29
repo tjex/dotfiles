@@ -13,7 +13,7 @@ local function website()
 	local scss_tab = website_window:spawn_tab({ cwd = "/Users/tjex/dev/websites/pico/scss/" })
 	scss_tab:set_title("scss")
 
-	local astro_tab = website_window:spawn_tab({})
+	local astro_tab = website_window:spawn_tab({ cwd = "/Users/tjex/dev/websites/tjex.net/"})
 	astro_tab:set_title("tjex.net")
 end
 
