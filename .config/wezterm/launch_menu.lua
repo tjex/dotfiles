@@ -1,15 +1,7 @@
+local vars = require("variables")
 local M = {}
 
-local paths = {
-	"/bin:",
-	"/usr/bin:",
-	"/usr/local/bin:",
-	"/opt/homebrew/bin:",
-	"/Users/tjex/.local/go/bin:",
-	"/Users/tjex/.local/share/nvm/versions/node/v20.5.1/bin",
-}
-
-local paths_string = table.concat(paths)
+local paths_string = vars.env_paths()
 
 function M.apply(config)
 	config.launch_menu = {

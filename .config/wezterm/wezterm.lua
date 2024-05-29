@@ -48,7 +48,7 @@ config.skip_close_confirmation_for_processes_named = {
 }
 
 -- apply the conf files required above
-startup.start()
+startup.start("laptop")
 status.load()
 design.apply(config)
 keybinds.apply(config)

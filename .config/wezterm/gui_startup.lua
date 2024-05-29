@@ -18,12 +18,25 @@ local function website()
 end
 
 local function admin(choice)
-	if choice == "widescreen" then
-		-- admin
-		local admin_tab, admin_pane, admin_window = mux.spawn_window({
-			workspace = "admin",
-			cwd = "/Users/tjex/docs/",
-		})
+	-- define tabs
+	local admin_tab, admin_pane, admin_window = mux.spawn_window({
+		workspace = "admin",
+		cwd = "/Users/tjex/docs/",
+	})
+
+	local rss_tab, rss_pane = admin_window:spawn_tab({})
+
+	local matrix_tab, matrix_pane = admin_window:spawn_tab({})
+
+	local music_tab = admin_window:spawn_tab({
+		cwd = "/Users/tjex/audio/atmos",
+	})
+
+	-- change layout depending on monitor choice
+	if choice == "laptop" then
+		admin_tab:set_title("aerc")
+		admin_pane:send_text("aerc\n")
+	else
 		admin_tab:set_title("admin")
 
 		local aerc = admin_pane:split({ direction = "Right" })
@@ -31,36 +44,14 @@ local function admin(choice)
 
 		local lf = admin_pane:split({ direction = "Top" })
 		lf:send_text("lf\n")
-
-		aerc:activate()
-
-		local music_tab, _, _ = admin_window:spawn_tab({
-			cwd = "/Users/tjex/audio/atmos",
-		})
-		music_tab:set_title("atmos")
-
-		local rss_tab, rss_pane = admin_window:spawn_tab({ args = { "newsboat" } })
-		rss_tab:set_title("rss")
-		rss_pane:split({ direction = "Left", cwd = "/Users/tjex/wikis/ps/" })
-	else
-		-- small screen
-		local admin_tab, admin_pane, admin_window = mux.spawn_window({
-			workspace = "admin",
-			cwd = "/Users/tjex/docs/",
-		})
-		admin_tab:set_title("aerc")
-		admin_pane:send_text("aerc\n")
-
-		local rss_tab = admin_window:spawn_tab({ args = { "newsboat" } })
-		rss_tab:set_title("rss")
-
-		admin_tab:activate()
-
-		local music_tab, _, _ = admin_window:spawn_tab({
-			cwd = "/Users/tjex/audio/atmos",
-		})
-		music_tab:set_title("atmos")
 	end
+	music_tab:set_title("atmos")
+
+	rss_tab:set_title("rss")
+	rss_pane:send_text("newsboat\n")
+
+	matrix_tab:set_title("matrix")
+	matrix_pane:send_text("iamb\n")
 end
 
 local function sys()
