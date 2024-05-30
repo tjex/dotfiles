@@ -10,6 +10,7 @@ augroup("lint", { clear = true })
 augroup("formatter", { clear = true })
 augroup("format_options", { clear = true })
 augroup("windows", { clear = true })
+augroup("term", {})
 
 -- Startup --
 --------------
@@ -47,7 +48,7 @@ auto({ "BufEnter", "BufNewFile" }, {
 	callback = function()
 		local ftype = vim.bo.filetype
 		if not vim.tbl_contains(fo_ftypes, ftype) then
-			vim.opt.fo = "crqn1jp"
+			vim.opt_local.fo = "crqn1jp"
 		end
 	end,
 })
@@ -80,5 +81,17 @@ auto({ "BufWritePost" }, {
 		if ftype ~= "markdown" and ftype ~= "mail" then
 			vim.cmd(":FormatWrite")
 		end
+	end,
+})
+
+-- Term --
+----------
+
+auto({ "TermOpen" }, {
+	group = "term",
+	callback = function()
+		vim.opt_local.number = false
+		vim.opt_local.relativenumber = false
+		vim.opt_local.scrolloff = 0
 	end,
 })

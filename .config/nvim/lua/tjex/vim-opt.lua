@@ -13,6 +13,7 @@ vim.opt.wrap = false
 vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.splitright = true
+vim.opt.splitbelow = true
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
@@ -20,7 +21,7 @@ vim.opt.conceallevel = 2
 
 -- search
 vim.opt.hlsearch = false
-vim.opt.ignorecase = true
+vim.opt.smartcase = true
 vim.opt.incsearch = true -- update search highlight duting search
 
 -- editor window

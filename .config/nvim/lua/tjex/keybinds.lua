@@ -61,6 +61,9 @@ key.nmap({ "gl", ":tabn<CR>" }) -- next tab
 -- buffers
 key.nmap({ "<leader>bd", ":bn<bar>sp<bar>bp<bar>bd<CR>" })
 
+-- terminal
+key.tmap({ "<esc><esc>", "<c-\\><c-n>" })
+
 -- plugins without their own conf file
 
 -- easy-align
