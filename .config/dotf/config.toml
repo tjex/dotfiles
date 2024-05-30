@@ -1,0 +1,11 @@
+worktree = "/Users/tjex"
+git-dir = "/Users/tjex/.tjex-cfg/"
+mirror = "git@github.com:tjex/dotfiles.git"
+origin = "git@git.sr.ht:~tjex/dotfiles"
+batch-commit-message = "dotf batch update"
+
+# worktree = "/Users/tjex/dev/bare-repo-test/"
+# git-dir = "/Users/tjex/dev/bare-repo-test/repo/"
+# mirror = "git@git.sr.ht:~tjex/mirror-test"
+# origin = "git@git.sr.ht:~tjex/srht-playground"
+# batch-commit-message = "test test test"
