@@ -29,7 +29,6 @@ return require("packer").startup(function(use)
 	-- GUI
 	use({
 		"stevearc/oil.nvim",
-		"nvim-tree/nvim-tree.lua",
 		{ "tjdevries/colorbuddy.nvim", branch = "master" },
 		"lukas-reineke/indent-blankline.nvim",
 		"onsails/lspkind.nvim",
