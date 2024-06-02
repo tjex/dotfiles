@@ -9,9 +9,9 @@ end
 
 local key = require("tjex.keymap")
 
-key.nmap({ "<ESC>", ":NvimTreeClose<CR>" })
-key.nmap({ "<leader>e", ":NvimTreeToggle<CR>" })
-key.nmap({ "<leader>l", ":NvimTreeFindFile!<CR>" })
+-- key.nmap({ "<ESC>", ":NvimTreeClose<CR>" })
+-- key.nmap({ "<leader>e", ":NvimTreeToggle<CR>" })
+-- key.nmap({ "<leader>l", ":NvimTreeFindFile!<CR>" })
 
 -- Please see https://github.com/nvim-tree/nvim-tree.lua/wiki/Migrating-To-on_attach for assistance in migrating.
 local function on_attach(bufnr)

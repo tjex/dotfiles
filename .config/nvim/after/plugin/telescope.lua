@@ -70,6 +70,14 @@ require("telescope").setup({
 			},
 		},
 	},
+	pickers = {
+		find_files = {
+			disable_devicons = true,
+		},
+		buffers = {
+			disable_devicons = true,
+		},
+	},
 	extensions = {
 		fzf = {
 			fuzzy = true,

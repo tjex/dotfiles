@@ -82,7 +82,7 @@ Group.new("endofbuffer", c.bground)
 Group.new("LineNr", c.gray_4)
 Group.new("statusline", c.bg_text, c.bg_lighter)
 Group.new("statuslineNC", c.gray_4, nil, s.italic)
-Group.new("WinSeparator", c.bg_lighter, nil)
+Group.new("WinSeparator", c.primary, nil)
 Group.new("VertSplit", c.gray_6, c.gray_6)
 
 -- UI Elements
@@ -306,6 +306,11 @@ Group.new("underlined", c.primary, nil, nil)
 -------------
 -- PLUGINS --
 -------------
+
+-- Oil
+
+Group.new("OilDir", c.primary, nil)
+Group.new("OilDirIcon", c.gray_2, nil)
 
 -- NvimTree
 Group.new("NvimTreeOpenedFolderName", c.primary)
