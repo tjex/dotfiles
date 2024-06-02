@@ -9,3 +9,5 @@
 	rebase = false
 [core]
 	excludesFile = /Users/tjex/.config/git/ignore
+[credential]
+	helper = --help
