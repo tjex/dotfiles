@@ -58,14 +58,14 @@ require("oil").setup({
 	-- See :help oil-actions for a list of all available actions
 	keymaps = {
 		["g?"] = "actions.show_help",
-		["l"] = "actions.select",
+		["i"] = "actions.select",
 		["<C-s>"] = "actions.select_vsplit",
 		["<C-h>"] = "actions.select_split",
 		["<C-t>"] = "actions.select_tab",
 		["<C-p>"] = "actions.preview",
-		["<Esc>"] = "actions.close",
+		["q"] = "actions.close",
 		["<C-l>"] = "actions.refresh",
-		["h"] = "actions.parent",
+		["u"] = "actions.parent",
 		["_"] = "actions.open_cwd",
 		["`"] = "actions.cd",
 		["~"] = "actions.tcd",
@@ -74,49 +74,11 @@ require("oil").setup({
 		["g."] = "actions.toggle_hidden",
 		["g\\"] = "actions.toggle_trash",
 	},
-	-- Set to false to disable all of the above keymaps
-	use_default_keymaps = true,
-	view_options = {
-		-- Show files and directories that start with "."
-		show_hidden = false,
-		-- This function defines what is considered a "hidden" file
-		is_hidden_file = function(name, bufnr)
-			return vim.startswith(name, ".")
-		end,
-		-- This function defines what will never be shown, even when `show_hidden` is set
-		is_always_hidden = function(name, bufnr)
-			return false
-		end,
-		-- Sort file names in a more intuitive order for humans. Is less performant,
-		-- so you may want to set to false if you work with large directories.
-		natural_order = true,
-		sort = {
-			-- sort order can be "asc" or "desc"
-			-- see :help oil-columns to see which columns are sortable
-			{ "type", "asc" },
-			{ "name", "asc" },
-		},
-	},
-	-- Extra arguments to pass to SCP when moving/copying files over SSH
-	extra_scp_args = {},
-	-- EXPERIMENTAL support for performing file operations with git
-	git = {
-		-- Return true to automatically git add/mv/rm files
-		add = function(path)
-			return false
-		end,
-		mv = function(src_path, dest_path)
-			return false
-		end,
-		rm = function(path)
-			return false
-		end,
-	},
 	-- Configuration for the floating window in oil.open_float
 	float = {
 		-- Padding around the floating window
 		padding = 2,
-		max_width = 80,
+		max_width = 60,
 		max_height = 90,
 		border = "rounded",
 		win_options = {
