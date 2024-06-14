@@ -1,3 +1,5 @@
+# config for https://git.sr.ht:tjex/dotf
+
 worktree = "/Users/tjex"
 git-dir = "/Users/tjex/.tjex-cfg/"
 mirror = "git@github.com:tjex/dotfiles.git"

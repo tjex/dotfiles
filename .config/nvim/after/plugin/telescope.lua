@@ -37,8 +37,8 @@ key.nmap({ "sp", tb.registers })
 key.nmap({ "sr", tb.lsp_references })
 key.nmap({ "ss", tb.buffers })
 key.nmap({ "st", ":Trouble<cr>" }) -- not very useful?
-key.nmap({ "sX", ":lua require('telescope').extensions.git_worktree.git_worktrees()<cr>" })
-key.nmap({ "sx", tb.git_branches })
+key.nmap({ "sY", ":lua require('telescope').extensions.git_worktree.git_worktrees()<cr>" })
+key.nmap({ "sy", tb.git_branches })
 key.nmap({ "sz", tb.git_stash })
 
 require("telescope").setup({

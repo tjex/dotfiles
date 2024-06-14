@@ -23,7 +23,7 @@ function M.apply(config)
 		},
 		{
 			key = "s",
-			mods = "CTRL",
+			mods = "LEADER",
 			action = act.EmitEvent("trigger-nvim-with-scrollback"),
 		},
 
