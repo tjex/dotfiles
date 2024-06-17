@@ -2,56 +2,83 @@ local wezterm = require("wezterm")
 local mux = wezterm.mux
 local M = {}
 
-local function website()
-	local website_tab, website_pane, website_window = mux.spawn_window({
+local function website(choice)
+	if choice == "laptop" then
+		local website_tab, website_pane, website_window = mux.spawn_window({
+			workspace = "website",
+			cwd = "/Users/tjex/dev/websites/tjex.net",
+		})
+		website_pane:send_text("yarn run start\n")
+		website_tab:set_title("node")
+
+		local scss_tab = website_window:spawn_tab({ cwd = "/Users/tjex/dev/websites/pico/scss/" })
+		scss_tab:set_title("scss")
+
+		local astro_tab = website_window:spawn_tab({ cwd = "/Users/tjex/dev/websites/tjex.net/" })
+		astro_tab:set_title("tjex.net")
+		return
+	end
+	local node_tab, node_pane, node_window = mux.spawn_window({
 		workspace = "website",
 		cwd = "/Users/tjex/dev/websites/tjex.net",
 	})
-	website_pane:send_text("yarn run start\n")
-	website_tab:set_title("node")
+	node_pane:send_text("yarn run start\n")
+	node_tab:set_title("node")
 
-	local scss_tab = website_window:spawn_tab({ cwd = "/Users/tjex/dev/websites/pico/scss/" })
+	local tjex_tab = mux.spawn_window({
+		workspace = "website",
+		cwd = "/Users/tjex/dev/websites/tjex.net",
+	})
+	tjex_tab:set_title("tjex.net")
+
+	local scss_tab = mux.spawn_window({
+		workspace = "website",
+		cwd = "/Users/tjex/dev/websites/pico/scss",
+	})
 	scss_tab:set_title("scss")
-
-	local astro_tab = website_window:spawn_tab({ cwd = "/Users/tjex/dev/websites/tjex.net/"})
-	astro_tab:set_title("tjex.net")
 end
 
 local function admin(choice)
-	-- define tabs
-	local admin_tab, admin_pane, admin_window = mux.spawn_window({
+	if choice == "laptop" then
+		-- define tabs
+		local admin_tab, admin_pane, admin_window = mux.spawn_window({
+			workspace = "admin",
+			cwd = "/Users/tjex/docs/",
+		})
+
+		local rss_tab, rss_pane = admin_window:spawn_tab({})
+
+		local matrix_tab, matrix_pane = admin_window:spawn_tab({})
+
+		local music_tab = admin_window:spawn_tab({
+			cwd = "/Users/tjex/audio/atmos",
+		})
+
+		-- change layout depending on monitor choice
+		admin_tab:set_title("aerc")
+		admin_pane:send_text("aerc\n")
+		music_tab:set_title("atmos")
+
+		rss_tab:set_title("rss")
+		rss_pane:send_text("newsboat\n")
+
+		matrix_tab:set_title("matrix")
+		matrix_pane:send_text("iamb\n")
+		return
+	end
+	local admin_tab, rss = mux.spawn_window({
 		workspace = "admin",
 		cwd = "/Users/tjex/docs/",
 	})
 
-	local rss_tab, rss_pane = admin_window:spawn_tab({})
+	admin_tab:set_title("aerc")
+	rss:send_text("newsboat\n")
 
-	local matrix_tab, matrix_pane = admin_window:spawn_tab({})
+	local aerc = rss:split({ direction = "Right", size = 0.666 })
+	aerc:send_text("aerc\n")
 
-	local music_tab = admin_window:spawn_tab({
-		cwd = "/Users/tjex/audio/atmos",
-	})
-
-	-- change layout depending on monitor choice
-	if choice == "laptop" then
-		admin_tab:set_title("aerc")
-		admin_pane:send_text("aerc\n")
-	else
-		admin_tab:set_title("admin")
-
-		local aerc = admin_pane:split({ direction = "Right" })
-		aerc:send_text("aerc\n")
-
-		local lf = admin_pane:split({ direction = "Top" })
-		lf:send_text("lf\n")
-	end
-	music_tab:set_title("atmos")
-
-	rss_tab:set_title("rss")
-	rss_pane:send_text("newsboat\n")
-
-	matrix_tab:set_title("matrix")
-	matrix_pane:send_text("iamb\n")
+	local lf = aerc:split({ direction = "Right", size = 0.5 })
+	lf:send_text("lf\n")
 end
 
 local function sys()
@@ -97,7 +124,7 @@ end
 
 function M.start(choice)
 	wezterm.on("gui-startup", function()
-		website()
+		website(choice)
 		admin(choice)
 		sys()
 		dev()

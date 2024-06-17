@@ -1,3 +1,4 @@
+local balance = require("balance")
 local wezterm = require("wezterm")
 local act = wezterm.action
 local M = {}
@@ -15,6 +16,14 @@ function M.apply(config)
 			key = "o",
 			mods = "LEADER|CTRL",
 			action = act.SendKey({ key = "o", mods = "CTRL" }),
+		},
+		{
+			key = "b",
+			mods = "LEADER",
+			action = wezterm.action.Multiple({
+				wezterm.action_callback(balance.balance_panes("x")),
+				-- wezterm.action_callback(balance.balance_panes("y")),
+			}),
 		},
 		{
 			key = "y",
