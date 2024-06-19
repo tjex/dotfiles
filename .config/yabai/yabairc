@@ -44,6 +44,7 @@ yabai -m rule --add app="^Raycast$" title="Raycast Settings" manage=off
 yabai -m rule --add app="^System Settings$" manage=off sticky=on opacity=1.0
 yabai -m rule --add app="^Dictionary$" ${cc}
 # note: kitty has opacity/blur set in kitty conf
+
 yabai -m rule --add app="(^WezTerm$|^kitty$)" title="^lf$" opacity=1.0 ${cc}
 yabai -m rule --add app="(^WezTerm$|^kitty$)" title="^gopass$" opacity=1.0 sticky=on ${cc}
 yabai -m rule --add app="(^WezTerm$|^kitty$)" title="^bkmr$" opacity=1.0 sticky=on ${cc}

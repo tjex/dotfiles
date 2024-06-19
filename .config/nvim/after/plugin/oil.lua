@@ -56,6 +56,7 @@ require("oil").setup({
 	-- it will use the mapping at require("oil.actions").<name>
 	-- Set to `false` to remove a keymap
 	-- See :help oil-actions for a list of all available actions
+	use_default_keymaps = false,
 	keymaps = {
 		["g?"] = "actions.show_help",
 		["l"] = "actions.select",
@@ -64,7 +65,7 @@ require("oil").setup({
 		["<C-t>"] = "actions.select_tab",
 		["<C-p>"] = "actions.preview",
 		["q"] = "actions.close",
-		["<C-l>"] = "actions.refresh",
+		["<C-r>"] = "actions.refresh",
 		["h"] = "actions.parent",
 		["_"] = "actions.open_cwd",
 		["`"] = "actions.cd",

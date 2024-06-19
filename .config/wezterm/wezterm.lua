@@ -48,10 +48,10 @@ config.skip_close_confirmation_for_processes_named = {
 }
 
 -- apply the conf files required above
-startup.start()
 status.load()
 design.apply(config)
 keybinds.apply(config)
 launch_menu.apply(config)
+startup.start()
 
 return config

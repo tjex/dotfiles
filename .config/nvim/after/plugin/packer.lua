@@ -70,11 +70,6 @@ return require("packer").startup(function(use)
 		ft = { "markdown" },
 	})
 
-	use({
-		"ten3roberts/bookmarks.nvim", --using a fork for now until the main project merges its pull request
-		branch = "feat-scoped-bookmarks",
-	})
-
 	-- telescope
 	use({
 		{ "nvim-telescope/telescope.nvim", tag = "0.1.*" },

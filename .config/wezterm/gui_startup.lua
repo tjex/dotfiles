@@ -18,24 +18,16 @@ local function website(choice)
 		astro_tab:set_title("tjex.net")
 		return
 	end
-	local node_tab, node_pane, node_window = mux.spawn_window({
+	local website_tab, website_pane, website_window = mux.spawn_window({
 		workspace = "website",
 		cwd = "/Users/tjex/dev/websites/tjex.net",
 	})
-	node_pane:send_text("yarn run start\n")
-	node_tab:set_title("node")
+	website_pane:send_text("yarn run start\n")
+	website_tab:set_title("website")
 
-	local tjex_tab = mux.spawn_window({
-		workspace = "website",
-		cwd = "/Users/tjex/dev/websites/tjex.net",
-	})
-	tjex_tab:set_title("tjex.net")
-
-	local scss_tab = mux.spawn_window({
-		workspace = "website",
-		cwd = "/Users/tjex/dev/websites/pico/scss",
-	})
-	scss_tab:set_title("scss")
+	local tjexnet =
+		website_pane:split({ direction = "Right", size = 0.666, cwd = "/Users/tjex/dev/websites/tjex.net/" })
+	tjexnet:send_text("nvim .\n")
 end
 
 local function admin(choice)
@@ -66,51 +58,65 @@ local function admin(choice)
 		matrix_pane:send_text("iamb\n")
 		return
 	end
-	local admin_tab, rss = mux.spawn_window({
+	local admin_tab, term, admin_window = mux.spawn_window({
 		workspace = "admin",
 		cwd = "/Users/tjex/docs/",
 	})
 
 	admin_tab:set_title("aerc")
-	rss:send_text("newsboat\n")
 
-	local aerc = rss:split({ direction = "Right", size = 0.666 })
+	local aerc = term:split({ direction = "Right", size = 0.666 })
 	aerc:send_text("aerc\n")
 
 	local lf = aerc:split({ direction = "Right", size = 0.5 })
 	lf:send_text("lf\n")
+
+	local go_imap_tab, go_imap_pane = admin_window:spawn_tab({})
+	go_imap_tab:set_title("go imap")
+	go_imap_pane:send_text("~/.scripts/sys-admin/goimapnotify-mailboxorg.sh\n")
+
+	aerc:activate()
 end
 
-local function sys()
-	local sys_tab, sys_pane, sys_window = mux.spawn_window({
+local function sys(choice)
+	local sys_tab, sys_pane = mux.spawn_window({
 		workspace = "sys",
-		cwd = "/Users/tjex/.config",
+		cwd = "/Users/tjex/.scripts",
 	})
-	sys_tab:set_title("report")
-	sys_pane:send_text("~/.scripts/sys-admin/goimapnotify-mailboxorg.sh\n")
-	sys_pane:split({ size = 0.5, direction = "Right" })
+	sys_tab:set_title("scripts")
 
-	local config_tab, _ = sys_window:spawn_tab({})
-	config_tab:set_title("config")
+	if choice == "laptop" then
+		local config = sys_pane:spawn_tab({ cwd = "/Users/tjex/.config" })
+		config:set_title("config")
+		return
+	end
+
+	local config = sys_pane:split({ direction = "Right", size = 0.666, cwd = "/Users/tjex/.config" })
+	config:send_text("nvim .\n")
 end
 
-local function dev()
-	local dev_tab, _, dev_window = mux.spawn_window({
+local function dev(choice)
+	local dev_tab, dev_pane, dev_window = mux.spawn_window({
 		workspace = "dev",
 		cwd = "/Users/tjex/dev",
 	})
 	dev_tab:set_title("tjex/dev")
 
-	local lsrc_tab, _, _ = dev_window:spawn_tab({
+	local lsrc_tab, lsrc_pane, _ = dev_window:spawn_tab({
 		cwd = "/Users/tjex/.local/src",
 	})
 	lsrc_tab:set_title(".local/src")
 
-	local zkorg_tab, _, _ = dev_window:spawn_tab({
+	local zkorg_tab, zkorg_pane, _ = dev_window:spawn_tab({
 		cwd = "/Users/tjex/.local/src/zk-org/",
 	})
-
 	zkorg_tab:set_title("zk-org")
+
+	if choice ~= "laptop" then
+		dev_pane:send_text("nvim .\n")
+		lsrc_pane:send_text("nvim .\n")
+		zkorg_pane:send_text("nvim .\n")
+	end
 end
 
 local function writing()
@@ -118,7 +124,7 @@ local function writing()
 		workspace = "writing",
 		cwd = "/Users/tjex/wikis/ps",
 	})
-	writing_tab:set_title("zk - ps")
+	writing_tab:set_title("ps")
 	writing_pane:send_text("zk start\n")
 end
 
@@ -126,8 +132,8 @@ function M.start(choice)
 	wezterm.on("gui-startup", function()
 		website(choice)
 		admin(choice)
-		sys()
-		dev()
+		sys(choice)
+		dev(choice)
 		writing()
 	end)
 end
