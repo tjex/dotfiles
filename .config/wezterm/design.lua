@@ -54,8 +54,8 @@ function M.apply(config)
 	}
 
 	config.inactive_pane_hsb = {
-		saturation = 0.9,
-		brightness = 0.7,
+		saturation = 0.1,
+		brightness = 0.5,
 	}
 
 	config.underline_thickness = "1pt"

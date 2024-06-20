@@ -123,13 +123,6 @@ function M.apply(config)
 
 		-- WORKSPACES
 		{
-			key = "1",
-			mods = "ALT",
-			action = act.SwitchToWorkspace({
-				name = "website",
-			}),
-		},
-		{
 			key = "2",
 			mods = "ALT",
 			action = act.SwitchToWorkspace({
