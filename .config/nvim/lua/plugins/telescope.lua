@@ -11,7 +11,7 @@ return {
 
 	config = function()
 		local actions = require("telescope.actions")
-		local key = require("tjex.keymap")
+		local key = require("../tjex/keymap.lua")
 		local path_actions = require("telescope_insert_path")
 		local tb = require("telescope.builtin")
 
@@ -23,14 +23,14 @@ return {
 			end,
 		})
 
-		key.nmap({ "sc", tb.commands })
-		key.nmap({ "sd", tb.lsp_document_symbols })
 		key.nmap({
 			"sf",
 			function()
 				require("telescope.builtin").find_files({ previewer = false })
 			end,
 		})
+		key.nmap({ "sc", tb.commands })
+		key.nmap({ "sd", tb.lsp_document_symbols })
 		key.nmap({ "sg", tb.live_grep })
 		key.nmap({ "sG", tb.grep_string })
 		key.nmap({ "sh", tb.help_tags })

@@ -24,3 +24,7 @@ usr_cmd(
 	{}
 )
 usr_cmd("Chmod", ":silent !chmod +x %", {})
+
+-- git worktree
+usr_cmd("WorktreeCreate", ":lua require('telescope').extensions.git_worktree.create_git_worktree()<cr>", {})
+usr_cmd("Worktree", ":lua require('telescope').extensions.git_worktree.git_worktrees()", {})

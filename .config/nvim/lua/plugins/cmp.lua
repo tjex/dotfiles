@@ -1,14 +1,3 @@
-local ok, _ = pcall(require, "cmp")
-if not ok then
-	vim.cmd(":set cmdheight=0") -- makes messages persist
-	print("nvim-cmp not ok!")
-	vim.cmd(":set cmdheight=1") -- set to default
-	return
-end
-
-local cmp = require("cmp")
-local lspkind = require("lspkind")
-
 return {
 
 	"hrsh7th/nvim-cmp",
@@ -20,7 +9,9 @@ return {
 		"saadparwaiz1/cmp_luasnip",
 	},
 	config = function()
-		cmp.setup({
+        local cmp = require("cmp")
+        local lspkind = require("lspkind")
+		require("cmp").setup({
 			-- completion = {
 			-- 	autocomplete = false,
 			-- },
@@ -30,8 +21,8 @@ return {
 				end,
 			},
 			window = {
-				documentation = cmp.config.disable, -- disable docs popup
-				completion = cmp.config.window.bordered(),
+				documentation = require("cmp").config.disable, -- disable docs popup
+				completion = require("cmp").config.window.bordered(),
 				-- documentation = cmp.config.window.bordered(),
 			},
 			performance = { max_view_entries = 10 },

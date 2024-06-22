@@ -1,8 +1,8 @@
 return {
-	{ "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } },
+	"rcarriga/nvim-dap-ui",
+	dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
 
 	config = function()
-
 		require("dapui").setup({
 			icons = { expanded = "", collapsed = "", current_frame = "" },
 			mappings = {
@@ -94,6 +94,5 @@ return {
 		dap.listeners.before.event_exited["dapui_config"] = function()
 			dapui.close()
 		end
-
 	end,
 }

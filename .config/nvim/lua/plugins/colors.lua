@@ -4,7 +4,7 @@
 
 return {
 
-	{ "tjdevries/colorbuddy.nvim", branch = "master" },
+	"tjdevries/colorbuddy.nvim",
 	config = function()
 		-- don't color backgrounds of floating windows (and backgrounds?..)
 		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
