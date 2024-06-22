@@ -1,15 +1,16 @@
 return {
 	-- "mhartington/formatter.nvim",
-	{ dir = "~/.local/plugins/formatter.nvim" }, -- waiting for my pr to be merged (https://github.com/mhartington/formatter.nvim/pull/333)
+	 dir = "~/.local/plugins/formatter.nvim" , -- waiting for my pr to be merged (https://github.com/mhartington/formatter.nvim/pull/333)
 
-    opts = {
+     init = function()
 		local util = require("formatter.util"),
 		local bufopts = { noremap = true, silent = true },
 		vim.keymap.set({ "v", "n" }, "<leader>f", ":FormatWrite<cr>", bufopts),
-
-    }
+    end
 
 	config = function()
+
+
 
 		-- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
 		require("formatter").setup({
