@@ -14,7 +14,7 @@ require("gen").prompts = {} -- clear defaults first
 local prompt = require("gen").prompts
 
 require("gen").setup({
-	model = "mixtral",
+	model = "llama3",
 	host = "localhost",
 	port = "11434",
 	display_mode = "split",
@@ -78,7 +78,7 @@ prompt["improve_writing"] = {
 }
 
 prompt["explain_text"] = {
-	prompt = "I'm finding it hard to understand some text. Please summarise it so I can better understand: $text",
+	prompt = "I'm finding it hard to understand some text. Summarise it so I can better understand. Take a breath and think openly. Here is the text: $text",
 }
 
 prompt["summarise_text"] = {
@@ -86,5 +86,5 @@ prompt["summarise_text"] = {
 }
 
 prompt["ask_about_text"] = {
-	prompt = "I have a question about some text. Answer the question concisely and DO NOT elaborate. Here is the text: $text. And my question is as follows: $input",
+	prompt = "$input. Take a breath and think openly.\nThe following text is what my question or concern is based on: $text.",
 }

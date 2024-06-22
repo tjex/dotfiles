@@ -71,4 +71,4 @@ key.nmap({ "ga", ":EasyAlign" })
 key.vmap({ "ga", ":EasyAlign" })
 
 -- centerpad
-key.nmap({ "<c-ESC>", ":Centerpad 20<cr>" })
+key.nmap({ "<c-ESC>", ":Centerpad 100<cr>" })

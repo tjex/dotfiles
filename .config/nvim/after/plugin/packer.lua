@@ -91,7 +91,7 @@ return require("packer").startup(function(use)
 	})
 
 	-- external integrations
-	use({ "~/.local/src/zk-org/zk-nvim.git/main", "David-Kunz/gen.nvim" })
+	use({ "~/.local/src/zk-org/zk-nvim.git/pr-171/", "David-Kunz/gen.nvim" })
 
 	-- dap
 	use({

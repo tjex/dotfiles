@@ -72,7 +72,7 @@ local function dev()
 
 	dev_pane:split({ direction = "Right", size = 0.666 })
 
-	local tjdev_tab = dev_window:spawn_tab({})
+	local tjdev_tab = dev_window:spawn_tab({ cwd = "/Users/tjex/dev" })
 	tjdev_tab:set_title("tjex/dev")
 
 	local lsrc_tab = dev_window:spawn_tab({
