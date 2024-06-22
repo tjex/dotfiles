@@ -19,4 +19,6 @@ require("tjex.auto")
 require("tjex.globals")
 require("tjex.vim-opt")
 require("tjex.keybinds")
-require("tjex.plugins")
+require("tjex.statusline")
+
+require("lazy").setup("plugins")
