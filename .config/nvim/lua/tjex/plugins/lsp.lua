@@ -4,21 +4,10 @@
 
 return {
 	"neovim/nvim-lspconfig",
-	"williamboman/mason.nvim",
-	"williamboman/mason-lspconfig.nvim",
+	dependencies = { "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim" },
 
 	config = function()
-		-- mason
-		local ok, _, _ = pcall(require, "mason", "mason-lspconfig")
-		if not ok then
-			vim.cmd(":set cmdheight=0") -- makes messages persist
-			print("mason or mason-lspconfig not ok!")
-			vim.cmd(":set cmdheight=1") -- set to default
-			return
-		end
-
 		-- NOTE: zk lsp is managed by /plugin/zk.lua
-		local lspconfig = require("lspconfig")
 		local servers = {
 			"lua_ls",
 			"marksman",
@@ -35,7 +24,9 @@ return {
 			ensure_installed = servers,
 			automatic_installation = true,
 		})
-
+	end,
+	init = function()
+		local lspconfig = require("lspconfig")
 		------------------------
 		--- Begin LSP Config ---
 		------------------------

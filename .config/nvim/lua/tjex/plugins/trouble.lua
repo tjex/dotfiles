@@ -1,22 +1,18 @@
 return {
 	"folke/trouble.nvim",
+    cmd = "Trouble",
+	opts = {
+		warn_no_results = false,
+		open_no_results = true,
+	},
 
-	config = function()
+	init = function()
 		local key = require("tjex.keymap")
 
 		key.nmap({
 			"<leader>io",
-			function()
-				require("trouble").toggle("document_diagnostics")
-			end,
+			"<cmd>Trouble diagnostics toggle<cr>",
 		})
-		key.nmap({
-			"<leader>iw",
-			function()
-				require("trouble").open("workspace_diagnostics")
-			end,
-		})
-		-- key.nmap({"<leader>lt", ":TodoTrouble<CR>", { noremap = true, silent = true }) -- liking TodoTelescope more for now
 		key.nmap({
 			"<leader>il",
 			function()
