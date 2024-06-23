@@ -1,8 +1,5 @@
--- neovim keypings
+-- neovim native editor keymaps (not plugin specific)
 local key = require("tjex.keymap")
-
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
 
 -- main functionality remaps
 vim.api.nvim_set_keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })
@@ -63,12 +60,3 @@ key.nmap({ "<leader>bd", ":bn<bar>sp<bar>bp<bar>bd<CR>" })
 
 -- terminal
 key.tmap({ "<esc><esc>", "<c-\\><c-n>" })
-
--- plugins without their own conf file
-
--- easy-align
-key.nmap({ "ga", ":EasyAlign" })
-key.vmap({ "ga", ":EasyAlign" })
-
--- centerpad
-key.nmap({ "<c-ESC>", ":Centerpad 100<cr>" })

@@ -1,4 +1,3 @@
--- tjex user settings
 vim.g.noswapfile = true
 
 -- look to implement this in wezterm directly if I ever turn back on
