@@ -6,7 +6,7 @@ return {
 		local ls = require("luasnip")
 
 		-- snippets source
-		require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/snippets" })
+		require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/tjex/snippets" })
 
 		-- stop vimwiki from blocking markdown snippets registered in luasnip
 		ls.filetype_extend("vimwiki", { "markdown" })
