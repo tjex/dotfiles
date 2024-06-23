@@ -9,25 +9,7 @@ augroup("lint", { clear = true })
 augroup("formatter", { clear = true })
 augroup("format_options", { clear = true })
 augroup("windows", { clear = true })
-augroup("term", {})
-
-
--- Windows --
--------------
-
--- Open all new windows as vertical splits. THIS IS A NEEDED FEATURE!
--- local excludes = { "NvimTree", "Trouble", "qf" }
--- auto({ "WinNew" }, {
--- 	group = "windows",
--- 	pattern = "*",
--- 	callback = function()
--- 		print(vim.bo.filetype)
--- 		local ftype = vim.bo.filetype
--- 		if not vim.tbl_contains(excludes, ftype) then
--- 			vim.cmd("wincmd L")
--- 		end
--- 	end,
--- })
+augroup("term", { clear = true })
 
 -- Buffers --
 --------------
@@ -41,20 +23,6 @@ auto({ "BufEnter", "BufNewFile" }, {
 		local ftype = vim.bo.filetype
 		if not vim.tbl_contains(fo_ftypes, ftype) then
 			vim.opt_local.fo = "crqn1jp"
-		end
-	end,
-})
-
--- All windows open vertically (see NewWin autocmd)
--- if the buffer is one of horizontal_ftypes, move to bottom
--- horizontal window.
-local horizontal_ftypes = { "qf", "trouble" }
-auto({ "BufEnter" }, {
-	group = "windows",
-	callback = function()
-		local ftype = vim.bo.filetype
-		if vim.tbl_contains(horizontal_ftypes, ftype) then
-			vim.cmd("wincmd J")
 		end
 	end,
 })

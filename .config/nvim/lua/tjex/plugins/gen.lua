@@ -1,5 +1,7 @@
 return {
 	"David-Kunz/gen.nvim",
+	lazy = true,
+	cmd = "Gen",
 
 	config = function()
 		local usr_cmd = vim.api.nvim_create_user_command

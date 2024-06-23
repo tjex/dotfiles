@@ -1,8 +1,9 @@
 return {
-	-- "zk-org/zk-nvim",
-	dir = "~/.local/src/zk-org/zk-nvim.git/main",
-    name = "zk-nvim-local",
+	"zk-org/zk-nvim",
+	-- dir = "~/.local/src/zk-org/zk-nvim.git/main",
+	-- name = "zk-nvim-local",
 
+	event = "BufEnter *.md",
 	config = function()
 		local tjutil = require("tjex.util")
 

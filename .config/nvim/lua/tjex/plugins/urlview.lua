@@ -1,7 +1,7 @@
 return {
 
 	"axieax/urlview.nvim",
-	lazy = true,
+	cmd = "UrlView",
 	config = function()
 		require("urlview").setup({
 			default_title = "URLs:",
