@@ -1,5 +1,7 @@
 return {
-	"zk-org/zk-nvim",
+	-- "zk-org/zk-nvim",
+	dir = "~/.local/src/zk-org/zk-nvim.git/main",
+    name = "zk-nvim",
 
 	config = function()
 		local tjutil = require("tjex.util")

@@ -1,17 +1,19 @@
 return {
 	"nvim-telescope/telescope.nvim",
-	{
-		"nvim-telescope/telescope-fzf-native.nvim",
-		build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+	dependencies = {
+		{
+			"nvim-telescope/telescope-fzf-native.nvim",
+			build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+		},
+		"nvim-telescope/telescope-dap.nvim",
+		"kiyoon/telescope-insert-path.nvim",
+		"nvim-telescope/telescope-ui-select.nvim",
+		"nvim-telescope/telescope-bibtex.nvim",
 	},
-	"nvim-telescope/telescope-dap.nvim",
-	"kiyoon/telescope-insert-path.nvim",
-	"nvim-telescope/telescope-ui-select.nvim",
-	"nvim-telescope/telescope-bibtex.nvim",
 
 	config = function()
 		local actions = require("telescope.actions")
-		local key = require("../tjex/keymap.lua")
+		local key = require("tjex.keymap")
 		local path_actions = require("telescope_insert_path")
 		local tb = require("telescope.builtin")
 
@@ -44,6 +46,13 @@ return {
 		key.nmap({ "sY", ":lua require('telescope').extensions.git_worktree.git_worktrees()<cr>" })
 		key.nmap({ "sy", tb.git_branches })
 		key.nmap({ "sz", tb.git_stash })
+
+		-- load the extensions
+		require("telescope").load_extension("fzf")
+		require("telescope").load_extension("dap")
+		require("telescope").load_extension("ui-select")
+		-- require("telescope").load_extension("git_worktree")
+		require("telescope").load_extension("bibtex")
 
 		require("telescope").setup({
 			defaults = {
@@ -107,12 +116,5 @@ return {
 				},
 			},
 		})
-
-		-- load the extensions
-		require("telescope").load_extension("fzf")
-		require("telescope").load_extension("dap")
-		require("telescope").load_extension("ui-select")
-		-- require("telescope").load_extension("git_worktree")
-		require("telescope").load_extension("bibtex")
 	end,
 }

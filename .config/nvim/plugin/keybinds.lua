@@ -1,9 +1,6 @@
 -- neovim keypings
 local key = require("tjex.keymap")
 
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
 -- main functionality remaps
 vim.api.nvim_set_keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })
 key.nmap({ "<ESC>", "<Nop>" })
