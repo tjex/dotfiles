@@ -4,7 +4,7 @@
 
 return {
 	"neovim/nvim-lspconfig",
-	dependencies = { "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim" },
+	dependencies = { "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim", "onsails/lspkind.nvim" },
 
 	config = function()
 		-- NOTE: zk lsp is managed by /plugin/zk.lua

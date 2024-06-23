@@ -2,7 +2,6 @@
 -------------------
 
 local auto = vim.api.nvim_create_autocmd
-local funcs = require("tjex.funcs")
 local augroup = vim.api.nvim_create_augroup
 
 augroup("tree", { clear = false })
@@ -12,13 +11,6 @@ augroup("format_options", { clear = true })
 augroup("windows", { clear = true })
 augroup("term", {})
 
--- Startup --
---------------
-
-auto({ "VimEnter" }, {
-	group = "tree",
-	callback = funcs.open_tree_on_dir,
-})
 
 -- Windows --
 -------------

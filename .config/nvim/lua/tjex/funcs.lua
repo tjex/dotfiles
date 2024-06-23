@@ -2,19 +2,7 @@
 
 local M = {}
 
-M.open_tree_on_dir = function(data)
-	-- buffer is a directory
-	local directory = vim.fn.isdirectory(data.file) == 1
-	if not directory then
-		return
-	end
-	-- change to the directory
-	vim.cmd.cd(data.file)
-	-- open the tree
-	require("nvim-tree.api").tree.open()
-end
-
--- writes output of go programs to set buffnr
+-- writes stdout to set buffnr
 M.attach_to_buffer = function(output_bufnr, pattern, command)
 	vim.api.nvim_create_autocmd("BufWritePost", {
 		group = vim.api.nvim_create_augroup("tjex", { clear = true }),
