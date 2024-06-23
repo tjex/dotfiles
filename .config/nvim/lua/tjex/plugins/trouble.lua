@@ -1,9 +1,9 @@
 return {
 	"folke/trouble.nvim",
-    cmd = "Trouble",
+	cmd = "Trouble",
 	opts = {
-		warn_no_results = false,
-		open_no_results = true,
+		warn_no_results = true,
+		open_no_results = false,
 	},
 
 	init = function()
