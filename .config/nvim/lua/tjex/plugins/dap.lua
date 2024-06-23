@@ -2,10 +2,8 @@ return {
 	{
 		"mfussenegger/nvim-dap",
 		dependencies = {
-			"mfussenegger/nvim-dap-python",
 			"mxsdev/nvim-dap-vscode-js",
 			"leoluz/nvim-dap-go",
-			"rcarriga/nvim-dap-ui",
 		},
 
 		config = function()
@@ -77,11 +75,6 @@ return {
 				end,
 			}
 
-			-- dap-python, use venv/sys
-			require("dap-python").setup("~/.local/share/venv/sys/bin/python")
-			require("dap-python").resolve_python = function()
-				return "/Users/tjex/.local/share/venv/sys/bin/python"
-			end
 		end,
 	},
 
