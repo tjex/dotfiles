@@ -69,7 +69,7 @@ Group.new("ErrorMsg", c.diag_error, nil)
 -- editor signage
 Group.new("Conceal", c.gray_5)
 Group.new("Cursor", nil) -- set by term
-Group.new("ColorColumn", nil, c.gray_6)
+Group.new("ColorColumn", nil, nil)
 Group.new("CursorLineNr", c.gray_2, nil)
 Group.new("CursorLine", nil, c.bg)
 Group.new("Directory", c.gray_1)
