@@ -1,12 +1,6 @@
-[submodule ".local/share/abook"]
-	path = .local/share/abook
-	url = git@github.com:tjex/abookrc.git
 [submodule "/Users/tjex/.local/share/bkmr"]
 	path = /Users/tjex/.local/share/bkmr
 	url = git@github.com:tjex/my-bkmr-db.git
-[submodule ".config/aerc"]
-	path = .config/aerc
-	url = git@github.com:tjex/aerc-conf.git
 [submodule "/Users/tjex/.config/asciinema"]
 	path = /Users/tjex/.config/asciinema
 	url = git@git.sr.ht:~tjex/asciinema-conf
@@ -25,6 +19,3 @@
 [submodule "/Users/tjex/.scripts"]
 	path = /Users/tjex/.scripts
 	url = git@git.sr.ht:~tjex/scripts
-[submodule "/Users/tjex/.abook"]
-	path = /Users/tjex/.abook
-	url = git@git.sr.ht:~tjex/abook-conf
