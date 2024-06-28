@@ -19,3 +19,6 @@
 [submodule "/Users/tjex/.scripts"]
 	path = /Users/tjex/.scripts
 	url = git@git.sr.ht:~tjex/scripts
+[submodule "/Users/tjex/.abook"]
+	path = /Users/tjex/.abook
+	url = git@git.sr.ht:~tjex/abook-conf

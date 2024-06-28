@@ -1,3 +1,11 @@
+-- Modes
+--  normal mode = 'n'
+--  insert mode = 'i'
+--  viaul mode = 'v'
+--  visual block mode - 'x'
+--  term mode = 't'
+--  command mode = 'c'
+
 local M = {}
 local default_opts = { noremap = true, silent = true }
 

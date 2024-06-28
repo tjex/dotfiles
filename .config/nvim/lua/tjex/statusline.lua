@@ -5,9 +5,20 @@ local generator = function(win_id)
 	local builtin = require("el.builtin")
 	local extensions = require("el.extensions")
 	local sections = require("el.sections")
+	local subscribe = require("el.subscribe")
 
 	table.insert(segments, " ")
-	table.insert(segments, extensions.git_branch)
+	-- needs subscribe instead of extension.git_branch, otherwise it breaks if no branch is
+	-- found.
+	table.insert(
+		segments,
+		subscribe.buf_autocmd("el-git-branch", "BufEnter", function(win, buf)
+			local branch = extensions.git_branch(win, buf)
+			if branch then
+				return branch
+			end
+		end)
+	)
 	table.insert(segments, sections.split)
 	table.insert(segments, " ")
 	table.insert(segments, builtin.file_relative)

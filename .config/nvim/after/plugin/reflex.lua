@@ -71,7 +71,7 @@ Group.new("Conceal", c.gray_5)
 Group.new("Cursor", nil) -- set by term
 Group.new("ColorColumn", nil, nil)
 Group.new("CursorLineNr", c.gray_2, nil)
-Group.new("CursorLine", nil, c.bg)
+Group.new("CursorLine", nil, nil)
 Group.new("Directory", c.gray_1)
 Group.new("DiffAdded", c.green)
 Group.new("DiffRemoved", c.quart)

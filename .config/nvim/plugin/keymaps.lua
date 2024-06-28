@@ -7,17 +7,7 @@ key.nmap({ "<ESC>", "<Nop>" })
 key.nmap({ "<F1>", "<Nop>" })
 key.imap({ "kj", "<ESC><Right>" })
 key.imap({ "KJ", "<ESC><Right>" })
-key.imap({ "<c-l>", "<Nop>" })
-
-key.vmap({ "zl", "<Nop>" })
-
--- Modes
---  normal mode = 'n'
---  insert mode = 'i'
---  viaul mode = 'v'
---  visual block mode - 'x'
---  term mode = 't'
---  command mode = 'c'
+key.imap({ "<c-l>", "<Nop>" }) -- used for cmp
 
 -- file operations
 key.nmap({ "W", ":w<CR>" })
@@ -59,4 +49,4 @@ key.nmap({ "gl", ":tabn<CR>" }) -- next tab
 key.nmap({ "<leader>bd", ":bn<bar>sp<bar>bp<bar>bd<CR>" })
 
 -- terminal
-key.tmap({ "<esc><esc>", "<c-\\><c-n>" })
+key.tmap({ "<C-esc>", "<c-\\><c-n>" })
