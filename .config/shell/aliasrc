@@ -33,15 +33,15 @@ alias \
 
 # system-utility style
 alias \
-	ref="source ${XDG_CONFIG_HOME}/shell/functions ;
-        source ${XDG_CONFIG_HOME}/shell/aliasrc" \
+	cfr="source ${XDG_CONFIG_HOME}/shell/*" 
 
 # dotfiles management
 alias \
     dotfs="dotf status -s" \
     dotfa="dotf add -u" \
     dotfc="dotf commit -m" \
-    dotfp="dotf push"
+    dotfp="dotf push" \
+    dotfl="dotf log --name-only"
 
 # git management
 alias \
@@ -49,7 +49,8 @@ alias \
     gs="git status -s" \
     ga="git add -A" \
     gc="git commit -m" \
-    gp="git push"
+    gp="git push" \
+    gl="git log --name-only"
 
 # programs
 # yt-dlp output template: https://github.com/yt-dlp/yt-dlp#output-template
