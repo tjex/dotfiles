@@ -10,7 +10,7 @@ tags=unread;inbox;
 ignore=.mbsyncstate;.uidvalidity
 
 [search]
-exclude_tags=spam;
+exclude_tags=spam
 
 [maildir]
 synchronize_flags=true
