@@ -18,7 +18,7 @@ alias \
 	mv="mv -iv" \
 	rm="rm -vI" \
     rmd="rm -rfvI" \
-	rsync="rsync -vrPlu" \
+	rsync="rsync -vlurp" \
 	v="$EDITOR" \
     gd="pushd" \
     pd="popd"
@@ -89,7 +89,7 @@ alias \
     tjr="cd ${HOME} && ls -A" \
     m="cd ${HOME}/music && ls -A" \
     i="cd ${HOME}/images && ls -A" \
-    l="cd ${HOME}/.local && ls -A" \
+    lcl="cd ${HOME}/.local && ls -A" \
     lsh="cd ${XDG_DATA_HOME} && ls -A" \
     lsrc="cd ${HOME}/.local/src && ls -A" \
     vol="cd /Volumes && ls -A" \

@@ -42,3 +42,5 @@ source "${HOME}/.local/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-hi
 # fast-syntax-highlighting.plugin)
 source "${XDG_CONFIG_HOME}/shell/design"
 
+
+
