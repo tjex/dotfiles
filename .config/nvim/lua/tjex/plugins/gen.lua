@@ -49,14 +49,14 @@ return {
 
 		prompt["fix_code"] = {
 			model = "deepseek-coder:6.7b",
-			prompt = "The following code is buggy, fix it. Output ONLY the fixed code. DONOT include anything except the specific code required to fix this problem:\n\n```$filetype\n$text\n```",
+			prompt = "The following code is buggy, fix it. Output ONLY the fixed code. DO NOT include anything except the specific code required to fix this problem:\n\n```$filetype\n$text\n```",
 			replace = true,
 			extract = "```$filetype\n(.-)```",
 		}
 
 		prompt["optimize_code"] = {
 			model = "deepseek-coder:6.7b",
-			prompt = "Optimize the following code, and explain concisely why the changes were made:\n\n```$filetype\n$text\n```",
+			prompt = "Optimize the following code, and explain concisely why the changes were made. Output the optimized code after your explanation:\n\n```$filetype\n$text\n```",
 			replace = true,
 			extract = "```$filetype\n(.-)```",
 		}
@@ -64,6 +64,12 @@ return {
 		prompt["code_question"] = {
 			model = "deepseek-coder:6.7b",
 			prompt = "I want to ask you a question about some code. $input:\n\n```$filetype\n$text\n```",
+			replace = false,
+		}
+
+		prompt["code_command"] = {
+			model = "deepseek-coder:6.7b",
+			prompt = "You are an expert programmer whose purpose it is to assist me. Take your time to think. An excellent yet simple answer to the question is preferred over a fast one. $input:\n\n```$filetype\n$text\n```",
 			replace = false,
 		}
 
