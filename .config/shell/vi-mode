@@ -21,4 +21,4 @@ preexec() { echo -ne '\e[4 q' ;} # Use underline shape cursor for each new promp
 # vi mode
 bindkey -v
 bindkey kj vi-cmd-mode
-export KEYTIMEOUT=10
+export KEYTIMEOUT=8
