@@ -33,7 +33,7 @@ alias \
 
 # system-utility style
 alias \
-	cfr="source ${XDG_CONFIG_HOME}/shell/*" 
+	cfr="source ${XDG_CONFIG_HOME}/shell/aliasrc && source ${XDG_CONFIG_HOME}/shell/paths" 
 
 # dotfiles management
 alias \
