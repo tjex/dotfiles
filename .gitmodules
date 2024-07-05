@@ -22,3 +22,6 @@
 [submodule "/Users/tjex/.abook"]
 	path = /Users/tjex/.abook
 	url = git@git.sr.ht:~tjex/abook-conf
+[submodule ".local/share/bkmr"]
+	path = .local/share/bkmr
+	url = git@git.sr.ht:~tjex/bkmr-db
