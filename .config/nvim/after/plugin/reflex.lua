@@ -20,7 +20,7 @@ Color.new("bg_text", "#525d8a")
 
 Color.new("primary", "#647f9d") -- blue_1
 Color.new("secondary", "#7F718E") -- purple
-Color.new("tertiary", "#ba8c64") -- burnt_yellow
+Color.new("tertiary", "#bc9f76") -- burnt_yellow
 Color.new("quart", "#bf8585") -- soft_red
 Color.new("yellow", "#cca166")
 Color.new("green", "#4e9a6f") -- green
@@ -35,7 +35,7 @@ Color.new("gray_1", "#bcbcbc")
 Color.new("gray_2", "#aeaeae") -- regular text
 Color.new("gray_3", "#969696")
 Color.new("gray_4", "#737373")
-Color.new("gray_5", "#484848")
+Color.new("gray_5", "#585858")
 Color.new("gray_6", "#2b2b2b") -- dullest
 
 -- Group Sets
@@ -119,8 +119,8 @@ Group.new("Visual", c.black, g.hl_bg_2)
 
 -- Syntax Highlighting
 -- See :help treesitter-highlight-g
-Group.new("@boolean", c.quart)
-Group.new("boolean", c.quart)
+Group.new("@boolean", c.primary)
+Group.new("boolean", c.primary)
 
 Group.new("@character", c.secondary)
 Group.new("character", c.secondary)
@@ -128,8 +128,8 @@ Group.new("character", c.secondary)
 Group.new("@character.special", c.gray_0)
 Group.new("character.special", c.gray_0)
 
-Group.new("@comment", c.gray_4, nil, s.italic)
-Group.new("comment", c.gray_4, nil, s.italic)
+Group.new("@comment", c.gray_5, nil, s.italic)
+Group.new("comment", c.gray_5, nil, s.italic)
 
 Group.new("@conditional", c.gray_0)
 Group.new("conditional", c.gray_0)
@@ -140,8 +140,8 @@ Group.new("constant", c.gray_0)
 Group.new("@constant.builtin", c.gray_0)
 Group.new("constant.builtin", c.gray_0)
 
-Group.new("@constant.macro", c.primary)
-Group.new("constant.macro", c.primary)
+Group.new("@constant.macro", c.quart)
+Group.new("constant.macro", c.quart)
 
 Group.new("@constructor", c.gray_0)
 Group.new("constructor", c.gray_0)
@@ -161,8 +161,8 @@ Group.new("field", c.gray_0)
 Group.new("@float", c.gray_0)
 Group.new("float", c.gray_0)
 
-Group.new("@function", c.tertiary)
-Group.new("function", c.tertiary)
+Group.new("@function", c.quart)
+Group.new("function", c.quart)
 
 Group.new("@function.builtin", c.gray_0)
 Group.new("function.builtin", c.gray_0)
@@ -170,17 +170,17 @@ Group.new("function.builtin", c.gray_0)
 Group.new("@function.call", c.gray_0)
 Group.new("function.call", c.gray_0)
 
-Group.new("@function.macro", c.primary)
-Group.new("function.macro", c.primary)
+Group.new("@function.macro", c.quart)
+Group.new("function.macro", c.quart)
 
 Group.new("@include", c.gray_4)
 Group.new("include", c.gray_4)
 
-Group.new("@keyword", c.secondary)
-Group.new("keyword", c.secondary)
+Group.new("@keyword", c.gray_4)
+Group.new("keyword", c.gray_4)
 
-Group.new("@keyword.function", c.tertiary)
-Group.new("keyword.function", c.tertiary)
+Group.new("@keyword.function", c.quart)
+Group.new("keyword.function", c.quart)
 
 Group.new("@keyword.operator", c.gray_4)
 Group.new("keyword.operator", c.gray_4)
@@ -191,14 +191,14 @@ Group.new("keyword.return", c.gray_0)
 Group.new("@label", c.gray_0)
 Group.new("label", c.gray_0)
 
-Group.new("@macro", c.primary)
-Group.new("macro", c.primary)
+Group.new("@macro", c.quart)
+Group.new("macro", c.quart)
 
-Group.new("@method", c.primary)
-Group.new("method", c.primary)
+Group.new("@method", c.quart)
+Group.new("method", c.quart)
 
-Group.new("@method.call", c.primary)
-Group.new("method.call", c.primary)
+Group.new("@method.call", c.quart)
+Group.new("method.call", c.quart)
 
 Group.new("@namespace", c.gray_0)
 Group.new("namespace", c.gray_0)
@@ -209,8 +209,8 @@ Group.new("Normal", c.gray_2, nil)
 Group.new("@none", c.gray_1)
 Group.new("none", c.gray_1)
 
-Group.new("@number", c.primary)
-Group.new("number", c.primary)
+Group.new("@number", c.quart)
+Group.new("number", c.quart)
 
 Group.new("@operator", c.gray_4)
 Group.new("operator", c.gray_4)
@@ -218,8 +218,8 @@ Group.new("operator", c.gray_4)
 Group.new("@parameter", c.gray_0)
 Group.new("parameter", c.gray_0)
 
-Group.new("@preproc", c.primary)
-Group.new("preproc", c.primary)
+Group.new("@preproc", c.quart)
+Group.new("preproc", c.quart)
 
 Group.new("@property", c.gray_0)
 Group.new("property", c.gray_0)
@@ -233,8 +233,8 @@ Group.new("punctuation.bracket", c.gray_4)
 Group.new("@punctuation.delimiter", c.gray_4)
 Group.new("punctuation.delimiter", c.gray_4)
 
-Group.new("@punctuation.special", c.primary)
-Group.new("punctuation.special", c.primary)
+Group.new("@punctuation.special", c.quart)
+Group.new("punctuation.special", c.quart)
 
 Group.new("@repeat", c.gray_0)
 Group.new("repeat", c.gray_0)
@@ -248,8 +248,8 @@ Group.new("Special", c.gray_3)
 Group.new("@storageclass", c.gray_0)
 Group.new("storageclass", c.gray_0)
 
-Group.new("@string", c.quart)
-Group.new("string", c.quart)
+Group.new("@string", c.primary)
+Group.new("string", c.primary)
 
 Group.new("@string.escape", c.gray_0)
 Group.new("string.escape", c.gray_0)
@@ -275,10 +275,10 @@ Group.new("@text.literal", c.secondary)
 Group.new("text.literal", c.secondary)
 
 Group.new("@text.reference", c.reference)
-Group.new("text.reference", c.primary)
+Group.new("text.reference", c.quart)
 
-Group.new("@text.title", c.tertiary, nil, nil)
-Group.new("text.title", c.primary)
+Group.new("@text.title", c.quart, nil, nil)
+Group.new("text.title", c.quart)
 
 Group.new("@text.todo", c.gray_0)
 Group.new("text.todo", c.gray_0)
@@ -307,8 +307,8 @@ Group.new("variable", c.gray_3)
 Group.new("@variable.builtin", c.gray_3)
 Group.new("variable.builtin", c.gray_3)
 
-Group.new("@underlined", c.primary, nil, nil)
-Group.new("underlined", c.primary, nil, nil)
+Group.new("@underlined", c.quart, nil, nil)
+Group.new("underlined", c.quart, nil, nil)
 
 -------------
 -- PLUGINS --
