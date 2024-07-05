@@ -46,21 +46,21 @@ local function admin(choice)
 	aerc:activate()
 end
 
-local function sys(choice)
-	local sys_tab, sys_pane = mux.spawn_window({
-		workspace = "sys",
-		cwd = "/Users/tjex/.scripts",
-	})
-	sys_tab:set_title("scripts")
-
-	if choice == "laptop" then
-		local config = sys_pane:spawn_tab({ cwd = "/Users/tjex/.config" })
-		config:set_title("config")
-		return
-	end
-
-	sys_pane:split({ direction = "Right", size = 0.666, cwd = "/Users/tjex/.config" })
-end
+-- local function sys(choice)
+-- 	local sys_tab, sys_pane = mux.spawn_window({
+-- 		workspace = "sys",
+-- 		cwd = "/Users/tjex/.scripts",
+-- 	})
+-- 	sys_tab:set_title("scripts")
+--
+-- 	if choice == "laptop" then
+-- 		local config = sys_pane:spawn_tab({ cwd = "/Users/tjex/.config" })
+-- 		config:set_title("config")
+-- 		return
+-- 	end
+--
+-- 	sys_pane:split({ direction = "Right", size = 0.666, cwd = "/Users/tjex/.config" })
+-- end
 
 local function dev()
 	local dev_tab, dev_pane, dev_window = mux.spawn_window({
@@ -98,7 +98,7 @@ end
 function M.start(choice)
 	wezterm.on("gui-startup", function()
 		admin(choice)
-		sys(choice)
+		-- sys(choice)
 		dev()
 		writing()
 	end)

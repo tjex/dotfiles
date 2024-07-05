@@ -11,7 +11,15 @@ function M.apply(config)
 			set_environment_variables = {
 				PATH = paths_string,
 			},
-			args = { "zsh", "-c", "nvim $(fd -E .zk -t f | fzf)" },
+			args = { "zsh", "-c", "nvim $(fd -t f | fzf)" },
+		},
+		{
+			label = "edit .config",
+			cwd = "/Users/tjex/.config",
+			set_environment_variables = {
+				PATH = paths_string,
+			},
+			args = { "zsh", "-c", "nvim $(fd -t f | fzf)" },
 		},
 		{
 			label = "edit nvim conf",
@@ -19,7 +27,7 @@ function M.apply(config)
 			set_environment_variables = {
 				PATH = paths_string,
 			},
-			args = { "zsh", "-c", "nvim $(fd -E 'bookmarks' | fzf)" },
+			args = { "zsh", "-c", "nvim $(fd -t f | fzf)" },
 		},
 		{
 			label = "edit shell scripts",
@@ -27,7 +35,7 @@ function M.apply(config)
 			set_environment_variables = {
 				PATH = paths_string,
 			},
-			args = { "zsh", "-c", "nvim $(fd | fzf)" },
+			args = { "zsh", "-c", "nvim $(fd -t f | fzf)" },
 		},
 		{
 			label = "edit navi files",
@@ -36,7 +44,7 @@ function M.apply(config)
 				PATH = paths_string,
 			},
 			-- for some reason, this command needs to be explicityly cd'd into?
-			args = { "zsh", "-c", "cd /Users/tjex/.local/share/navi && nvim $(fd | fzf)" },
+			args = { "zsh", "-c", "cd /Users/tjex/.local/share/navi && nvim $(fd -t f | fzf)" },
 		},
 	}
 end
