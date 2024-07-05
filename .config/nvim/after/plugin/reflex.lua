@@ -22,7 +22,7 @@ Color.new("primary", "#647f9d") -- blue_1
 Color.new("secondary", "#7F718E") -- purple
 Color.new("tertiary", "#ba8c64") -- burnt_yellow
 Color.new("quart", "#bf8585") -- soft_red
-Color.new("yellow", "#ccb266")
+Color.new("yellow", "#cca166")
 Color.new("green", "#4e9a6f") -- green
 Color.new("diag_error", "#9c5543")
 Color.new("diag_info", "#647f9d")
@@ -119,8 +119,8 @@ Group.new("Visual", c.black, g.hl_bg_2)
 
 -- Syntax Highlighting
 -- See :help treesitter-highlight-g
-Group.new("@boolean", c.tertiary)
-Group.new("boolean", c.tertiary)
+Group.new("@boolean", c.quart)
+Group.new("boolean", c.quart)
 
 Group.new("@character", c.secondary)
 Group.new("character", c.secondary)
@@ -161,8 +161,8 @@ Group.new("field", c.gray_0)
 Group.new("@float", c.gray_0)
 Group.new("float", c.gray_0)
 
-Group.new("@function", c.quart)
-Group.new("function", c.quart)
+Group.new("@function", c.tertiary)
+Group.new("function", c.tertiary)
 
 Group.new("@function.builtin", c.gray_0)
 Group.new("function.builtin", c.gray_0)
@@ -179,8 +179,8 @@ Group.new("include", c.gray_4)
 Group.new("@keyword", c.secondary)
 Group.new("keyword", c.secondary)
 
-Group.new("@keyword.function", c.quart)
-Group.new("keyword.function", c.quart)
+Group.new("@keyword.function", c.tertiary)
+Group.new("keyword.function", c.tertiary)
 
 Group.new("@keyword.operator", c.gray_4)
 Group.new("keyword.operator", c.gray_4)
@@ -269,13 +269,15 @@ Group.new("tag.attribute", c.gray_2)
 Group.new("@tag.delimiter", c.gray_1)
 Group.new("tag.delimiter", c.gray_1)
 
+Group.new("@tag.delimiter.html", c.gray_1)
+
 Group.new("@text.literal", c.secondary)
 Group.new("text.literal", c.secondary)
 
 Group.new("@text.reference", c.reference)
 Group.new("text.reference", c.primary)
 
-Group.new("@text.title", c.quart, nil, nil)
+Group.new("@text.title", c.tertiary, nil, nil)
 Group.new("text.title", c.primary)
 
 Group.new("@text.todo", c.gray_0)
