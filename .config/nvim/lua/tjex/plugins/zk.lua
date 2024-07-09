@@ -48,8 +48,8 @@ return {
 			key.nmap({ "zn", ":ZkNew {title = vim.fn.input('Title: '), dir = vim.fn.input('Dir: ')}<cr>" })
 			key.nmap({ "st", ":ZkTags<cr>" })
 			key.nmap({ "sf", ":ZkNotes<cr>" })
-			key.nmap({ "sl", ":ZkLinks<cr>" })
-			key.nmap({ "sb", ":ZkBacklinks<cr>" })
+			key.nmap({ "so", ":ZkLinks<cr>" })
+			key.nmap({ "si", ":ZkBacklinks<cr>" })
 
 			-- visual mode
 			key.vmap({ "sm", ":ZkMatch<cr>" })

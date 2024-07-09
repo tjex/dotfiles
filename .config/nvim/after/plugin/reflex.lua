@@ -307,8 +307,8 @@ Group.new("variable", c.gray_3)
 Group.new("@variable.builtin", c.gray_3)
 Group.new("variable.builtin", c.gray_3)
 
-Group.new("@underlined", c.quart, nil, nil)
-Group.new("underlined", c.quart, nil, nil)
+Group.new("@underlined", c.primary, nil, nil) -- markdown links also
+Group.new("underlined", c.primary, nil, nil)
 
 -------------
 -- PLUGINS --

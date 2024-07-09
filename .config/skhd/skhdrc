@@ -7,6 +7,7 @@
 # ############# #
 
 # Apple's stock Applications must be opened with `open -a`
+alt + cmd - return : "/Applications/kitty.app/Contents/MacOS/kitty" -T term
 alt + cmd - b : "/Applications/kitty.app/Contents/MacOS/kitty" -1 -T bkmr --session - zsh -l -c "bkmr search --fzf"
 alt + cmd - e : "/Applications/kitty.app/Contents/MacOS/kitty" -1 -T lf --session - lf ~/docs
 alt + cmd - g : "/Applications/kitty.app/Contents/MacOS/kitty" -1 -T gopass --session - zsh -l -c gopass
