@@ -10,7 +10,7 @@ return {
 		-- NOTE: zk lsp is managed by /plugin/zk.lua
 		local servers = {
 			"lua_ls",
-			"marksman",
+			-- "marksman",
 			"gopls",
 			"pyright",
 			"stylelint_lsp",

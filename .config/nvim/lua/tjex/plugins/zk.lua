@@ -39,7 +39,7 @@ return {
 						if subheading == "" then
 							title = filename
 						else
-							title = '"' .. filename .. ":" .. " " .. subheading .. '"'
+							title = "'" .. filename .. ":" .. " " .. subheading .. "'"
 						end
 						cmd.get("ZkNew")({ dir = diary_dir, group = "d", title = title })
 					end

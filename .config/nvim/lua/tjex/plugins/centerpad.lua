@@ -3,6 +3,6 @@ return {
 
 	init = function()
 		local key = require("tjex.keymap")
-		key.nmap({ "<c-ESC>", ":Centerpad 100<cr>" })
+		key.nmap({ "<c-ESC>", ":Centerpad 105<cr>" })
 	end,
 }

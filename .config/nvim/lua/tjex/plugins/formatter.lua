@@ -13,6 +13,9 @@ return {
 			log_level = vim.log.levels.WARN,
 			filetype = {
 				-- formatters are executed in order within their own tables
+				tex = {
+					require("formatter.filetypes.tex").latexindent,
+				},
 				lua = {
 					require("formatter.filetypes.lua").stylua,
 				},
@@ -114,7 +117,7 @@ return {
 			nargs = 1,
 			complete = function()
 				local languages = {
-					markdown = { "gh", "mail" },
+					markdown = { "unwrap", "mail" },
 				}
 				return languages[vim.bo.filetype] or {}
 			end,

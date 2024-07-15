@@ -12,7 +12,7 @@ return {
 		local prompt = require("gen").prompts
 
 		require("gen").setup({
-			model = "llama3",
+			model = "mixtral",
 			host = "localhost",
 			port = "11434",
 			display_mode = "split",
