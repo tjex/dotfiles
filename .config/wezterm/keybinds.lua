@@ -1,4 +1,5 @@
 local balance = require("balance")
+local func = require("functions")
 local wezterm = require("wezterm")
 local act = wezterm.action
 local M = {}
@@ -22,7 +23,6 @@ function M.apply(config)
 			mods = "LEADER",
 			action = wezterm.action.Multiple({
 				wezterm.action_callback(balance.balance_panes("x")),
-				-- wezterm.action_callback(balance.balance_panes("y")),
 			}),
 		},
 		{
@@ -35,6 +35,7 @@ function M.apply(config)
 			mods = "LEADER",
 			action = act.EmitEvent("trigger-nvim-with-scrollback"),
 		},
+		{ key = "L", mods = "CTRL", action = wezterm.action.ShowDebugOverlay },
 
 		-- TABS
 		{
@@ -63,6 +64,7 @@ function M.apply(config)
 			}),
 		},
 
+		-- "SUPER" is cmd on mac
 		{ key = "1", mods = "SUPER", action = act.ActivateTab(0) },
 		{ key = "2", mods = "SUPER", action = act.ActivateTab(1) },
 		{ key = "3", mods = "SUPER", action = act.ActivateTab(2) },
@@ -123,6 +125,14 @@ function M.apply(config)
 
 		-- WORKSPACES
 		{
+			key = "k",
+			mods = "LEADER",
+			action = wezterm.action_callback(function(window)
+				local w = window:active_workspace()
+				func.kill_workspace(w)
+			end),
+		},
+		{
 			key = "2",
 			mods = "ALT",
 			action = act.SwitchToWorkspace({
@@ -148,6 +158,30 @@ function M.apply(config)
 			mods = "ALT",
 			action = act.SwitchToWorkspace({
 				name = "writing",
+			}),
+		},
+		-- Prompt for a name to use for a new workspace and switch to it.
+		{
+			key = "w",
+			mods = "LEADER",
+			action = act.PromptInputLine({
+				description = wezterm.format({
+					{ Attribute = { Intensity = "Bold" } },
+					{ Text = "Enter name for new workspace" },
+				}),
+				action = wezterm.action_callback(function(window, pane, line)
+					-- line will be `nil` if they hit escape without entering anything
+					-- An empty string if they just hit enter
+					-- Or the actual line of text they wrote
+					if line then
+						window:perform_action(
+							act.SwitchToWorkspace({
+								name = line,
+							}),
+							pane
+						)
+					end
+				end),
 			}),
 		},
 	}
