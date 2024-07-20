@@ -1,5 +1,5 @@
-local balance = require("balance")
 local func = require("functions")
+local sessioniser = require("sessioniser")
 local wezterm = require("wezterm")
 local act = wezterm.action
 local M = {}
@@ -22,7 +22,7 @@ function M.apply(config)
 			key = "b",
 			mods = "LEADER",
 			action = wezterm.action.Multiple({
-				wezterm.action_callback(balance.balance_panes("x")),
+				wezterm.action_callback(func.balance),
 			}),
 		},
 		{
@@ -78,7 +78,7 @@ function M.apply(config)
 		-- LAUNCHER / FILES / DIRECTORIES
 		{
 			key = "e",
-			mods = "LEADER",
+			mods = "ALT",
 			action = act.ShowLauncherArgs({ flags = "FUZZY|WORKSPACES" }),
 		},
 		{
@@ -183,6 +183,12 @@ function M.apply(config)
 					end
 				end),
 			}),
+		},
+		-- sessioniser
+		{
+			key = "o",
+			mods = "LEADER",
+			action = wezterm.action_callback(sessioniser.toggle),
 		},
 	}
 

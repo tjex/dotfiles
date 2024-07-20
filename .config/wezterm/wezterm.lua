@@ -9,54 +9,47 @@ local startup = require("gui_startup")
 local status = require("status")
 
 -- This table will hold the configuration.
-local config = {}
-config = wezterm.config_builder()
+local config = wezterm.config_builder()
 
-config.unix_domains = {
-	{
-		name = "unix",
+config = {
+	unix_domains = {
+		{
+			name = "unix",
+		},
 	},
-}
--- config.default_gui_startup_args = { "connect", "unix" }
+	-- config.default_gui_startup_args = { "connect", "unix" }
 
-config.ssh_domains = {
-	{
-		name = "raspi",
-		remote_address = "rpi.local",
-		username = "tjex",
+	ssh_domains = {
+		{
+			name = "raspi",
+			remote_address = "rpi.local",
+			username = "tjex",
+		},
 	},
-}
 
--- this roasts the config
--- config.set_environment_variables = {
--- 	PATH = { os.getenv("PATH") },
--- }
+	-- disables mac unicode symbol input via ALT/META
+	send_composed_key_when_left_alt_is_pressed = true,
+	send_composed_key_when_right_alt_is_pressed = true,
 
--- disables mac unicode symbol input via ALT/META
-config.send_composed_key_when_left_alt_is_pressed = true
-config.send_composed_key_when_right_alt_is_pressed = true
+	front_end = "WebGpu",
+	audible_bell = "Disabled",
+	default_workspace = "admin",
+	-- automatically_reload_config = false,
+	status_update_interval = 200,
 
-config.front_end = "WebGpu"
-config.audible_bell = "Disabled"
-config.default_workspace = "admin"
--- config.automatically_reload_config = false
-config.status_update_interval = 200
-
-config.skip_close_confirmation_for_processes_named = {
-	"bash",
-	"sh",
-	"zsh",
-	"tmux",
-	"qalc",
-	"lf",
-	"gopass",
+	skip_close_confirmation_for_processes_named = {
+		"bash",
+		"sh",
+		"zsh",
+	},
 }
 
 -- apply the conf files required above
-status.load()
 design.apply(config)
 keybinds.apply(config)
 launch_menu.apply(config)
+
+status.load()
 startup.start()
 
 return config
