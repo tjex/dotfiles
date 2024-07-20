@@ -20,6 +20,7 @@ key.nmap({ "<leader>y", '"+y' }) -- copy to sys clipboard
 key.vmap({ "<leader>y", '"+y' })
 key.nmap({ "x", '"_x' }) -- stop 'x' from adding to paste
 key.nmap({ "Z", "1z=e" })
+key.nmap({ "fp", "mzgqap`z" }) -- for latex / txt / plain files that don't have formatters
 
 -- Replace mode using the word you were currently on (thanks to the Primeageon).
 key.nmap({ "<leader>r", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/<Left>" })

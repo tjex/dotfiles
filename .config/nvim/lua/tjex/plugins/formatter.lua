@@ -13,6 +13,9 @@ return {
 			log_level = vim.log.levels.WARN,
 			filetype = {
 				-- formatters are executed in order within their own tables
+				cpp = {
+					require("formatter.filetypes.cpp").clangformat,
+				},
 				tex = {
 					require("formatter.filetypes.tex").latexindent,
 				},
