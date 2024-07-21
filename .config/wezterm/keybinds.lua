@@ -1,5 +1,6 @@
-local func = require("functions")
-local sessioniser = require("sessioniser")
+local b = require("functions.balance")
+local func = require("functions.funcs")
+local sessioniser = require("functions.sessioniser")
 local wezterm = require("wezterm")
 local act = wezterm.action
 local M = {}
@@ -22,7 +23,7 @@ function M.apply(config)
 			key = "b",
 			mods = "LEADER",
 			action = wezterm.action.Multiple({
-				wezterm.action_callback(func.balance),
+				wezterm.action_callback(b.balance_panes("x")),
 			}),
 		},
 		{

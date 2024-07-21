@@ -1,10 +1,6 @@
-local b = require("balance")
 local util = require("util")
 local wezterm = require("wezterm")
-local mux = wezterm.mux
 local M = {}
-
-M.balance = b.balance_panes("x")
 
 M.kill_workspace = function(workspace)
 	local success, stdout =
@@ -31,12 +27,4 @@ M.kill_workspace = function(workspace)
 	end
 end
 
-M.launch_website = function()
-	local dev_tab, dev_pane, dev_window = mux.spawn_window({
-		workspace = "dev",
-		cwd = "/Users/tjex/dev/websites/tjex.net/",
-	})
-	dev_pane:send_text("yarn run start\n")
-	dev_tab:set_title("website")
-end
 return M
