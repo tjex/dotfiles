@@ -25,3 +25,6 @@
 [submodule ".local/share/bkmr"]
 	path = .local/share/bkmr
 	url = git@git.sr.ht:~tjex/bkmr-db
+[submodule ".config/nvim"]
+	path = .config/nvim
+	url = https://git.sr.ht/~tjex/nvim
