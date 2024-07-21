@@ -6,5 +6,14 @@ return {
 		require("focus").setup({})
 
 		key.nmap({ "<c-b>", "<cmd>FocusToggle<cr>" })
+		key.nmap({
+			"<c-ESC>",
+			function()
+				vim.cmd(":FocusSplitNicely")
+				vim.cmd(":FocusSplitNicely")
+				vim.cmd(":FocusToggle")
+				vim.cmd(":wincmd h")
+			end,
+		})
 	end,
 }
