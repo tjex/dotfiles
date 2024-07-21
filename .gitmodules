@@ -27,4 +27,4 @@
 	url = git@git.sr.ht:~tjex/bkmr-db
 [submodule ".config/nvim"]
 	path = .config/nvim
-	url = https://git.sr.ht/~tjex/nvim
+	url = git@github.com:tjex/nvim.git
