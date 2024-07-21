@@ -7,7 +7,7 @@ local fd = "/opt/homebrew/bin/fd"
 local lsrc = "/Users/tjex/.local/src"
 local dev = "/Users/tjex/dev"
 
-M.toggle = function(window, pane)
+M.open = function(window, pane)
 	local projects = {}
 	local home = os.getenv("HOME") .. "/"
 

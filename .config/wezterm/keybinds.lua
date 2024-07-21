@@ -9,7 +9,7 @@ local M = {}
 require("events")
 
 function M.apply(config)
-	config.leader = { key = "o", mods = "ALT", timeout_milliseconds = 700 }
+	config.leader = { key = "w", mods = "ALT", timeout_milliseconds = 700 }
 
 	-- LEADER KEYBINDS
 	config.keys = {
@@ -189,7 +189,7 @@ function M.apply(config)
 		{
 			key = "o",
 			mods = "LEADER",
-			action = wezterm.action_callback(sessioniser.toggle),
+			action = wezterm.action_callback(sessioniser.open),
 		},
 	}
 
