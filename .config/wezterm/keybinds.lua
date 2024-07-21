@@ -126,6 +126,13 @@ function M.apply(config)
 
 		-- WORKSPACES
 		{
+			key = "l",
+			mods = "ALT",
+			action = wezterm.action_callback(function(window, pane)
+				func.switch_to_last_workspace(window, pane)
+			end),
+		},
+		{
 			key = "k",
 			mods = "LEADER",
 			action = wezterm.action_callback(function(window)
@@ -136,30 +143,30 @@ function M.apply(config)
 		{
 			key = "2",
 			mods = "ALT",
-			action = act.SwitchToWorkspace({
-				name = "admin",
-			}),
+			action = wezterm.action_callback(function(window, pane)
+				func.switch_workspace(window, pane, "admin")
+			end),
 		},
 		{
 			key = "4",
 			mods = "ALT",
-			action = act.SwitchToWorkspace({
-				name = "sys",
-			}),
+			action = wezterm.action_callback(function(window, pane)
+				func.switch_workspace(window, pane, "sys")
+			end),
 		},
 		{
 			key = "5",
 			mods = "ALT",
-			action = act.SwitchToWorkspace({
-				name = "dev",
-			}),
+			action = wezterm.action_callback(function(window, pane)
+				func.switch_workspace(window, pane, "dev")
+			end),
 		},
 		{
 			key = "6",
 			mods = "ALT",
-			action = act.SwitchToWorkspace({
-				name = "writing",
-			}),
+			action = wezterm.action_callback(function(window, pane)
+				func.switch_workspace(window, pane, "writing")
+			end),
 		},
 		-- Prompt for a name to use for a new workspace and switch to it.
 		{

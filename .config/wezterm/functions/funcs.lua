@@ -1,5 +1,6 @@
 local util = require("util")
 local wezterm = require("wezterm")
+local act = wezterm.action
 local M = {}
 
 M.kill_workspace = function(workspace)
@@ -25,6 +26,32 @@ M.kill_workspace = function(workspace)
 			})
 		end
 	end
+end
+
+M.switch_workspace = function(window, pane, workspace)
+	local current_workspace = window:active_workspace()
+	if current_workspace == workspace then
+		return
+	end
+
+	window:perform_action(
+		act.SwitchToWorkspace({
+			name = workspace,
+		}),
+		pane
+	)
+	wezterm.GLOBAL.previous_workspace = current_workspace
+end
+
+M.switch_to_last_workspace = function(window, pane)
+	local current_workspace = window:active_workspace()
+	local workspace = wezterm.GLOBAL.previous_workspace
+
+	if current_workspace == workspace then
+		return
+	end
+
+	M.switch_workspace(window, pane, workspace)
 end
 
 return M
