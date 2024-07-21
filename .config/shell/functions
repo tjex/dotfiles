@@ -2,14 +2,14 @@
 
 # mv an item into a folder that you make, in the same command.
 mvmk() {
-	mkdir -p -- "$argv[-1]"
-	mv "$@"
+    mkdir -p -- "$argv[-1]"
+    mv "$@"
 }
 
 # use fzf to search for dirs and paste them inplace, in the current prompt
 fzf_dir() {
     cmd=$(fd . --type d | fzf --preview 'tree -C {} | head -200')
-    LBUFFER="${LBUFFER}${(q)cmd}"
+    LBUFFER="${LBUFFER}${cmd}"
     local ret=$?
     zle reset-prompt
     return $ret
@@ -22,41 +22,41 @@ zle -N fzf_dir
 # git #
 
 gremote() {
-	local remote=$(git remote -v | head -n 1)
-	if [[ $remote =~ 'https' ]]; then
-		local repoUrl=$(echo $remote | awk -F " " '{print $2}' | sed 's/\\.git//g')
-	else
-		local repoUrl=$(echo $remote | awk -F "@" '{print $2}' | awk -F " " '{print $1}' | sed 's/:/\//g' | sed 's/.git//g' | awk '{print "https://"$1}')
-	fi
-	echo "Opening $repoUrl"
-	open $repoUrl
+    local remote=$(git remote -v | head -n 1)
+    if [[ $remote =~ 'https' ]]; then
+        local repoUrl=$(echo $remote | awk -F " " '{print $2}' | sed 's/\\.git//g')
+    else
+        local repoUrl=$(echo $remote | awk -F "@" '{print $2}' | awk -F " " '{print $1}' | sed 's/:/\//g' | sed 's/.git//g' | awk '{print "https://"$1}')
+    fi
+    echo "Opening $repoUrl"
+    open $repoUrl
 }
 
 # get gitignore templates
 gi() {
-	curl -sLw n https://www.toptal.com/developers/gitignore/api/$@
+    curl -sLw n https://www.toptal.com/developers/gitignore/api/$@
 }
 
 # clone a repo, but checkout only a specific directory
 # eg git_sparse_clone "github.url" "./local/destination" "dir/to/checkout"
 # https://stackoverflow.com/questions/600079/how-do-i-clone-a-subdirectory-only-of-a-git-repository#13738951
 git_sparse_clone() (
-	rurl="$1" localdir="$2" && shift 2
+    rurl="$1" localdir="$2" && shift 2
 
-	mkdir -p "$localdir"
-	cd "$localdir"
+    mkdir -p "$localdir"
+    cd "$localdir"
 
-	git init
-	git remote add -f origin "$rurl"
+    git init
+    git remote add -f origin "$rurl"
 
-	git config core.sparseCheckout true
+    git config core.sparseCheckout true
 
-	# Loops over remaining args
-	for i; do
-		echo "$i" >>.git/info/sparse-checkout
-	done
+    # Loops over remaining args
+    for i; do
+        echo "$i" >>.git/info/sparse-checkout
+    done
 
-	git pull origin master
+    git pull origin master
 )
 
 # git rebase shortcut
@@ -69,26 +69,26 @@ gr() {
 
 # search .scripts folder and executer
 scripts() {
-	if result=($(fd . -tf -Earchived ${HOME}/.scripts | fzf)); then
-		$result
-	else
-		return
-	fi
+    if result=($(fd . -tf -Earchived ${HOME}/.scripts | fzf)); then
+        $result
+    else
+        return
+    fi
 }
 
 tn() {
-	if result=($(fd . -tf ${HOME}/docs/notes | fzf)); then
-		nvim $result
-	else
-		return
-	fi
+    if result=($(fd . -tf ${HOME}/docs/notes | fzf)); then
+        nvim $result
+    else
+        return
+    fi
 }
 
 tl() {
-	if result=($(fd . -tf ${HOME}/docs/lists | fzf)); then
-		nvim $result
-	else
-		return
-	fi
+    if result=($(fd . -tf ${HOME}/docs/lists | fzf)); then
+        nvim $result
+    else
+        return
+    fi
 
 }

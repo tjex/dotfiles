@@ -33,7 +33,9 @@ alias \
 
 # system-utility style
 alias \
-	cfr="source ${XDG_CONFIG_HOME}/shell/aliasrc && source ${XDG_CONFIG_HOME}/shell/paths" 
+	cfr="source ${XDG_CONFIG_HOME}/shell/aliasrc \
+    && source ${XDG_CONFIG_HOME}/shell/paths \
+    && source ${XDG_CONFIG_HOME}/shell/functions" 
 
 # dotfiles management
 alias \
@@ -49,7 +51,7 @@ alias \
     gs="git status -s" \
     ga="git add -A" \
     gc="git commit -m" \
-    gp="git push" \
+    gp="git push --all" \
     gl="git log --name-only"
 
 # programs
