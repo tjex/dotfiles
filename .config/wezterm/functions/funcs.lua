@@ -28,17 +28,15 @@ M.kill_workspace = function(workspace)
 	end
 end
 
-M.switch_workspace = function(window, pane, workspace, spawn)
+M.switch_workspace = function(window, pane, workspace)
 	local current_workspace = window:active_workspace()
 	if current_workspace == workspace then
 		return
 	end
 
-	spawn = spawn or {}
 	window:perform_action(
 		act.SwitchToWorkspace({
 			name = workspace,
-			spawn = spawn,
 		}),
 		pane
 	)

@@ -13,9 +13,9 @@ function M.apply(config)
 
 	-- LEADER KEYBINDS
 	config.keys = {
-		-- Send "CTRL-o" to the terminal when pressing <CTRL-o, CTRL-o>
+		-- Send "CTRL-w" to the terminal when pressing <ALT-w, CTRL-w>
 		{
-			key = "o",
+			key = "w",
 			mods = "LEADER|CTRL",
 			action = act.SendKey({ key = "o", mods = "CTRL" }),
 		},
@@ -65,35 +65,15 @@ function M.apply(config)
 			}),
 		},
 
-		-- "SUPER" is cmd on mac
-		{ key = "1", mods = "SUPER", action = act.ActivateTab(0) },
-		{ key = "2", mods = "SUPER", action = act.ActivateTab(1) },
-		{ key = "3", mods = "SUPER", action = act.ActivateTab(2) },
-		{ key = "4", mods = "SUPER", action = act.ActivateTab(3) },
-		{ key = "5", mods = "SUPER", action = act.ActivateTab(4) },
-		{ key = "6", mods = "SUPER", action = act.ActivateTab(5) },
-		{ key = "7", mods = "SUPER", action = act.ActivateTab(6) },
-		{ key = "8", mods = "SUPER", action = act.ActivateTab(7) },
-		{ key = "9", mods = "SUPER", action = act.ActivateTab(8) },
-
-		-- LAUNCHER / FILES / DIRECTORIES
-		{
-			key = "e",
-			mods = "ALT",
-			action = act.ShowLauncherArgs({ flags = "FUZZY|WORKSPACES" }),
-		},
+		-- WORKSPACES
 		{
 			key = "k",
-			mods = "CMD",
-			action = act.ShowLauncherArgs({ flags = "FUZZY|LAUNCH_MENU_ITEMS" }),
+			mods = "LEADER",
+			action = wezterm.action_callback(function(window)
+				local w = window:active_workspace()
+				func.kill_workspace(w)
+			end),
 		},
-		-- WINDOWS / TABS
-		{
-			key = "w",
-			mods = "CMD",
-			action = wezterm.action.CloseCurrentTab({ confirm = false }),
-		},
-
 		-- PANES
 		{
 			key = "p",
@@ -110,9 +90,45 @@ function M.apply(config)
 		},
 		{
 			key = "%",
-			mods = "LEADER|SHIFT",
+			mods = "LEADER",
 			action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }),
 		},
+
+		-- "SUPER" (cmd on mac). Mainly for launching and 'generic' operations.
+		-- WINDOWS / TABS
+		{ key = "1", mods = "SUPER", action = act.ActivateTab(0) },
+		{ key = "2", mods = "SUPER", action = act.ActivateTab(1) },
+		{ key = "3", mods = "SUPER", action = act.ActivateTab(2) },
+		{ key = "4", mods = "SUPER", action = act.ActivateTab(3) },
+		{ key = "5", mods = "SUPER", action = act.ActivateTab(4) },
+		{ key = "6", mods = "SUPER", action = act.ActivateTab(5) },
+		{ key = "7", mods = "SUPER", action = act.ActivateTab(6) },
+		{ key = "8", mods = "SUPER", action = act.ActivateTab(7) },
+		{ key = "9", mods = "SUPER", action = act.ActivateTab(8) },
+		{
+			key = "w",
+			mods = "SUPER",
+			action = wezterm.action.CloseCurrentTab({ confirm = false }),
+		},
+		-- LAUNCHERS
+		{
+			key = "o",
+			mods = "SUPER",
+			action = wezterm.action_callback(sessioniser.open),
+		},
+		{
+			key = "e",
+			mods = "SUPER",
+			action = act.ShowLauncherArgs({ flags = "FUZZY|WORKSPACES" }),
+		},
+		{
+			key = "k",
+			mods = "SUPER",
+			action = act.ShowLauncherArgs({ flags = "FUZZY|LAUNCH_MENU_ITEMS" }),
+		},
+
+		-- ALT KEYBINDS
+		-- PANES
 		{
 			key = "h",
 			mods = "ALT",
@@ -123,21 +139,12 @@ function M.apply(config)
 			mods = "ALT",
 			action = act.ActivatePaneDirection("Next"),
 		},
-
 		-- WORKSPACES
 		{
 			key = "l",
 			mods = "ALT",
 			action = wezterm.action_callback(function(window, pane)
 				func.switch_to_last_workspace(window, pane)
-			end),
-		},
-		{
-			key = "k",
-			mods = "LEADER",
-			action = wezterm.action_callback(function(window)
-				local w = window:active_workspace()
-				func.kill_workspace(w)
 			end),
 		},
 		{
@@ -170,33 +177,22 @@ function M.apply(config)
 		},
 		-- Prompt for a name to use for a new workspace and switch to it.
 		{
-			key = "w",
-			mods = "LEADER",
+			key = "n",
+			mods = "SUPER",
 			action = act.PromptInputLine({
 				description = wezterm.format({
 					{ Attribute = { Intensity = "Bold" } },
 					{ Text = "Enter name for new workspace" },
 				}),
-				action = wezterm.action_callback(function(window, pane, line)
+				action = wezterm.action_callback(function(window, pane, input)
 					-- line will be `nil` if they hit escape without entering anything
 					-- An empty string if they just hit enter
 					-- Or the actual line of text they wrote
-					if line then
-						window:perform_action(
-							act.SwitchToWorkspace({
-								name = line,
-							}),
-							pane
-						)
+					if input then
+						func.switch_workspace(window, pane, input)
 					end
 				end),
 			}),
-		},
-		-- sessioniser
-		{
-			key = "o",
-			mods = "LEADER",
-			action = wezterm.action_callback(sessioniser.open),
 		},
 	}
 
