@@ -1,5 +1,6 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
+local func = require("functions.funcs")
 
 local M = {}
 
@@ -55,6 +56,8 @@ M.open = function(window, pane)
 		table.insert(projects, { label = tostring(label), id = tostring(id) })
 	end
 
+	-- update previous_workspace before changing to new workspace.
+	wezterm.GLOBAL.previous_workspace = window:active_workspace()
 	window:perform_action(
 		act.InputSelector({
 			action = wezterm.action_callback(function(win, _, id, label)

@@ -72,4 +72,8 @@ export BAT_THEME="ansi"
 
 export "BKMR_FZF_OPTS=--reverse --height 100%"
 
+# LLVM / cpp
+export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+
 [ ! -f ${XDG_CONFIG_HOME}/shell/shortcutrc ] && setsid shortcuts >/dev/null 2>&1

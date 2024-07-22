@@ -13,6 +13,7 @@ export PATH="$CARGO_HOME/bin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
 export PATH="${scripts_path}${PATH}" # see above glob/joining
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 eval $(/opt/homebrew/bin/brew shellenv)
 
 fpath+=("$(brew --prefix)/share/zsh/site-functions") # zsh completions installed via shell
