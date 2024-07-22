@@ -28,3 +28,6 @@
 [submodule ".config/nvim"]
 	path = .config/nvim
 	url = git@github.com:tjex/nvim.git
+[submodule ".config/wezterm"]
+	path = .config/wezterm
+	url = git@github.com:tjex/wezterm-conf.git
