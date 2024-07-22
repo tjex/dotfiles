@@ -3,7 +3,8 @@ local wezterm = require("wezterm")
 local act = wezterm.action
 local M = {}
 
-M.kill_workspace = function(workspace)
+-- kill the current workspace and switch back to the previous workspace
+M.kill_workspace = function(window, pane, workspace)
 	local success, stdout =
 		wezterm.run_child_process({ "/opt/homebrew/bin/wezterm", "cli", "list", "--format=json" })
 
@@ -16,6 +17,9 @@ M.kill_workspace = function(workspace)
 		local workspace_panes = util.filter(json, function(p)
 			return p.workspace == workspace
 		end)
+
+		M.switch_to_previous_workspace(window, pane)
+		wezterm.GLOBAL.previous_workspace = nil
 
 		for _, p in ipairs(workspace_panes) do
 			wezterm.run_child_process({
@@ -43,11 +47,11 @@ M.switch_workspace = function(window, pane, workspace)
 	wezterm.GLOBAL.previous_workspace = current_workspace
 end
 
-M.switch_to_last_workspace = function(window, pane)
+M.switch_to_previous_workspace = function(window, pane)
 	local current_workspace = window:active_workspace()
 	local workspace = wezterm.GLOBAL.previous_workspace
 
-	if current_workspace == workspace then
+	if current_workspace == workspace or wezterm.GLOBAL.previous_workspace == nil then
 		return
 	end
 

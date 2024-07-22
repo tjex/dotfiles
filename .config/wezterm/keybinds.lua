@@ -69,9 +69,9 @@ function M.apply(config)
 		{
 			key = "k",
 			mods = "LEADER",
-			action = wezterm.action_callback(function(window)
-				local w = window:active_workspace()
-				func.kill_workspace(w)
+			action = wezterm.action_callback(function(window, pane)
+				local workspace = window:active_workspace()
+				func.kill_workspace(window, pane, workspace)
 			end),
 		},
 		-- PANES
@@ -144,7 +144,7 @@ function M.apply(config)
 			key = "l",
 			mods = "ALT",
 			action = wezterm.action_callback(function(window, pane)
-				func.switch_to_last_workspace(window, pane)
+				func.switch_to_previous_workspace(window, pane)
 			end),
 		},
 		{
