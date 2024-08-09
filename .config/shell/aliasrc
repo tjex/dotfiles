@@ -51,7 +51,7 @@ alias \
     gs="git status -s" \
     ga="git add -A" \
     gc="git commit -m" \
-    gp="git push --all" \
+    gp="git push" \
     gl="git log --name-only"
 
 # programs

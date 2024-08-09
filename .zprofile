@@ -33,6 +33,7 @@ export MAILDIR="$XDG_DATA_HOME/mail"
 export MBSYNCRC="$XDG_CONFIG_HOME/mbsync/config"
 export NAVI_CONFIG="$XDG_CONFIG_HOME/navi/config.yaml"
 export NAVI_PATH="$XDG_DATA_HOME/navi"
+export NLTK_DATA="$XDG_DATA_HOME/nltk_data"
 export NOTMUCH_CONFIG="$XDG_CONFIG_HOME/notmuchrc"
 export NOTMUCH_DATABASE="$XDG_DATA_HOME/mail"
 export NODE_REPL_HISTORY="$XDG_CACHE_HOME/history/node_repl_history"
@@ -75,5 +76,3 @@ export "BKMR_FZF_OPTS=--reverse --height 100%"
 # LLVM / cpp
 export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
-
-[ ! -f ${XDG_CONFIG_HOME}/shell/shortcutrc ] && setsid shortcuts >/dev/null 2>&1
