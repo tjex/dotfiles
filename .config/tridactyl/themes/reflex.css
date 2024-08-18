@@ -1,0 +1,174 @@
+:root {
+  /* css based on that of Dracula theme  */
+  /* https://github.com/dracula/tridactyl */
+  --tridactyl-fg: #f8f8f2;
+  --tridactyl-bg: #1a1c23;
+  --tridactyl-url-fg: #ff79c6;
+  --tridactyl-url-bg: #1a1c23;
+  --tridactyl-highlight-box-bg: #44475a;
+  --tridactyl-highlight-box-fg: #f8f8f2;
+  --tridactyl-of-fg: #f8f8f2;
+  --tridactyl-of-bg: #44475a;
+  --tridactyl-cmdl-fg: #1a1c23;
+  --tridactyl-cmdl-font-family: monospace;
+  --tridactyl-cmplt-font-family: monospace;
+  --tridactyl-hintspan-font-family: monospace;
+  /* Hint character tags */
+  --tridactyl-hintspan-fg: #1a1c23 !important;
+  --tridactyl-hintspan-bg: #4e9a6f !important;
+  /* Element Highlights */
+  --tridactyl-hint-active-fg: none;
+  --tridactyl-hint-active-bg: none;
+  --tridactyl-hint-active-outline: none;
+  --tridactyl-hint-bg: none;
+  --tridactyl-hint-outline: none;
+}
+
+#command-line-holder {
+  order: 1;
+  border: 2px solid #7f718e;
+  background: var(--tridactyl-bg);
+}
+
+#tridactyl-input {
+  padding: 1rem;
+  color: var(--tridactyl-fg);
+  width: 90%;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  background: var(--tridactyl-bg);
+  padding-left: unset;
+  padding: 1rem;
+}
+
+#completions table {
+  font-size: 0.8rem;
+  font-weight: 200;
+  border-spacing: 0;
+  table-layout: fixed;
+  padding: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+#completions > div {
+  max-height: calc(20 * var(--option-height));
+  min-height: calc(10 * var(--option-height));
+}
+
+/* COMPLETIONS */
+#completions {
+  --option-height: 1.4em;
+  color: var(--tridactyl-fg);
+  background: var(--tridactyl-bg);
+  display: inline-block;
+  font-size: unset;
+  font-weight: 200;
+  overflow: hidden;
+  width: 100%;
+  border-top: unset;
+  order: 2;
+}
+
+/* Olie doesn't know how CSS inheritance works */
+#completions .HistoryCompletionSource {
+  max-height: unset;
+  min-height: unset;
+}
+
+#completions .HistoryCompletionSource table {
+  width: 100%;
+  font-size: 9pt;
+  border-spacing: 0;
+  table-layout: fixed;
+}
+
+/* redundancy 2: redundancy 2: more redundancy */
+#completions .BmarkCompletionSource {
+  max-height: unset;
+  min-height: unset;
+}
+
+#completions table tr td.prefix,
+#completions table tr td.privatewindow,
+#completions table tr td.container,
+#completions table tr td.icon {
+  display: none;
+}
+
+#completions .BufferCompletionSource table {
+  width: unset;
+  font-size: unset;
+  border-spacing: unset;
+  table-layout: unset;
+}
+
+#completions table tr .title {
+  width: 50%;
+}
+
+#completions table tr {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#completions .sectionHeader {
+  background: unset;
+  font-weight: bold;
+  border-bottom: unset;
+  padding: 1rem !important;
+  padding-left: unset;
+  padding-bottom: 0.2rem;
+}
+
+#cmdline_iframe {
+  position: fixed !important;
+  bottom: unset;
+  top: 25% !important;
+  left: 10% !important;
+  z-index: 2147483647 !important;
+  width: 80% !important;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 20px !important;
+}
+
+.TridactylStatusIndicator {
+  position: fixed !important;
+  bottom: 0 !important;
+  background: var(--tridactyl-bg) !important;
+  border: unset !important;
+  border: 1px #7f718e solid !important;
+  font-size: 12pt !important;
+  /*font-weight: 200 !important;*/
+  padding: 0.8ex !important;
+}
+
+#completions .focused {
+  background: #ff79c6;
+  color: #1a1c23;
+}
+
+#completions .focused .url {
+  background: #ff79c6;
+  color: #1a1c23;
+}
+
+/*
+# Drop-Down List
+
+Move tridactyl to the top so the hoverlink doesn't block the command line and
+also hide the tridactyl header.
+*/
+:root #completions .sectionHeader {
+  display: none;
+}
+
+:root #cmdline_iframe {
+  position: fixed !important;
+  bottom: unset;
+  top: 0% !important;
+  left: 0% !important;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 3px !important;
+}
+
+/*# sourceMappingURL=reflex-tridactyl.css.map */
