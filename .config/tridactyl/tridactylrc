@@ -1,1 +1,14 @@
 bind <C-g> fillcmdline tgroupswitch
+bind <C-k> tabprev
+bind <C-j> tabnext
+
+
+"symbols in order: s,m,2,4,5,8
+bind <A-ß> tgrouplast
+bind <A-µ> fillcmdline tgroupmove
+bind <A-™> tgroupswitch admin
+bind <A-¢> tgroupswitch config
+bind <A-∞> tgroupswitch dev
+bind <A-•> tgroupswitch thesis
+
+
