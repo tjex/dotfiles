@@ -41,7 +41,7 @@
 #cmdline_iframe {
   position: fixed !important;
   bottom: unset;
-  top: 63% !important;
+  top: 55% !important;
   left: 33% !important;
   z-index: 2147483647 !important;
   width: 35% !important;
@@ -90,7 +90,7 @@
 }
 
 #completions {
-  --option-height: 1.5em;
+  --option-height: 1.8em;
   color: var(--tridactyl-comment);
   display: inline-block;
   font-size: unset;

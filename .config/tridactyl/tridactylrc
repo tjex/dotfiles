@@ -1,9 +1,9 @@
 bind <C-g> fillcmdline tgroupswitch
-bind <C-k> tabprev
-bind <C-j> tabnext
+bind <C-j> tabprev
+bind <C-k> tabnext
 
 
-"symbols in order: s,m,2,4,5,8
+" symbols in order: s,m,2,4,5,8
 bind <A-ß> tgrouplast
 bind <A-µ> fillcmdline tgroupmove
 bind <A-™> tgroupswitch admin
@@ -11,4 +11,6 @@ bind <A-¢> tgroupswitch config
 bind <A-∞> tgroupswitch dev
 bind <A-•> tgroupswitch thesis
 
-
+" searches
+set searchurls.yt https://www.youtube.com/results?search_query=
+set searchurls.so https://stackoverflow.com/search?q=%s1+[%s2]

@@ -6,7 +6,7 @@ unsetopt PROMPT_SP
 export EDITOR="nvim"
 export TERMINAL="wezterm"
 export TERMINAL_PROG="wezterm"
-export BROWSER="brave browser"
+export BROWSER="Mullvad Browser"
 
 # system directories
 export CPATH="/usr/local/include:/opt/homebrew/include"

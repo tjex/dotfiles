@@ -14,7 +14,7 @@ alt + cmd - g : "/Applications/kitty.app/Contents/MacOS/kitty" -1 -T gopass --se
 # alt + cmd - i : ~/.scripts/utility/vimit.sh ; "/Applications/kitty.app/Contents/MacOS/kitty" -1 -T scratch --session - zsh -l -c "nvim /tmp/vimit.md" ; pbcopy < /tmp/vimit.md ; echo "" > /tmp/vimit.md
 alt + cmd - i : ~/.scripts/utility/vimit.sh
 alt + cmd - s : "/Applications/kitty.app/Contents/MacOS/kitty" -1 -T scratch --session - zsh -l -c "nvim ~/docs/notes/scratchpad.md"
-alt + cmd - w : "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
+alt + cmd - w : open -a "Mullvad Browser"
 alt + cmd - x : "/Applications/kitty.app/Contents/MacOS/kitty" -1 -T qalc --session - qalc
 
 alt + cmd - 0x27 : open -a Dictionary # key = '
