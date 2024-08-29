@@ -23,6 +23,10 @@ alias \
     gd="pushd" \
     pd="popd"
 
+# These commands won't populate zsh history because of setuopt hist_ignore_space
+alias \
+    fg=" fg"
+
 # Colorize commands when possible.
 alias \
 	ls="lsd" \

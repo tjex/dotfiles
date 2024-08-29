@@ -17,8 +17,8 @@ yabai -m config \
 
 # yabai -m config \
 #     window_opacity on \
-#     active_window_opacity 0.9 \
-#     normal_window_opacity 0.9
+#     active_window_opacity 0.95 \
+#     normal_winow_opacity 0.95
 
 # spaces
 
@@ -43,7 +43,7 @@ cl="manage=off grid=3:3:2:2:1:1"
 # cc="manage=off grid=5:4:1:1:2:2"
 # cb="manage=off grid=5:4:1:3:2:2"
 
-yabai -m rule --add app="(^Finder$|^QuickTime Player$)" manage=off
+yabai -m rule --add app="(^Finder$|^QuickTime Player$|^Max$)" manage=off
 yabai -m rule --add app="^Raycast$" title="Raycast Settings" manage=off
 yabai -m rule --add app="^System Settings$" manage=off sticky=on opacity=1.0
 yabai -m rule --add app="^Dictionary$" ${cc}
@@ -56,7 +56,7 @@ yabai -m rule --add app="(^WezTerm$|^kitty$)" title="^term$" opacity=1.0 sticky=
 yabai -m rule --add app="(^WezTerm$|^kitty$)" title="^qalc$" opacity=1.0 sticky=on ${cb}
 yabai -m rule --add app="(^WezTerm$|^kitty$)" title="^scratch$" opacity=1.0 sticky=on ${cb}
 
-yabai -m rule --add app="^Todoist$" title[!]="^- Todoist$" manage=off
+yabai -m rule --add app="^Todoist$" title="^Todoist$" manage=off
 yabai -m rule --add app="^Carbon Copy Cloner$" manage=off
 
 # designated spaces

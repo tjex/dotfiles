@@ -1,7 +1,16 @@
-bind <C-g> fillcmdline tgroupswitch
-bind <C-j> tabprev
-bind <C-k> tabnext
+" options
+set smoothscroll true
 
+" unbinds
+unbind d
+
+bind <C-c> tabclose
+bind <C-k> tabprev
+bind <C-j> tabnext
+bind <C-r> reader
+
+bind j scrollline 8
+bind k scrollline -8
 
 " symbols in order: s,m,2,4,5,8
 bind <A-ß> tgrouplast
@@ -10,7 +19,17 @@ bind <A-™> tgroupswitch admin
 bind <A-¢> tgroupswitch config
 bind <A-∞> tgroupswitch dev
 bind <A-•> tgroupswitch thesis
+bind <A-¬> tgroupswitch general
 
 " searches
 set searchurls.yt https://www.youtube.com/results?search_query=
-set searchurls.so https://stackoverflow.com/search?q=%s1+[%s2]
+set searchurls.so https://stackoverflow.com/search?q=
+set searchurls.go https://pkg.go.dev/
+set searchurls.algos https://the-algorithms.com/search?q=
+set searchurls.wiki https://en.wikipedia.org/wiki/Special:Search?go=Go&search=
+
+" disable on sites
+autocmd DocStart hackerrank.com mode ignore
+
+" aliases
+alias sourcerc source ~/.config/tridactyl/tridactylrc
