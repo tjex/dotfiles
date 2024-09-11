@@ -284,6 +284,9 @@ $endif$
 	$if(closing-indentation)$
 		\longindentation=$closing-indentation$
 	$endif$
+	$if(closing-before)$
+		\vspace*{$closing-before$}
+	$endif$
 		\closing{$closing$}
 	$endif$
 	$if(encl)$
