@@ -12,14 +12,14 @@ bind <C-r> reader
 bind j scrollline 8
 bind k scrollline -8
 
-" symbols in order: s,m,2,4,5,8
+" symbols in order: s,m,1,4,5,6,8
 bind <A-ß> tgrouplast
 bind <A-µ> fillcmdline tgroupmove
-bind <A-™> tgroupswitch admin
+bind <A-¡> tgroupswitch admin
 bind <A-¢> tgroupswitch config
 bind <A-∞> tgroupswitch dev
 bind <A-•> tgroupswitch thesis
-bind <A-¬> tgroupswitch general
+bind <A-§> tgroupswitch general
 
 " searches
 set searchurls.yt https://www.youtube.com/results?search_query=
@@ -30,6 +30,7 @@ set searchurls.wiki https://en.wikipedia.org/wiki/Special:Search?go=Go&search=
 
 " disable on sites
 autocmd DocStart hackerrank.com mode ignore
+autocmd DocStart changelog.zulipchat.com/* mode ignore
 
 " aliases
 alias sourcerc source ~/.config/tridactyl/tridactylrc

@@ -60,8 +60,8 @@ yabai -m rule --add app="^Todoist$" title="^Todoist$" manage=off
 yabai -m rule --add app="^Carbon Copy Cloner$" manage=off
 
 # designated spaces
-space1_apps="^(Signal|Messages|WhatsApp)$"
-space2_apps="^(Calendar|Todoist)$"
+space1_apps="^(Calendar|Todoist)$"
+space2_apps="^(Signal|Messages|WhatsApp)$"
 space3_apps="^(Swinsian)$"
 space6_apps="^(Zotero)$"
 

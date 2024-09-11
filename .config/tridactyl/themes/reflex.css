@@ -182,11 +182,4 @@
   padding: 0.8ex !important;
 }
 
-#tridactyl-reader main {
-  font-size: 1.5rem;
-  width: min(55rem, 90%);
-}
-
-#tridactyl-reader header {
-  background-color: var(--bg);
-}
+/* @import "reader.scss"; */
