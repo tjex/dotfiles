@@ -1,12 +1,66 @@
-# dotfiles config
+# system files
 .DS_Store
+
+# dotfiles files
 .dotf-cfg/
 .tjex-cfg/
 .zshenv
+.config/git/credentials
 
+# dotfiles folders
+.config/algia
+
+# util files
 ignored/
 autorun.out
 autorun
 
-.config/algia
-.config/git/credentials
+### Program Files ###
+# LaTeX
+## Core latex/pdflatex auxiliary files:
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+.*.lb
+*.pdf
+
+### Audio ###
+*.aif
+*.iff
+*.m3u
+*.m4a
+*.mid
+*.mp3
+*.mpa
+*.ra
+*.wav
+*.wma
+*.ogg
+*.flac
+
+### Video ###
+*.3g2
+*.3gp
+*.asf
+*.asx
+*.avi
+*.flv
+*.mkv
+*.mov
+*.mp4
+*.mpg
+*.ogv
+*.rm
+*.swf
+*.vob
+*.wmv
+*.webm
+
