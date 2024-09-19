@@ -13,7 +13,6 @@ alt + cmd - e : "/Applications/kitty.app/Contents/MacOS/kitty" -1 -T lf --sessio
 alt + cmd - i : ~/.scripts/utility/vimit.sh
 alt + cmd - p : "/Applications/kitty.app/Contents/MacOS/kitty" -1 -T gopass --session - zsh -l -c gopass
 alt + cmd - s : "/Applications/kitty.app/Contents/MacOS/kitty" -1 -T scratch --session - zsh -l -c "nvim ~/docs/notes/scratchpad.md"
-alt + cmd - w : open -a "Mullvad Browser"
 alt + cmd - x : "/Applications/kitty.app/Contents/MacOS/kitty" -1 -T qalc --session - qalc
 
 alt + cmd - 0x27 : open -a Dictionary # key = '
@@ -58,6 +57,7 @@ shift + alt + cmd - h : yabai -m window --swap west
 shift + alt + cmd - j : yabai -m window --swap south
 shift + alt + cmd - k : yabai -m window --swap north
 shift + alt + cmd - l : yabai -m window --swap east
+shift + alt + cmd - s : skhd -t "ß"
 
 shift + alt + cmd - 1 : yabai -m window --space 1
 shift + alt + cmd - 2 : yabai -m window --space 2
