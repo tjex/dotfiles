@@ -64,6 +64,29 @@ gr() {
     git rebase -i HEAD~$1
 }
 
+# create a new worktree from parent folder of bare repo
+# (idiomatic way of using git worktrees)
+gwn() {
+    proj_dir=$(find . -maxdepth 1 -type d | grep *.git)
+    if [[ -z $proj_dir ]]; then
+        echo "\nNo bare git repo found."
+    else
+        read "wt?worktree name: "
+        git -C $proj_dir worktree add ../$wt
+    fi
+}
+
+# remove a a git worktree from parent folder of bare repo
+# (idiomatic way of using git worktrees)
+gwr() {
+    proj_dir=$(find . -maxdepth 1 -type d | grep *.git)
+    if [[ -z $proj_dir ]]; then
+        echo "\nNo bare git repo found."
+    else
+        git -C $proj_dir worktree remove $1
+    fi
+}
+
 ##############
 # tjex files #
 
