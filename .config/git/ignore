@@ -6,6 +6,7 @@
 .tjex-cfg/
 .zshenv
 .config/git/credentials
+.zcompdump*
 
 # dotfiles folders
 .config/algia
