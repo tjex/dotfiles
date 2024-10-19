@@ -43,29 +43,26 @@ cl="manage=off grid=3:3:2:2:1:1"
 # cc="manage=off grid=5:4:1:1:2:2"
 # cb="manage=off grid=5:4:1:3:2:2"
 
-yabai -m rule --add app="(^Finder$|^QuickTime Player$|^Max$)" manage=off
+yabai -m rule --add app="(^Messages$|^WhatsApp$|^Signal$|^Carbon Copy Cloner$|^Finder$|^FaceTime$|^QuickTime Player$|^Max$|^Microsoft Teams$)" manage=off
 yabai -m rule --add app="^Raycast$" title="Raycast Settings" manage=off
 yabai -m rule --add app="^System Settings$" manage=off sticky=on opacity=1.0
 yabai -m rule --add app="^Dictionary$" ${cc}
-# note: kitty has opacity/blur set in kitty conf
 
-yabai -m rule --add app="(^WezTerm$|^kitty$)" title="^lf$" opacity=1.0 ${cc}
-yabai -m rule --add app="(^WezTerm$|^kitty$)" title="^gopass$" opacity=1.0 sticky=on ${cc}
-yabai -m rule --add app="(^WezTerm$|^kitty$)" title="^bkmr$" opacity=1.0 sticky=on ${cc}
-yabai -m rule --add app="(^WezTerm$|^kitty$)" title="^term$" opacity=1.0 sticky=on ${cc}
-yabai -m rule --add app="(^WezTerm$|^kitty$)" title="^qalc$" opacity=1.0 sticky=on ${cb}
-yabai -m rule --add app="(^WezTerm$|^kitty$)" title="^scratch$" opacity=1.0 sticky=on ${cb}
+# note: kitty has opacity/blur set in kitty conf
+yabai -m rule --add app="(^WezTerm$|^kitty$)" title="^lf$" ${cc}
+yabai -m rule --add app="(^WezTerm$|^kitty$)" title="^gopass$" sticky=on ${cc}
+yabai -m rule --add app="(^WezTerm$|^kitty$)" title="^bkmr$" sticky=on ${cc}
+yabai -m rule --add app="(^WezTerm$|^kitty$)" title="^term$" sticky=on ${cc}
+yabai -m rule --add app="(^WezTerm$|^kitty$)" title="^qalc$" sticky=on ${cb}
+yabai -m rule --add app="(^WezTerm$|^kitty$)" title="^scratch$" sticky=on ${cb}
 
 yabai -m rule --add app="^Todoist$" title="^Todoist$" manage=off
-yabai -m rule --add app="^Carbon Copy Cloner$" manage=off
 
 # designated spaces
-space1_apps="^(Calendar|Todoist)$"
-space2_apps="^(Signal|Messages|WhatsApp)$"
+space2_apps="^(Calendar|Todoist)$"
 space3_apps="^(Swinsian)$"
 space6_apps="^(Zotero)$"
 
-yabai -m rule --add app=${space1_apps} space=1
 yabai -m rule --add app=${space2_apps} space=2
 yabai -m rule --add app=${space3_apps} space=3
 yabai -m rule --add app=${space6_apps} space=6

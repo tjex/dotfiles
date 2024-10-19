@@ -1,30 +1,30 @@
 https://theintercept.com/feed/?lang=en news
-https://pluralistic.net/feed/ news culture tech
+https://pluralistic.net/feed/ news culture
 https://forum.effectivealtruism.org/feed.xml?view=frontpage-rss&karmaThreshold=30 culture
 
-https://www.anildash.com/feed.xml tech
-https://cdn.jwz.org/blog/feed/ "~jwz.org" tech culture
-https://cdixon.org/rss.xml tech philosphy finance
-https://drewdevault.com/blog/index.xml tech open-source
-https://zignar.net/index.xml "~Mfussneger" tech neovim
-https://minutestomidnight.co.uk/feed.xml tech
-https://cprimozic.net/rss.xml tech
-https://jordemort.dev/rss.xml tech
-https://00f.net/atom.xml "~Frank Denis" tech
-https://wyssmann.com/blog/index.xml tech
-https://thevaluable.dev/index.xml "~The Valuable Dev" tech education
-https://www.thecodedmessage.com/index.xml "~The Coded Message" tech
-https://tjex.net/rss.xml tech
-http://www.aaronsw.com/weblog/index.xml tech culture
-https://blog.pragmaticengineer.com/rss/ tech
+https://www.anildash.com/feed.xml blog
+https://cdn.jwz.org/blog/feed/ "~jwz.org" blog culture
+https://cdixon.org/rss.xml blog industry
+https://drewdevault.com/blog/index.xml blog
+https://zignar.net/index.xml "~Mfussneger" blog
+https://minutestomidnight.co.uk/feed.xml blog
+https://cprimozic.net/rss.xml blog
+https://jordemort.dev/rss.xml blog
+https://00f.net/atom.xml "~Frank Denis" blog
+https://wyssmann.com/blog/index.xml blog
+https://thevaluable.dev/index.xml "~The Valuable Dev" blog
+https://www.thecodedmessage.com/index.xml "~The Coded Message" blog
+https://tjex.net/rss.xml blog
+http://www.aaronsw.com/weblog/index.xml blog
+https://blog.pragmaticengineer.com/rss/ blog industry
 
 https://www.humanskills.co/feed.xml pods
 
-https://www.youtube.com/feeds/videos.xml?channel_id=UCd3dNckv1Za2coSaHGHl5aA "~TJDevries" code education video
-https://www.youtube.com/feeds/videos.xml?channel_id=UCbiGcwDWZjz05njNPrJU7jA "~Explaining Computers" tech education video
-https://www.youtube.com/feeds/videos.xml?channel_id=UC6biysICWOJ-C3P4Tyeggzg "~Low Level Leraning" tech programming education video
-https://www.youtube.com/feeds/videos.xml?channel_id=UC1yNl2E66ZzKApQdRuTQ4tw "~Sabine Hossenfelder" science europe
-https://www.youtube.com/feeds/videos.xml?channel_id=UCjtUS7-SZTi6pXjUbzGHQCg "~Undecided" tech video
+https://www.youtube.com/feeds/videos.xml?channel_id=UCd3dNckv1Za2coSaHGHl5aA "~TJDevries" video tech
+https://www.youtube.com/feeds/videos.xml?channel_id=UCbiGcwDWZjz05njNPrJU7jA "~Explaining Computers" video tech
+https://www.youtube.com/feeds/videos.xml?channel_id=UC6biysICWOJ-C3P4Tyeggzg "~Low Level Learning" video tech
+https://www.youtube.com/feeds/videos.xml?channel_id=UC1yNl2E66ZzKApQdRuTQ4tw "~Sabine Hossenfelder" video science
+https://www.youtube.com/feeds/videos.xml?channel_id=UCjtUS7-SZTi6pXjUbzGHQCg "~Undecided" video tech
 
 
 

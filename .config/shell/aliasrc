@@ -70,6 +70,7 @@ alias \
     yabspace="yabai -m space --create" \
     yt="yt-dlp --embed-metadata -i -o '%(title)s.%(ext)s'" \
     diary="zk --notebook-dir ~/wikis/diary daily" \
+    post="cd ~/projects/sites/tjex.net && zk --notebook-dir ~/projects/sites/tjex.net/src/content/blog post"
     iamb="iamb -C ~/.config" \
     fooocus="conda activate fooocus && python ~/.local/src/Fooocus/entry_with_update.py \
         --disable-analytics \
@@ -99,8 +100,6 @@ alias \
     lsh="cd ${XDG_DATA_HOME} && ls -A" \
     lsrc="cd ${HOME}/.local/src && ls -A" \
     vol="cd /Volumes && ls -A" \
-    obs="cd ${HOME}/obsidian/paradigm-shifted && ls" \
-    tjex.net="cd ${HOME}/dev/websites/tjex.net && ls"
 
 # open with editor
 alias \

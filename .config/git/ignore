@@ -7,14 +7,15 @@
 .zshenv
 .config/git/credentials
 .zcompdump*
-
-# dotfiles folders
 .config/algia
 
 # util files
 ignored/
 autorun.out
 autorun
+
+# Common project files
+.editorconfig
 
 ### Program Files ###
 # LaTeX

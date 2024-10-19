@@ -1,5 +1,6 @@
-browser "open -a 'Brave Browser' %u"
-macro m set browser "mpv --volume=100 --really-quiet %u"; open-in-browser ; set browser "open %u"
+browser "open %u"
+
+macro m set browser "nohup mpv --no-border"; open-in-browser ; set browser "open %u"
 
 cleanup-on-quit false
 max-items 100

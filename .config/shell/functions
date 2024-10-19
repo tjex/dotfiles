@@ -69,10 +69,17 @@ gr() {
 gwn() {
     proj_dir=$(find . -maxdepth 1 -type d | grep *.git)
     if [[ -z $proj_dir ]]; then
-        echo "\nNo bare git repo found."
-    else
-        read "wt?worktree name: "
+        echo "No bare git repo found."
+        return
+    fi
+
+    wt=$1
+    if [[ ! -z $wt ]]; then
         git -C $proj_dir worktree add ../$wt
+        cd $wt
+    else
+        echo "Usage: gwn <worktree-name>"
+        echo "Worktree name cannot be empty."
     fi
 }
 
